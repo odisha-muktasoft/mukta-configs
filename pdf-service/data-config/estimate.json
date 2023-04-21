@@ -196,13 +196,13 @@
               {
                 "variable": "pdf_header",
                 "value": {
-                  "path": "TENANT_TENANTS_PG_CITYA_PDF_HEADER"
+                  "path": "TENANT_TENANTS_OD_CITYA_PDF_HEADER"
                 },
                 "type": "label",
                 "localisation": {
                   "required": true,
                   "prefix": null,
-                  "module": "rainmaker-pg"
+                  "module": "rainmaker-od"
                 }
               },
 
@@ -237,7 +237,7 @@
             "externalAPI": [     
               { 
                 "path": "http://egov-mdms-service:8080/egov-mdms-service/v1/_get",
-                "queryParam": "moduleName=tenant&masterName=tenants&tenantId=pg&filter=%5B?(@.code=='{$.tenantId}')%5D",
+                "queryParam": "moduleName=tenant&masterName=tenants&tenantId=od&filter=%5B?(@.code=='{$.tenantId}')%5D",
                   "apiRequest": null,
                   "responseMapping":[
                     {             
