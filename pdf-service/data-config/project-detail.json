@@ -46,13 +46,13 @@
               {
                 "variable": "project_name",
                 "value": {
-                  "path": "ES_COMMON_PROJECT_NAME"
+                  "path": "WORKS_PROJECT_NAME_AST"
                 },
                 "type": "label",
                 "localisation": {
                   "required": true,
                   "prefix": null,
-                  "module": "rainmaker-common"
+                  "module": "rainmaker-project"
                 }
               },
               {
@@ -88,7 +88,7 @@
                 "localisation": {
                   "required": true,
                   "prefix": null,
-                  "module": "rainmaker-common"
+                  "module": "rainmaker-estimate"
                 }
               },
               {
@@ -130,7 +130,7 @@
               {
                 "variable": "estimated_cost",
                 "value": {
-                  "path": "PROJECT_ESTIMATED_COST"
+                  "path": "PROJECT_TOTAL_ESTIMATED_COST_IN_RS"
                 },
                 "type": "label",
                 "localisation": {
@@ -199,7 +199,30 @@
                   "module": "rainmaker-common"
                 }
               },
-              
+              {
+                "variable": "_street",
+                "value": {
+                  "path": "ES_COMMON_STREET"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "rainmaker-common"
+                }
+              },
+              {
+                "variable": "door_or_house_number",
+                "value": {
+                  "path": "ES_COMMON_DOOR_NO"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "rainmaker-common"
+                }
+              },
               {
                 "variable": "dateOfProposal",
                 "value": {
@@ -251,10 +274,7 @@
                 "variable": "estimatedCostInRs",
                 "value": {
                   "path": "$.additionalDetails.estimatedCostInRs"
-                },
-                "type":"function",
-                "format":"var y=[];var flag=0;var count=0;var amount=arguments[0]; var len=amount.length;var val=''; for(var i=len-1;i>=0;i--){ val=amount[i]+val;if(amount[i]=='.'){flag=1;count=-1;val=amount.substring(i,len)};if(count%2==0 && i!=0 && count!=0){val=','+val;};count+=1;};if(flag==0){val+='.00'};y.push({'amount':val}); return y"
-
+                }
               },
               {
                 "variable": "addressLine1",
@@ -276,7 +296,7 @@
               {
                 "variable": "ward",
                 "value": {
-                  "path": "$.address.boundary"
+                  "path": "$.additionalDetails.ward"
                 },
                 "localisation": {
                   "required": true,
@@ -287,12 +307,24 @@
               {
                 "variable": "boundary",
                 "value": {
-                  "path": "$.additionalDetails.locality"
+                  "path": "$.address.boundary"
                 },
                 "localisation": {
                   "required": true,
                   "prefix": "OD_CITYA_ADMIN",
                   "module": "rainmaker-od.citya"
+                }
+              },
+              {
+                "variable": "street",
+                "value": {
+                  "path": "$.address.street"
+                }
+              },
+              {
+                "variable": "doorNo",
+                "value": {
+                  "path": "$.address.doorNo"
                 }
               }
             ]
@@ -335,7 +367,7 @@
                     "localisation": {
                       "required": true,
                       "prefix": "TENANT_TENANTS",
-                      "module": "rainmaker-pg"
+                      "module": "rainmaker-od"
                     }
                   },
                   {
@@ -344,7 +376,7 @@
                     "localisation": {
                       "required": true,
                       "prefix": "TENANT_TENANTS",
-                      "module": "rainmaker-pg"
+                      "module": "rainmaker-od"
                     }
                   }
                 ]
@@ -356,3 +388,4 @@
     ]
   }
 }
+

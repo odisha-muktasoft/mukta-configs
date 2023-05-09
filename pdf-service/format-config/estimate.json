@@ -11,31 +11,43 @@
           "widths": [
             60,
             "*",
-            120
+            125
           ],
           "body": [
             [
               {
                 "image": "{{logoImage}}",
                 "width": 50,
-                "height": 61.25
+                "height": 61.25,
+                "margin": [
+                  10,
+                  10,
+                  0,
+                  0
+                ]
               },
               {
                 "stack": [
                   {
-                    "text": "{{pdf_header}}",
-                    "style": "receipt-logo-header"
+                    "text": "{{pdf_header}} {{subdivision}}",
+                    "fontSize": 18,
+                    "color": "#000000",
+                    "bold": true
                   },
                   {
-                    "text": "{{address}}"
+                    "text": "{{address}}",
+                    "fontSize": 10,
+                    "color": "#000000"
                   },
                   {
-                    "text": "{{phoneNumber}} | {{email}}"
+                    "text": "{{phoneNumber}} | {{email}}",
+                    "fontSize": 10,
+                    "color": "#000000"
                   }
                 ],
                 "alignment": "left",
                 "margin": [
-                  0,
+                  10,
                   10,
                   0,
                   0
@@ -45,26 +57,31 @@
                 "stack": [
                   {
                     "text": "{{ServiceName}}",
-                    "style": "receipt-logo-header"
+                    "fontSize": 16,
+                    "color": "#636363",
+                    "bold": true
                   },
                   {
                     "text": "{{estimateNumber}}",
-                    "style": "receipt-logo-header"
+                    "fontSize": 12,
+                    "color": "#636363",
+                    "bold": true
                   }
                 ],
                 "alignment": "right",
                 "color": "#484848",
                 "margin": [
-                  -100,
                   0,
-                  -25,
+                  10,
+                  10,
                   0
                 ]
               }
             ]
           ]
         },
-        "layout": "noBorders"
+        "layout": "noBorders",
+        "fillColor": "#f4f4f4"
       },
       {
         "style": "noc-table",
@@ -86,9 +103,9 @@
                 "bold": true,
                 "margin": [
                   10,
+                  0,
                   10,
-                  10,
-                  10
+                  0
                 ],
                 "style": "receipt-table-value"
               },
@@ -102,9 +119,9 @@
                 ],
                 "margin": [
                   10,
+                  0,
                   10,
-                  10,
-                  10
+                  0
                 ],
                 "style": "receipt-table",
                 "font": "Roboto"
@@ -121,9 +138,9 @@
                 ],
                 "margin": [
                   10,
+                  0,
                   10,
-                  10,
-                  10
+                  0
                 ],
                 "bold": true,
                 "style": "receipt-table-value"
@@ -138,9 +155,9 @@
                 ],
                 "margin": [
                   10,
+                  0,
                   10,
-                  10,
-                  10
+                  0
                 ],
                 "style": "receipt-table"
               }
@@ -157,9 +174,9 @@
                 "bold": true,
                 "margin": [
                   10,
+                  0,
                   10,
-                  10,
-                  10
+                  0
                 ],
                 "style": "receipt-table-value"
               },
@@ -173,9 +190,9 @@
                 ],
                 "margin": [
                   10,
+                  0,
                   10,
-                  10,
-                  10
+                  0
                 ],
                 "style": "receipt-table"
               }
@@ -190,132 +207,119 @@
       },
 
       {
+        "margin": [
+          -20,
+          0,
+          20,
+          0
+        ],
         "table": {
           "headerRows": 1,
           "widths": [
             30,
-            220,
+            200,
+            30,
             40,
-            40,
-            80,
-            80
+            100,
+            100
           ],
           "body": [[
             {
               "text": "{{SNo}}",
               "bold": true,
-              "fillColor":"#D3D3D3"
+              "fillColor": "#efefef",
+              "fontSize": 10
             },
             {
               "text": "{{EstimateDescription}}",
               "bold": true,
-              "fillColor":"#D3D3D3"
+              "fillColor": "#efefef",
+              "fontSize": 10
             },
             {
               "text": "{{EstimateUOM}}",
               "bold": true,
-              "fillColor":"#D3D3D3"
+              "fillColor": "#efefef",
+              "fontSize": 10
             },
             {
               "text": "{{EstimateRate}}",
               "bold": true,
-              "fillColor":"#D3D3D3"
+              "fillColor": "#efefef",
+              "fontSize": 10
             },
             {
               "text": "{{EstimateQuantity}}",
               "bold": true,
-              "fillColor":"#D3D3D3"
+              "fillColor": "#efefef",
+              "fontSize": 10
             },
             {
               "text": "{{EstimateAmount}}",
               "bold": true,
-              "fillColor":"#D3D3D3"
+              "fillColor": "#efefef",
+              "fontSize": 10
             }
           ],
-          
+
             "{{#estimates}}[{\"text\":\"{{Sno}}\",\"alignment\":\"center\"},{\"text\":\"{{estimateDescription}}\",\"alignment\":\"center\"},{\"text\":\"{{uom}}\",\"alignment\":\"right\"},{\"text\":\"{{unitRate}}\",\"alignment\":\"right\"},{\"text\":\"{{noOfunit}}\",\"alignment\":\"right\"},{\"text\":\"{{amount}}\",\"alignment\":\"right\"}]{{/estimates}}",
             "{{#charges}}[{\"text\":\"{{chargeDescription}} ({{percent}})\",\"colSpan\":\"5\",\"alignment\":\"right\"},{\"text\":\"\"},{\"text\":\"\"},{\"text\":\"\"},{\"text\":\"\"},{\"text\":\"{{charge}}\",\"style\":\"receipt-table-value2\"}]{{/charges}}",
-           
-            [{"text":"{{TotalEstimateAmount}}","bold":true,"colSpan":5,"alignment":"right","fontSize":14},
-					{},
-					{}, 
-					{},
-					{},
-					{"text":"{{totalEstimatedAmount}}","alignment":"right","bold":true}
-					]
-            
+
+            [
+              {
+                "text": "{{TotalEstimateAmount}}",
+                "bold": true,
+                "colSpan": 5,
+                "alignment": "right",
+                "fontSize": 12
+              },
+              {},
+              {},
+              {},
+              {},
+              {
+                "text": "{{#totalEstimatedAmount}}[{\"text\":\"{{amount}}\",\"alignment\":\"right\",\"bold\":\"true\",\"fontSize\":12}]{{/totalEstimatedAmount}}"
+              }
+            ]
+
           ]
+        },
+        "layout": {
+          "hLineColor": "#D6D5D4",
+          "vLineColor": "#D6D5D4"
         }
       }
-      
+
     ],
     "styles": {
       "header": {
-        "fontSize": 20,
+        "fontSize": 16,
         "bold": true,
         "margin": [
-          0,
-          20,
-          10,
-          10
-        ]
-      },
-      "subHeader": {
-        "fontSize": 20,
-        "bold": true,
-        "margin": [
-          0,
-          20,
+          -20,
+          40,
           10,
           10
         ]
       },
       "noc-head": {
         "margin": [
-          -30,
-          -30,
-          0,
+          -40,
+          -40,
+          -40,
           1
         ]
-      },
-      "receipt-logo-header": {
-        "color": "#000000",
-        "fontSize": 14,
-        "bold": true,
-        "textTransform":"uppercase",
-        "letterSpacing": 0.74,
-        "margin": [
-          0,
-          0,
-          0,
-          5
-        ]
-      },
-      "receipt-logo-sub-header": {
-        "color": "#000000",
-        "fontSize": 12,
-        "letterSpacing": 0.6
       },
       "noc-table": {
         "fontSize": 12,
         "color": "#000000",
         "margin": [
           -25,
-          45,
+          20,
           -22,
           -8
         ],
         "border":["false","false","false","false"]
-      },
-      "next-noc-table": {
-        "fontSize": 12,
-        "color": "#000000",
-        "margin": [
-          -25,
-          28,
-          -22,
-          -8
-        ]
       },
       "receipt-table-value": {
         "color": "#000000",
