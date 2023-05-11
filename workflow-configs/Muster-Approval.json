@@ -1,4 +1,15 @@
 {
+  "RequestInfo": {
+    "apiId": "muster-roll",
+    "action": "",
+    "did": 1,
+    "key": "",
+    "msgId": "20170310130900|en_IN",
+    "requesterId": "",
+    "ts": 1513579888683,
+    "ver": "1.0.0",
+    "authToken": "94ecb06f-8e5b-4798-af8f-56a987560209"
+  },
   "BusinessServices": [
     {
       "tenantId": "od",
@@ -41,7 +52,7 @@
               ]
             },
             {
-              "action": "EDIT",
+            "action": "RE-SUBMIT",
               "nextState": "PENDINGFORAPPROVAL",
               "roles": [
                 "MUSTER_ROLL_VERIFIER"
@@ -86,13 +97,6 @@
               "roles": [
                 "MUSTER_ROLL_APPROVER"
               ]
-            },
-            {
-              "action": "REJECT",
-              "nextState": "REJECTED",
-              "roles": [
-                "MUSTER_ROLL_APPROVER"
-              ]
             }
           ]
         },
@@ -111,13 +115,6 @@
               "roles": [
                 "ORG_ADMIN"
               ]
-            },
-            {
-              "action": "REJECT",
-              "nextState": "REJECTED",
-              "roles": [
-                "ORG_ADMIN"
-              ]
             }
           ]
         },
@@ -125,16 +122,6 @@
           "sla": null,
           "state": "APPROVED",
           "applicationStatus": "ACTIVE",
-          "docUploadRequired": false,
-          "isStartState": false,
-          "isTerminateState": true,
-          "isStateUpdatable": false,
-          "actions": null
-        },
-        {
-          "sla": null,
-          "state": "REJECTED",
-          "applicationStatus": "INACTIVE",
           "docUploadRequired": false,
           "isStartState": false,
           "isTerminateState": true,

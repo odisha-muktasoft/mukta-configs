@@ -1,10 +1,10 @@
 {
   "key": "nominal-muster-roll",
-  "documentType": "CONSOLIDATED_RECEIPT",
+  "documentType": "NOMINAL-MUSTER-ROLL",
   "DataConfigs": {
     "moduleName": "rainmaker-common",
     "version": "1.0.0",
-    "baseKeyPath": "$.MusterRoll.*",
+    "baseKeyPath": "$.musterRolls.*",
     "entityIdPath": "$.id",
     "isCommonTableBorderRequired": true,
     "mappings": [
@@ -14,21 +14,32 @@
           {
             "direct": [
               {
-                "variable": "pdf_header",
+                "variable": "_total",
                 "value": {
-                  "path": "TENANT_TENANTS_OD_CITYA_PDF_HEADER"
+                  "path": "COMMON_TOTAL"
                 },
                 "type": "label",
                 "localisation": {
                   "required": true,
                   "prefix": null,
+                  "module": "rainmaker-common"
+                }
+              },
+              {
+                "variable": "pdf_header",
+                "value": {
+                  "path": "$.tenantId"
+                },
+                "localisation": {
+                  "required": true,
+                  "prefix": "TENANT_TENANTS",
                   "module": "rainmaker-od"
                 }
               },
               {
-                "variable": "work_order_number",
+                "variable": "minucipality",
                 "value": {
-                  "path": "WORKS_ORDER_NO"
+                  "path": "MINUCIPALITY"
                 },
                 "type": "label",
                 "localisation": {
@@ -122,51 +133,120 @@
                 }
               },
               {
-                "variable": "mon_day",
+                "variable": "sun_day",
                 "value": {
                   "path": "$.individualEntries[0].attendanceEntries[0].time"
                 },
-                "type": "date"
+                "type": "function",
+                "format": "var y=[];x=arguments[0];var month='';var date= new Date(x).toLocaleString().split('/'); if(date[0]=='1'){month='Jan'};if(date[0]=='2'){month='feb'};if(date[0]=='3'){month='Mar'};if(date[0]=='4'){month='Apr'};if(date[0]=='5'){month='May'};if(date[0]=='6'){month='Jun'};if(date[0]=='7'){month='Jul'};if(date[0]=='8'){month='Aug'};if(date[0]=='9'){month='Sep'};if(date[0]=='10'){month='Oct'};if(date[0]=='11'){month='Nov'};if(date[0]=='12'){month='Dec'};y.push({'date':date[1]+' '+month});return y;"
               },
               {
-                "variable": "tue_day",
+                "variable": "start_date",
                 "value": {
-                  "path": "$.individualEntries[0].attendanceEntries[1].time"
+                  "path": "$.startDate"
                 },
                 "type": "date"
               },
               {
-                "variable": "wed_day",
+                "variable": "individualEntriesLength",
                 "value": {
-                  "path": "$.individualEntries[0].attendanceEntries[2].time"
-                },
-                "type": "date"
+                  "path": "$.individualEntries"
+                }
               },
               {
-                "variable": "thu_day",
+                "variable": "end_date",
                 "value": {
-                  "path": "$.individualEntries[0].attendanceEntries[3].time"
-                },
-                "type": "date"
-              },
-              {
-                "variable": "fri_day",
-                "value": {
-                  "path": "$.individualEntries[0].attendanceEntries[4].time"
+                  "path": "$.endDate"
                 },
                 "type": "date"
               },
               {
                 "variable": "sat_day",
                 "value": {
+                  "path": "$.individualEntries[0].attendanceEntries[1].time"
+                },
+                "type": "function",
+                "format": "var y=[];x=arguments[0];var month='';var date= new Date(x).toLocaleString().split('/'); if(date[0]=='1'){month='Jan'};if(date[0]=='2'){month='feb'};if(date[0]=='3'){month='Mar'};if(date[0]=='4'){month='Apr'};if(date[0]=='5'){month='May'};if(date[0]=='6'){month='Jun'};if(date[0]=='7'){month='Jul'};if(date[0]=='8'){month='Aug'};if(date[0]=='9'){month='Sep'};if(date[0]=='10'){month='Oct'};if(date[0]=='11'){month='Nov'};if(date[0]=='12'){month='Dec'};y.push({'date':date[1]+' '+month});return y;"
+              },
+              {
+                "variable": "fri_day",
+                "value": {
+                  "path": "$.individualEntries[0].attendanceEntries[2].time"
+                },
+                "type": "function",
+                "format": "var y=[];x=arguments[0];var month='';var date= new Date(x).toLocaleString().split('/'); if(date[0]=='1'){month='Jan'};if(date[0]=='2'){month='feb'};if(date[0]=='3'){month='Mar'};if(date[0]=='4'){month='Apr'};if(date[0]=='5'){month='May'};if(date[0]=='6'){month='Jun'};if(date[0]=='7'){month='Jul'};if(date[0]=='8'){month='Aug'};if(date[0]=='9'){month='Sep'};if(date[0]=='10'){month='Oct'};if(date[0]=='11'){month='Nov'};if(date[0]=='12'){month='Dec'};y.push({'date':date[1]+' '+month});return y;"
+              },
+              {
+                "variable": "thu_day",
+                "value": {
+                  "path": "$.individualEntries[0].attendanceEntries[3].time"
+                },
+                "type": "function",
+                "format": "var y=[];x=arguments[0];var month='';var date= new Date(x).toLocaleString().split('/'); if(date[0]=='1'){month='Jan'};if(date[0]=='2'){month='feb'};if(date[0]=='3'){month='Mar'};if(date[0]=='4'){month='Apr'};if(date[0]=='5'){month='May'};if(date[0]=='6'){month='Jun'};if(date[0]=='7'){month='Jul'};if(date[0]=='8'){month='Aug'};if(date[0]=='9'){month='Sep'};if(date[0]=='10'){month='Oct'};if(date[0]=='11'){month='Nov'};if(date[0]=='12'){month='Dec'};y.push({'date':date[1]+' '+month});return y;"
+              },
+              {
+                "variable": "wed_day",
+                "value": {
+                  "path": "$.individualEntries[0].attendanceEntries[4].time"
+                },
+                "type": "function",
+                "format": "var y=[];x=arguments[0];var month='';var date= new Date(x).toLocaleString().split('/'); if(date[0]=='1'){month='Jan'};if(date[0]=='2'){month='feb'};if(date[0]=='3'){month='Mar'};if(date[0]=='4'){month='Apr'};if(date[0]=='5'){month='May'};if(date[0]=='6'){month='Jun'};if(date[0]=='7'){month='Jul'};if(date[0]=='8'){month='Aug'};if(date[0]=='9'){month='Sep'};if(date[0]=='10'){month='Oct'};if(date[0]=='11'){month='Nov'};if(date[0]=='12'){month='Dec'};y.push({'date':date[1]+' '+month});return y;"
+              },
+              {
+                "variable": "tue_day",
+                "value": {
                   "path": "$.individualEntries[0].attendanceEntries[5].time"
                 },
-                "type": "date"
+                "type": "function",
+                "format": "var y=[];x=arguments[0];var month='';var date= new Date(x).toLocaleString().split('/'); if(date[0]=='1'){month='Jan'};if(date[0]=='2'){month='feb'};if(date[0]=='3'){month='Mar'};if(date[0]=='4'){month='Apr'};if(date[0]=='5'){month='May'};if(date[0]=='6'){month='Jun'};if(date[0]=='7'){month='Jul'};if(date[0]=='8'){month='Aug'};if(date[0]=='9'){month='Sep'};if(date[0]=='10'){month='Oct'};if(date[0]=='11'){month='Nov'};if(date[0]=='12'){month='Dec'};y.push({'date':date[1]+' '+month});return y;"
+              },
+              {
+                "variable": "mon_day",
+                "value": {
+                  "path": "$.individualEntries[0].attendanceEntries[6].time"
+                },
+                "type": "function",
+                "format": "var y=[];x=arguments[0];var month='';var date= new Date(x).toLocaleString().split('/'); if(date[0]=='1'){month='Jan'};if(date[0]=='2'){month='feb'};if(date[0]=='3'){month='Mar'};if(date[0]=='4'){month='Apr'};if(date[0]=='5'){month='May'};if(date[0]=='6'){month='Jun'};if(date[0]=='7'){month='Jul'};if(date[0]=='8'){month='Aug'};if(date[0]=='9'){month='Sep'};if(date[0]=='10'){month='Oct'};if(date[0]=='11'){month='Nov'};if(date[0]=='12'){month='Dec'};y.push({'date':date[1]+' '+month});return y;"
+              },
+              {
+                "variable": "projectDesc",
+                "value": {
+                  "path": "$.projectDesc"
+                }
+              },
+              {
+                "variable": "cboName",
+                "value": {
+                  "path": "$.cboName"
+                }
+              },
+              {
+                "variable": "rollOfCbo",
+                "value": {
+                  "path": "$.rollOfCbo"
+                },
+                "localisation": {
+                  "required": true,
+                  "prefix": "COMMON_MASTERS",
+                  "module": "rainmaker-common-masters"
+                }
               },
               {
                 "variable": "days_measured",
                 "value": {
                   "path": "MUSTER_ROLLS_DAYS_MEASURED"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "rainmaker-muster-rolls"
+                }
+              },
+              {
+                "variable": "period",
+                "value": {
+                  "path": "MUSTER_ROLL_PERIOD"
                 },
                 "type": "label",
                 "localisation": {
@@ -221,12 +301,6 @@
                   "required": true,
                   "prefix": null,
                   "module": "rainmaker-muster-rolls"
-                }
-              },
-              {
-                "variable": "amount",
-                "value": {
-                  "path": "$.additionalDetails.amount"
                 }
               },
               {
@@ -524,15 +598,15 @@
                 }
               },
               {
-                "variable": "musterRollNumber",
+                "variable": "contractId",
                 "value": {
-                  "path": "$.musterRollNumber"
+                  "path": "$.referenceId"
                 }
               },
               {
                 "variable": "projectId",
                 "value": {
-                  "path": "$.additionalDetails.projectId"
+                  "path": "$.projectId"
                 }
               },
               {
@@ -565,7 +639,7 @@
                   "path": "$.individualEntries"
                 },
                 "type": "function",
-                "format": "var y=[], x=arguments[0]; for(var i=0;i<x.length;i++){function color(attendance){return (attendance == 'F' ? '#095729' : (attendance == 'H'?'#F6B458':'#ff0000'))};var half_attendance ='H'; var full_attendance ='F';var absent ='A';var attendance_of_sat = ((x[i].attendanceEntries[5].attendance)>0.5?full_attendance:((x[i].attendanceEntries[5].attendance)>0?half_attendance:absent));var attendance_of_fri = ((x[i].attendanceEntries[4].attendance)>0.5?full_attendance:((x[i].attendanceEntries[4].attendance)>0?half_attendance:absent));var attendance_of_thu = ((x[i].attendanceEntries[3].attendance)>0.5?full_attendance:((x[i].attendanceEntries[3].attendance)>0?half_attendance:absent));var attendance_of_wed = ((x[i].attendanceEntries[2].attendance)>0.5?full_attendance:((x[i].attendanceEntries[2].attendance)>0?half_attendance:absent));var attendance_of_tue = ((x[i].attendanceEntries[1].attendance)>0.5?full_attendance:((x[i].attendanceEntries[1].attendance)>0?half_attendance:absent));var attendance_of_mon = ((x[i].attendanceEntries[0].attendance)>0.5?full_attendance:((x[i].attendanceEntries[0].attendance)>0?half_attendance:absent));y.push({'attendance_of_sun':'A','attendance_of_sat':attendance_of_sat,'attendance_of_fri':attendance_of_fri,'attendance_of_thu':attendance_of_thu,'attendance_of_wed':attendance_of_wed,'attendance_of_tue':attendance_of_tue,'attendance_of_mon':attendance_of_mon,'bank_account_details':x[i].additionalDetails.bankDetails,'aadhar_number':x[i].additionalDetails.aadharNumber,'skill':x[i].additionalDetails.skillValue,'background_color':( (i%2) == 0 ? '' :'#eeeeee') ,'sl_no':i+1,'name_of_the_individual':x[i].additionalDetails.userName,'guardian_name':x[i].additionalDetails.fatherName,'actualTotalAttendance':x[i].actualTotalAttendance, 'attendance':x[i].attendanceEntries[0].attendance,'skillValue':x[i].additionalDetails.skillValue,'sat_color_of_attendance': color(attendance_of_sat),'mon_color_of_attendance': color(attendance_of_mon),'tue_color_of_attendance': color(attendance_of_tue),'wed_color_of_attendance': color(attendance_of_wed),'thu_color_of_attendance': color(attendance_of_thu),'fri_color_of_attendance': color(attendance_of_fri),'sun_color_of_attendance':'#ff0000' }); } return y; "
+                "format": " var y = [],\n    x = arguments[0];\n  for (var i = 0; i < x.length; i++) {\n    var _x$i$additionalDetail, _x$i$additionalDetail2;\n    function color(attendance) {\n      return attendance == 'F' ? '#095729' : attendance == 'H' ? '#F6B458' : '#ff0000';\n    }\n    ;\n    var half_attendance = 'H';\n    var full_attendance = 'F';\n    var absent = 'A';\n    var attendance_of_sun = x[i].attendanceEntries[0].attendance > 0.5 ? full_attendance : x[i].attendanceEntries[6].attendance > 0 ? half_attendance : absent;\n    var attendance_of_sat = x[i].attendanceEntries[1].attendance > 0.5 ? full_attendance : x[i].attendanceEntries[1].attendance > 0 ? half_attendance : absent;\n    var attendance_of_fri = x[i].attendanceEntries[2].attendance > 0.5 ? full_attendance : x[i].attendanceEntries[2].attendance > 0 ? half_attendance : absent;\n    var attendance_of_thu = x[i].attendanceEntries[3].attendance > 0.5 ? full_attendance : x[i].attendanceEntries[3].attendance > 0 ? half_attendance : absent;\n    var attendance_of_wed = x[i].attendanceEntries[4].attendance > 0.5 ? full_attendance : x[i].attendanceEntries[4].attendance > 0 ? half_attendance : absent;\n    var attendance_of_tue = x[i].attendanceEntries[5].attendance > 0.5 ? full_attendance : x[i].attendanceEntries[5].attendance > 0 ? half_attendance : absent;\n    var attendance_of_mon = x[i].attendanceEntries[6].attendance > 0.5 ? full_attendance : x[i].attendanceEntries[6].attendance > 0 ? half_attendance : absent;\n    y.push({\n      'attendance_of_sun': attendance_of_sun,\n      'attendance_of_sat': attendance_of_sat,\n      'attendance_of_fri': attendance_of_fri,\n      'attendance_of_thu': attendance_of_thu,\n      'attendance_of_wed': attendance_of_wed,\n      'attendance_of_tue': attendance_of_tue,\n      'attendance_of_mon': attendance_of_mon,\n      'bank_account_details': x[i].additionalDetails.bankDetails,\n      'aadhar_number': (_x$i$additionalDetail = x[i].additionalDetails) === null || _x$i$additionalDetail === void 0 ? void 0 : (_x$i$additionalDetail2 = _x$i$additionalDetail.aadharNumber) === null || _x$i$additionalDetail2 === void 0 ? void 0 : _x$i$additionalDetail2.substr(8, 4),\n      'skill': x[i].additionalDetails.skillValue,\n      'background_color': i % 2 == 0 ? '' : '#eeeeee',\n      'sl_no': i + 1,\n      'name_of_the_individual': x[i].additionalDetails.userName,\n      'guardian_name': x[i].additionalDetails.fatherName,\n      'actualTotalAttendance': x[i].actualTotalAttendance,\n      'attendance': x[i].attendanceEntries[0].attendance,\n      'skillValue': x[i].additionalDetails.skillValue,\n      'sat_color_of_attendance': color(attendance_of_sat),\n      'mon_color_of_attendance': color(attendance_of_mon),\n      'tue_color_of_attendance': color(attendance_of_tue),\n      'wed_color_of_attendance': color(attendance_of_wed),\n      'thu_color_of_attendance': color(attendance_of_thu),\n      'fri_color_of_attendance': color(attendance_of_fri),\n      'sun_color_of_attendance': color(attendance_of_sun),\n      'registration_id': x[i].additionalDetails.userId,\n      'days_worked': x[i].actualTotalAttendance,\n      'per_day_wage': x[i].perDayWage,\n      'total_wage': x[i].totalWage\n    });\n  }\n  return y;"
               },
               {
                 "variable": "total",
@@ -573,7 +647,15 @@
                   "path": "$.individualEntries"
                 },
                 "type": "function",
-                "format": "var y=[],x=arguments[0]; var fri_day_total_attendance=0; var mon_day_total_attendance=0; var tue_day_total_attendance=0; var wed_day_total_attendance=0; var thu_day_total_attendance=0; var thu_day_total_attendance=0; var sat_day_total_attendance=0; if(x){for(var i=0;i<x.length;i++){ mon_day_total_attendance= mon_day_total_attendance + x[i].attendanceEntries[0].attendance; tue_day_total_attendance= tue_day_total_attendance + x[i].attendanceEntries[1].attendance; wed_day_total_attendance= wed_day_total_attendance + x[i].attendanceEntries[2].attendance; thu_day_total_attendance= thu_day_total_attendance + x[i].attendanceEntries[3].attendance; fri_day_total_attendance= fri_day_total_attendance + x[i].attendanceEntries[4].attendance; sat_day_total_attendance= sat_day_total_attendance + x[i].attendanceEntries[5].attendance; }; y.push({'mon_day_total_attendance':mon_day_total_attendance, 'tue_day_total_attendance':tue_day_total_attendance, 'wed_day_total_attendance': wed_day_total_attendance, 'thu_day_total_attendance':thu_day_total_attendance, 'fri_day_total_attendance':fri_day_total_attendance, 'sat_day_total_attendance':sat_day_total_attendance })}return y;"
+                "format": "var y=[],x=arguments[0];var total_day_worked=0; var total_wage=0; var sun_day_total_attendance=0;var fri_day_total_attendance=0; var mon_day_total_attendance=0; var tue_day_total_attendance=0; var wed_day_total_attendance=0; var thu_day_total_attendance=0; var thu_day_total_attendance=0; var sat_day_total_attendance=0; function rupeeFormat(amount){flag=0;var count=0;var amount=amount.toString(); var len=amount.length;var val=''; for(var i=len-1;i>=0;i--){ val=amount[i]+val;if(amount[i]=='.'){flag=1;count=-1;val=amount.substring(i,len)};if(count%2==0 && i!=0 && count!=0){val=','+val;};count+=1;};if(flag==0){val+='.00'};return val}; if(x){for(var i=0;i<x.length;i++){ mon_day_total_attendance= mon_day_total_attendance + x[i].attendanceEntries[6].attendance; tue_day_total_attendance= tue_day_total_attendance + x[i].attendanceEntries[5].attendance; wed_day_total_attendance= wed_day_total_attendance + x[i].attendanceEntries[4].attendance; thu_day_total_attendance= thu_day_total_attendance + x[i].attendanceEntries[3].attendance; fri_day_total_attendance= fri_day_total_attendance + x[i].attendanceEntries[2].attendance; sat_day_total_attendance= sat_day_total_attendance + x[i].attendanceEntries[1].attendance;sun_day_total_attendance= sun_day_total_attendance+x[i].attendanceEntries[0].attendance;total_day_worked+=x[i].actualTotalAttendance;total_wage+=x[i].totalWage}; total_wage=rupeeFormat(total_wage); y.push({'mon_day_total_attendance':mon_day_total_attendance, 'tue_day_total_attendance':tue_day_total_attendance, 'wed_day_total_attendance': wed_day_total_attendance, 'thu_day_total_attendance':thu_day_total_attendance, 'fri_day_total_attendance':fri_day_total_attendance, 'sat_day_total_attendance':sat_day_total_attendance,'sun_day_total_attendance':sun_day_total_attendance,'total_day_worked':total_day_worked,'total_wage':total_wage })}return y;"
+              },
+              {
+                "variable": "len",
+                "value": {
+                  "path": "$.individualEntries"
+                },
+                "type": "function",
+                "format": " var y=[], x=arguments[0]; if(x){y.push({'len':x.length})}return y;"
               }
             ]
           },
@@ -584,10 +666,6 @@
                 "queryParam": "moduleName=tenant&masterName=tenants&tenantId=od&filter=%5B?(@.code=='{$.tenantId}')%5D",
                 "apiRequest": null,
                 "responseMapping": [
-                  {
-                    "variable": "address",
-                    "value": "$.MdmsRes.tenant.tenants[0].address"
-                  },
                   {
                     "variable": "address",
                     "value": "$.MdmsRes.tenant.tenants[0].address"
@@ -625,6 +703,15 @@
                       "required": true,
                       "prefix": "TENANT_TENANTS",
                       "module": "rainmaker-od"
+                    }
+                  },
+                  {
+                    "variable": "subdivision",
+                    "value": "$.MdmsRes.tenant.tenants[0].city.ulbGrade",
+                    "localisation": {
+                      "required": true,
+                      "prefix": "COMMON_SUBDIVISION",
+                      "module": "rainmaker-common"
                     }
                   }
                 ]

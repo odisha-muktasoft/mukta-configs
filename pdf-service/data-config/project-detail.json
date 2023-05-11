@@ -16,7 +16,18 @@
               {
                 "variable": "pdf_header",
                 "value": {
-                  "path": "TENANT_TENANTS_OD_CITYA_PDF_HEADER"
+                  "path": "$.tenantId"
+                },
+                "localisation": {
+                  "required": true,
+                  "prefix": "TENANT_TENANTS",
+                  "module": "rainmaker-od"
+                }
+              },
+              {
+                "variable": "minucipality",
+                "value": {
+                  "path": "MINUCIPALITY"
                 },
                 "type": "label",
                 "localisation": {
@@ -46,13 +57,13 @@
               {
                 "variable": "project_name",
                 "value": {
-                  "path": "WORKS_PROJECT_NAME_AST"
+                  "path": "ES_COMMON_PROJECT_NAME"
                 },
                 "type": "label",
                 "localisation": {
                   "required": true,
                   "prefix": null,
-                  "module": "rainmaker-project"
+                  "module": "rainmaker-common"
                 }
               },
               {
@@ -88,7 +99,7 @@
                 "localisation": {
                   "required": true,
                   "prefix": null,
-                  "module": "rainmaker-estimate"
+                  "module": "rainmaker-common"
                 }
               },
               {
@@ -130,7 +141,7 @@
               {
                 "variable": "estimated_cost",
                 "value": {
-                  "path": "PROJECT_TOTAL_ESTIMATED_COST_IN_RS"
+                  "path": "PROJECT_ESTIMATED_COST"
                 },
                 "type": "label",
                 "localisation": {
@@ -199,30 +210,7 @@
                   "module": "rainmaker-common"
                 }
               },
-              {
-                "variable": "_street",
-                "value": {
-                  "path": "ES_COMMON_STREET"
-                },
-                "type": "label",
-                "localisation": {
-                  "required": true,
-                  "prefix": null,
-                  "module": "rainmaker-common"
-                }
-              },
-              {
-                "variable": "door_or_house_number",
-                "value": {
-                  "path": "ES_COMMON_DOOR_NO"
-                },
-                "type": "label",
-                "localisation": {
-                  "required": true,
-                  "prefix": null,
-                  "module": "rainmaker-common"
-                }
-              },
+              
               {
                 "variable": "dateOfProposal",
                 "value": {
@@ -274,7 +262,10 @@
                 "variable": "estimatedCostInRs",
                 "value": {
                   "path": "$.additionalDetails.estimatedCostInRs"
-                }
+                },
+                "type":"function",
+                "format":"var y=[];var flag=0;var count=0;var amount=arguments[0]; var len=amount.length;var val=''; for(var i=len-1;i>=0;i--){ val=amount[i]+val;if(amount[i]=='.'){flag=1;count=-1;val=amount.substring(i,len)};if(count%2==0 && i!=0 && count!=0){val=','+val;};count+=1;};if(flag==0){val+='.00'};y.push({'amount':val}); return y"
+
               },
               {
                 "variable": "addressLine1",
@@ -296,7 +287,7 @@
               {
                 "variable": "ward",
                 "value": {
-                  "path": "$.additionalDetails.ward"
+                  "path": "$.address.boundary"
                 },
                 "localisation": {
                   "required": true,
@@ -307,24 +298,12 @@
               {
                 "variable": "boundary",
                 "value": {
-                  "path": "$.address.boundary"
+                  "path": "$.additionalDetails.locality"
                 },
                 "localisation": {
                   "required": true,
                   "prefix": "OD_CITYA_ADMIN",
                   "module": "rainmaker-od.citya"
-                }
-              },
-              {
-                "variable": "street",
-                "value": {
-                  "path": "$.address.street"
-                }
-              },
-              {
-                "variable": "doorNo",
-                "value": {
-                  "path": "$.address.doorNo"
                 }
               }
             ]
@@ -377,6 +356,15 @@
                       "required": true,
                       "prefix": "TENANT_TENANTS",
                       "module": "rainmaker-od"
+                    }
+                  },
+                  {
+                    "variable": "subdivision",
+                    "value": "$.MdmsRes.tenant.tenants[0].city.ulbGrade",
+                    "localisation": {
+                      "required": true,
+                      "prefix": "COMMON_SUBDIVISION",
+                      "module": "rainmaker-common"
                     }
                   }
                 ]
