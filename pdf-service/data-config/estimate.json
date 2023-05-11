@@ -14,7 +14,7 @@
           {
             "direct": [
               {
-                "variable": "projectId", 
+                "variable": "projectId",
                 "value": {
                   "path": "$.additionalDetails.projectNumber"
                 }
@@ -29,10 +29,10 @@
                   "required":true,
                   "prefix": null,
                   "module":"rainmaker-project"
-               }
+                }
               },
               {
-                "variable": "name", 
+                "variable": "name",
                 "value": {
                   "path": "$.name"
                 }
@@ -47,10 +47,10 @@
                   "required":true,
                   "prefix": null,
                   "module":"rainmaker-project"
-               }
+                }
               },
               {
-                "variable": "description", 
+                "variable": "description",
                 "value": {
                   "path": "$.description"
                 }
@@ -65,16 +65,16 @@
                   "required":true,
                   "prefix": null,
                   "module":"rainmaker-project"
-               }
+                }
               },
               {
-                "variable": "estimateNumber", 
+                "variable": "estimateNumber",
                 "value": {
                   "path": "$.estimateNumber"
                 }
               },
               {
-                "variable": "EstimateDetails", 
+                "variable": "EstimateDetails",
                 "value": {
                   "path": "ESTIMATE_DETAILS"
                 },
@@ -83,7 +83,7 @@
                   "required":true,
                   "prefix": null,
                   "module":"rainmaker-estimate"
-               }
+                }
               },
               {
                 "variable": "SNo",
@@ -95,7 +95,7 @@
                   "required":true,
                   "prefix": null,
                   "module":"rainmaker-common"
-               }
+                }
               },
               {
                 "variable": "EstimateDescription",
@@ -107,7 +107,7 @@
                   "required":true,
                   "prefix": null,
                   "module":"rainmaker-project"
-               }
+                }
               },
               {
                 "variable": "EstimateRate",
@@ -119,7 +119,7 @@
                   "required":true,
                   "prefix": null,
                   "module":"rainmaker-estimate"
-               }
+                }
               },
               {
                 "variable": "EstimateUOM",
@@ -131,7 +131,7 @@
                   "required":true,
                   "prefix": null,
                   "module":"rainmaker-estimate"
-               }
+                }
               },
               {
                 "variable": "EstimateQuantity",
@@ -143,7 +143,7 @@
                   "required":true,
                   "prefix": null,
                   "module":"rainmaker-estimate"
-               }
+                }
               },
               {
                 "variable": "EstimateAmount",
@@ -155,7 +155,7 @@
                   "required":true,
                   "prefix": null,
                   "module":"rainmaker-estimate"
-               }
+                }
               },
               {
                 "variable": "TotalEstimateAmount",
@@ -167,7 +167,7 @@
                   "required":true,
                   "prefix": null,
                   "module":"rainmaker-estimate"
-               }
+                }
               },
               {
                 "variable": "ServiceName",
@@ -179,7 +179,7 @@
                   "required":true,
                   "prefix": null,
                   "module":"rainmaker-common"
-               }
+                }
               },
               {
                 "variable": "Municipal_Corporation",
@@ -191,87 +191,109 @@
                   "required":true,
                   "prefix": null,
                   "module":"rainmaker-common"
-               }
+                }
               },
               {
                 "variable": "pdf_header",
                 "value": {
-                  "path": "TENANT_TENANTS_OD_CITYA_PDF_HEADER"
+                  "path": "$.tenantId"
+                },
+                "localisation": {
+                  "required": true,
+                  "prefix": "TENANT_TENANTS",
+                  "module": "rainmaker-od"
+                }
+              },
+              {
+                "variable": "minucipality",
+                "value": {
+                  "path": "MINUCIPALITY"
                 },
                 "type": "label",
                 "localisation": {
                   "required": true,
                   "prefix": null,
-                  "module": "rainmaker-od"
+                  "module": "rainmaker-common"
                 }
               },
 
 
               {
-                "variable": "estimates", 
+                "variable": "estimates",
                 "value": {
                   "path": "$.estimateDetails"
                 },
                 "type":"function",
-                "format":"var y=[],a=[],estimateDetails=arguments[0]; for(var i=0;i<estimateDetails.length;i++){ if(estimateDetails[i].category!='OVERHEAD'){var x={ Sno:i+1,uom:estimateDetails[i].uom,unitRate:estimateDetails[i].unitRate,noOfunit:estimateDetails[i].noOfunit,estimateDescription:estimateDetails[i].description,estimateName:estimateDetails[i].name,amount:estimateDetails[i].amountDetail[0].amount};y.push(x);}else{var b={chargeDescription:estimateDetails[i].description,charge:estimateDetails[i].amountDetail[0].amount}; a.push(b);}}return y;"
+                "format": "var y=[],a=[],estimateDetails=arguments[0];function rupeeFormat(amount){flag=0;var count=0;var amount=amount.toString(); var len=amount.length;var val=''; for(var i=len-1;i>=0;i--){ val=amount[i]+val;if(amount[i]=='.'){flag=1;count=-1;val=amount.substring(i,len)};if(count%2==0 && i!=0 && count!=0){val=','+val;};count+=1;};if(flag==0){val+='.00'};return val}; for(var i=0;i<estimateDetails.length;i++){ if(estimateDetails[i].category!='OVERHEAD'){var x={ Sno:i+1,uom:estimateDetails[i].uom,unitRate:rupeeFormat(estimateDetails[i].unitRate),noOfunit:rupeeFormat(estimateDetails[i].noOfunit),estimateDescription:estimateDetails[i].description,estimateName:estimateDetails[i].name,amount:estimateDetails[i].amountDetail[0].amount};y.push(x);}else{var b={chargeDescription:estimateDetails[i].description,charge:rupeeFormat(estimateDetails[i].amountDetail[0].amount)}; a.push(b);}}return y;"
               },
               {
-                "variable": "charges", 
+                "variable": "charges",
                 "value": {
                   "path": "$.estimateDetails"
                 },
                 "type":"function",
-                "format":"var a=[],estimateDetails=arguments[0]; for(var i=0;i<estimateDetails.length;i++){ if(estimateDetails[i].category=='OVERHEAD'){var b={chargeDescription:estimateDetails[i].description,percent:estimateDetails[i].additionalDetails.row.percentage,charge:estimateDetails[i].amountDetail[0].amount}; a.push(b);}}return a;"
+                "format": "var a=[],estimateDetails=arguments[0];function rupeeFormat(amount){flag=0;var count=0;var amount=amount.toString(); var len=amount.length;var val=''; for(var i=len-1;i>=0;i--){ val=amount[i]+val;if(amount[i]=='.'){flag=1;count=-1;val=amount.substring(i,len)};if(count%2==0 && i!=0 && count!=0){val=','+val;};count+=1;};if(flag==0){val+='.00'};return val}; for(var i=0;i<estimateDetails.length;i++){ if(estimateDetails[i].category=='OVERHEAD'){var b={chargeDescription:estimateDetails[i].description,percent:estimateDetails[i].additionalDetails.row.percentage,charge:rupeeFormat(estimateDetails[i].amountDetail[0].amount)}; a.push(b);}}return a;"
               },
               {
-                "variable": "totalEstimatedAmount", 
+                "variable": "totalEstimatedAmount",
                 "value": {
                   "path": "$.additionalDetails.totalEstimatedAmount"
-                }
+                },
+                "type": "function",
+                "format": "var y=[];var flag=0;var count=0;var amount=arguments[0].toString(); var len=amount.length;var val=''; for(var i=len-1;i>=0;i--){ val=amount[i]+val;if(amount[i]=='.'){flag=1;count=-1;val=amount.substring(i,len)};if(count%2==0 && i!=0 && count!=0){val=','+val;};count+=1;};if(flag==0){val+='.00'};y.push({'amount':val}); return y"
               }
-              
-              
+
+
             ]
           },
           {
-            "externalAPI": [     
-              { 
+            "externalAPI": [
+              {
                 "path": "http://egov-mdms-service:8080/egov-mdms-service/v1/_get",
                 "queryParam": "moduleName=tenant&masterName=tenants&tenantId=od&filter=%5B?(@.code=='{$.tenantId}')%5D",
-                  "apiRequest": null,
-                  "responseMapping":[
-                    {             
-                      "variable":"address",
-                      "value":"$.MdmsRes.tenant.tenants[0].address"
-                    },
-                    {
-                      "variable":"phoneNumber",
-                      "value":"$.MdmsRes.tenant.tenants[0].contactNumber"
-                    },
-                    {
-                      "variable":"website",
-                      "value":"$.MdmsRes.tenant.tenants[0].domainUrl"
-                    },
-                    {
-                      "variable":"email",
-                      "value":"$.MdmsRes.tenant.tenants[0].emailId"
-                    },
-                    {
-                      "variable": "logoImage",                        
-                      "value":"$.MdmsRes.tenant.tenants[0].logoId",
-                      "type":"image"      
-                    },
-                    {
-                      "variable": "logo-header",
-                      "value":"$.MdmsRes.tenant.tenants[0].code",
-                      "localisation":{
-                        "required":true,
-                        "module":"rainmaker-common"
-                        }
+                "apiRequest": null,
+                "responseMapping":[
+                  {
+                    "variable":"address",
+                    "value":"$.MdmsRes.tenant.tenants[0].address"
+                  },
+                  {
+                    "variable":"phoneNumber",
+                    "value":"$.MdmsRes.tenant.tenants[0].contactNumber"
+                  },
+                  {
+                    "variable":"website",
+                    "value":"$.MdmsRes.tenant.tenants[0].domainUrl"
+                  },
+                  {
+                    "variable":"email",
+                    "value":"$.MdmsRes.tenant.tenants[0].emailId"
+                  },
+                  {
+                    "variable": "logoImage",
+                    "value":"$.MdmsRes.tenant.tenants[0].logoId",
+                    "type":"image"
+                  },
+                  {
+                    "variable": "logo-header",
+                    "value":"$.MdmsRes.tenant.tenants[0].code",
+                    "localisation":{
+                      "required":true,
+                      "module":"rainmaker-common"
                     }
-                  ]
+                  },
+                  {
+                    "variable": "subdivision",
+                    "value": "$.MdmsRes.tenant.tenants[0].city.ulbGrade",
+                    "localisation": {
+                      "required": true,
+                      "prefix": "COMMON_SUBDIVISION",
+                      "module": "rainmaker-common"
+                    }
+                  }
+                ]
               }
-              
+
             ]
           }
         ]

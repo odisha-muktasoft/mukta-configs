@@ -16,7 +16,18 @@
               {
                 "variable": "pdf_header",
                 "value": {
-                  "path": "TENANT_TENANTS_OD_CITYA_PDF_HEADER"
+                  "path": "$.tenantId"
+                },
+                "localisation": {
+                  "required": true,
+                  "prefix": "TENANT_TENANTS",
+                  "module": "rainmaker-od"
+                }
+              },
+              {
+                "variable": "minucipality",
+                "value": {
+                  "path": "MINUCIPALITY"
                 },
                 "type": "label",
                 "localisation": {
@@ -335,7 +346,7 @@
                     "localisation": {
                       "required": true,
                       "prefix": "TENANT_TENANTS",
-                      "module": "rainmaker-pg"
+                      "module": "rainmaker-od"
                     }
                   },
                   {
@@ -344,7 +355,16 @@
                     "localisation": {
                       "required": true,
                       "prefix": "TENANT_TENANTS",
-                      "module": "rainmaker-pg"
+                      "module": "rainmaker-od"
+                    }
+                  },
+                  {
+                    "variable": "subdivision",
+                    "value": "$.MdmsRes.tenant.tenants[0].city.ulbGrade",
+                    "localisation": {
+                      "required": true,
+                      "prefix": "COMMON_SUBDIVISION",
+                      "module": "rainmaker-common"
                     }
                   }
                 ]
@@ -356,3 +376,4 @@
     ]
   }
 }
+

@@ -10,68 +10,79 @@
 			{
 				"style": "noc-head",
 				"table": {
-					"widths": [
-						60,
-						"*",
-						140
+				"widths": [
+					60,
+					"*",
+					230
+				],
+				"body": [
+					[
+						{
+							"image": "{{logoImage}}",
+							"width": 50,
+						"height": 61.25,
+						"margin": [
+							10,
+							10,
+							0,
+							0
+						]
+					},
+					{
+						"stack": [
+							{
+							"text": "{{pdf_header}} {{subdivision}}",
+							"fontSize": 18,
+							"color": "#000000",
+							"bold": true
+						},
+						{
+							"text": "{{address}}",
+							"fontSize": 10,
+							"color": "#000000"
+						},
+						{
+							"text": "{{phoneNumber}} | {{email}}",
+							"fontSize": 10,
+							"color": "#000000"
+						}
 					],
-					"body": [
-						[
-							{
-								"image": "{{logoImage}}",
-								"width": 50,
-								"height": 61.25
-							},
-							{
-								"stack": [
-									{
-										"text": "{{pdf_header}}",
-										"style": {
-											"bold": true,
-											"fontSize": 20
-										}
-									},
-									{
-										"text": "{{logo_header}}",
-										"style": "receipt-logo-header"
-									},
-									{
-										"text": "{{address}},{{phoneNumber}}"
-									},
-									{
-										"text": "{{website}},{{email}}"
-									}
-								],
-								"alignment": "left",
-								"margin": [
-									0,
-									-5,
-									0,
-									0
-								]
-							},
+					"alignment": "left",
+					"margin": [
+						10,
+						10,
+						0,
+						0
+					]
+				},
 							{
 								"stack": [
 									{
 										"text": "{{nominal_muster_roll}}",
 										"style": {
 											"bold": true,
-											"fontSize": 15
+											"fontSize": 18,
+											"color": "#5f5f5f"
 										}
 									},
 									{
 										"text": "{{projectNumber}}",
 										"style": {
-											"bold": true,
-											"fontSize": 15
+											"fontSize": 14
+										}
+									},
+									{
+										"text": "{{period}} {{start_date}}-{{end_date}}",
+										"style": {
+											"fontSize": 14
 										}
 									}
 								],
 								"alignment": "right",
 								"margin": [
-									-100,
 									0,
-									-10,
+									10,
+									15,
 									0
 								]
 							}
@@ -79,20 +90,19 @@
 					]
 				},
 				"layout": "noBorders",
-				"color": "#000000"
+				"fillColor": "#f4f4f4"
 			},
 			{
 				"margin": [
 					0,
-					30,
+					20,
 					0,
-					30
+					20
 				],
 				"table": {
 					"widths": [
-						"50%",
-						"*",
-						"20%"
+						"30%",
+						"70%"
 					],
 					"body": [
 						[
@@ -102,7 +112,7 @@
 								"bold": true
 							},
 							{
-								"text": "{{musterRollNumber}}",
+								"text": "{{contractId}}",
 								"fontSize": 15
 							}
 						],
@@ -124,7 +134,7 @@
 								"bold": true
 							},
 							{
-								"text": "sdfghjkl",
+								"text": "{{projectDesc}}",
 								"fontSize": 15
 							}
 						],
@@ -135,7 +145,7 @@
 								"bold": true
 							},
 							{
-								"text": "sdfghjkl",
+								"text": "{{cboName}}",
 								"fontSize": 15
 							}
 						],
@@ -146,7 +156,7 @@
 								"bold": true
 							},
 							{
-								"text": "sdfghjkl",
+								"text": "{{rollOfCbo}}",
 								"fontSize": 15
 							}
 						],
@@ -156,10 +166,7 @@
 								"fontSize": 15,
 								"bold": true
 							},
-							{
-								"text": "sdfghjkl",
-								"fontSize": 15
-							}
+							"{{#len}}[{\"text\":\"{{len}}\",\"fontSize\":\"15\"}]{{/len}}"
 						],
 						[
 							{
@@ -168,8 +175,7 @@
 								"fontSize": 15
 							},
 							{
-								"text": "{{actualTotalAttendance}}",
-								"fontSize": 15
+								"text": "{{#total}}[{\"text\":\"{{total_day_worked}}\",\"fontSize\":15}]{{/total}}"
 							}
 						],
 						[
@@ -179,8 +185,7 @@
 								"bold": true
 							},
 							{
-								"text": "sdfghjkl",
-								"fontSize": 15
+								"text": "{{#total}}[{\"text\":\"{{total_day_worked}}\",\"fontSize\":15}]{{/total}}"
 							}
 						],
 						[
@@ -190,8 +195,7 @@
 								"bold": true
 							},
 							{
-								"text": "{{amount}}",
-								"fontSize": 15
+								"text": "{{#total}}[{\"text\":\"{{total_wage}}\",\"fontSize\":15}]{{/total}}"
 							}
 						],
 						[
@@ -227,15 +231,15 @@
 						"4%",
 						"4%",
 						"4%",
-						"3%",
-						"3%",
-						"3%",
-						"3%",
+						"4%",
+						"4%",
+						"4%",
+						"4%",
 						"6%",
 						"7%",
 						"6%",
-						"7%",
-						"10%",
+						"6%",
+						"8%",
 						"7%",
 						"7%"
 					],
@@ -275,7 +279,7 @@
 									},
 									{
 										"bold": false,
-										"text": "{{mon_day}}"
+										"text": "{{#mon_day}}[{\"text\":\"{{date}}\"}]{{/mon_day}}"
 									}
 								]
 							},
@@ -293,7 +297,7 @@
 									},
 									{
 										"bold": false,
-										"text": "{{tue_day}}"
+										"text": "{{#tue_day}}[{\"text\":\"{{date}}\"}]{{/tue_day}}"
 									}
 								]
 							},
@@ -311,7 +315,7 @@
 									},
 									{
 										"bold": false,
-										"text": "{{wed_day}}"
+										"text": "{{#wed_day}}[{\"text\":\"{{date}}\"}]{{/wed_day}}"
 									}
 								]
 							},
@@ -329,7 +333,7 @@
 									},
 									{
 										"bold": false,
-										"text": "{{thu_day}}"
+										"text": "{{#thu_day}}[{\"text\":\"{{date}}\"}]{{/thu_day}}"
 									}
 								]
 							},
@@ -347,7 +351,7 @@
 									},
 									{
 										"bold": false,
-										"text": "{{fri_day}}"
+										"text": "{{#fri_day}}[{\"text\":\"{{date}}\"}]{{/fri_day}}"
 									}
 								]
 							},
@@ -365,7 +369,7 @@
 									},
 									{
 										"bold": false,
-										"text": "{{sat_day}}"
+										"text": "{{#sat_day}}[{\"text\":\"{{date}}\"}]{{/sat_day}}"
 									}
 								]
 							},
@@ -383,7 +387,7 @@
 									},
 									{
 										"bold": false,
-										"text": "{{_sun}}"
+										"text": "{{#sun_day}}[{\"text\":\"{{date}}\"}]{{/sun_day}}"
 									}
 								]
 							},
@@ -416,18 +420,22 @@
 								"text": "{{_signature}}"
 							}
 						],
-						"{{#arrears}}[{\"text\":\"{{sl_no}}\",\"style\":\"sl-no-table-row\"},{\"text\":\"{{sl_no}}\",\"style\":\"sl-no-table-row\"},{\"text\":\"{{guardian_name}}\",\"fontSize\":\"9\"},{\"text\":\"{{name_of_the_individual}}\",\"fontSize\":\"9\"},{\"text\":\"{{skill}}\",\"fontSize\":\"9\"},{\"text\":\"{{attendance_of_mon}}\",\"color\":\"{{mon_color_of_attendance}}\",\"border\":[false,true,false,true],\"fillColor\":\"{{background_color}}\"},{\"text\":\"{{attendance_of_tue}}\",\"color\":\"{{tue_color_of_attendance}}\",\"border\":[false,true,false,true],\"fillColor\":\"{{background_color}}\"},{\"text\":\"{{attendance_of_wed}}\",\"border\":[false,true,false,true],\"color\":\"{{wed_color_of_attendance}}\",\"fillColor\":\"{{background_color}}\"},{\"text\":\"{{attendance_of_thu}}\",\"color\":\"{{thu_color_of_attendance}}\",\"border\":[false,true,false,true],\"fillColor\":\"{{background_color}}\"},{\"text\":\"{{attendance_of_fri}}\",\"border\":[false,true,false,true],\"color\":\"{{fri_color_of_attendance}}\",\"fillColor\":\"{{background_color}}\"},{\"text\":\"{{attendance_of_sat}}\",\"color\":\"{{sat_color_of_attendance}}\",\"border\":[false,true,false,true],\"fillColor\":\"{{background_color}}\"},{\"text\":\"{{attendance_of_sun}}\",\"border\":[false,true,false,true],\"color\":\"{{sun_color_of_attendance}}\",\"fillColor\":\"{{background_color}}\"},{\"text\":\"\",\"fontSize\":\"9\"},{\"text\":\"\",\"fontSize\":\"9\"},{\"text\":\"\",\"fontSize\":\"9\"},{\"text\":\"\",\"fontSize\":\"9\"},{\"text\":\"{{bank_account_details}}\",\"fontSize\":\"9\"},{\"text\":\"{{aadhar_number}}\",\"fontSize\":\"9\"},{\"text\":\"\"}]{{/arrears}}",
-						"{{#total}}[{\"text\":\"Total\",\"colSpan\":\"5\",\"style\":\"table_last_row\",\"margin\":[20,0,0,0]},{},{},{},{},{\"text\":\"{{mon_day_total_attendance}}\",\"style\":\"table_last_row\"},{\"text\":\"{{tue_day_total_attendance}}\",\"style\":\"table_last_row\"},{\"text\":\"{{wed_day_total_attendance}}\",\"style\":\"table_last_row\"},{\"text\":\"{{thu_day_total_attendance}}\",\"style\":\"table_last_row\"},{\"text\":\"{{fri_day_total_attendance}}\",\"style\":\"table_last_row\"},{\"text\":\"{{sat_day_total_attendance}}\",\"style\":\"table_last_row\"},{\"text\":\"0\",\"style\":\"table_last_row\"},{\"text\":\"\",\"style\":\"table_last_row\"},{\"text\":\"\",\"style\":\"table_last_row\"},{\"text\":\"\",\"colSpan\":\"5\",\"style\":\"table_last_row\"},{},{},{},{}]{{/total}}"
+						"{{#arrears}}[{\"text\":\"{{sl_no}}\",\"style\":\"sl-no-table-row\"},{\"text\":\"{{registration_id}}\",\"style\":\"sl-no-table-row\"},{\"text\":\"{{name_of_the_individual}}\",\"fontSize\":\"9\"},{\"text\":\"{{guardian_name}}\",\"fontSize\":\"9\"},{\"text\":\"{{skill}}\",\"fontSize\":\"9\"},{\"text\":\"{{attendance_of_mon}}\",\"color\":\"{{mon_color_of_attendance}}\",\"border\":[false,true,false,true],\"fillColor\":\"{{background_color}}\",\"alignment\":\"center\"},{\"text\":\"{{attendance_of_tue}}\",\"color\":\"{{tue_color_of_attendance}}\",\"border\":[false,true,false,true],\"fillColor\":\"{{background_color}}\",\"alignment\":\"center\"},{\"text\":\"{{attendance_of_wed}}\",\"border\":[false,true,false,true],\"color\":\"{{wed_color_of_attendance}}\",\"fillColor\":\"{{background_color}}\",\"alignment\":\"center\"},{\"text\":\"{{attendance_of_thu}}\",\"color\":\"{{thu_color_of_attendance}}\",\"border\":[false,true,false,true],\"fillColor\":\"{{background_color}}\",\"alignment\":\"center\"},{\"text\":\"{{attendance_of_fri}}\",\"border\":[false,true,false,true],\"color\":\"{{fri_color_of_attendance}}\",\"fillColor\":\"{{background_color}}\",\"alignment\":\"center\"},{\"text\":\"{{attendance_of_sat}}\",\"color\":\"{{sat_color_of_attendance}}\",\"border\":[false,true,false,true],\"fillColor\":\"{{background_color}}\",\"alignment\":\"center\"},{\"text\":\"{{attendance_of_sun}}\",\"border\":[false,true,false,true],\"color\":\"{{sun_color_of_attendance}}\",\"fillColor\":\"{{background_color}}\",\"alignment\":\"center\"},{\"text\":\"{{days_worked}}\",\"fontSize\":\"9\"},{\"text\":\"{{days_worked}}\",\"fontSize\":\"9\"},{\"text\":\"{{per_day_wage}}\",\"fontSize\":\"9\"},{\"text\":\"{{total_wage}}\",\"fontSize\":\"9\"},{\"text\":\"{{bank_account_details}}\",\"fontSize\":\"9\"},{\"text\":\"{{aadhar_number}}\",\"fontSize\":\"9\"},{\"text\":\"\"}]{{/arrears}}",
+						"{{#total}}[{\"text\":\"{{_total}}\",\"colSpan\":\"5\",\"style\":\"table_last_row\",\"margin\":[20,0,0,0]},{},{},{},{},{\"text\":\"{{mon_day_total_attendance}}\",\"style\":\"table_last_row\",\"border\":\"[true,true,false,true]\",\"alignment\":\"center\"},{\"text\":\"{{tue_day_total_attendance}}\",\"style\":\"table_last_row\",\"border\":\"[false,true,false,true]\",\"alignment\":\"center\"},{\"text\":\"{{wed_day_total_attendance}}\",\"style\":\"table_last_row\",\"border\":\"[false,true,false,true]\",\"alignment\":\"center\"},{\"text\":\"{{thu_day_total_attendance}}\",\"style\":\"table_last_row\",\"border\":\"[false,true,false,true]\",\"alignment\":\"center\"},{\"text\":\"{{fri_day_total_attendance}}\",\"style\":\"table_last_row\",\"border\":\"[false,true,false,true]\",\"alignment\":\"center\"},{\"text\":\"{{sat_day_total_attendance}}\",\"style\":\"table_last_row\",\"border\":\"[false,true,false,true]\",\"alignment\":\"center\"},{\"text\":\"{{sun_day_total_attendance}}\",\"style\":\"table_last_row\",\"border\":\"[false,true,true,true]\",\"alignment\":\"center\"},{\"text\":\"{{total_day_worked}}\",\"style\":\"table_last_row\"},{\"text\":\"{{total_day_worked}}\",\"style\":\"table_last_row\"},{\"text\":\"{{total_wage}}\",\"colSpan\":\"5\",\"style\":\"table_last_row\",\"margin\":[45,0,0,0]},{},{},{},{}]{{/total}}"
 					]
+				},
+				"layout": {
+					"hLineColor": "#D6D5D4",
+					"vLineColor": "#D6D5D4"
 				}
 			}
 		],
 		"styles": {
 			"noc-head": {
 				"margin": [
-					-30,
-					-30,
-					0,
+					-40,
+					-40,
+					-40,
 					1
 				]
 			},
