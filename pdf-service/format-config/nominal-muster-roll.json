@@ -195,7 +195,7 @@
 								"bold": true
 							},
 							{
-								"text": "{{#total}}[{\"text\":\"{{total_wage}}\",\"fontSize\":15}]{{/total}}"
+								"text": "{{totalWageAmount}}"
 							}
 						],
 						[
@@ -214,7 +214,6 @@
 				"layout": "noBorders"
 			},
 			{
-				"pageBreak": "before",
 				"margin": [
 					-25,
 					0,
@@ -280,7 +279,7 @@
 									},
 									{
 										"bold": false,
-										"text": "{{mon_day}}"
+										"text": "{{#mon_day}}[{\"text\":\"{{date}}\"}]{{/mon_day}}"
 									}
 								]
 							},
@@ -298,7 +297,7 @@
 									},
 									{
 										"bold": false,
-										"text": "{{tue_day}}"
+										"text": "{{#tue_day}}[{\"text\":\"{{date}}\"}]{{/tue_day}}"
 									}
 								]
 							},
@@ -316,7 +315,7 @@
 									},
 									{
 										"bold": false,
-										"text": "{{wed_day}}"
+										"text": "{{#wed_day}}[{\"text\":\"{{date}}\"}]{{/wed_day}}"
 									}
 								]
 							},
@@ -334,7 +333,7 @@
 									},
 									{
 										"bold": false,
-										"text": "{{thu_day}}"
+										"text": "{{#thu_day}}[{\"text\":\"{{date}}\"}]{{/thu_day}}"
 									}
 								]
 							},
@@ -352,7 +351,7 @@
 									},
 									{
 										"bold": false,
-										"text": "{{fri_day}}"
+										"text": "{{#fri_day}}[{\"text\":\"{{date}}\"}]{{/fri_day}}"
 									}
 								]
 							},
@@ -370,7 +369,7 @@
 									},
 									{
 										"bold": false,
-										"text": "{{sat_day}}"
+										"text": "{{#sat_day}}[{\"text\":\"{{date}}\"}]{{/sat_day}}"
 									}
 								]
 							},
@@ -388,7 +387,7 @@
 									},
 									{
 										"bold": false,
-										"text": "{{sun_day}}"
+										"text": "{{#sun_day}}[{\"text\":\"{{date}}\"}]{{/sun_day}}"
 									}
 								]
 							},
@@ -431,7 +430,6 @@
 				}
 			}
 		],
-		"footer": "(function(currentPage, pageCount) { return { text: currentPage.toString() + ' of ' + pageCount.toString() + '  ', alignment: 'right'}})",
 		"styles": {
 			"noc-head": {
 				"margin": [
