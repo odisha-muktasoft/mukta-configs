@@ -650,6 +650,12 @@
                 "format": "var y=[],x=arguments[0];var total_day_worked=0; var total_wage=0; var sun_day_total_attendance=0;var fri_day_total_attendance=0; var mon_day_total_attendance=0; var tue_day_total_attendance=0; var wed_day_total_attendance=0; var thu_day_total_attendance=0; var thu_day_total_attendance=0; var sat_day_total_attendance=0; function rupeeFormat(amount){flag=0;var count=0;var amount=amount.toString(); var len=amount.length;var val=''; for(var i=len-1;i>=0;i--){ val=amount[i]+val;if(amount[i]=='.'){flag=1;count=-1;val=amount.substring(i,len)};if(count%2==0 && i!=0 && count!=0){val=','+val;};count+=1;};if(flag==0){val+='.00'};return val}; if(x){for(var i=0;i<x.length;i++){ mon_day_total_attendance= mon_day_total_attendance + x[i].attendanceEntries[6].attendance; tue_day_total_attendance= tue_day_total_attendance + x[i].attendanceEntries[5].attendance; wed_day_total_attendance= wed_day_total_attendance + x[i].attendanceEntries[4].attendance; thu_day_total_attendance= thu_day_total_attendance + x[i].attendanceEntries[3].attendance; fri_day_total_attendance= fri_day_total_attendance + x[i].attendanceEntries[2].attendance; sat_day_total_attendance= sat_day_total_attendance + x[i].attendanceEntries[1].attendance;sun_day_total_attendance= sun_day_total_attendance+x[i].attendanceEntries[0].attendance;total_day_worked+=x[i].actualTotalAttendance;total_wage+=x[i].totalWage}; total_wage=rupeeFormat(total_wage); y.push({'mon_day_total_attendance':mon_day_total_attendance, 'tue_day_total_attendance':tue_day_total_attendance, 'wed_day_total_attendance': wed_day_total_attendance, 'thu_day_total_attendance':thu_day_total_attendance, 'fri_day_total_attendance':fri_day_total_attendance, 'sat_day_total_attendance':sat_day_total_attendance,'sun_day_total_attendance':sun_day_total_attendance,'total_day_worked':total_day_worked,'total_wage':total_wage })}return y;"
               },
               {
+                "variable": "totalWageAmount",
+                "value": {
+                  "path": "$.totalWageAmount"
+                }
+              },
+              {
                 "variable": "len",
                 "value": {
                   "path": "$.individualEntries"
@@ -676,6 +682,7 @@
                   },
                   {
                     "variable": "website",
+
                     "value": "$.MdmsRes.tenant.tenants[0].domainUrl"
                   },
                   {

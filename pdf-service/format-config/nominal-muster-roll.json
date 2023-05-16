@@ -10,51 +10,51 @@
 			{
 				"style": "noc-head",
 				"table": {
-				"widths": [
-					60,
-					"*",
-					230
-				],
-				"body": [
-					[
-						{
-							"image": "{{logoImage}}",
-							"width": 50,
-						"height": 61.25,
-						"margin": [
-							10,
-							10,
-							0,
-							0
-						]
-					},
-					{
-						"stack": [
-							{
-							"text": "{{pdf_header}} {{subdivision}}",
-							"fontSize": 18,
-							"color": "#000000",
-							"bold": true
-						},
-						{
-							"text": "{{address}}",
-							"fontSize": 10,
-							"color": "#000000"
-						},
-						{
-							"text": "{{phoneNumber}} | {{email}}",
-							"fontSize": 10,
-							"color": "#000000"
-						}
+					"widths": [
+						60,
+						"*",
+						230
 					],
-					"alignment": "left",
-					"margin": [
-						10,
-						10,
-						0,
-						0
-					]
-				},
+					"body": [
+						[
+							{
+								"image": "{{logoImage}}",
+								"width": 50,
+								"height": 61.25,
+								"margin": [
+									10,
+									10,
+									0,
+									0
+								]
+							},
+							{
+								"stack": [
+									{
+										"text": "{{pdf_header}} {{subdivision}}",
+										"fontSize": 18,
+										"color": "#000000",
+										"bold": true
+									},
+									{
+										"text": "{{address}}",
+										"fontSize": 10,
+										"color": "#000000"
+									},
+									{
+										"text": "{{phoneNumber}} | {{email}}",
+										"fontSize": 10,
+										"color": "#000000"
+									}
+								],
+								"alignment": "left",
+								"margin": [
+									10,
+									10,
+									0,
+									0
+								]
+							},
 							{
 								"stack": [
 									{
@@ -195,7 +195,7 @@
 								"bold": true
 							},
 							{
-								"text": "{{#total}}[{\"text\":\"{{total_wage}}\",\"fontSize\":15}]{{/total}}"
+								"text": "{{totalWageAmount}}"
 							}
 						],
 						[

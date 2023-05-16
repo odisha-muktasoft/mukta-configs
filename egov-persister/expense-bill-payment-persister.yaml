@@ -396,7 +396,7 @@ serviceMaps:
       description: create payment in eg_expense_payment
       fromTopic: expense-payment-create
       queryMaps:
-        - query: INSERT INTO eg_expense_payment(id, tenantid, netpayableamount, netpaidamount, status, createdby, createdtime, lastmodifiedby, lastmodifiedtime, additionaldetails) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+        - query: INSERT INTO eg_expense_payment(id, tenantid, netpayableamount, netpaidamount, paymentnumber, status, createdby, createdtime, lastmodifiedby, lastmodifiedtime, additionaldetails) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
           basePath: $.payment
           jsonMaps:
 
@@ -407,6 +407,8 @@ serviceMaps:
             - jsonPath: $.payment.netPayableAmount
 
             - jsonPath: $.payment.netPaidAmount
+
+            - jsonPath: $.payment.paymentNumber
 
             - jsonPath: $.payment.status
 
