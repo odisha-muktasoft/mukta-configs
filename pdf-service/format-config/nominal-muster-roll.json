@@ -10,51 +10,51 @@
 			{
 				"style": "noc-head",
 				"table": {
-				"widths": [
-					60,
-					"*",
-					230
-				],
-				"body": [
-					[
-						{
-							"image": "{{logoImage}}",
-							"width": 50,
-						"height": 61.25,
-						"margin": [
-							10,
-							10,
-							0,
-							0
-						]
-					},
-					{
-						"stack": [
-							{
-							"text": "{{pdf_header}} {{subdivision}}",
-							"fontSize": 18,
-							"color": "#000000",
-							"bold": true
-						},
-						{
-							"text": "{{address}}",
-							"fontSize": 10,
-							"color": "#000000"
-						},
-						{
-							"text": "{{phoneNumber}} | {{email}}",
-							"fontSize": 10,
-							"color": "#000000"
-						}
+					"widths": [
+						60,
+						"*",
+						230
 					],
-					"alignment": "left",
-					"margin": [
-						10,
-						10,
-						0,
-						0
-					]
-				},
+					"body": [
+						[
+							{
+								"image": "{{logoImage}}",
+								"width": 50,
+								"height": 61.25,
+								"margin": [
+									10,
+									10,
+									0,
+									0
+								]
+							},
+							{
+								"stack": [
+									{
+										"text": "{{pdf_header}} {{subdivision}}",
+										"fontSize": 18,
+										"color": "#000000",
+										"bold": true
+									},
+									{
+										"text": "{{address}}",
+										"fontSize": 10,
+										"color": "#000000"
+									},
+									{
+										"text": "{{phoneNumber}} | {{email}}",
+										"fontSize": 10,
+										"color": "#000000"
+									}
+								],
+								"alignment": "left",
+								"margin": [
+									10,
+									10,
+									0,
+									0
+								]
+							},
 							{
 								"stack": [
 									{
@@ -214,6 +214,7 @@
 				"layout": "noBorders"
 			},
 			{
+				"pageBreak": "before",
 				"margin": [
 					-25,
 					0,
@@ -279,7 +280,7 @@
 									},
 									{
 										"bold": false,
-										"text": "{{#mon_day}}[{\"text\":\"{{date}}\"}]{{/mon_day}}"
+										"text": "{{mon_day}}"
 									}
 								]
 							},
@@ -297,7 +298,7 @@
 									},
 									{
 										"bold": false,
-										"text": "{{#tue_day}}[{\"text\":\"{{date}}\"}]{{/tue_day}}"
+										"text": "{{tue_day}}"
 									}
 								]
 							},
@@ -315,7 +316,7 @@
 									},
 									{
 										"bold": false,
-										"text": "{{#wed_day}}[{\"text\":\"{{date}}\"}]{{/wed_day}}"
+										"text": "{{wed_day}}"
 									}
 								]
 							},
@@ -333,7 +334,7 @@
 									},
 									{
 										"bold": false,
-										"text": "{{#thu_day}}[{\"text\":\"{{date}}\"}]{{/thu_day}}"
+										"text": "{{thu_day}}"
 									}
 								]
 							},
@@ -351,7 +352,7 @@
 									},
 									{
 										"bold": false,
-										"text": "{{#fri_day}}[{\"text\":\"{{date}}\"}]{{/fri_day}}"
+										"text": "{{fri_day}}"
 									}
 								]
 							},
@@ -369,7 +370,7 @@
 									},
 									{
 										"bold": false,
-										"text": "{{#sat_day}}[{\"text\":\"{{date}}\"}]{{/sat_day}}"
+										"text": "{{sat_day}}"
 									}
 								]
 							},
@@ -387,7 +388,7 @@
 									},
 									{
 										"bold": false,
-										"text": "{{#sun_day}}[{\"text\":\"{{date}}\"}]{{/sun_day}}"
+										"text": "{{sun_day}}"
 									}
 								]
 							},
@@ -430,6 +431,7 @@
 				}
 			}
 		],
+		"footer": "(function(currentPage, pageCount) { return { text: currentPage.toString() + ' of ' + pageCount.toString() + '  ', alignment: 'right'}})",
 		"styles": {
 			"noc-head": {
 				"margin": [
