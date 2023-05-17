@@ -33,7 +33,7 @@
                 "localisation": {
                   "required": true,
                   "prefix": null,
-                  "module": "rainmaker-od"
+                  "module": "rainmaker-common"
                 }
               },
               {
@@ -291,8 +291,8 @@
                 },
                 "localisation": {
                   "required": true,
-                  "prefix": "OD_CITYA_ADMIN",
-                  "module": "rainmaker-od.citya"
+                  "prefix": "OD_WARD_ADMIN",
+                  "module": "rainmaker-ward-locality"
                 }
               },
               {
@@ -302,8 +302,8 @@
                 },
                 "localisation": {
                   "required": true,
-                  "prefix": "OD_CITYA_ADMIN",
-                  "module": "rainmaker-od.citya"
+                  "prefix": "OD_LOCALITY_ADMIN",
+                  "module": "rainmaker-ward-locality"
                 }
               }
             ]
