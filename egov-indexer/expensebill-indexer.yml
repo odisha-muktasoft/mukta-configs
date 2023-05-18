@@ -19,7 +19,7 @@ ServiceMaps:
            - inJsonPath: $.tenantId
              outJsonPath: $.Data.tenantId
            - inJsonPath: $.billNumber
-             outJsonPath: $.Data.billNumber
+             outJsonPath: $.Data.billNumber  
            - inJsonPath: $.billDate
              outJsonPath: $.Data.billDate
            - inJsonPath: $.dueDate
@@ -39,7 +39,7 @@ ServiceMaps:
            - inJsonPath: $.paymentStatus
              outJsonPath: $.Data.paymentStatus
            - inJsonPath: $.status
-             outJsonPath: $.Data.status
+             outJsonPath: $.Data.status   
            - inJsonPath: $.payer
              outJsonPath: $.Data.payer
            - inJsonPath: $.billDetails
@@ -53,13 +53,13 @@ ServiceMaps:
            - inJsonPath: $.additionalDetails.ward
              outJsonPath: $.Data.ward
            - inJsonPath: $.additionalDetails.projectName
-             outJsonPath: $.Data.projectName
+             outJsonPath: $.Data.projectName  
            - inJsonPath: $.additionalDetails.orgName
              outJsonPath: $.Data.orgName
            externalUriMapping:
            - path: http://egov-workflow-v2.egov:8080/egov-workflow-v2/egov-wf/process/_search
              queryParam: businessIds=$.billNumber,history=true,tenantId=$.tenantId
-             apiRequest: {"RequestInfo":{"apiId":"org.egov.bill","ver":"1.0","ts":1502890899493,"action":"asd","did":"4354648646","key":"xyz","msgId":"654654","requesterId":"61","authToken":"d9994555-7656-4a67-ab3a-a952a0d4dfc8","userInfo":{"id":1,"uuid":"1fec8102-0e02-4d0a-b283-cd80d5dab067","type":"EMPLOYEE","tenantId":"statea.cityone","roles":[{"name":"Employee","code":"EMPLOYEE","tenantId":"statea.cityone"}]}}}
+             apiRequest: {"RequestInfo":{"apiId":"org.egov.bill","ver":"1.0","ts":1502890899493,"action":"asd","did":"4354648646","key":"xyz","msgId":"654654","requesterId":"61","authToken":"d9994555-7656-4a67-ab3a-a952a0d4dfc8","userInfo":{"id":1,"uuid":"1fec8102-0e02-4d0a-b283-cd80d5dab067","type":"EMPLOYEE","tenantId":"od","roles":[{"name":"Employee","code":"EMPLOYEE","tenantId":"od"}]}}}
              uriResponseMapping:
              - inJsonPath: $.ProcessInstances
                outJsonPath: $.Data.history
@@ -83,7 +83,7 @@ ServiceMaps:
            - inJsonPath: $.tenantId
              outJsonPath: $.Data.tenantId
            - inJsonPath: $.billNumber
-             outJsonPath: $.Data.billNumber
+             outJsonPath: $.Data.billNumber 
            - inJsonPath: $.billDate
              outJsonPath: $.Data.billDate
            - inJsonPath: $.dueDate
@@ -103,7 +103,7 @@ ServiceMaps:
            - inJsonPath: $.paymentStatus
              outJsonPath: $.Data.paymentStatus
            - inJsonPath: $.status
-             outJsonPath: $.Data.status
+             outJsonPath: $.Data.status   
            - inJsonPath: $.payer
              outJsonPath: $.Data.payer
            - inJsonPath: $.billDetails
@@ -117,7 +117,7 @@ ServiceMaps:
            - inJsonPath: $.additionalDetails.ward
              outJsonPath: $.Data.ward
            - inJsonPath: $.additionalDetails.projectName
-             outJsonPath: $.Data.projectName
+             outJsonPath: $.Data.projectName  
            - inJsonPath: $.additionalDetails.orgName
              outJsonPath: $.Data.orgName
            externalUriMapping:
@@ -167,7 +167,7 @@ ServiceMaps:
            - inJsonPath: $.paymentStatus
              outJsonPath: $.Data.paymentStatus
            - inJsonPath: $.status
-             outJsonPath: $.Data.status
+             outJsonPath: $.Data.status   
            - inJsonPath: $.payer
              outJsonPath: $.Data.payer
            - inJsonPath: $.billDetails
@@ -181,7 +181,7 @@ ServiceMaps:
            - inJsonPath: $.additionalDetails.ward
              outJsonPath: $.Data.ward
            - inJsonPath: $.additionalDetails.projectName
-             outJsonPath: $.Data.projectName
+             outJsonPath: $.Data.projectName  
            - inJsonPath: $.additionalDetails.orgName
              outJsonPath: $.Data.orgName
            externalUriMapping:
