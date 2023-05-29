@@ -268,42 +268,27 @@
 
               },
               {
-                "variable": "addressLine1",
+                "variable": "latlong",
                 "value": {
-                  "path": "$.address.addressLine1"
+                  "path": "$.address.pdfLatlong"
                 }
               },
               {
                 "variable": "city",
                 "value": {
                   "path": "$.address.city"
-                },
-                "localisation": {
-                  "required": true,
-                  "prefix": "TENANT_TENANTS",
-                  "module": "rainmaker-od"
                 }
               },
               {
                 "variable": "ward",
                 "value": {
                   "path": "$.address.boundary"
-                },
-                "localisation": {
-                  "required": true,
-                  "prefix": "OD_WARD_ADMIN",
-                  "module": "rainmaker-ward-locality"
                 }
               },
               {
                 "variable": "boundary",
                 "value": {
                   "path": "$.additionalDetails.locality"
-                },
-                "localisation": {
-                  "required": true,
-                  "prefix": "OD_LOCALITY_ADMIN",
-                  "module": "rainmaker-ward-locality"
                 }
               }
             ]
