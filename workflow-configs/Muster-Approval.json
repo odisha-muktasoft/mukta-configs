@@ -28,7 +28,7 @@
           "actions": [
             {
               "action": "SUBMIT",
-              "nextState": "PENDINGFORVERIFICATION",
+              "nextState": "PENDINGFORAPPROVAL",
               "roles": [
                 "ORG_ADMIN"
               ]
@@ -36,46 +36,13 @@
           ]
         },
         {
-          "sla": 172800000,
-          "state": "PENDINGFORVERIFICATION",
-          "applicationStatus": "INWORKFLOW",
-          "docUploadRequired": false,
-          "isStartState": false,
-          "isTerminateState": false,
-          "isStateUpdatable": true,
-          "actions": [
-            {
-              "action": "VERIFYANDFORWARD",
-              "nextState": "PENDINGFORAPPROVAL",
-              "roles": [
-                "MUSTER_ROLL_VERIFIER"
-              ]
-            },
-            {
-            "action": "RE-SUBMIT",
-              "nextState": "PENDINGFORAPPROVAL",
-              "roles": [
-                "MUSTER_ROLL_VERIFIER"
-              ]
-            },
-            {
-              "action": "SENDBACKTOCBO",
-              "nextState": "PENDINGFORCORRECTION",
-              "roles": [
-                "MUSTER_ROLL_VERIFIER"
-              ]
-            }
-          ]
-        },
-
-        {
           "sla": 86400000,
           "state": "PENDINGFORAPPROVAL",
           "applicationStatus": "INWORKFLOW",
           "docUploadRequired": false,
           "isStartState": false,
           "isTerminateState": false,
-          "isStateUpdatable": true,
+          "isStateUpdatable": false,
           "actions": [
             {
               "action": "SENDBACK",
