@@ -153,7 +153,7 @@ serviceMaps:
    transactionCodeJsonPath: $.contractNumber
    auditAttributeBasePath: $.contract
    queryMaps:
-     - query: UPDATE eg_wms_contract set wf_status = ?, executing_authority = ?, contract_type = ?, total_contracted_amount = ?, security_deposit = ?, agreement_date = ?, defect_liability_period = ?, start_date = ?, end_date = ?, status = ?, additional_details = ?, created_by = ?, last_modified_by = ?, created_time = ?, last_modified_time = ?, issue_date = ?, completion_period = ? where id = ? ;
+     - query: UPDATE eg_wms_contract set wf_status = ?, executing_authority = ?, contract_type = ?, total_contracted_amount = ?, security_deposit = ?, agreement_date = ?, defect_liability_period = ?, start_date = ?, end_date = ?, status = ?, additional_details = ?, created_by = ?, last_modified_by = ?, created_time = ?, last_modified_time = ?, issue_date = ?, completion_period = ?, org_id = ? where id = ? ;
        basePath: $.contract
        jsonMaps:
          - jsonPath: $.contract.wfStatus
@@ -191,6 +191,8 @@ serviceMaps:
          - jsonPath: $.contract.issueDate
 
          - jsonPath: $.contract.completionPeriod
+
+         - jsonPath: $.contract.orgId
 
          - jsonPath: $.contract.id
 

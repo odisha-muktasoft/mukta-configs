@@ -160,7 +160,7 @@
                 ]
               },
               {
-                "text": "{{address1}}, {{address2}}, {{address3}}, {{address4}}",
+                "text": "{{cboAddress}}",
                 "margin": [
                   0,
                   -3,
@@ -212,10 +212,10 @@
               },
               {
                 "fontSize": 11,
-                "text": "        ଏହି କାର୍ଯ୍ୟ ଆଦେଶ ସପକ୍ଷରେ ଜାରି କରାଯାଇଛି {{officer_incharge}}/{{cbo}}ଏବଂ ସଂଗଠନକୁ ଏକଜେକ୍ୟୁଟ୍ କରିବା ଭାବରେ ଚୟନ କରାଯାଇଛି {{implementation_agency}}.ତେଣୁ ଏହି କାର୍ଯ୍ୟ ଅର୍ଡର ପ୍ରଦାନ ତାରିଖ ଠାରୁ {{sla_days}} ଦିନ ମଧ୍ୟରେ କାର୍ଯ୍ୟ କ୍ରମାଙ୍କ ଗ୍ରହଣକୁ ଦାଖଲ କରିବାକୁ ସଂଗଠନକୁ ସୂଚନା"
+                "text": "        ଏହି କାର୍ଯ୍ୟ ଆଦେଶ ସପକ୍ଷରେ ଜାରି କରାଯାଇଛି {{name_of_issued_to}} ଏବଂ ସଂଗଠନକୁ ଏକଜେକ୍ୟୁଟ୍ କରିବା ଭାବରେ ଚୟନ କରାଯାଇଛି {{implementation_agency}}.ତେଣୁ ଏହି କାର୍ଯ୍ୟ ଅର୍ଡର ପ୍ରଦାନ ତାରିଖ ଠାରୁ {{work_order_acceptance_days}} ଦିନ ମଧ୍ୟରେ କାର୍ଯ୍ୟ କ୍ରମାଙ୍କ ଗ୍ରହଣକୁ ଦାଖଲ କରିବାକୁ ସଂଗଠନକୁ ସୂଚନା"
               },
               {
-                "text": "{{#due_date}}[{\"text\":\"{{dueDate}}\"}]{{/due_date}}"
+                "text": "{{sla_date}}"
               },
               {
                 "text": " द्वारा."
@@ -288,7 +288,7 @@
             "text": "{{ulb_name}}"
           },
           {
-            "text": "{{#approval_date}}[{\"text\":\"{{approvalDate}}\"}]{{/approval_date}}"
+            "text": "{{accepted_date}}"
           }
         ]
       }

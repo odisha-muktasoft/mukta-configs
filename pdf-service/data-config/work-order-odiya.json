@@ -180,6 +180,12 @@
                 }
               },
               {
+                "variable": "name_of_issued_to", 
+                "value": {
+                  "path": "$.pdfNameOfIssuedTo"
+                }
+              },
+              {
                 "variable": "implementation_agency", 
                 "value": {
                   "path": "$.executingAuthority"
@@ -191,12 +197,24 @@
                 }
               },
               {
-                "variable": "due_date",
+                "variable": "work_order_acceptance_days",
                 "value": {
-                  "path": "$"
+                  "path": "$.pdfWorkOrdAcceptanceDays"
+                }
+              },
+              {
+                "variable": "accepted_date",
+                "value": {
+                  "path": "$.pdfAcceptedDate"
                 },
-                "type": "function",
-                "format": "var a=[]; start_date=arguments[0].startDate; completion_period=arguments[0].completionPeriod; function approveDate(date,period){var result = date.setDate(date.getDate() + period);return new Date(result).toLocaleDateString();}{if(start_date==null || start_date==0){a.push({'dueDate':approveDate(new Date(),completion_period)});} else{a.push({'dueDate':approveDate(new Date(parseInt(start_date)),completion_period)});}} return a;"
+                "type": "date"
+              },
+              {
+                "variable": "sla_date",
+                "value": {
+                  "path": "$.pdfSlaDate"
+                },
+                "type": "date"
               },
               {
                 "variable": "no_days_to_complete", 
@@ -204,7 +222,7 @@
                   "path": "$.completionPeriod"
                 }
               },
-              
+
               
               {
                 "variable": "sla_days", 
@@ -273,6 +291,12 @@
                 "variable": "address3", 
                 "value": {
                   "path": "$.city"
+                }
+              },
+              {
+                "variable": "cboAddress",
+                "value": {
+                  "path": "$.pdfCboAddress"
                 }
               },
               {
@@ -414,7 +438,7 @@
                           "localisation": {
                             "required": true,
                             "prefix": null,
-                            "module": "rainmaker-common"
+                            "module": "rainmaker-od"
                           }
                         }
                       ]
@@ -434,7 +458,7 @@
                           "localisation": {
                             "required": true,
                             "prefix": null,
-                            "module": "rainmaker-common"
+                            "module": "rainmaker-od"
                           }
                         }
                       ]
@@ -454,7 +478,7 @@
                           "localisation": {
                             "required": true,
                             "prefix": null,
-                            "module": "rainmaker-common"
+                            "module": "rainmaker-od"
                           }
                         }
                       ]
@@ -474,7 +498,7 @@
                           "localisation": {
                             "required": true,
                             "prefix": null,
-                            "module": "rainmaker-common"
+                            "module": "rainmaker-od"
                           }
                         }
                       ]
