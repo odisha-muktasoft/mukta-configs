@@ -160,7 +160,7 @@
                 ]
               },
               {
-                "text": "{{address1}}, {{address2}}, {{address3}}, {{address4}}",
+                "text": "{{cboAddress}}",
                 "margin": [
                   0,
                   -3,
@@ -212,10 +212,10 @@
               },
               {
                 "fontSize": 11,
-                "text": "        This work order is issued in the favor of {{officer_incharge}}/{{cbo}} and to execute the work the organization {{cbo}} has been selected as {{implementation_agency}}. Therefore the organization is informed to submit the acceptance of the work order maximum within {{sla_days}} days from the date of issue of this work order i.e. by "
+                "text": "        This work order is issued in the favor of {{name_of_issued_to}} and to execute the work the organization {{cbo}} has been selected as {{implementation_agency}}. Therefore the organization is informed to submit the acceptance of the work order within {{work_order_acceptance_days}} days from the date of issue of this work order i.e. by "
               },
               {
-                "text": "{{#due_date}}[{\"text\":\"{{dueDate}}\"}]{{/due_date}}"
+                "text": "{{sla_date}}"
               },
               {
                 "text": " ."
@@ -288,7 +288,7 @@
             "text": "{{ulb_name}}"
           },
           {
-            "text": "{{#approval_date}}[{\"text\":\"{{approvalDate}}\"}]{{/approval_date}}"
+            "text": "{{accepted_date}}"
           }
         ]
       }
