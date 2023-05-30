@@ -45,13 +45,6 @@
           "isStateUpdatable": false,
           "actions": [
             {
-              "action": "SENDBACK",
-              "nextState": "PENDINGFORVERIFICATION",
-              "roles": [
-                "MUSTER_ROLL_APPROVER"
-              ]
-            },
-            {
               "action": "SENDBACKTOCBO",
               "nextState": "PENDINGFORCORRECTION",
               "roles": [
@@ -78,7 +71,7 @@
           "actions": [
             {
               "action": "RE-SUBMIT",
-              "nextState": "PENDINGFORVERIFICATION",
+              "nextState": "PENDINGFORAPPROVAL",
               "roles": [
                 "ORG_ADMIN"
               ]
