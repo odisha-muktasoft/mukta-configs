@@ -55,13 +55,6 @@
               ]
             },
             {
-              "action": "RE-SUBMIT",
-              "nextState": "PENDING_FOR_APPROVAL",
-              "roles": [
-                "BILL_VERIFIER"
-              ]
-            },
-            {
               "action": "SEND_BACK",
               "nextState": "PENDING_FOR_CORRECTION",
               "roles": [
