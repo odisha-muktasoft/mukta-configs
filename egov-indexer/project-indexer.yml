@@ -8,7 +8,7 @@ ServiceMaps:
         - name: project-index
           type: general
           id: $.id,$.tenantId
-          jsonPath: $.Project.*
+          jsonPath: $.Projects.*
           isBulk: true
           timeStampField: $.auditDetails.createdTime
           customJsonMapping:
@@ -65,7 +65,7 @@ ServiceMaps:
         - name: project-index
           type: general
           id: $.id,$.tenantId
-          jsonPath: $.Project.*
+          jsonPath: $.Projects.*
           isBulk: true
           timeStampField: $.auditDetails.createdTime
           customJsonMapping:
@@ -122,7 +122,7 @@ ServiceMaps:
         - name: project-index
           type: general
           id: $.id,$.tenantId
-          jsonPath: $.Project.*
+          jsonPath: $.Projects.*
           isBulk: true
           timeStampField: $.auditDetails.createdTime
           customJsonMapping:

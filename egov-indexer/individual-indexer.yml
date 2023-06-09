@@ -12,7 +12,7 @@ ServiceMaps:
           jsonPath: $.*
           timeStampField: $.auditDetails.createdTime
           customJsonMapping:
-            indexMapping: { "Data":{"id":"","individualId":"","tenantId":"","clientReferenceId":"","userId":"","name":{},"dateOfBirth":"","gender":"","bloodGroup":"","mobileNumber":"","altContactNumber":"","email":"","address":[],"fatherName":"","husbandName":"","relationship":"","identifiers":[],"skills":[],"photo":"","additionalFields":{},"isDeleted":"","rowVersion":"","@timestamp":"","auditDetails":{}}}
+            indexMapping: { "Data":{"id":"","individualId":"","tenantId":"","clientReferenceId":"","userId":"","name":{},"dateOfBirth":"","gender":"","bloodGroup":"","mobileNumber":"","altContactNumber":"","email":"","address":[],"fatherName":"","husbandName":"","relationship":"","identifiers":[],"skills":[],"photo":"","additionalFields":{},"socialCategoryKey":"","socialCategoryValue":"","isDeleted":"","rowVersion":"","@timestamp":"","auditDetails":{}}}
             fieldMapping:
             - inJsonPath: $.id
               outJsonPath: $.Data.id
@@ -54,6 +54,10 @@ ServiceMaps:
               outJsonPath: $.Data.photo
             - inJsonPath: $.additionalFields
               outJsonPath: $.Data.additionalFields
+            - inJsonPath: $.additionalFields.fields[0].key
+              outJsonPath: $.Data.socialCategoryKey
+            - inJsonPath: $.additionalFields.fields[0].value
+              outJsonPath: $.Data.socialCategoryValue
             - inJsonPath: $.isDeleted
               outJsonPath: $.Data.isDeleted
             - inJsonPath: $.rowVersion
@@ -70,7 +74,7 @@ ServiceMaps:
           jsonPath: $.*
           timeStampField: $.auditDetails.lastModifiedTime
           customJsonMapping:
-            indexMapping: { "Data": { "id": "","individualId": "","tenantId": "","clientReferenceId": "","userId": "","name": { },"dateOfBirth": "","gender": "","bloodGroup": "","mobileNumber": "","altContactNumber": "","email": "","address": [ ],"fatherName": "","husbandName": "","relationship": "","identifiers": [ ],"skills": [ ],"photo": "","additionalFields": { },"isDeleted": "","rowVersion": "","@timestamp": "","auditDetails": { } } }
+            indexMapping: { "Data": { "id": "","individualId": "","tenantId": "","clientReferenceId": "","userId": "","name": { },"dateOfBirth": "","gender": "","bloodGroup": "","mobileNumber": "","altContactNumber": "","email": "","address": [ ],"fatherName": "","husbandName": "","relationship": "","identifiers": [ ],"skills": [ ],"photo": "","additionalFields": { },"socialCategoryKey":"","socialCategoryValue":"","isDeleted": "","rowVersion": "","@timestamp": "","auditDetails": { } } }
             fieldMapping:
               - inJsonPath: $.id
                 outJsonPath: $.Data.id
@@ -112,6 +116,10 @@ ServiceMaps:
                 outJsonPath: $.Data.photo
               - inJsonPath: $.additionalFields
                 outJsonPath: $.Data.additionalFields
+              - inJsonPath: $.additionalFields.fields[0].key
+                outJsonPath: $.Data.socialCategoryKey
+              - inJsonPath: $.additionalFields.fields[0].value
+                outJsonPath: $.Data.socialCategoryValue
               - inJsonPath: $.isDeleted
                 outJsonPath: $.Data.isDeleted
               - inJsonPath: $.rowVersion
@@ -128,7 +136,7 @@ ServiceMaps:
           jsonPath: $.*
           timeStampField: $.auditDetails.lastModifiedTime
           customJsonMapping:
-            indexMapping: { "Data": { "id": "","individualId": "","tenantId": "","clientReferenceId": "","userId": "","name": { },"dateOfBirth": "","gender": "","bloodGroup": "","mobileNumber": "","altContactNumber": "","email": "","address": [ ],"fatherName": "","husbandName": "","relationship": "","identifiers": [ ],"skills": [ ],"photo": "","additionalFields": { },"isDeleted": "","rowVersion": "","@timestamp": "","auditDetails": { } } }
+            indexMapping: { "Data": { "id": "","individualId": "","tenantId": "","clientReferenceId": "","userId": "","name": { },"dateOfBirth": "","gender": "","bloodGroup": "","mobileNumber": "","altContactNumber": "","email": "","address": [ ],"fatherName": "","husbandName": "","relationship": "","identifiers": [ ],"skills": [ ],"photo": "","additionalFields": { },"socialCategoryKey":"","socialCategoryValue":"","isDeleted": "","rowVersion": "","@timestamp": "","auditDetails": { } } }
             fieldMapping:
               - inJsonPath: $.id
                 outJsonPath: $.Data.id
@@ -170,6 +178,10 @@ ServiceMaps:
                 outJsonPath: $.Data.photo
               - inJsonPath: $.additionalFields
                 outJsonPath: $.Data.additionalFields
+              - inJsonPath: $.additionalFields.fields[0].key
+                outJsonPath: $.Data.socialCategoryKey
+              - inJsonPath: $.additionalFields.fields[0].value
+                outJsonPath: $.Data.socialCategoryValue
               - inJsonPath: $.isDeleted
                 outJsonPath: $.Data.isDeleted
               - inJsonPath: $.rowVersion
