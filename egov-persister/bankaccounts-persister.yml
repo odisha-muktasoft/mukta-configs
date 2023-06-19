@@ -141,7 +141,7 @@ serviceMaps:
           - jsonPath: $.bankAccounts.*.id
           
           
-      - query: UPDATE eg_bank_account_detail set account_holder_name=?, account_type=?, is_primary=?,is_active=?, additional_details=?,last_modified_by=?, last_modified_time=? where id=?;
+      - query: UPDATE eg_bank_account_detail set account_holder_name=?, account_type=?, account_number=?, is_primary=?,is_active=?, additional_details=?,last_modified_by=?, last_modified_time=? where id=?;
 
         basePath: $.bankAccounts.*.bankAccountDetails.*
         jsonMaps:
@@ -149,6 +149,8 @@ serviceMaps:
         - jsonPath: $.bankAccounts.*.bankAccountDetails.*.accountHolderName
 
         - jsonPath: $.bankAccounts.*.bankAccountDetails.*.accountType
+
+        - jsonPath: $.bankAccounts.*.bankAccountDetails.*.accountNumber
         
         - jsonPath: $.bankAccounts.*.bankAccountDetails.*.isPrimary
 

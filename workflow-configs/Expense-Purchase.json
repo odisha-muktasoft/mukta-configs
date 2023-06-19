@@ -45,17 +45,10 @@
           "docUploadRequired": false,
           "isStartState": false,
           "isTerminateState": false,
-          "isStateUpdatable": true,
+          "isStateUpdatable": false,
           "actions": [
             {
               "action": "VERIFY_AND_FORWARD",
-              "nextState": "PENDING_FOR_APPROVAL",
-              "roles": [
-                "BILL_VERIFIER"
-              ]
-            },
-            {
-              "action": "RE-SUBMIT",
               "nextState": "PENDING_FOR_APPROVAL",
               "roles": [
                 "BILL_VERIFIER"

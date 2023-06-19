@@ -218,7 +218,7 @@
                 "text": "{{sla_date}}"
               },
               {
-                "text": " द्वारा."
+                "text": " ଦୂାରା|"
               }
             ]
           },
@@ -333,7 +333,7 @@
       },
       {
         "bold": true,
-        "italics": true,
+        "italics": false,
         "fontSize": 14,
         "text": "{{ia_condition}}"
       },
@@ -351,7 +351,7 @@
       },
       {
         "bold": true,
-        "italics": true,
+        "italics": false,
         "fontSize": 14,
         "text": "{{ip_condition}}"
       },
@@ -369,7 +369,7 @@
       },
       {
         "bold": true,
-        "italics": true,
+        "italics": false,
         "fontSize": 14,
         "text": "{{non_condition}}"
       },
@@ -387,7 +387,7 @@
       },
       {
         "bold": true,
-        "italics": true,
+        "italics": false,
         "fontSize": 14,
         "text": "{{general_condition}}"
       },
@@ -434,7 +434,7 @@
         }
       },
       {
-        "italics": true,
+        "italics": false,
         "fontSize": 10,
         "margin": [
           0,
@@ -458,7 +458,7 @@
         ]
       },
       "condition": {
-        "italics": true,
+        "italics": false,
         "fontSize": 14,
         "color": "#343333"
       },
