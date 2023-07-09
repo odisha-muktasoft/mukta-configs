@@ -1,5 +1,5 @@
 {
-  "key": "work-order",
+  "key": "work-order_ia",
   "documentType":"WORK-ORDER",
   "DataConfigs": {
     "moduleName": "rainmaker-common",
@@ -18,18 +18,6 @@
                 "variable": "ia_condition",
                 "value": {
                   "path": "WORK_ORDER_CONDITIONS_FOR_IMPLEMENTATION_AGENCY"
-                },
-                "type": "label",
-                "localisation": {
-                  "required": true,
-                  "prefix": null,
-                  "module": "rainmaker-common"
-                }
-              },
-              {
-                "variable": "ip_condition",
-                "value": {
-                  "path": "WORK_ORDER_CONDITIONS_FOR_IMPLEMENTATION_PARTNER"
                 },
                 "type": "label",
                 "localisation": {
@@ -319,6 +307,19 @@
                   "path": "$.contactName"
                 }
               },
+              {
+                "variable": "projectName",
+                "value": {
+                  "path": "$.additionalDetails.projectName"
+                }
+              },
+              {
+                "variable": "issuedDate",
+                "value": {
+                  "path": "$.issueDate"
+                },
+                "type": "date"
+              },
               
               {
                 "variable": "termsAndConditions", 
@@ -339,6 +340,30 @@
                   "prefix": null,
                   "module":"rainmaker-common"
                }
+              },
+              {
+                "variable": "SchemeName",
+                "value": {
+                  "path": "MUKHYA_MANTRI_KARMA_TATPARA_ABHIYAN"
+                },
+                "type": "label",
+                "localisation":{
+                  "required":true,
+                  "prefix": null,
+                  "module":"rainmaker-common"
+                }
+              },
+              {
+                "variable": "FillerTextName",
+                "value": {
+                  "path": "TRANSFORMATION_OF_CITY"
+                },
+                "type": "label",
+                "localisation":{
+                  "required":true,
+                  "prefix": null,
+                  "module":"rainmaker-common"
+                }
               },
               {
                 "variable": "Municipal_Corporation",
@@ -374,6 +399,107 @@
                   "prefix": null,
                   "module": "rainmaker-common"
                 }
+              },
+              {
+                "variable": "WorkOderNumber",
+                "value": {
+                  "path": "WORKS_ORDER_NO"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "rainmaker-common"
+                }
+              },
+              {
+                "variable": "Salutation",
+                "value": {
+                  "path": "SALUTATION"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "rainmaker-common"
+                }
+              },
+              {
+                "variable": "PresidentDesignation",
+                "value": {
+                  "path": "PRESIDENTS_DESIGNATION"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "rainmaker-common"
+                }
+              },
+              {
+                "variable": "SecretaryDesignation",
+                "value": {
+                  "path": "SECRETARY_DESIGNATION"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "rainmaker-common"
+                }
+              },
+              {
+                "variable": "Date",
+                "value": {
+                  "path": "ES_COMMON_DATE"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "rainmaker-common"
+                }
+              },
+              {
+                "variable": "muktaaccountant",
+                "value": {
+                  "path": "$.accountantDetailsName"
+                }
+              },
+              {
+                "variable": "accountantdesignation",
+                "value": {
+                  "path": "$.accountantDetailsDesignation"
+                },
+                "localisation": {
+                  "required": true,
+                  "prefix": "COMMON_MASTERS_DESIGNATION",
+                  "module": "rainmaker-common"
+                }
+              },
+              {
+                "variable": "contactnumber",
+                "value": {
+                  "path": "$.accountantDetailsNumber"
+                }
+              },
+              {
+                "variable": "officerincharge",
+                "value": {
+                  "path": "$.officerInChargeName"
+                }
+              },
+              {
+                "variable": "officerinchargedesignation",
+                "value": {
+                  "path": "$.additionalDetails.officerInChargeDesgn"
+                }
+              },
+              {
+                "variable": "officeinchargecontactnumber",
+                "value": {
+                  "path": "$.officerInChargeNumber"
+                }
               }
             ]
             
@@ -381,7 +507,7 @@
           {
             "externalAPI": [     
               { 
-                "path": "http://egov-mdms-service:8080/egov-mdms-service/v1/_get",
+                "path": "http://localhost:8099/egov-mdms-service/v1/_get",
                 "queryParam": "moduleName=tenant&masterName=tenants&tenantId=od&filter=%5B?(@.code=='{$.tenantId}')%5D",
                   "apiRequest": null,
                   "responseMapping":[
@@ -426,7 +552,7 @@
                   ]
               },
               {
-                "path": "http://egov-mdms-service:8080/egov-mdms-service/v1/_get",
+                "path": "http://localhost:8099/egov-mdms-service/v1/_get",
                 "queryParam": "moduleName=tenant&masterName=footer&tenantId=od",
                 "apiRequest": null,
                 "responseMapping": [
