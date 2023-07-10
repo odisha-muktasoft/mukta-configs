@@ -507,7 +507,7 @@
           {
             "externalAPI": [
               {
-                "path": "http://localhost:8099/egov-mdms-service/v1/_get",
+                "path": "http://egov-mdms-service:8080/egov-mdms-service/v1/_get",
                 "queryParam": "moduleName=tenant&masterName=tenants&tenantId=od&filter=%5B?(@.code=='{$.tenantId}')%5D",
                 "apiRequest": null,
                 "responseMapping":[
@@ -552,7 +552,7 @@
                 ]
               },
               {
-                "path": "http://localhost:8099/egov-mdms-service/v1/_get",
+                "path": "http://egov-mdms-service:8080/egov-mdms-service/v1/_get",
                 "queryParam": "moduleName=tenant&masterName=footer&tenantId=od",
                 "apiRequest": null,
                 "responseMapping": [
