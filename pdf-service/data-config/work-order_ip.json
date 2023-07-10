@@ -1,5 +1,5 @@
 {
-  "key": "work-order",
+  "key": "work-order_ip",
   "documentType":"WORK-ORDER",
   "DataConfigs": {
     "moduleName": "rainmaker-common",
@@ -14,18 +14,6 @@
           {
             "direct":
             [
-              {
-                "variable": "ia_condition",
-                "value": {
-                  "path": "WORK_ORDER_CONDITIONS_FOR_IMPLEMENTATION_AGENCY"
-                },
-                "type": "label",
-                "localisation": {
-                  "required": true,
-                  "prefix": null,
-                  "module": "rainmaker-common"
-                }
-              },
               {
                 "variable": "ip_condition",
                 "value": {
@@ -134,7 +122,7 @@
                   "module": "rainmaker-common"
                 }
               },
-              
+
               {
                 "variable": "execution_of_work",
                 "value": {
@@ -147,15 +135,15 @@
                   "module": "rainmaker-common"
                 }
               },
-              
+
               {
-                "variable": "officer_incharge", 
+                "variable": "officer_incharge",
                 "value": {
                   "path": "$.additionalDetails.officerInChargeName.name"
                 }
               },
               {
-                "variable": "rupee_symbol", 
+                "variable": "rupee_symbol",
                 "value": {
                   "path": "COMMON_MUSTER_RUPEE"
                 },
@@ -167,26 +155,26 @@
                 }
               },
               {
-                "variable": "designation", 
+                "variable": "designation",
                 "value": {
                   "path": "$.additionalDetails.officerInChargeDesgn"
                 }
-                
+
               },
               {
-                "variable": "cbo", 
+                "variable": "cbo",
                 "value": {
                   "path": "$.nameOfCbo"
                 }
               },
               {
-                "variable": "name_of_issued_to", 
+                "variable": "name_of_issued_to",
                 "value": {
                   "path": "$.pdfNameOfIssuedTo"
                 }
               },
               {
-                "variable": "implementation_agency", 
+                "variable": "implementation_agency",
                 "value": {
                   "path": "$.executingAuthority"
                 },
@@ -223,28 +211,28 @@
                 }
               },
               {
-                "variable": "no_days_to_complete", 
+                "variable": "no_days_to_complete",
                 "value": {
                   "path": "$.completionPeriod"
                 }
               },
-              
-              
+
+
               {
-                "variable": "sla_days", 
+                "variable": "sla_days",
                 "value": {
                   "path": "$.completionPeriod"
                 }
               },
               {
-                "variable": "approval_date", 
+                "variable": "approval_date",
                 "value": {
                   "path": "$.startDate"
                 },
                 "type": "function",
                 "format": "var a=[]; date=arguments[0].toString();{if(date==null || date){a.push({'approvalDate':new Date().toLocaleDateString()});}} return a;"
               },
-              
+
               {
                 "variable": "ulb_name",
                 "value": {
@@ -268,7 +256,7 @@
                 }
               },
               {
-                "variable": "contractNumber", 
+                "variable": "contractNumber",
                 "value": {
                   "path": "$.contractNumber"
                 }
@@ -282,19 +270,19 @@
                 "format": "var y=[];var flag=0;var count=0;var amount=arguments[0].toString(); var len=amount.length;var val=''; for(var i=len-1;i>=0;i--){ val=amount[i]+val;if(amount[i]=='.'){flag=1;count=-1;val=amount.substring(i,len)};if(count%2==0 && i!=0 && count!=0){val=','+val;};count+=1;};if(flag==0){val+='.00'};y.push({'amount':val}); return y"
               },
               {
-                "variable": "address1", 
+                "variable": "address1",
                 "value": {
                   "path": "$.street"
                 }
               },
               {
-                "variable": "address2", 
+                "variable": "address2",
                 "value": {
                   "path": "$.doorNo"
                 }
               },
               {
-                "variable": "address3", 
+                "variable": "address3",
                 "value": {
                   "path": "$.city"
                 }
@@ -306,22 +294,35 @@
                 }
               },
               {
-                "variable": "work_description", 
+                "variable": "work_description",
                 "value": {
                   "path": "$.additionalDetails.projectDesc"
                 }
               },
-              
-              
+
+
               {
-                "variable": "name_of_the_contact_person", 
+                "variable": "name_of_the_contact_person",
                 "value": {
                   "path": "$.contactName"
                 }
               },
-              
               {
-                "variable": "termsAndConditions", 
+                "variable": "projectName",
+                "value": {
+                  "path": "$.additionalDetails.projectName"
+                }
+              },
+              {
+                "variable": "issuedDate",
+                "value": {
+                  "path": "$.issueDate"
+                },
+                "type": "date"
+              },
+
+              {
+                "variable": "termsAndConditions",
                 "value": {
                   "path": "$.additionalDetails.termsAndConditions"
                 },
@@ -338,7 +339,31 @@
                   "required":true,
                   "prefix": null,
                   "module":"rainmaker-common"
-               }
+                }
+              },
+              {
+                "variable": "SchemeName",
+                "value": {
+                  "path": "MUKHYA_MANTRI_KARMA_TATPARA_ABHIYAN"
+                },
+                "type": "label",
+                "localisation":{
+                  "required":true,
+                  "prefix": null,
+                  "module":"rainmaker-common"
+                }
+              },
+              {
+                "variable": "FillerTextName",
+                "value": {
+                  "path": "TRANSFORMATION_OF_CITY"
+                },
+                "type": "label",
+                "localisation":{
+                  "required":true,
+                  "prefix": null,
+                  "module":"rainmaker-common"
+                }
               },
               {
                 "variable": "Municipal_Corporation",
@@ -350,7 +375,7 @@
                   "required":true,
                   "prefix": null,
                   "module":"rainmaker-common"
-               }
+                }
               },
               {
                 "variable": "pdf_header",
@@ -374,56 +399,157 @@
                   "prefix": null,
                   "module": "rainmaker-common"
                 }
+              },
+              {
+                "variable": "WorkOderNumber",
+                "value": {
+                  "path": "WORKS_ORDER_NO"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "rainmaker-common"
+                }
+              },
+              {
+                "variable": "Salutation",
+                "value": {
+                  "path": "SALUTATION"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "rainmaker-common"
+                }
+              },
+              {
+                "variable": "PresidentDesignation",
+                "value": {
+                  "path": "PRESIDENTS_DESIGNATION"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "rainmaker-common"
+                }
+              },
+              {
+                "variable": "SecretaryDesignation",
+                "value": {
+                  "path": "SECRETARY_DESIGNATION"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "rainmaker-common"
+                }
+              },
+              {
+                "variable": "Date",
+                "value": {
+                  "path": "ES_COMMON_DATE"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "rainmaker-common"
+                }
+              },
+              {
+                "variable": "muktaaccountant",
+                "value": {
+                  "path": "$.accountantDetailsName"
+                }
+              },
+              {
+                "variable": "accountantdesignation",
+                "value": {
+                  "path": "$.accountantDetailsDesignation"
+                },
+                "localisation": {
+                  "required": true,
+                  "prefix": "COMMON_MASTERS_DESIGNATION",
+                  "module": "rainmaker-common"
+                }
+              },
+              {
+                "variable": "contactnumber",
+                "value": {
+                  "path": "$.accountantDetailsNumber"
+                }
+              },
+              {
+                "variable": "officerincharge",
+                "value": {
+                  "path": "$.officerInChargeName"
+                }
+              },
+              {
+                "variable": "officerinchargedesignation",
+                "value": {
+                  "path": "$.additionalDetails.officerInChargeDesgn"
+                }
+              },
+              {
+                "variable": "officeinchargecontactnumber",
+                "value": {
+                  "path": "$.officerInChargeNumber"
+                }
               }
             ]
-            
+
           },
           {
-            "externalAPI": [     
-              { 
+            "externalAPI": [
+              {
                 "path": "http://egov-mdms-service:8080/egov-mdms-service/v1/_get",
                 "queryParam": "moduleName=tenant&masterName=tenants&tenantId=od&filter=%5B?(@.code=='{$.tenantId}')%5D",
-                  "apiRequest": null,
-                  "responseMapping":[
-                    {             
-                      "variable":"address",
-                      "value":"$.MdmsRes.tenant.tenants[0].address"
-                    },
-                    {
-                      "variable":"phoneNumber",
-                      "value":"$.MdmsRes.tenant.tenants[0].contactNumber"
-                    },
-                    {
-                      "variable":"website",
-                      "value":"$.MdmsRes.tenant.tenants[0].domainUrl"
-                    },
-                    {
-                      "variable":"email",
-                      "value":"$.MdmsRes.tenant.tenants[0].emailId"
-                    },
-                    {
-                      "variable": "logoImage",                        
-                      "value":"$.MdmsRes.tenant.tenants[0].logoId",
-                      "type":"image"      
-                    },
-                    {
-                      "variable": "logo-header",
-                      "value":"$.MdmsRes.tenant.tenants[0].code",
-                      "localisation":{
-                        "required":true,
-                        "module":"rainmaker-common"
-                        }
-                    },
-                    {
-                      "variable": "subdivision",
-                      "value": "$.MdmsRes.tenant.tenants[0].city.ulbGrade",
-                      "localisation": {
-                        "required": true,
-                        "prefix": "COMMON_SUBDIVISION",
-                        "module": "rainmaker-common"
-                      }
+                "apiRequest": null,
+                "responseMapping":[
+                  {
+                    "variable":"address",
+                    "value":"$.MdmsRes.tenant.tenants[0].address"
+                  },
+                  {
+                    "variable":"phoneNumber",
+                    "value":"$.MdmsRes.tenant.tenants[0].contactNumber"
+                  },
+                  {
+                    "variable":"website",
+                    "value":"$.MdmsRes.tenant.tenants[0].domainUrl"
+                  },
+                  {
+                    "variable":"email",
+                    "value":"$.MdmsRes.tenant.tenants[0].emailId"
+                  },
+                  {
+                    "variable": "logoImage",
+                    "value":"$.MdmsRes.tenant.tenants[0].logoId",
+                    "type":"image"
+                  },
+                  {
+                    "variable": "logo-header",
+                    "value":"$.MdmsRes.tenant.tenants[0].code",
+                    "localisation":{
+                      "required":true,
+                      "module":"rainmaker-common"
                     }
-                  ]
+                  },
+                  {
+                    "variable": "subdivision",
+                    "value": "$.MdmsRes.tenant.tenants[0].city.ulbGrade",
+                    "localisation": {
+                      "required": true,
+                      "prefix": "COMMON_SUBDIVISION",
+                      "module": "rainmaker-common"
+                    }
+                  }
+                ]
               },
               {
                 "path": "http://egov-mdms-service:8080/egov-mdms-service/v1/_get",
@@ -511,7 +637,7 @@
                     }
                   }
                 ]
-            }
+              }
             ]
           }
         ]
