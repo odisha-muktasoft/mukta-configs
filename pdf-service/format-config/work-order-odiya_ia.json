@@ -1,5 +1,5 @@
 {
-  "key": "work-order_ip",
+  "key": "work-order-odiya_ia",
   "config": {
     "defaultStyle": {
       "font": "Cambay"
@@ -171,7 +171,7 @@
               },
               {
                 "fontSize": 12,
-                "text": " {{cbo}} SHG/SDA, Ward {{wardName}}, Place {{localityName}}, {{cityName}} District {{districtName}} is awarded with the work {{projectName}} for the financial year <fy:2023-24> as Implementation Partner under Mukhya Mantri Karma Tatpara Abhiyan (MUKTA). The estimated cost of this project is Rs.{{totalContractedAmount}}, which includes GST, Royalty, (CESS) etc. The following terms and conditions will be followed as mentioned in the next page."
+                "text": " {{cbo}} ସ୍ଵୟଂ ସହାୟକ ଗୋଷ୍ଠୀ/ବସ୍ତି ବାସିନ୍ଦା ସଂଘ, ୱାର୍ଡ <wardname>, ସ୍ଥାନ <districtname>, ଙ୍କୁ ମୁଖ୍ୟମନ୍ତ୍ରୀ କର୍ମ ତତ୍ପର ଅଭିଯାନ (ମୁକ୍ତା) ଅଧୀନରେ କାର୍ଯ୍ୟ ସମ୍ପାଦନ ସଂସ୍ଥା ଭାବରେ ଆର୍ଥିକ ବର୍ଷ <fy:2023-24> ପାଇଁ  କାର୍ଯ୍ୟ {{projectName}} ନିମନ୍ତେ କାର୍ଯ୍ୟାଦେଶ ପ୍ରଦାନ କରାଯାଇଛି | ଏହି ଯୋଜନାର ବ୍ୟୟ ଅଟକଳ ଟ. {{totalContractedAmount}}, ଯେଉଁଥିରେ ଦ୍ରବ୍ୟ ଏବଂ ସେବା କର (GST), ରୟାଲ୍ଟି,, ଉପକର (CESS), ଇତ୍ୟାଦି ଅନ୍ତର୍ଭୁକ୍ତ ଅଟେ | ପରବର୍ତ୍ତୀ ପୃଷ୍ଠାରେ ପ୍ରଦତ୍ତ ସର୍ତ୍ତାବଳୀ ଗୁଡିକ ଅନୁସରଣ କରାଯିବ |"
               }
             ]
           }
@@ -198,10 +198,10 @@
                 ],
                 "stack": [
                   {
-                    "text": "Executive Officer/Commissioner",
-                    "fontSize":"12",
+                    "text": "ନିର୍ବାହୀ ଅଧିକାରୀ/ କମିଶନର",
+                    "fontSize":"10",
                     "margin": [
-                      -80,
+                      -40,
                       -3,
                       0,
                       0
@@ -218,9 +218,9 @@
                   },
                   {
                     "text": "{{ulb_name}}",
-                    "fontSize":"12",
+                    "fontSize":"10",
                     "margin": [
-                      -90,
+                      0,
                       -3,
                       0,
                       0
@@ -242,7 +242,7 @@
               },
               {
                 "fontSize": 12,
-                "text": "{{cbo}} SHG/SDA have to complete the work within {{work_order_acceptance_days}} days after receiving/ accepting  the work order."
+                "text": "{{cbo}}  ସ୍ଵୟଂ ସହାୟକ ଗୋଷ୍ଠୀ/ବସ୍ତି ବାସିନ୍ଦା ସଂଘ କାର୍ଯ୍ୟାଦେଶ ପାଇବାର/ଗ୍ରହଣ କରିବାର {{work_order_acceptance_days}} ଦିନ ଭିତରେ କାର୍ଯ୍ୟ ସମ୍ପୁର୍ଣ୍ଣ କରିବେ |"
               }
             ]
           }
@@ -277,10 +277,7 @@
               },
               {
                 "fontSize": 12,
-                "text": "For any queries and information please contact the following officials from the ULB:",
-                "style": {
-                  "decoration": "underline"
-                }
+                "text": "ଯେକୌଣସି ପ୍ରଶ୍ନ ଏବଂ ସୂଚନା ପାଇଁ ଦୟାକରି ପୌରାଞ୍ଚଳର ନିମ୍ନଲିଖିତ ଅଧିକାରୀଙ୍କ ସହିତ ଯୋଗାଯୋଗ କରନ୍ତୁ:"
               }
             ]
           },
@@ -291,7 +288,7 @@
               },
               {
                 "fontSize": 12,
-                "text": "Name of the officer  {{officerincharge}}, Designation  {{officerinchargedesignation}}, Mobile number {{officeinchargecontactnumber}}"
+                "text": "ଅଧିକାରୀଙ୍କ ନାମ {{officerincharge}}, ପଦବୀ {{officerinchargedesignation}}, ମୋବାଇଲ୍ ନମ୍ବର {{officeinchargecontactnumber}}"
               }
             ]
           },
@@ -302,10 +299,7 @@
               },
               {
                 "fontSize": 12,
-                "text": "For Any information regarding  accounts contact the following person:",
-                "style": {
-                  "decoration": "underline"
-                }
+                "text": "ହିସାବ ସମ୍ବନ୍ଧୀୟ ଯେକୌଣସି ସୂଚନା ପାଇଁ ନିମ୍ନଲିଖିତ ବ୍ୟକ୍ତିବିଶେଷଙ୍କ ସହିତ ଯୋଗାଯୋଗ କରନ୍ତୁ:"
               }
             ]
           },
@@ -316,7 +310,7 @@
               },
               {
                 "fontSize": 12,
-                "text":  "Name of the officer {{muktaaccountant}}, Designation {{accountantdesignation}}, Mobile number {{contactnumber}}"
+                "text":  "ଅଧିକାରୀଙ୍କ ନାମ {{muktaaccountant}}, ପଦବୀ {{accountantdesignation}}, ମୋବାଇଲ୍ ନମ୍ବର {{contactnumber}}"
               }
             ]
           }
@@ -335,8 +329,9 @@
         ]
       },
       "condition": {
-        "italics": false,
-        "fontSize": 12
+        "italics": true,
+        "fontSize": 14,
+        "color": "#343333"
       },
       "subHeader": {
         "fontSize": 20,
@@ -361,25 +356,17 @@
         "fontSize": 12,
         "bold": true,
         "margin": [
-          -80,
+          0,
           0,
           0,
           -3
         ],
-        "alignment": "center",
         "textTransform": "uppercase"
       },
       "receipt-logo-sub-header": {
-        "color": "#636363",
+        "color": "#000000",
         "fontSize": 12,
-        "bold": true,
-        "margin": [
-          -80,
-          0,
-          0,
-          -3
-        ],
-        "textTransform": "uppercase"
+        "letterSpacing": 0.6
       },
       "noc-table": {
         "fontSize": 12,
