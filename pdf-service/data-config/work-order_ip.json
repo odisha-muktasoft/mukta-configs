@@ -15,42 +15,6 @@
             "direct":
             [
               {
-                "variable": "ip_condition",
-                "value": {
-                  "path": "WORK_ORDER_CONDITIONS_FOR_IMPLEMENTATION_PARTNER"
-                },
-                "type": "label",
-                "localisation": {
-                  "required": true,
-                  "prefix": null,
-                  "module": "rainmaker-common"
-                }
-              },
-              {
-                "variable": "non_condition",
-                "value": {
-                  "path": "WORK_ORDER_CONDITIONS_FOR_NON_COMPLETION"
-                },
-                "type": "label",
-                "localisation": {
-                  "required": true,
-                  "prefix": null,
-                  "module": "rainmaker-common"
-                }
-              },
-              {
-                "variable": "general_condition",
-                "value": {
-                  "path": "WORK_ORDER_GENERAL_CONDITIONS"
-                },
-                "type": "label",
-                "localisation": {
-                  "required": true,
-                  "prefix": null,
-                  "module": "rainmaker-common"
-                }
-              },
-              {
                 "variable": "sir",
                 "value": {
                   "path": "WORK_ORDER_SIR"
@@ -539,6 +503,7 @@
                 "value": {
                   "path": "$.termsAndConditionList"
                 }
+
               }
             ]
 
