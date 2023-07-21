@@ -76,28 +76,28 @@
                   {
                     "text": "{{ServiceName}}",
                     "style": "receipt-logo-header",
-                    "fontSize": 10
+                    "fontSize": 12
                   },
                   {
                     "text": "{{SchemeName}}",
                     "style": "receipt-logo-header",
-                    "fontSize": 10,
+                    "fontSize": 12,
                     "italics":true
                   },
                   {
                     "text": "{{FillerTextName}}",
                     "style": "receipt-logo-header",
-                    "fontSize": 10
+                    "fontSize": 12
                   },
                   {
                     "text": "{{ulb_name_and_address}}, <District>",
                     "style": "receipt-logo-header",
-                    "fontSize": 10
+                    "fontSize": 12
                   },
                   {
                     "text": "{{WorkOderNumber}}: {{contractNumber}}, {{Date}}: {{issuedDate}}",
                     "style": "receipt-logo-header",
-                    "fontSize": 10
+                    "fontSize": 12
                   }
                 ],
                 "alignment": "center",
@@ -126,7 +126,7 @@
         "columns": [
           {
             "bold": false,
-            "fontSize": 10,
+            "fontSize": 12,
             "stack": [
               {
                 "text": "{{to}},"
@@ -170,8 +170,8 @@
                 "text": " "
               },
               {
-                "fontSize": 10,
-                "text": " {{cbo}} SHG/SDA, Ward <wardname>, Place <locality>, <cityname> District <districtname> is awarded with the work {{projectName}} for the financial year <fy:2023-24> as Implementation Agency under Mukhya Mantri Karma Tatpara Abhiyan (MUKTA). The estimated cost of this project is Rs. {{totalContractedAmount}}, which includes GST, Royalty, (CESS) etc. The following terms and conditions will be followed as mentioned in the next page."
+                "fontSize": 12,
+                "text": " {{cbo}} SHG/SDA, Ward {{wardName}}, Place {{localityName}}, {{cityName}} District {{districtName}} is awarded with the work {{projectName}} for the financial year <fy:2023-24> as Implementation Agency under Mukhya Mantri Karma Tatpara Abhiyan (MUKTA). The estimated cost of this project is Rs.{{totalContractedAmount}}, which includes GST, Royalty, (CESS) etc. The following terms and conditions will be followed as mentioned in the next page."
               }
             ]
           }
@@ -199,17 +199,16 @@
                 "stack": [
                   {
                     "text": "Executive Officer/Commissioner",
-                    "fontSize":"10",
+                    "fontSize":"12",
                     "margin": [
-                      -40,
+                      -80,
                       -3,
                       0,
                       0
                     ]
                   },
                   {
-                    "text": "<approversname> ",
-                    "fontSize":"10",
+                    "text": " ",
                     "margin": [
                       0,
                       -3,
@@ -219,9 +218,9 @@
                   },
                   {
                     "text": "{{ulb_name}}",
-                    "fontSize":"10",
+                    "fontSize":"12",
                     "margin": [
-                      0,
+                      -90,
                       -3,
                       0,
                       0
@@ -242,7 +241,7 @@
                 "text": " "
               },
               {
-                "fontSize": 10,
+                "fontSize": 12,
                 "text": "{{cbo}} SHG/SDA have to complete the work within {{work_order_acceptance_days}} days after receiving/ accepting  the work order."
               }
             ]
@@ -251,14 +250,12 @@
       },
       {
         "bold": false,
-        "fontSize": 10,
-        "text": "{{terms_and_conditions}}"
-      },
-      {
-        "bold": false,
-        "italics": false,
-        "fontSize": 10,
-        "text": "{{ia_condition}}"
+        "fontSize": 12,
+        "text": "{{terms_and_conditions}}",
+        "style": {
+          "decoration": "underline"
+        }
+
       },
       {
         "margin": [
@@ -267,10 +264,8 @@
           0,
           0
         ],
-        "style": "condition",
-        "fontSize":10,
-        "ol": [
-          "{{#variable11}}[{\"text\":\"{{disclaimerContent}}\",\"border\":[false,false,false,false],\"style\":\"condition\"}]{{/variable11}}"
+        "ol":[
+          "{{#termsAndConditionsList}}[{\"text\":\"{{terms}}\",\"border\":[false,false,false,false],\"style\":\"condition\"}]{{/termsAndConditionsList}}"
         ]
       },
       {
@@ -281,11 +276,11 @@
                 "text": " "
               },
               {
-                "text": " "
-              },
-              {
-                "fontSize": 10,
-                "text": "For any queries and information please contact the following officials from the ULB:"
+                "fontSize": 12,
+                "text": "For any queries and information please contact the following officials from the ULB:",
+                "style": {
+                  "decoration": "underline"
+                }
               }
             ]
           },
@@ -295,7 +290,7 @@
                 "text": " "
               },
               {
-                "fontSize": 10,
+                "fontSize": 12,
                 "text": "Name of the officer  {{officerincharge}}, Designation  {{officerinchargedesignation}}, Mobile number {{officeinchargecontactnumber}}"
               }
             ]
@@ -306,8 +301,11 @@
                 "text": " "
               },
               {
-                "fontSize": 10,
-                "text": "For Any information regarding  accounts contact the following person:"
+                "fontSize": 12,
+                "text": "For Any information regarding  accounts contact the following person:",
+                "style": {
+                  "decoration": "underline"
+                }
               }
             ]
           },
@@ -317,7 +315,7 @@
                 "text": " "
               },
               {
-                "fontSize": 10,
+                "fontSize": 12,
                 "text":  "Name of the officer {{muktaaccountant}}, Designation {{accountantdesignation}}, Mobile number {{contactnumber}}"
               }
             ]
@@ -337,9 +335,8 @@
         ]
       },
       "condition": {
-        "italics": true,
-        "fontSize": 14,
-        "color": "#343333"
+        "italics": false,
+        "fontSize": 12
       },
       "subHeader": {
         "fontSize": 20,
@@ -361,23 +358,31 @@
       },
       "receipt-logo-header": {
         "color": "#636363",
-        "fontSize": 10,
+        "fontSize": 12,
         "bold": true,
         "margin": [
+          -80,
           0,
+          0,
+          -3
+        ],
+        "alignment": "center",
+        "textTransform": "uppercase"
+      },
+      "receipt-logo-sub-header": {
+        "color": "#636363",
+        "fontSize": 12,
+        "bold": true,
+        "margin": [
+          -80,
           0,
           0,
           -3
         ],
         "textTransform": "uppercase"
       },
-      "receipt-logo-sub-header": {
-        "color": "#000000",
-        "fontSize": 10,
-        "letterSpacing": 0.6
-      },
       "noc-table": {
-        "fontSize": 10,
+        "fontSize": 12,
         "color": "#000000",
         "margin": [
           -25,
@@ -393,7 +398,7 @@
         ]
       },
       "next-noc-table": {
-        "fontSize": 10,
+        "fontSize": 12,
         "color": "#000000",
         "margin": [
           -25,
@@ -405,7 +410,7 @@
       "receipt-table-value": {
         "color": "#000000",
         "bold": true,
-        "fontSize": 10,
+        "fontSize": 12,
         "fontWeight": 500,
         "margin": [
           -2,
@@ -417,7 +422,7 @@
       "receipt-table": {
         "color": "#000000",
         "bold": false,
-        "fontSize": 10,
+        "fontSize": 12,
         "fontWeight": 400,
         "margin": [
           -30,
@@ -427,7 +432,7 @@
         ]
       },
       "receipt-approver": {
-        "fontSize": 10,
+        "fontSize": 12,
         "bold": true,
         "margin": [
           -27,
@@ -438,7 +443,7 @@
         "color": "#484848"
       },
       "no-signature": {
-        "fontSize": 10,
+        "fontSize": 12,
         "margin": [
           -27,
           35,
@@ -448,7 +453,7 @@
         "color": "#484848"
       },
       "pt-disclaimer": {
-        "fontSize": 10,
+        "fontSize": 12,
         "margin": [
           -27,
           30,
@@ -475,7 +480,7 @@
         ]
       },
       "pt-disclaimer-value": {
-        "fontSize": 10,
+        "fontSize": 12,
         "margin": [
           2,
           5,
