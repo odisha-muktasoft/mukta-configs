@@ -63,6 +63,18 @@
                 }
               },
               {
+                "variable": "yours_faithfully",
+                "value": {
+                  "path": "WORK_ORDER_YOURS_FAITHFULLY"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "rainmaker-common"
+                }
+              },
+              {
                 "variable": "terms_and_conditions",
                 "value": {
                   "path": "WORK_ORDER_TERMS_AND_CONDITIONS"
@@ -74,7 +86,7 @@
                   "module": "rainmaker-common"
                 }
               },
-              
+
               {
                 "variable": "execution_of_work",
                 "value": {
@@ -87,15 +99,15 @@
                   "module": "rainmaker-common"
                 }
               },
-              
+
               {
-                "variable": "officer_incharge", 
+                "variable": "officer_incharge",
                 "value": {
                   "path": "$.additionalDetails.officerInChargeName.name"
                 }
               },
               {
-                "variable": "rupee_symbol", 
+                "variable": "rupee_symbol",
                 "value": {
                   "path": "COMMON_MUSTER_RUPEE"
                 },
@@ -107,26 +119,26 @@
                 }
               },
               {
-                "variable": "designation", 
+                "variable": "designation",
                 "value": {
                   "path": "$.additionalDetails.officerInChargeDesgn"
                 }
-                
+
               },
               {
-                "variable": "cbo", 
+                "variable": "cbo",
                 "value": {
                   "path": "$.nameOfCbo"
                 }
               },
               {
-                "variable": "name_of_issued_to", 
+                "variable": "name_of_issued_to",
                 "value": {
                   "path": "$.pdfNameOfIssuedTo"
                 }
               },
               {
-                "variable": "implementation_agency", 
+                "variable": "implementation_agency",
                 "value": {
                   "path": "$.executingAuthority"
                 },
@@ -157,19 +169,27 @@
                 "type": "date"
               },
               {
-                "variable": "no_days_to_complete", 
+                "variable": "completion_period",
                 "value": {
                   "path": "$.completionPeriod"
                 }
               },
               {
-                "variable": "sla_days", 
+                "variable": "no_days_to_complete",
+                "value": {
+                  "path": "$.completionPeriod"
+                }
+              },
+
+
+              {
+                "variable": "sla_days",
                 "value": {
                   "path": "$.completionPeriod"
                 }
               },
               {
-                "variable": "approval_date", 
+                "variable": "approval_date",
                 "value": {
                   "path": "$.startDate"
                 },
@@ -209,9 +229,7 @@
                 "variable": "totalContractedAmount",
                 "value": {
                   "path": "$.totalContractedAmount"
-                },
-                "type": "function",
-                "format": "var y=[];var flag=0;var count=0;var amount=arguments[0].toString(); var len=amount.length;var val=''; for(var i=len-1;i>=0;i--){ val=amount[i]+val;if(amount[i]=='.'){flag=1;count=-1;val=amount.substring(i,len)};if(count%2==0 && i!=0 && count!=0){val=','+val;};count+=1;};if(flag==0){val+='.00'};y.push({'amount':val}); return y"
+                }
               },
               {
                 "variable": "address1",
@@ -243,6 +261,8 @@
                   "path": "$.additionalDetails.projectDesc"
                 }
               },
+
+
               {
                 "variable": "name_of_the_contact_person",
                 "value": {
@@ -262,13 +282,14 @@
                 },
                 "type": "date"
               },
+
               {
                 "variable": "termsAndConditions",
                 "value": {
                   "path": "$.additionalDetails.termsAndConditions"
                 },
-                "type": "function",
-                "format": "var a=[];var conditionNo=0; termsAndConditions=arguments[0]; for(var i=0;i<termsAndConditions.length;i++){if(termsAndConditions[i]!=null)conditionNo=conditionNo+1;var b={'description':termsAndConditions[i]!=null?termsAndConditions[i].description:'','conditionNo':termsAndConditions[i]!=null?conditionNo+'.':''}; a.push(b);} return a;"
+                "type":"function",
+                "format":"var a=[];var conditionNo=0; termsAndConditions=arguments[0]; for(var i=0;i<termsAndConditions.length;i++){if(termsAndConditions[i]!=null)conditionNo=conditionNo+1;var b={'description':termsAndConditions[i]!=null?termsAndConditions[i].description:'','conditionNo':termsAndConditions[i]!=null?conditionNo+'.':''}; a.push(b);} return a;"
               },
               {
                 "variable": "ServiceName",
@@ -276,10 +297,10 @@
                   "path": "ACTION_TEST_WORK_ORDER"
                 },
                 "type": "label",
-                "localisation": {
-                  "required": true,
+                "localisation":{
+                  "required":true,
                   "prefix": null,
-                  "module": "rainmaker-common"
+                  "module":"rainmaker-common"
                 }
               },
               {
@@ -288,10 +309,10 @@
                   "path": "MUKHYA_MANTRI_KARMA_TATPARA_ABHIYAN"
                 },
                 "type": "label",
-                "localisation": {
-                  "required": true,
+                "localisation":{
+                  "required":true,
                   "prefix": null,
-                  "module": "rainmaker-common"
+                  "module":"rainmaker-common"
                 }
               },
               {
@@ -300,10 +321,10 @@
                   "path": "TRANSFORMATION_OF_CITY"
                 },
                 "type": "label",
-                "localisation": {
-                  "required": true,
+                "localisation":{
+                  "required":true,
                   "prefix": null,
-                  "module": "rainmaker-common"
+                  "module":"rainmaker-common"
                 }
               },
               {
@@ -312,10 +333,10 @@
                   "path": "ULBGRADE_MC1"
                 },
                 "type": "label",
-                "localisation": {
-                  "required": true,
+                "localisation":{
+                  "required":true,
                   "prefix": null,
-                  "module": "rainmaker-common"
+                  "module":"rainmaker-common"
                 }
               },
               {
@@ -327,6 +348,18 @@
                   "required": true,
                   "prefix": "TENANT_TENANTS",
                   "module": "rainmaker-od"
+                }
+              },
+              {
+                "variable": "minucipality",
+                "value": {
+                  "path": "MINUCIPALITY"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "rainmaker-common"
                 }
               },
               {
@@ -357,6 +390,18 @@
                 "variable": "PresidentDesignation",
                 "value": {
                   "path": "PRESIDENTS_DESIGNATION"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "rainmaker-common"
+                }
+              },
+              {
+                "variable": "SecretaryDesignation",
+                "value": {
+                  "path": "SECRETARY_DESIGNATION"
                 },
                 "type": "label",
                 "localisation": {
@@ -458,9 +503,18 @@
                 "value": {
                   "path": "$.termsAndConditionList"
                 }
+
+              },
+              {
+                "variable": "financialYearPeriod",
+                "value": {
+                  "path": "$.financialYear"
+                }
+
               }
+
             ]
-            
+
           },
           {
             "externalAPI": [     

@@ -504,7 +504,15 @@
                   "path": "$.termsAndConditionList"
                 }
 
+              },
+              {
+                "variable": "financialYearPeriod",
+                "value": {
+                  "path": "$.financialYear"
+                }
+
               }
+
             ]
 
           },
