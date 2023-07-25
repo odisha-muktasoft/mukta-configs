@@ -1,0 +1,600 @@
+{
+    "unemployedWageSeekers": {
+        "chartName": "DSS_MUKTA_UNEMPLOYED_WAGE_SEEKERS",
+        "queries": [
+          {
+            "module": "COMMON",
+            "dateRefField": "Data.auditDetails.createdTime",
+            "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
+            "indexName": "individual-index-v1",
+            "aggrQuery": "{\n  \"aggs\": {\n    \"Total Individuals\": {\n      \"filter\": {\n        \"bool\": {\n          \"must_not\": [\n            {\n              \"term\": {\n                \"Data.tenantId\": \"\"\n              }\n            }\n          ]\n        }\n      },\n      \"aggs\": {\n        \"Individuals Count\": {\n          \"cardinality\": {\n            \"field\": \"Data.id.keyword\"\n          }\n        }\n      }\n    }\n  }\n}"
+          },
+          {
+            "module": "COMMON",
+            "dateRefField": "Data.auditDetails.createdTime",
+            "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
+            "indexName": "muster-inbox",
+            "aggrQuery": "{\n  \"aggs\": {\n    \"AGGR\": {\n      \"filters\": {\n        \"filters\": {\n          \"Total Projects\": {\n            \"bool\": {\n              \"must_not\": [\n                {\n                  \"term\": {\n                    \"Data.tenantId\": \"\"\n                  }\n                }\n              ]\n            }\n          }\n        }\n      },\n      \"aggs\": {\n        \"Count\": {\n          \"cardinality\": {\n            \"field\": \"Data.individualEntries.individualId.keyword\"\n          }\n        },\n        \"Overall Muster Count\": {\n          \"bucket_script\": {\n            \"buckets_path\": {\n              \"ot\": \"Count\"\n            },\n            \"script\": \"params.ot * (-1)\"\n          }\n        }\n      }\n    }\n  }\n}"          
+          }
+        ],
+        "chartType": "metric",
+        "valueType": "number",
+        "drillChart": "none",
+        "documentType": "_doc",
+        "action": "",
+        "aggregationPaths": [
+          "Individuals Count","Overall Muster Count"
+        ],
+        "insight": {
+        },
+        "_comment": "Unemployed Wage seekers"
+      },
+  "musterRollsByStatus": {
+    "chartName": "DSS_MUKTA_MUSTER_ROLLS_BY_STATUS",
+    "queries": [
+      {
+        "module": "MUSTER-ROLL-SERVICES",
+        "dateRefField": "Data.auditDetails.createdTime",
+        "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
+        "indexName": "muster-inbox",
+        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.tenantId.keyword\":\"pb.testing\"}},{\"terms\":{\"Data.musterRollStatus.keyword\":[\"REJECTED\"]}}]}},\"aggs\":{\"Muster Rolls\":{\"terms\":{\"script\":{\"source\":\"if(['APPROVED','SUBMITTED'].contains(doc['Data.musterRollStatus.keyword'].value)){return doc['Data.musterRollStatus.keyword'].value}else{return 'YET_TO_APPROVE'}\"}},\"aggs\":{\"Count\":{\"value_count\":{\"field\":\"Data.auditDetails.createdTime\"}}}}}}}}"
+      }
+    ],
+    "chartType": "pie",
+    "valueType": "number",
+    "action": "",
+    "documentType": "_doc",
+    "drillChart": "none",
+    "aggregationPaths": [
+      "Muster Rolls"
+    ],
+    "insight": {
+    },
+    "_comment": "Muster Rolls by status"
+  },
+  "pendingBillsByBillNumberType": {
+    "chartName": "DSS_MUKTA_PENDING_BILLS_BY_BILL_NUMBER_TYPE",
+    "queries": [
+      {
+        "module": "EXPENSE",
+        "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
+        "dateRefField": "Data.auditDetails.createdTime",
+        "indexName": "expense-bill-index",
+        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.tenantId.keyword\":\"pb.testing\"}},{\"terms\":{\"Data.currentProcessInstance.state.state.keyword\":[\"APPROVED\",\"REJECTED\"]}}]}},\"aggs\":{\"Pending Bills By Bill Type\":{\"terms\":{\"field\":\"Data.businessService.keyword\"},\"aggs\":{\"Count\":{\"value_count\":{\"field\":\"Data.auditDetails.createdTime\"}}}}}}}}"
+      }
+    ],
+    "chartType": "pie",
+    "valueType": "number",
+    "action": "",
+    "documentType": "_doc",
+    "drillChart": "none",
+    "aggregationPaths": [
+      "Pending Bills By Bill Type"
+    ],
+    "insight": {
+    },
+    "_comment": "Pending Bills By Their Number"
+  },
+  "pendingBillsByBillAmountType": {
+    "chartName": "DSS_MUKTA_PENDING_BILLS_BY_BILL_AMOUNT_TYPE",
+    "queries": [
+      {
+        "module": "EXPENSE",
+        "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
+        "dateRefField": "Data.auditDetails.createdTime",
+        "indexName": "expense-bill-index",
+        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"terms\":{\"Data.currentProcessInstance.state.state.keyword\":[\"APPROVED\",\"REJECTED\"]}},{\"term\":{\"Data.tenantId.keyword\":\"pb.testing\"}}]}},\"aggs\":{\"Pending Bills By Bill Type\":{\"terms\":{\"field\":\"Data.businessService.keyword\"},\"aggs\":{\"Sum\":{\"sum\":{\"field\":\"Data.totalAmount\"}}}}}}}}"
+      }
+    ],
+    "chartType": "pie",
+    "valueType": "amount",
+    "action": "",
+    "documentType": "_doc",
+    "drillChart": "none",
+    "aggregationPaths": [
+      "Pending Bills By Bill Type"
+    ],
+    "insight": {
+    },
+    "_comment": "Pending Bills By Their Amount"
+  },
+  "projectsByProjectNumberType": {
+    "chartName": "DSS_MUKTA_PROJECTS_BY_PROJECT_TYPE",
+    "queries": [
+      {
+        "module": "PROJECT",
+        "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
+        "dateRefField": "Data.auditDetails.createdTime",
+        "indexName": "project-index",
+        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.tenantId.keyword\":\"pb.testing\"}}]}},\"aggs\":{\"Projects By Project Type\":{\"terms\":{\"field\":\"Data.projectType.keyword\"},\"aggs\":{\"Count\":{\"value_count\":{\"field\":\"Data.auditDetails.createdTime\"}}}}}}}}"
+      }
+    ],
+    "chartType": "pie",
+    "valueType": "number",
+    "action": "",
+    "documentType": "_doc",
+    "drillChart": "none",
+    "aggregationPaths": [
+      "Projects By Project Type"
+    ],
+    "insight": {
+    },
+    "_comment": "Count of Projects by their Project Type"
+  },
+  "projectsByProjectAmountType": {
+    "chartName": "DSS_MUKTA_PROJECTS_BY_PROJECT_TYPE",
+    "queries": [
+      {
+        "module": "PROJECT",
+        "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
+        "dateRefField": "Data.auditDetails.createdTime",
+        "indexName": "project-index",
+        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.tenantId.keyword\":\"pb.testing\"}},{\"term\":{\"Data.additionalDetails.estimatedCostInRs.keyword\":\"\"}}]}},\"aggs\":{\"Projects By Project Type\":{\"terms\":{\"field\":\"Data.projectType.keyword\"},\"aggs\":{\"Sum\":{\"sum\":{\"script\":{\"source\":\"def estCost=doc['Data.additionalDetails.estimatedCostInRs.keyword'].value;estCost!=null&&estCost!=''?Double.parseDouble(estCost):0.0\"},\"field\":\"Data.auditDetails.createdTime\"}}}}}}}}"
+      }
+    ],
+    "chartType": "pie",
+    "valueType": "amount",
+    "action": "",
+    "documentType": "_doc",
+    "drillChart": "none",
+    "aggregationPaths": [
+      "Projects By Project Type"
+    ],
+    "insight": {
+    },
+    "_comment": "Estimated amount of Projects by their Project Type"
+  },
+  "projectsByStatusHorizontal":{
+    "chartName": "DSS_MUKTA_PROJECTS_BY_STATUS_HORIZONTAL",
+    "queries": [
+      {
+        "module": "PROJECT",
+        "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
+        "dateRefField": "Data.auditDetails.createdTime",
+        "indexName": "project-index",
+        "aggrQuery":"{\"size\":10000,\"aggs\":{\"DSS_TOTALPROJECT\":{\"cardinality\":{\"field\":\"Data.projectNumber.keyword\"}}}}" 
+      }
+    ],
+    "chartType": "pie",
+    "valueType": "number",
+    "action": "",
+    "documentType": "_doc",
+    "drillChart": "none",
+    "aggregationPaths": [
+      "DSS_TOTALPROJECT"
+    ],
+    "insight": {
+    },
+    "_comment": "Count of Created Projects"
+  },
+  "estimatesByStatusHorizontal":{
+    "chartName": "DSS_MUKTA_ESTIMATES_BY_STATUS_HORIZONTAL",
+    "queries": [
+      {
+        "module": "ESTIMATE",
+        "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
+        "dateRefField": "Data.auditDetails.createdTime",
+        "indexName": "estimate-inbox-v3",
+        "aggrQuery":"{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.tenantId.keyword\":\"pb.testing\"}}]}},\"aggs\":{\"DSS_ESTIMATES\":{\"terms\":{\"script\":{\"source\":\"if(['PENDINGFORVERIFICATION','REJECTED','PENDINGFORTECHNICALSANCTION','PENDINGFORAPPROVAL','PENDINGFORCORRECTION'].contains(doc['Data.wfStatus.keyword'].value)){return'DSS_ESTIMATES_YET_TO_APPROVE'}else{return'DSS_ESTIMATES_APPROVED'}\"},\"order\":{\"_key\":\"desc\"}},\"aggs\":{\"Count\":{\"value_count\":{\"field\":\"Data.auditDetails.createdTime\"}}}},\"DSS_CREATED_ESTIMATES\":{\"value_count\":{\"field\":\"Data.auditDetails.createdTime\"}}}}}}"
+      }
+    ],
+    "chartType": "pie",
+    "valueType": "number",
+    "action": "",
+    "documentType": "_doc",
+    "drillChart": "none",
+    "aggregationPaths": [
+      "DSS_CREATED_ESTIMATES",
+      "DSS_ESTIMATES"
+    ],
+    "insight": {
+    },
+    "_comment": "Estimates by Statuses"
+  },
+  "contractsByStatusHorizontal":{
+    "chartName": "DSS_MUKTA_CONTRACTS_BY_STATUS_HORIZONTAL",
+    "queries": [
+      {
+        "module": "CONTRACT",
+        "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
+        "dateRefField": "Data.auditDetails.createdTime",
+        "indexName": "contract-inbox",
+        "aggrQuery":"{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.tenantId.keyword\":\"pb.testing\"}}]}},\"aggs\":{\"DSS_CONTRACTS\":{\"terms\":{\"script\":{\"source\":\"if(['PENDING_FOR_VERIFICATION','PENDING_FOR_APPROVAL','PENDING_FOR_CORRECTION','PENDING_FOR_REASSIGNMENT','PENDING_FOR_REVERIFICATION'].contains(doc['Data.contractStatus.keyword'].value)){return'DSS_CONTRACTS_YET_TO_APPROVE'}else if(['PENDING_FOR_ACCEPTANCE'].contains(doc['Data.contractStatus.keyword'].value)){return'DSS_CONTRACTS_YET_TO_ACCEPT'}else{return'DSS_CONTRACTS_INPROGRESS'}\"},\"order\":{\"_key\":\"desc\"}},\"aggs\":{\"Count\":{\"value_count\":{\"field\":\"Data.auditDetails.createdTime\"}}}},\"DSS_CONTRACTS_CREATED\":{\"value_count\":{\"field\":\"Data.auditDetails.createdTime\"}}}}}}"
+
+      }
+    ],
+    "chartType": "pie",
+    "valueType": "number",
+    "action": "",
+    "documentType": "_doc",
+    "drillChart": "none",
+    "aggregationPaths": [
+      "DSS_CONTRACTS_CREATED",
+      "DSS_CONTRACTS"
+    ],
+    "insight": {
+    },
+    "_comment": "Contracts by Statuses"
+  },
+  "workOrdersNotIssued": {
+    "chartName" : "DSS_MUKTA_WORK_ORDERS_NOT_ISSUED",
+    "queries": [
+      {
+        "module": "CONTRACT",
+        "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
+        "dateRefField": "Data.auditDetails.createdTime",
+        "indexName": "contract-inbox",
+        "aggrQuery":"{\n  \"aggs\": {\n    \"Distinct Work Orders\": {\n      \"terms\": {\n        \"field\": \"Data.tenantId.keyword\",\n        \"size\": 10000\n      },\n      \"aggs\": {\n        \"Work Order\": {\n          \"cardinality\": {\n            \"field\": \"Data.additionalDetails.projectId.keyword\"\n          }\n        },\n        \"Work Order Count\": {\n          \"bucket_script\": {\n            \"buckets_path\": {\n              \"path\": \"Work Order\"\n            },\n            \"script\": \"params.path * (-1)\"\n          }\n        }\n      }\n    },\n    \"Negative Work Order Count\": {\n      \"sum_bucket\": {\n        \"buckets_path\": \"Distinct Work Orders>Work Order Count\"\n      }\n    }\n  }\n}"
+      },
+      {
+        "module": "PROJECTS",
+        "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
+        "dateRefField": "Data.auditDetails.createdTime",
+        "indexName": "project-index",
+        "aggrQuery": "{\n  \"aggs\": {\n    \"Total Projects\": {\n      \"filter\": {\n        \"bool\": {\n          \"must_not\": {\n            \"term\": {\n              \"Data.projectNumber.keyword\": \"\"\n            }\n          }\n        }\n      },\n      \"aggs\": {\n        \"Projects\": {\n          \"terms\": {\n            \"field\": \"Data.tenantId.keyword\",\n            \"size\": 10000\n          },\n          \"aggs\": {\n            \"Projects count\": {\n              \"cardinality\": {\n                \"field\": \"Data.projectNumber.keyword\"\n              }\n            }\n          }\n        },\n        \"Distinct Projects count\": {\n          \"sum_bucket\": {\n            \"buckets_path\": \"Projects>Projects count\"\n          }\n        }\n      }\n    }\n  }\n}"
+      }
+    ],
+    "chartType": "metric",
+    "valueType": "number",
+    "drillChart": "none",
+    "documentType": "_doc",
+    "action": "",
+    "aggregationPaths": [
+      "Distinct Projects count","Negative Work Order Count"
+    ],
+    "insight": {
+    },
+    "_comment": "Work orders not issued"
+  },
+  "totalPayments": {
+    "chartName": "DSS_MUKTA_TOTAL_PAYMENTS",
+    "queries": [
+      {
+        "module": "EXPENSE",
+        "dateRefField": "Data.auditDetails.createdTime",
+        "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
+        "indexName": "expense-bill-index",
+        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.tenantId.keyword\":\"pb.testing\"}}]}},\"aggs\":{\"Total Payments\":{\"date_histogram\":{\"field\":\"Data.auditDetails.createdTime\",\"interval\":\"month\"},\"aggs\":{\"TotalAmount\":{\"sum\":{\"field\":\"Data.totalAmount\"}}}}}}}}"
+      }
+    ],
+    "chartType": "line",
+    "valueType": "amount",
+    "action": "",
+    "drillChart": "none",
+    "documentType": "_doc",
+    "aggregationPaths": [
+      "Total Payments"
+    ],
+    "isCumulative": false,
+    "interval": "month",
+    "insight": {
+    },
+    "_comment": "Total Bill Payment Amount"
+  },
+  "totalAttendance": {
+    "chartName": "DSS_MUKTA_TOTAL_LABOUR_ATTENDANCE",
+    "queries": [
+      {
+        "module": "MUSTER-ROLL-SERVICES",
+        "dateRefField": "Data.auditDetails.createdTime",
+        "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
+        "indexName": "muster-inbox",
+        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.tenantId.keyword\":\"pb.testing\"}},{\"terms\":{\"Data.musterRollStatus.keyword\":[\"REJECTED\"]}}]}},\"aggs\":{\"Person Days\":{\"date_histogram\":{\"field\":\"Data.auditDetails.createdTime\",\"interval\":\"month\"},\"aggs\":{\"TotalAttendanceSum\":{\"sum\":{\"field\":\"Data.individualEntries.actualTotalAttendance\"}}}}}}}}"
+      }
+    ],
+    "chartType": "line",
+    "valueType": "number",
+    "action": "",
+    "drillChart": "none",
+    "documentType": "_doc",
+    "aggregationPaths": [
+      "Person Days"
+    ],
+    "isCumulative": false,
+    "interval": "month",
+    "insight": {
+    },
+    "_comment": "Total Labour Attendance"
+  },
+  "musterRollNotCreated": {
+    "chartName" : "DSS_MUKTA_MUSTER_ROLL_NOT_CREATED",
+    "queries": [
+      {
+        "module": "CONTRACT",
+        "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
+        "dateRefField": "Data.auditDetails.createdTime",
+        "indexName": "contract-inbox",
+        "aggrQuery":"{\n  \"aggs\": {\n    \"completion period weeks\": {\n      \"sum\": {\n        \"script\": {\n          \"source\": \"Math.ceil((double) doc['Data.completionPeriod'].value / 7)\"\n        }\n      }\n    }\n  }\n}"
+      },
+      {
+        "module": "MUSTER",
+        "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
+        "dateRefField": "Data.auditDetails.createdTime",
+        "indexName": "muster-inbox",
+        "aggrQuery": "{\n  \"aggs\": {\n    \"Total_Muster_rolls\": {\n      \"terms\": {\n        \"field\": \"Data.tenantId.keyword\",\n        \"size\": 10000\n      },\n      \"aggs\": {\n        \"Muster_rolls\": {\n          \"value_count\": {\n            \"field\": \"Data.id.keyword\"\n          }\n        },\n        \"Muster_rolls_Count\": {\n          \"bucket_script\": {\n            \"buckets_path\": {\n              \"path\": \"Muster_rolls\"\n            },\n            \"script\": \"params.path * (-1)\"\n          }\n        }\n      }\n    },\n    \"Negative Muster rolls Count\": {\n      \"sum_bucket\": {\n        \"buckets_path\": \"Total_Muster_rolls>Muster_rolls_Count\"\n      }\n    }\n  }\n}"
+      }
+    ],
+    "chartType": "metric",
+    "valueType": "number",
+    "drillChart": "none",
+    "documentType": "_doc",
+    "action": "",
+    "aggregationPaths": [
+      "completion period weeks","Negative Muster rolls Count"
+    ],
+    "insight": {
+    },
+    "_comment": "Muster rolls not created"
+  },
+  "pendingBillsAmount": {
+    "chartName" : "DSS_MUKTA_PENDING_BILLS",
+    "queries": [
+      {
+        "module": "EXPENSE",
+        "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
+        "dateRefField": "Data.auditDetails.createdTime",
+        "indexName": "expense-bill-index",
+        "aggrQuery":"{\n  \"aggs\": {\n    \"AGGR\": {\n      \"filter\": {\n        \"bool\": {\n          \"must_not\": [\n            {\n              \"terms\": {\n                \"Data.status.keyword\": [\n                  \"INACTIVE\"\n                ]\n              }\n            },\n            {\n              \"terms\": {\n                \"Data.currentProcessInstance.state.state.keyword\": [\n                  \"APPROVED\",\n                  \"REJECTED\"\n                ]\n              }\n            }\n          ]\n        }\n      },\n      \"aggs\": {\n        \"PendingBillsAmount\": {\n          \"sum\": {\n            \"field\": \"Data.totalAmount\"\n          }\n        },\n        \"Count\": {\n          \"value_count\": {\n            \"field\": \"Data.tenantId.keyword\"\n          }\n        }\n      }\n    }\n  }\n}"
+      }
+    ],
+    "chartType": "metric",
+    "metricCount" : true,
+    "valueType": "amount",
+    "drillChart": "none",
+    "documentType": "_doc",
+    "action": "",
+    "aggregationPaths": [
+      "PendingBillsAmount","Count"
+    ],
+    "insight": {
+    },
+    "_comment": "Pending Bills"
+  },
+  "ulbWiseLeaderboard":{
+    "chartName": "DSS_MUKTA_ULB_WISE_LEADERBOARD",
+    "queries":[
+      {
+        "module": "INDIVIDUAL",
+        "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
+        "dateRefField": "Data.auditDetails.createdTime",
+        "indexName": "individual-index-v1",
+        "aggrQuery":"{\n  \"aggs\": {\n    \"Total Individuals\": {\n      \"filter\": {\n        \"bool\": {\n          \"must_not\": [\n            {\n              \"term\": {\n                \"Data.tenantId\": \"\"\n              }\n            }\n          ]\n        }\n      },\n      \"aggs\": {\n        \"Individuals by tenantId\": {\n          \"terms\": {\n            \"field\": \"Data.tenantId.keyword\",\n            \"size\": 10000\n          },\n          \"aggs\": {\n            \"Individuals Count\": {\n              \"cardinality\": {\n                \"field\": \"Data.id.keyword\"\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}"
+      },
+      {
+        "module": "MUSTER",
+        "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
+        "dateRefField": "Data.auditDetails.createdTime",
+        "indexName": "muster-inbox",
+        "aggrQuery":"{\n  \"aggs\": {\n    \"Muster rolls\": {\n      \"terms\": {\n        \"field\": \"Data.tenantId.keyword\",\n        \"size\": 100000\n      },\n      \"aggs\": {\n        \"Muster Count\": {\n          \"cardinality\": {\n            \"field\": \"Data.individualEntries.individualId.keyword\"\n          }\n        },\n        \"Negative Muster Count\": {\n          \"bucket_script\": {\n            \"buckets_path\": {\n              \"path\": \"Muster Count\"\n            },\n            \"script\": \"params.path * (-1)\"\n          }\n        }\n      }\n    }\n  }\n}"
+      },
+      {
+        "module": "EXPENSE",
+        "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
+        "dateRefField": "Data.auditDetails.createdTime",
+        "indexName": "expense-bill-index",
+        "aggrQuery":"{\n  \"aggs\": {\n    \"AGGR\": {\n      \"filter\": {\n        \"bool\": {\n          \"must_not\": [\n            {\n              \"terms\": {\n                \"Data.status.keyword\": [\n                  \"INACTIVE\"\n                ]\n              }\n            },\n            {\n              \"terms\": {\n                \"Data.currentProcessInstance.state.state.keyword\": [\n                  \"APPROVED\",\n                  \"REJECTED\"\n                ]\n              }\n            }\n          ]\n        }\n      },\n      \"aggs\": {\n        \"Pending Bills\": {\n          \"terms\": {\n            \"field\": \"Data.tenantId.keyword\"\n          },\n          \"aggs\": {\n            \"Pending Bills Amount\": {\n              \"sum\": {\n                \"field\": \"Data.totalAmount\"\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}"
+      },
+      {
+        "module": "CONTRACT",
+        "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
+        "dateRefField": "Data.auditDetails.createdTime",
+        "indexName": "contract-inbox",
+        "aggrQuery":"{\n  \"aggs\": {\n    \"Distinct Work Orders\": {\n      \"terms\": {\n        \"field\": \"Data.tenantId.keyword\",\n        \"size\": 10000\n      },\n      \"aggs\": {\n        \"Work Orders\": {\n          \"cardinality\": {\n            \"field\": \"Data.additionalDetails.projectId.keyword\"\n          }\n        },\n        \"Negative Work Order Count\": {\n          \"bucket_script\": {\n            \"buckets_path\": {\n              \"path\": \"Work Orders\"\n            },\n            \"script\": \"params.path * (-1)\"\n          }\n        }\n      }\n    }\n  }\n}\n"
+      },
+      {
+        "module": "PROJECTS",
+        "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
+        "dateRefField": "Data.auditDetails.createdTime",
+        "indexName": "project-index",
+        "aggrQuery": "{\n  \"aggs\": {\n    \"Total Projects\": {\n      \"filter\": {\n        \"bool\": {\n          \"must_not\": {\n            \"term\": {\n              \"Data.projectNumber.keyword\": \"\"\n            }\n          }\n        }\n      },\n      \"aggs\": {\n        \"Projects\": {\n          \"terms\": {\n            \"field\": \"Data.tenantId.keyword\",\n            \"size\": 10000\n          },\n          \"aggs\": {\n            \"Projects count\": {\n              \"cardinality\": {\n                \"field\": \"Data.projectNumber.keyword\"\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n"
+      },
+      {
+        "module": "CONTRACT",
+        "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
+        "dateRefField": "Data.auditDetails.createdTime",
+        "indexName": "contract-inbox",
+        "aggrQuery":"{\n  \"aggs\": {\n    \"completion period\": {\n      \"terms\": {\n        \"field\": \"Data.tenantId.keyword\",\n        \"size\": 10000\n      },\n      \"aggs\": {\n        \"completion period weeks\": {\n          \"sum\": {\n            \"script\": {\n              \"source\": \"Math.ceil((double) doc['Data.completionPeriod'].value / 7)\"\n            }\n          }\n        }\n      }\n    }\n  }\n}"
+      },
+      {
+        "module": "MUSTER",
+        "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
+        "dateRefField": "Data.auditDetails.createdTime",
+        "indexName": "muster-inbox",
+        "aggrQuery": "{\n  \"aggs\": {\n    \"Total Muster rolls\": {\n      \"terms\": {\n        \"field\": \"Data.tenantId.keyword\",\n        \"size\": 10000\n      },\n      \"aggs\": {\n        \"Muster rolls\": {\n          \"value_count\": {\n            \"field\": \"Data.id.keyword\"\n          }\n        },\n        \"Negative Muster rolls Count\": {\n          \"bucket_script\": {\n            \"buckets_path\": {\n              \"path\": \"Muster rolls\"\n            },\n            \"script\": \"params.path * (-1)\"\n          }\n        }\n      }\n    }\n  }\n}"
+      }
+    ],
+    "chartType": "xtable",
+    "valueType": "number",
+
+    "drillChart": "",
+    "documentType": "_doc",
+    "action": "",
+    "plotLabel": "ULB",
+    "excludedColumns": ["Individuals Count","Negative Muster Count","Muster Count","Pending Bills Amount","Projects count","Negative Work Order Count","Work Orders","completion period weeks","Muster rolls","Negative Muster rolls Count"],
+    "computedFields": [
+      {
+        "postAggregationTheory" : "",
+        "actionName": "AdditiveComputedField",
+        "fields" : ["Individuals Count","Negative Muster Count"],
+        "newField" : "Unemployed Wage seekers",
+        "_comments": ""
+      },
+      {
+        "postAggregationTheory" : "",
+        "actionName": "AdditiveComputedField",
+        "fields" : ["Pending Bills Amount"],
+        "newField" : "Pending Bills",
+        "_comments": ""
+      },
+      {
+        "postAggregationTheory" : "",
+        "actionName": "AdditiveComputedField",
+        "fields" : ["Projects count","Negative Work Order Count"],
+        "newField" : "Work orders not issued",
+        "_comments": ""
+      },
+      {
+        "postAggregationTheory" : "",
+        "actionName": "AdditiveComputedField",
+        "fields" : ["completion period weeks","Negative Muster rolls Count"],
+        "newField" : "Muster rolls not created",
+        "_comments": ""
+      }
+    ],
+    "insight": {
+    },
+    "hideInsights": true,
+    "hideHeaderDenomination": true,
+    "_comment": " "
+  },
+  "estimatesSlaBreached": {
+    "chartName": "DSS_MUKTA_ESTIMATE_SLA_BREACHED",
+    "queries": [
+      {
+        "module": "COMMON",
+        "dateRefField": "Data.auditDetails.createdTime",
+        "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
+        "indexName": "estimate-inbox-v3",
+        "aggrQuery": "{\n  \"aggs\": {\n    \"Estimate SLA\": {\n      \"filter\": {\n        \"bool\": {\n          \"must\": [\n            {\n              \"exists\": {\n                \"field\": \"Data.currentProcessInstance.state.sla\"\n              }\n            }\n          ]\n        }\n      },\n      \"aggs\": {\n        \"SLA Breached\": {\n          \"filter\": {\n            \"script\": {\n              \"script\": {\n                \"source\": \"new Date().getTime() > doc['Data.auditDetails.createdTime'].value + doc['Data.currentProcessInstance.state.sla'].value\"\n              }\n            }\n          },\n          \"aggs\": {\n            \"Estimate SLA Breached\": {\n              \"value_count\": {\n                \"field\": \"Data.auditDetails.createdTime\"\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}"
+      }
+    ],
+    "chartType": "metric",
+    "valueType": "number",
+    "drillChart": "none",
+    "documentType": "_doc",
+    "action": "",
+    "aggregationPaths": [
+      "Estimate SLA Breached"
+    ],
+    "insight": {
+    },
+    "_comment": "Estimate SLA Breached"
+  },
+  "contractSlaBreached": {
+    "chartName": "DSS_MUKTA_CONTRACT_SLA_BREACHED",
+    "queries": [
+      {
+        "module": "COMMON",
+        "dateRefField": "Data.auditDetails.createdTime",
+        "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
+        "indexName": "contract-inbox",
+        "aggrQuery": "{\n  \"aggs\": {\n    \"Contract SLA\": {\n      \"filter\": {\n        \"bool\": {\n          \"must\": [\n            {\n              \"exists\": {\n                \"field\": \"Data.currentProcessInstance.state.sla\"\n              }\n            }\n          ]\n        }\n      },\n      \"aggs\": {\n        \"SLA Breached\": {\n          \"filter\": {\n            \"script\": {\n              \"script\": {\n                \"source\": \"new Date().getTime() > doc['Data.auditDetails.createdTime'].value + doc['Data.currentProcessInstance.state.sla'].value\"\n              }\n            }\n          },\n          \"aggs\": {\n            \"Contract SLA Breached\": {\n              \"value_count\": {\n                \"field\": \"Data.auditDetails.createdTime\"\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n"
+      }
+    ],
+    "chartType": "metric",
+    "valueType": "number",
+    "drillChart": "none",
+    "documentType": "_doc",
+    "action": "",
+    "aggregationPaths": [
+      "Contract SLA Breached"
+    ],
+    "insight": {
+    },
+    "_comment": "Contract SLA Breached"
+  },
+  "musterSlaBreached": {
+    "chartName": "DSS_MUKTA_MUSTER_SLA_BREACHED",
+    "queries": [
+      {
+        "module": "COMMON",
+        "dateRefField": "Data.auditDetails.createdTime",
+        "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
+        "indexName": "muster-inbox",
+        "aggrQuery": "{\n  \"aggs\": {\n    \"Muster SLA\": {\n      \"filter\": {\n        \"bool\": {\n          \"must\": [\n            {\n              \"exists\": {\n                \"field\": \"Data.currentProcessInstance.state.sla\"\n              }\n            }\n          ]\n        }\n      },\n      \"aggs\": {\n        \"SLA Breached\": {\n          \"filter\": {\n            \"script\": {\n              \"script\": {\n                \"source\": \"new Date().getTime() > doc['Data.auditDetails.createdTime'].value + doc['Data.currentProcessInstance.state.sla'].value\"\n              }\n            }\n          },\n          \"aggs\": {\n            \"Muster SLA Breached\": {\n              \"value_count\": {\n                \"field\": \"Data.auditDetails.createdTime\"\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}"
+      }
+    ],
+    "chartType": "metric",
+    "valueType": "number",
+    "drillChart": "none",
+    "documentType": "_doc",
+    "action": "",
+    "aggregationPaths": [
+      "Muster SLA Breached"
+    ],
+    "insight": {
+    },
+    "_comment": "Muster SLA Breached"
+  },
+  "billsSlaBreached": {
+    "chartName": "DSS_MUKTA_BILLS_SLA_BREACHED",
+    "queries": [
+      {
+        "module": "COMMON",
+        "dateRefField": "Data.auditDetails.createdTime",
+        "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
+        "indexName": "expense-bill-index",
+        "aggrQuery": "{\n  \"aggs\": {\n    \"Bill SLA\": {\n      \"filter\": {\n        \"bool\": {\n          \"must\": [\n            {\n              \"exists\": {\n                \"field\": \"Data.currentProcessInstance.state.sla\"\n              }\n            }\n          ]\n        }\n      },\n      \"aggs\": {\n        \"SLA Breached\": {\n          \"filter\": {\n            \"script\": {\n              \"script\": {\n                \"source\": \"new Date().getTime() > doc['Data.auditDetails.createdTime'].value + doc['Data.currentProcessInstance.state.sla'].value\"\n              }\n            }\n          },\n          \"aggs\": {\n            \"Bill SLA Breached\": {\n              \"value_count\": {\n                \"field\": \"Data.auditDetails.createdTime\"\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n"
+      }
+    ],
+    "chartType": "metric",
+    "valueType": "number",
+    "drillChart": "none",
+    "documentType": "_doc",
+    "action": "",
+    "aggregationPaths": [
+      "Bill SLA Breached"
+    ],
+    "insight": {
+    },
+    "_comment": "Bill SLA Breached"
+  },
+  "moneyTransferred": {
+    "chartName": "DSS_MUKTA_MONEY_TRANSFERRED",
+    "queries": [
+      {
+        "module": "COMMON",
+        "dateRefField": "Data.auditDetails.createdTime",
+        "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
+        "indexName": "expense-bill-index",
+        "aggrQuery": "{\n  \"aggs\": {\n    \"Approved bills\": {\n      \"filter\": {\n        \"bool\": {\n          \"must\": [\n            {\n              \"term\": {\n                \"Data.currentProcessInstance.state.state.keyword\": \"APPROVED\"\n              }\n            }\n          ]\n        }\n      },\n      \"aggs\": {\n        \"Purchase Bills amount\": {\n          \"date_histogram\": {\n            \"field\": \"Data.auditDetails.createdTime\",\n            \"interval\": \"month\"\n          },\n          \"aggs\": {\n            \"Purchase paid amount\": {\n              \"filter\": {\n                \"bool\": {\n                  \"must\": [\n                    {\n                      \"term\": {\n                        \"Data.businessService.keyword\": \"EXPENSE.PURCHASE\"\n                      }\n                    }\n                  ]\n                }\n              },\n              \"aggs\": {\n                \"Paid Amount\": {\n                  \"sum\": {\n                    \"field\": \"Data.totalPaidAmount\"\n                  }\n                }\n              }\n            }\n          }\n        },\n        \"Wages Bills amount\": {\n          \"date_histogram\": {\n            \"field\": \"Data.auditDetails.createdTime\",\n            \"interval\": \"month\"\n          },\n          \"aggs\": {\n            \"Wages paid amount\": {\n              \"filter\": {\n                \"bool\": {\n                  \"must\": [\n                    {\n                      \"term\": {\n                        \"Data.businessService.keyword\": \"EXPENSE.WAGES\"\n                      }\n                    }\n                  ]\n                }\n              },\n              \"aggs\": {\n                \"Paid Amount\": {\n                  \"sum\": {\n                    \"field\": \"Data.totalPaidAmount\"\n                  }\n                }\n              }\n            }\n          }\n        },\n        \"Supervision Bills amount\": {\n          \"date_histogram\": {\n            \"field\": \"Data.auditDetails.createdTime\",\n            \"interval\": \"month\"\n          },\n          \"aggs\": {\n            \"Supervision paid amount\": {\n              \"filter\": {\n                \"bool\": {\n                  \"must\": [\n                    {\n                      \"term\": {\n                        \"Data.businessService.keyword\": \"EXPENSE.SUPERVISION\"\n                      }\n                    }\n                  ]\n                }\n              },\n              \"aggs\": {\n                \"Paid Amount\": {\n                  \"sum\": {\n                    \"field\": \"Data.totalPaidAmount\"\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}"
+      }
+    ],
+    "chartType": "line",
+    "valueType": "amount",
+    "drillChart": "none",
+    "documentType": "_doc",
+    "action": "",
+    "isCumulative": false,
+    "interval": "month",
+    "aggregationPaths": [
+      "Purchase Bills amount","Supervision Bills amount","Wages Bills amount"
+    ],
+    "insight": {
+    },
+    "_comment": "Money transferred"
+  },
+  "paymentsByGender":{
+    "chartName": "DSS_PAYMENT_BY_GENDER",
+    "queries":[
+      {
+        "module": "COMMON",
+        "dateRefField": "Data.auditDetails.createdTime",
+        "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
+        "indexName": "expense-bill-index",
+        "aggrQuery": "{\n  \"aggs\": {\n    \"Approved wage bills\": {\n      \"filter\": {\n        \"bool\": {\n          \"must\":[\n            {\n              \"term\": {\n                \"Data.currentProcessInstance.state.state.keyword\": \"APPROVED\"\n              }\n            },\n            {\n              \"term\": {\n                \"Data.businessService.keyword\": \"EXPENSE.WAGES\"\n              }\n            }\n          ]\n        }\n      },\n      \"aggs\": {\n        \"Payments by Gender\": {\n          \"terms\": {\n            \"field\": \"Data.billDetails.payee.additionalDetails.gender.keyword\",\n            \"size\": 10\n          },\n          \"aggs\": {\n            \"payments\": {\n              \"avg\": {\n                \"field\": \"Data.totalPaidAmount\"\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}"
+      },
+      {
+        "module": "COMMON",
+        "dateRefField": "Data.auditDetails.createdTime",
+        "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
+        "indexName": "muster-inbox",
+        "aggrQuery": "{\n  \"aggs\": {\n    \"Muster roll by gender\": {\n      \"terms\": {\n        \"field\": \"Data.individualEntries.additionalDetails.gender.keyword\",\n        \"size\": 10\n      },\n      \"aggs\": {\n        \"Muster roll by Id\": {\n          \"terms\": {\n            \"field\": \"Data.individualEntries.individualId.keyword\",\n            \"size\": 100000\n          },\n          \"aggs\": {\n            \"sum of approved days\": {\n              \"sum\": {\n                \"field\": \"Data.individualEntries.totalAttendance\"\n              }\n            }\n          }\n        },\n        \"Avg attendance\": {\n          \"avg_bucket\": {\n            \"buckets_path\": \"Muster roll by Id>sum of approved days\"\n          }\n        }\n      }\n    }\n  }\n}"
+      }
+    ],
+    "chartType": "xtable",
+    "valueType": "number",
+    "drillChart": "",
+    "documentType": "_doc",
+    "action": "",
+    "plotLabel": "Gender",
+    "aggregationPaths": ["payments","Avg attendance"],
+    "excludedColumns": [],
+    "computedFields": [],
+    "insight": {
+    },
+    "hideInsights": true,
+    "hideHeaderDenomination": true,
+    "_comment": " "
+  }
+}
