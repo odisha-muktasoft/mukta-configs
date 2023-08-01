@@ -519,7 +519,7 @@
           {
             "externalAPI": [
               {
-                "path": "http://egov-mdms-service:8080/egov-mdms-service/v1/_get",
+                "path": "http://localhost:8099/egov-mdms-service/v1/_get",
                 "queryParam": "moduleName=tenant&masterName=tenants&tenantId=od&filter=%5B?(@.code=='{$.tenantId}')%5D",
                   "apiRequest": null,
                   "responseMapping":[
@@ -560,6 +560,26 @@
                         "prefix": "COMMON_SUBDIVISION",
                         "module": "rainmaker-common"
                       }
+                    },
+                    {
+                      "variable": "cmImage",
+                      "value":"$.MdmsRes.tenant.tenants[0].cmImageId",
+                      "type":"image"
+                    },
+                    {
+                      "variable": "tLogoImage",
+                      "value":"$.MdmsRes.tenant.tenants[0].tLogoImageId",
+                      "type":"image"
+                    },
+                    {
+                      "variable": "schemImage",
+                      "value":"$.MdmsRes.tenant.tenants[0].schemImageId",
+                      "type":"image"
+                    },
+                    {
+                      "variable": "sealImage",
+                      "value":"$.MdmsRes.tenant.tenants[0].sealImageId",
+                      "type":"image"
                     }
                   ]
               }
