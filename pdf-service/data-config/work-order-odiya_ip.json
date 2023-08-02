@@ -486,13 +486,6 @@
                 }
               },
               {
-                "variable": "cityName",
-                "value": {
-                  "path": "$.tenantIdForTnC"
-                }
-              },
-
-              {
                 "variable": "termsAndConditionsList",
                 "value": {
                   "path": "$.termsAndConditionList"
