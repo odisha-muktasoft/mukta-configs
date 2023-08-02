@@ -561,6 +561,27 @@
                       "module": "rainmaker-common"
                     }
                   }
+                  },
+                  {
+                    "variable": "cmImage",
+                    "value":"$.MdmsRes.tenant.tenants[0].cmImageId",
+                    "type":"image"
+                  },
+                  {
+                    "variable": "tLogoImage",
+                    "value":"$.MdmsRes.tenant.tenants[0].tLogoImageId",
+                    "type":"image"
+                  },
+                  {
+                    "variable": "schemImage",
+                    "value":"$.MdmsRes.tenant.tenants[0].schemImageId",
+                    "type":"image"
+                  },
+                  {
+                    "variable": "sealImage",
+                    "value":"$.MdmsRes.tenant.tenants[0].sealImageId",
+                    "type":"image"
+                  }
                 ]
               }
             ]

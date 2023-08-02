@@ -16,9 +16,9 @@
           "body": [
             [
               {
-                "image": "{{logoImage}}",
-                "width": 50,
-                "height": 50,
+                "image": "{{tLogoImage}}",
+                "width": 60,
+                "height": 60,
                 "margin": [
                   -300,
                   0,
@@ -29,9 +29,9 @@
                 "fillColor":"#f4f4f4"
               },
               {
-                "image": "{{logoImage}}",
-                "width": 50,
-                "height": 50,
+                "image": "{{schemImage}}",
+                "width": 60,
+                "height": 60,
                 "margin": [
                   0,
                   0,
@@ -42,9 +42,9 @@
                 "fillColor":"#f4f4f4"
               },
               {
-                "image": "{{logoImage}}",
-                "width": 50,
-                "height": 50,
+                "image": "{{sealImage}}",
+                "width": 60,
+                "height": 60,
                 "margin": [
                   0,
                   0,
@@ -82,7 +82,7 @@
                     "text": "{{SchemeName}}",
                     "style": "receipt-logo-header",
                     "fontSize": 12,
-                    "italics":true
+                    "italics":false
                   },
                   {
                     "text": "{{FillerTextName}}",
@@ -319,6 +319,30 @@
                 "text":  "Name of the officer {{muktaaccountant}}, Designation {{accountantdesignation}}, Mobile number {{contactnumber}}"
               }
             ]
+          },
+          {
+            "text": " "
+          },
+          {
+            "text": " "
+          },
+          {
+            "text": " "
+          },
+          {
+            "text": " "
+          },
+          {
+            "image": "{{cmImage}}",
+            "width": 250,
+            "height": 300,
+            "margin": [
+              0,
+              0,
+              10,
+              0
+            ],
+            "alignment": "right"
           }
         ]
       }
@@ -357,11 +381,10 @@
         ]
       },
       "receipt-logo-header": {
-        "color": "#636363",
         "fontSize": 12,
-        "bold": true,
+        "bold": false,
         "margin": [
-          -80,
+          -60,
           0,
           0,
           -3
