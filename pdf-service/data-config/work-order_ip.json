@@ -486,15 +486,9 @@
                 }
               },
               {
-                "variable": "districtName",
-                "value": {
-                  "path": "$.orgDistrict"
-                }
-              },
-              {
                 "variable": "cityName",
                 "value": {
-                  "path": "$.city"
+                  "path": "$.tenantIdForTnC"
                 }
               },
 
@@ -581,6 +575,10 @@
                     "variable": "sealImage",
                     "value":"$.MdmsRes.tenant.tenants[0].sealImageId",
                     "type":"image"
+                  },
+                  {
+                    "variable": "districtName",
+                    "value":"$.MdmsRes.tenant.tenants[0].city.districtName"
                   }
                 ]
               }
