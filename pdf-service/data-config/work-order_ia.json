@@ -209,17 +209,6 @@
                 }
               },
               {
-                "variable": "ulb_name_and_address",
-                "value": {
-                  "path": "$.tenantId"
-                },
-                "localisation": {
-                  "required": true,
-                  "prefix": "TENANT_TENANTS",
-                  "module": "rainmaker-od"
-                }
-              },
-              {
                 "variable": "contractNumber",
                 "value": {
                   "path": "$.contractNumber"
@@ -261,7 +250,17 @@
                   "path": "$.additionalDetails.projectDesc"
                 }
               },
-
+              {
+                "variable": "ulb_name_and_address",
+                "value": {
+                  "path": "$.tenantId"
+                },
+                "localisation": {
+                  "required": true,
+                  "prefix": "TENANT_TENANTS",
+                  "module": "rainmaker-od"
+                }
+              },
 
               {
                 "variable": "name_of_the_contact_person",
@@ -484,14 +483,7 @@
                   "prefix": "OD_LOCALITY_ADMIN",
                   "module": "rainmaker-ward-locality"
                 }
-              },
-              {
-                "variable": "cityName",
-                "value": {
-                  "path": "$.tenantIdForTnC"
-                }
-              },
-
+              }
               {
                 "variable": "termsAndConditionsList",
                 "value": {
