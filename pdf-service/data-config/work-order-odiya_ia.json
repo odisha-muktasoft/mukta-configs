@@ -547,7 +547,6 @@
                         "prefix": "COMMON_SUBDIVISION",
                         "module": "rainmaker-common"
                       }
-                    }
                     },
                     {
                       "variable": "cmImage",
