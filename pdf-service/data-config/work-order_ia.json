@@ -209,17 +209,6 @@
                 }
               },
               {
-                "variable": "ulb_name_and_address",
-                "value": {
-                  "path": "$.tenantId"
-                },
-                "localisation": {
-                  "required": true,
-                  "prefix": "TENANT_TENANTS",
-                  "module": "rainmaker-od"
-                }
-              },
-              {
                 "variable": "contractNumber",
                 "value": {
                   "path": "$.contractNumber"
@@ -261,7 +250,17 @@
                   "path": "$.additionalDetails.projectDesc"
                 }
               },
-
+              {
+                "variable": "ulb_name_and_address",
+                "value": {
+                  "path": "$.tenantId"
+                },
+                "localisation": {
+                  "required": true,
+                  "prefix": "TENANT_TENANTS",
+                  "module": "rainmaker-od"
+                }
+              },
 
               {
                 "variable": "name_of_the_contact_person",
@@ -484,20 +483,7 @@
                   "prefix": "OD_LOCALITY_ADMIN",
                   "module": "rainmaker-ward-locality"
                 }
-              },
-              {
-                "variable": "districtName",
-                "value": {
-                  "path": "$.orgDistrict"
-                }
-              },
-              {
-                "variable": "cityName",
-                "value": {
-                  "path": "$.city"
-                }
-              },
-
+              }
               {
                 "variable": "termsAndConditionsList",
                 "value": {
@@ -560,6 +546,30 @@
                         "prefix": "COMMON_SUBDIVISION",
                         "module": "rainmaker-common"
                       }
+                    },
+                    {
+                      "variable": "cmImage",
+                      "value":"$.MdmsRes.tenant.tenants[0].cmImageId",
+                      "type":"image"
+                    },
+                    {
+                      "variable": "tLogoImage",
+                      "value":"$.MdmsRes.tenant.tenants[0].tLogoImageId",
+                      "type":"image"
+                    },
+                    {
+                      "variable": "schemImage",
+                      "value":"$.MdmsRes.tenant.tenants[0].schemImageId",
+                      "type":"image"
+                    },
+                    {
+                      "variable": "sealImage",
+                      "value":"$.MdmsRes.tenant.tenants[0].sealImageId",
+                      "type":"image"
+                    },
+                    {
+                      "variable": "districtName",
+                      "value":"$.MdmsRes.tenant.tenants[0].city.districtName"
                     }
                   ]
               }
