@@ -7,7 +7,7 @@
         "dateRefField": "Data.auditDetails.createdTime",
         "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
         "indexName": "individual-index-v1",
-        "aggrQuery": "{\n  \"aggs\": {\n    \"Total Individuals\": {\n      \"filter\": {\n        \"bool\": {\n          \"must_not\": [\n            {\n              \"term\": {\n                \"Data.tenantId\": \"\"\n              }\n            }\n          ]\n        }\n      },\n      \"aggs\": {\n        \"Individuals Count\": {\n          \"terms\": {\n            \"field\": \"Data.id.keyword\",\n            \"size\": 10000\n          }\n        }\n      }\n    }\n  }\n}"
+        "aggrQuery": "{\n  \"aggs\": {\n    \"Total Individuals\": {\n      \"filter\": {\n        \"bool\": {\n          \"must_not\": [\n            {\n              \"term\": {\n                \"Data.tenantId\": \"\"\n              }\n            },\n            {\n              \"term\": {\n                \"Data.isDeleted\": true\n              }\n            }\n          ]\n        }\n      },\n      \"aggs\": {\n        \"Individuals Count\": {\n          \"terms\": {\n            \"field\": \"Data.id.keyword\",\n            \"size\": 100000\n          }\n        }\n      }\n    }\n  }\n}"
       },
       {
         "module": "COMMON",
@@ -38,7 +38,7 @@
         "dateRefField": "Data.auditDetails.createdTime",
         "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
         "indexName": "muster-inbox",
-        "aggrQuery": "{\n  \"aggs\": {\n    \"AGGR\": {\n      \"filter\": {\n        \"bool\": {\n          \"must_not\": [\n            {\n              \"term\": {\n                \"Data.tenantId.keyword\": \"pb.testing\"\n              }\n            },\n            {\n              \"terms\": {\n                \"Data.musterRollStatus.keyword\": [\n                  \"REJECTED\"\n                ]\n              }\n            }\n          ]\n        }\n      },\n      \"aggs\": {\n        \"Muster Rolls\": {\n          \"terms\": {\n            \"script\": {\n              \"source\": \"if(['APPROVED','SUBMITTED'].contains(doc['Data.musterRollStatus.keyword'].value)){return doc['Data.musterRollStatus.keyword'].value}else{return 'YET_TO_APPROVE'}\"\n            }\n          },\n          \"aggs\": {\n            \"Count\": {\n              \"value_count\": {\n                \"field\": \"Data.auditDetails.createdTime\"\n              }\n            }\n          }\n        },\n        \"Muster rolls created\":{\n          \"value_count\": {\n            \"field\": \"Data.auditDetails.createdTime\"\n          }\n        }\n      }\n    }\n  }\n}"
+        "aggrQuery": "{\n  \"aggs\": {\n    \"AGGR\": {\n      \"filter\": {\n        \"bool\": {\n          \"must_not\": [\n            {\n              \"term\": {\n                \"Data.tenantId.keyword\": \"pb.testing\"\n              }\n            }\n          ]\n        }\n      },\n      \"aggs\": {\n        \"Muster Rolls\": {\n          \"terms\": {\n            \"script\": {\n              \"source\": \"if(['APPROVED','BILLCREATED'].contains(doc['Data.musterRollStatus.keyword'].value)){return'DSS_MUSTER_APPROVED'}else if(['REJECTED'].contains(doc['Data.musterRollStatus.keyword'].value)){return 'DSS_MUSTER_REJECTED'}else{return 'DSS_MUSTER_YET_TO_APPROVE'}\"\n            },\n            \"order\": {\n              \"_key\": \"desc\"\n            }\n          },\n          \"aggs\": {\n            \"Count\": {\n              \"value_count\": {\n                \"field\": \"Data.musterRollStatus.keyword\"\n              }\n            }\n          }\n        },\n        \"Muster rolls created\":{\n          \"value_count\": {\n            \"field\": \"Data.auditDetails.createdTime\"\n          }\n        }\n      }\n    }\n  }\n}"
       }
     ],
     "chartType": "pie",
@@ -176,7 +176,7 @@
         "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
         "dateRefField": "Data.auditDetails.createdTime",
         "indexName": "estimate-inbox-v3",
-        "aggrQuery":"{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.tenantId.keyword\":\"pb.testing\"}}]}},\"aggs\":{\"DSS_ESTIMATES\":{\"terms\":{\"script\":{\"source\":\"if(['PENDINGFORVERIFICATION','REJECTED','PENDINGFORTECHNICALSANCTION','PENDINGFORAPPROVAL','PENDINGFORCORRECTION'].contains(doc['Data.wfStatus.keyword'].value)){return'DSS_ESTIMATES_YET_TO_APPROVE'}else{return'DSS_ESTIMATES_APPROVED'}\"},\"order\":{\"_key\":\"desc\"}},\"aggs\":{\"Count\":{\"value_count\":{\"field\":\"Data.auditDetails.createdTime\"}}}},\"DSS_CREATED_ESTIMATES\":{\"value_count\":{\"field\":\"Data.auditDetails.createdTime\"}}}}}}"
+        "aggrQuery":"{\n  \"aggs\": {\n    \"AGGR\": {\n      \"filter\": {\n        \"bool\": {\n          \"must_not\": [\n            {\n              \"term\": {\n                \"Data.tenantId.keyword\": \"pb.testing\"\n              }\n            }\n          ]\n        }\n      },\n      \"aggs\": {\n        \"DSS_ESTIMATES\": {\n          \"terms\": {\n            \"script\": {\n              \"source\": \"if(['PENDINGFORVERIFICATION','PENDINGFORTECHNICALSANCTION','PENDINGFORAPPROVAL','PENDINGFORCORRECTION'].contains(doc['Data.wfStatus.keyword'].value)){return'DSS_ESTIMATES_YET_TO_APPROVE'}else if(['APPROVED'].contains(doc['Data.wfStatus.keyword'].value)){return'DSS_ESTIMATES_APPROVED'}else if(['REJECTED'].contains(doc['Data.wfStatus.keyword'].value)){return'DSS_ESTIMATES_REJECTED'}\"\n            },\n            \"order\": {\n              \"_key\": \"desc\"\n            }\n          },\n          \"aggs\": {\n            \"Count\": {\n              \"value_count\": {\n                \"field\": \"Data.wfStatus.keyword\"\n              }\n            }\n          }\n        },\n        \"DSS_CREATED_ESTIMATES\": {\n          \"value_count\": {\n            \"field\": \"Data.auditDetails.createdTime\"\n          }\n        }\n      }\n    }\n  }\n}"
       }
     ],
     "chartType": "pie",
@@ -200,7 +200,7 @@
         "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
         "dateRefField": "Data.auditDetails.createdTime",
         "indexName": "contract-inbox",
-        "aggrQuery":"{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.tenantId.keyword\":\"pb.testing\"}}]}},\"aggs\":{\"DSS_CONTRACTS\":{\"terms\":{\"script\":{\"source\":\"if(['PENDING_FOR_VERIFICATION','PENDING_FOR_APPROVAL','PENDING_FOR_CORRECTION','PENDING_FOR_REASSIGNMENT','PENDING_FOR_REVERIFICATION'].contains(doc['Data.contractStatus.keyword'].value)){return'DSS_CONTRACTS_YET_TO_APPROVE'}else if(['PENDING_FOR_ACCEPTANCE'].contains(doc['Data.contractStatus.keyword'].value)){return'DSS_CONTRACTS_YET_TO_ACCEPT'}else{return'DSS_CONTRACTS_INPROGRESS'}\"},\"order\":{\"_key\":\"desc\"}},\"aggs\":{\"Count\":{\"value_count\":{\"field\":\"Data.auditDetails.createdTime\"}}}},\"DSS_CONTRACTS_CREATED\":{\"value_count\":{\"field\":\"Data.auditDetails.createdTime\"}}}}}}"
+        "aggrQuery":"{\n  \"aggs\": {\n    \"AGGR\": {\n      \"filter\": {\n        \"bool\": {\n          \"must_not\": [\n            {\n              \"term\": {\n                \"Data.tenantId.keyword\": \"pb.testing\"\n              }\n            }\n          ]\n        }\n      },\n      \"aggs\": {\n        \"DSS_CONTRACTS\": {\n          \"terms\": {\n            \"script\": {\n              \"source\": \"if(['PENDING_FOR_VERIFICATION','PENDING_FOR_APPROVAL','PENDING_FOR_CORRECTION','PENDING_FOR_REASSIGNMENT','PENDING_FOR_REVERIFICATION'].contains(doc['Data.contractStatus.keyword'].value)){return'DSS_CONTRACTS_YET_TO_APPROVE'}else if(['PENDING_FOR_ACCEPTANCE'].contains(doc['Data.contractStatus.keyword'].value)){return'DSS_CONTRACTS_YET_TO_ACCEPT'}else if(['REJECTED'].contains(doc['Data.contractStatus.keyword'].value)){return'DSS_CONTRACTS_REJECTED'}else if(['ACCEPTED'].contains(doc['Data.contractStatus.keyword'].value)){return'DSS_CONTRACTS_INPROGRESS'}\"\n            },\n            \"order\": {\n              \"_key\": \"desc\"\n            }\n          },\n          \"aggs\": {\n            \"Count\": {\n              \"value_count\": {\n                \"field\": \"Data.contractStatus.keyword\"\n              }\n            }\n          }\n        },\n        \"DSS_CONTRACTS_CREATED\": {\n          \"value_count\": {\n            \"field\": \"Data.auditDetails.createdTime\"\n          }\n        }\n      }\n    }\n  }\n}"
 
       }
     ],
@@ -225,14 +225,14 @@
         "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
         "dateRefField": "Data.auditDetails.createdTime",
         "indexName": "project-index",
-        "aggrQuery": "{\n  \"aggs\": {\n    \"Total Projects\": {\n      \"filter\": {\n        \"bool\": {\n          \"must_not\": {\n            \"term\": {\n              \"Data.projectNumber.keyword\": \"\"\n            }\n          }\n        }\n      },\n      \"aggs\": {\n        \"Projects\": {\n          \"terms\": {\n            \"field\": \"Data.projectNumber.keyword\",\n            \"size\": 100000\n          }\n        }\n      }\n    }\n  }\n}"
+        "aggrQuery": "{\n  \"aggs\": {\n    \"Total Projects\": {\n      \"filter\": {\n        \"bool\": {\n          \"must_not\": [\n            {\n              \"term\": {\n                \"Data.projectNumber.keyword\": \"\"\n              }\n            },\n            {\n              \"term\": {\n                \"Data.isDeleted\": true\n              }\n            }\n          ]\n        }\n      },\n      \"aggs\": {\n        \"Projects\": {\n          \"terms\": {\n            \"field\": \"Data.projectNumber.keyword\",\n            \"size\": 100000\n          }\n        }\n      }\n    }\n  }\n}"
       },
       {
         "module": "CONTRACT",
         "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
         "dateRefField": "",
         "indexName": "contract-inbox",
-        "aggrQuery":"{\n  \"aggs\": {\n    \"Total Work Orders\": {\n      \"filter\": {\n        \"bool\": {\n          \"must_not\": {\n            \"term\": {\n              \"Data.additionalDetails.projectId.keyword\": \"\"\n            }\n          }\n        }\n      },\n      \"aggs\": {\n        \"Work Order\": {\n          \"terms\": {\n            \"field\": \"Data.additionalDetails.projectId.keyword\"\n          }\n        }\n      }\n    }\n  }\n}"
+        "aggrQuery":"{\n  \"aggs\": {\n    \"Total Work Orders\": {\n      \"filter\": {\n        \"bool\": {\n          \"must_not\": {\n            \"term\": {\n              \"Data.additionalDetails.projectId.keyword\": \"\"\n            }\n          }\n        }\n      },\n      \"aggs\": {\n        \"Work Order\": {\n          \"terms\": {\n            \"field\": \"Data.additionalDetails.projectId.keyword\",\n            \"size\": 1000000\n          }\n        }\n      }\n    }\n  }\n}"
       }
     ],
     "chartType": "metric",
@@ -256,7 +256,7 @@
         "dateRefField": "Data.auditDetails.createdTime",
         "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
         "indexName": "expense-bill-index",
-        "aggrQuery": "{\"aggs\":{\"AGGR\":{\"filter\":{\"bool\":{\"must_not\":[{\"term\":{\"Data.tenantId.keyword\":\"pb.testing\"}}]}},\"aggs\":{\"Total Payments\":{\"date_histogram\":{\"field\":\"Data.auditDetails.createdTime\",\"interval\":\"month\"},\"aggs\":{\"TotalAmount\":{\"sum\":{\"field\":\"Data.totalAmount\"}}}}}}}}"
+        "aggrQuery": "{\n  \"aggs\": {\n    \"AGGR\": {\n      \"filter\": {\n        \"bool\": {\n          \"must_not\": [\n            {\n              \"term\": {\n                \"Data.tenantId.keyword\": \"pb.testing\"\n              }\n            }\n          ],\n          \"must\": [\n            {\n              \"term\": {\n                \"Data.businessService.keyword\": \"EXPENSE.WAGES\"\n              }\n            }\n          ]\n        }\n      },\n      \"aggs\": {\n        \"Wages Bills amount\": {\n          \"date_histogram\": {\n            \"field\": \"Data.auditDetails.createdTime\",\n            \"interval\": \"month\"\n          },\n          \"aggs\": {\n            \"Paid Amount\": {\n              \"sum\": {\n                \"field\": \"Data.totalPaidAmount\"\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}"
       }
     ],
     "chartType": "line",
@@ -265,7 +265,7 @@
     "drillChart": "none",
     "documentType": "_doc",
     "aggregationPaths": [
-      "Total Payments"
+      "Wages Bills amount"
     ],
     "isCumulative": false,
     "interval": "month",
@@ -306,24 +306,24 @@
         "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
         "dateRefField": "Data.auditDetails.createdTime",
         "indexName": "contract-inbox",
-        "aggrQuery":"{\n  \"aggs\": {\n    \"completion period weeks\": {\n      \"sum\": {\n        \"script\": {\n          \"source\": \"Math.ceil((double) doc['Data.completionPeriod'].value / 7)\"\n        }\n      }\n    }\n  }\n}"
+        "aggrQuery":"{\n  \"aggs\": {\n    \"Contacts by contract number\": {\n      \"terms\": {\n        \"field\": \"Data.contractNumber.keyword\",\n        \"size\": 100000\n      },\n      \"aggs\": {\n        \"completion period weeks\": {\n          \"sum\": {\n            \"script\": {\n              \"source\": \"Math.ceil((double) doc['Data.completionPeriod'].value / 7)\"\n            }\n          }\n        }\n      }\n    }\n  }\n}"
       },
       {
         "module": "MUSTER",
         "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
-        "dateRefField": "Data.auditDetails.createdTime",
+        "dateRefField": "",
         "indexName": "muster-inbox",
-        "aggrQuery": "{\n  \"aggs\": {\n    \"Total_Muster_rolls\": {\n      \"terms\": {\n        \"field\": \"Data.tenantId.keyword\",\n        \"size\": 10000\n      },\n      \"aggs\": {\n        \"Muster_rolls\": {\n          \"value_count\": {\n            \"field\": \"Data.id.keyword\"\n          }\n        },\n        \"Muster_rolls_Count\": {\n          \"bucket_script\": {\n            \"buckets_path\": {\n              \"path\": \"Muster_rolls\"\n            },\n            \"script\": \"params.path * (-1)\"\n          }\n        }\n      }\n    },\n    \"Negative Muster rolls Count\": {\n      \"sum_bucket\": {\n        \"buckets_path\": \"Total_Muster_rolls>Muster_rolls_Count\"\n      }\n    }\n  }\n}"
+        "aggrQuery": "{\n  \"aggs\": {\n    \"Muster rolls\": {\n      \"filter\": {\n        \"bool\": {\n          \"must_not\": [\n            {\n              \"term\": {\n                \"Data.status.keyword\": \"\"\n              }\n            }\n          ]\n        }\n      },\n      \"aggs\": {\n        \"Muster rolls by contractId\": {\n          \"terms\": {\n            \"field\": \"Data.additionalDetails.contractId.keyword\",\n            \"size\": 100000\n          },\n          \"aggs\": {\n            \"Muster rolls count\": {\n              \"value_count\": {\n                \"field\": \"Data.id.keyword\"\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}"
       }
     ],
     "chartType": "metric",
     "valueType": "number",
     "drillChart": "none",
-    "compareTwoIndices": true,
+    "compareValueOfTwoIndices": true,
     "documentType": "_doc",
     "action": "",
     "aggregationPaths": [
-      "completion period weeks","Negative Muster rolls Count"
+      "Contacts by contract number","Muster rolls by contractId"
     ],
     "insight": {
     },
@@ -337,7 +337,7 @@
         "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
         "dateRefField": "Data.auditDetails.createdTime",
         "indexName": "expense-bill-index",
-        "aggrQuery":"{\n  \"aggs\": {\n    \"AGGR\": {\n      \"filter\": {\n        \"bool\": {\n          \"must_not\": [\n            {\n              \"terms\": {\n                \"Data.status.keyword\": [\n                  \"INACTIVE\"\n                ]\n              }\n            },\n            {\n              \"terms\": {\n                \"Data.currentProcessInstance.state.state.keyword\": [\n                  \"APPROVED\",\n                  \"REJECTED\"\n                ]\n              }\n            }\n          ],\n          \"must\": [\n            {\n              \"term\": {\n                \"Data.businessService.keyword\": \"EXPENSE.PURCHASE\"\n              }\n            }\n          ]\n        }\n      },\n      \"aggs\": {\n        \"PendingBillsAmount\": {\n          \"sum\": {\n            \"field\": \"Data.totalAmount\"\n          }\n        },\n        \"Count\": {\n          \"value_count\": {\n            \"field\": \"Data.tenantId.keyword\"\n          }\n        }\n      }\n    }\n  }\n}"
+        "aggrQuery":"{\n  \"aggs\": {\n    \"AGGR\": {\n      \"filter\": {\n        \"bool\": {\n          \"must_not\": [\n            {\n              \"terms\": {\n                \"Data.status.keyword\": [\n                  \"INACTIVE\"\n                ]\n              }\n            },\n            {\n              \"terms\": {\n                \"Data.currentProcessInstance.state.state.keyword\": [\n                  \"APPROVED\",\n                  \"REJECTED\",\n                  \"PENDING_FOR_CORRECTION\"\n                ]\n              }\n            }\n          ],\n          \"must\": [\n            {\n              \"term\": {\n                \"Data.businessService.keyword\": \"EXPENSE.PURCHASE\"\n              }\n            },\n            {\n              \"exists\":{\n                \"field\": \"Data.currentProcessInstance.state.state.keyword\"\n              }\n            }\n          ]\n        }\n      },\n      \"aggs\": {\n        \"PendingBillsAmount\": {\n          \"sum\": {\n            \"field\": \"Data.totalAmount\"\n          }\n        },\n        \"Count\": {\n          \"value_count\": {\n            \"field\": \"Data.tenantId.keyword\"\n          }\n        }\n      }\n    }\n  }\n}"
       }
     ],
     "chartType": "metric",
@@ -347,7 +347,7 @@
     "documentType": "_doc",
     "action": "",
     "aggregationPaths": [
-      "PendingBillsAmount","Count"
+      "PendingBillsAmount"
     ],
     "insight": {
     },
@@ -361,7 +361,7 @@
         "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
         "dateRefField": "Data.auditDetails.createdTime",
         "indexName": "individual-index-v1",
-        "aggrQuery":"{\n  \"aggs\": {\n    \"Total Individuals\": {\n      \"filter\": {\n        \"bool\": {\n          \"must_not\": [\n            {\n              \"term\": {\n                \"Data.tenantId\": \"\"\n              }\n            }\n          ]\n        }\n      },\n      \"aggs\": {\n        \"Individual by Tenant\": {\n          \"terms\": {\n            \"field\": \"Data.tenantId.keyword\",\n            \"size\": 1000\n          },\n          \"aggs\": {\n            \"Individuals Count\": {\n              \"terms\": {\n                \"field\": \"Data.id.keyword\",\n                \"size\": 10000\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}"
+        "aggrQuery":"{\n  \"aggs\": {\n    \"Total Individuals\": {\n      \"filter\": {\n        \"bool\": {\n          \"must_not\": [\n            {\n              \"term\": {\n                \"Data.tenantId\": \"\"\n              }\n            },\n            {\n              \"term\": {\n                \"Data.isDeleted\": true\n              }\n            }\n          ]\n        }\n      },\n      \"aggs\": {\n        \"Individual by Tenant\": {\n          \"terms\": {\n            \"field\": \"Data.tenantId.keyword\",\n            \"size\": 1000\n          },\n          \"aggs\": {\n            \"Individuals Count\": {\n              \"terms\": {\n                \"field\": \"Data.id.keyword\",\n                \"size\": 100000\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}"
       },
       {
         "module": "MUSTER",
@@ -375,14 +375,14 @@
         "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
         "dateRefField": "Data.auditDetails.createdTime",
         "indexName": "expense-bill-index",
-        "aggrQuery":"{\n  \"aggs\": {\n    \"AGGR\": {\n      \"filter\": {\n        \"bool\": {\n          \"must_not\": [\n            {\n              \"terms\": {\n                \"Data.status.keyword\": [\n                  \"INACTIVE\"\n                ]\n              }\n            },\n            {\n              \"terms\": {\n                \"Data.currentProcessInstance.state.state.keyword\": [\n                  \"APPROVED\",\n                  \"REJECTED\"\n                ]\n              }\n            }\n          ],\n          \"must\": [\n              {\n                \"term\": {\n                  \"Data.businessService.keyword\": \"EXPENSE.PURCHASE\"\n                }\n              }\n           ]\n        }\n      },\n      \"aggs\": {\n        \"Pending Bills\": {\n          \"terms\": {\n            \"field\": \"Data.tenantId.keyword\"\n          },\n          \"aggs\": {\n            \"Pending Bills Amount\": {\n              \"sum\": {\n                \"field\": \"Data.totalAmount\"\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}"
+        "aggrQuery":"{\n  \"aggs\": {\n    \"AGGR\": {\n      \"filter\": {\n        \"bool\": {\n          \"must_not\": [\n            {\n              \"terms\": {\n                \"Data.status.keyword\": [\n                  \"INACTIVE\"\n                ]\n              }\n            },\n            {\n              \"terms\": {\n                \"Data.currentProcessInstance.state.state.keyword\": [\n                  \"APPROVED\",\n                  \"REJECTED\",\n                  \"PENDING_FOR_CORRECTION\"\n                ]\n              }\n            }\n          ],\n          \"must\": [\n            {\n              \"term\": {\n                \"Data.businessService.keyword\": \"EXPENSE.PURCHASE\"\n              }\n            },\n            {\n              \"exists\": {\n                \"field\": \"Data.currentProcessInstance.state.state.keyword\"\n              }\n            }\n          ]\n        }\n      },\n      \"aggs\": {\n        \"Pending Bills\": {\n          \"terms\": {\n            \"field\": \"Data.tenantId.keyword\"\n          },\n          \"aggs\": {\n            \"Pending Bills Amount\": {\n              \"sum\": {\n                \"field\": \"Data.totalAmount\"\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}"
       },
       {
         "module": "PROJECTS",
         "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
         "dateRefField": "Data.auditDetails.createdTime",
         "indexName": "project-index",
-        "aggrQuery": "{\n  \"aggs\": {\n    \"Total Projects\": {\n      \"filter\": {\n        \"bool\": {\n          \"must_not\": {\n            \"term\": {\n              \"Data.projectNumber.keyword\": \"\"\n            }\n          }\n        }\n      },\n      \"aggs\": {\n        \"Projects\": {\n          \"terms\": {\n            \"field\": \"Data.tenantId.keyword\",\n            \"size\": 10000\n          },\n          \"aggs\": {\n            \"Projects count\": {\n              \"terms\": {\n                \"field\": \"Data.projectNumber.keyword\",\n                \"size\": 1000000\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}"
+        "aggrQuery": "{\n  \"aggs\": {\n    \"Total Projects\": {\n      \"filter\": {\n        \"bool\": {\n          \"must_not\": [\n            {\n              \"term\": {\n                \"Data.projectNumber.keyword\": \"\"\n              }\n            },\n            {\n              \"term\": {\n                \"Data.isDeleted\": true\n              }\n            }\n          ]\n        }\n      },\n      \"aggs\": {\n        \"Projects\": {\n          \"terms\": {\n            \"field\": \"Data.tenantId.keyword\",\n            \"size\": 10000\n          },\n          \"aggs\": {\n            \"Projects count\": {\n              \"terms\": {\n                \"field\": \"Data.projectNumber.keyword\",\n                \"size\": 1000000\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}"
       },
       {
         "module": "CONTRACT",
@@ -403,7 +403,7 @@
         "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
         "dateRefField": "",
         "indexName": "muster-inbox",
-        "aggrQuery": "{\n  \"aggs\": {\n    \"Muster rolls\": {\n      \"filter\": {\n        \"bool\": {\n          \"must\": [\n            {\n              \"exists\": {\n                \"field\": \"Data.additionalDetails.contractId\"\n              }\n            }\n          ]\n        }\n      },\n      \"aggs\": {\n        \"muster rolls by tenentId\": {\n          \"terms\": {\n            \"field\": \"Data.tenantId.keyword\",\n            \"size\": 10000\n          },\n          \"aggs\": {\n            \"muster rolls by contractId\": {\n              \"terms\": {\n                \"field\": \"Data.additionalDetails.contractId.keyword\",\n                \"size\": 10000\n              },\n              \"aggs\": {\n                \"muster rolls count\": {\n                  \"value_count\": {\n                    \"field\": \"Data.id.keyword\"\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}"
+        "aggrQuery": "{\n  \"aggs\": {\n    \"Muster rolls\": {\n      \"filter\": {\n        \"bool\": {\n          \"must\": [\n            {\n              \"exists\": {\n                \"field\": \"Data.additionalDetails.contractId\"\n              }\n            }\n          ],\n          \"must_not\": [\n            {\n              \"term\": {\n                \"Data.status.keyword\": \"INACTIVE\"\n              }\n            }\n          ]\n        }\n      },\n      \"aggs\": {\n        \"muster rolls by tenentId\": {\n          \"terms\": {\n            \"field\": \"Data.tenantId.keyword\",\n            \"size\": 10000\n          },\n          \"aggs\": {\n            \"muster rolls by contractId\": {\n              \"terms\": {\n                \"field\": \"Data.additionalDetails.contractId.keyword\",\n                \"size\": 10000\n              },\n              \"aggs\": {\n                \"muster rolls count\": {\n                  \"value_count\": {\n                    \"field\": \"Data.id.keyword\"\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}"
       }
     ],
     "chartType": "ctable",
@@ -425,7 +425,7 @@
       },
       {
         "postAggregationTheory" : "",
-        "actionName": "AdditiveComputedField",
+        "actionName": "compareAdditiveComputedField",
         "fields" : ["Pending Bills Amount"],
         "newField" : "Pending Bills",
         "_comments": ""
@@ -459,7 +459,7 @@
         "dateRefField": "Data.auditDetails.createdTime",
         "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
         "indexName": "estimate-inbox-v3",
-        "aggrQuery": "{\n  \"aggs\": {\n    \"Estimate SLA\": {\n      \"filter\": {\n        \"bool\": {\n          \"must_not\": [\n              {\n                \"term\": {\n                  \"Data.currentProcessInstance.state.state.keyword\": \"APPROVED\"\n                }\n              }\n            ]\n        }\n      },\n      \"aggs\": {\n        \"SLA Breached\": {\n          \"filter\": {\n            \"script\": {\n              \"script\": {\n                \"source\": \"new Date().getTime() > doc['Data.auditDetails.lastModifiedTime'].value + doc['Data.currentProcessInstance.state.sla'].value\"\n              }\n            }\n          },\n          \"aggs\": {\n            \"Estimate SLA Breached\": {\n              \"value_count\": {\n                \"field\": \"Data.auditDetails.createdTime\"\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n"
+        "aggrQuery": "{\n  \"aggs\": {\n    \"Estimate SLA\": {\n      \"filter\": {\n        \"bool\": {\n          \"must_not\": [\n            {\n              \"terms\": {\n                \"Data.status.keyword\": [\n                  \"INACTIVE\"\n                ]\n              }\n            },\n            {\n              \"terms\": {\n                \"Data.currentProcessInstance.state.state.keyword\": [\n                  \"APPROVED\",\n                  \"REJECTED\"\n                ]\n              }\n            }\n          ],\n          \"must\": [\n            {\n              \"exists\":{\n                \"field\": \"Data.currentProcessInstance.state.state.keyword\"\n              }\n            }\n          ]\n        }\n      },\n      \"aggs\": {\n        \"SLA Breached\": {\n          \"filter\": {\n            \"script\": {\n              \"script\": {\n                \"source\": \"new Date().getTime() > doc['Data.auditDetails.lastModifiedTime'].value + doc['Data.currentProcessInstance.state.sla'].value\"\n              }\n            }\n          },\n          \"aggs\": {\n            \"Estimate SLA Breached\": {\n              \"value_count\": {\n                \"field\": \"Data.auditDetails.createdTime\"\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}"
       }
     ],
     "chartType": "metric",
@@ -482,7 +482,7 @@
         "dateRefField": "Data.auditDetails.createdTime",
         "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
         "indexName": "contract-inbox",
-        "aggrQuery": "{\n  \"aggs\": {\n    \"Contract SLA\": {\n      \"filter\": {\n        \"bool\": {\n          \"must_not\": [\n              {\n                \"term\": {\n                  \"Data.currentProcessInstance.state.state.keyword\": \"APPROVED\"\n                }\n              }\n            ]\n        }\n      },\n      \"aggs\": {\n        \"SLA Breached\": {\n          \"filter\": {\n            \"script\": {\n              \"script\": {\n                \"source\": \"new Date().getTime() > doc['Data.auditDetails.lastModifiedTime'].value + doc['Data.currentProcessInstance.state.sla'].value\"\n              }\n            }\n          },\n          \"aggs\": {\n            \"Contract SLA Breached\": {\n              \"value_count\": {\n                \"field\": \"Data.auditDetails.createdTime\"\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}"
+        "aggrQuery": "{\n  \"aggs\": {\n    \"Contract SLA\": {\n      \"filter\": {\n        \"bool\": {\n          \"must_not\": [\n            {\n              \"terms\": {\n                \"Data.status.keyword\": [\n                  \"INACTIVE\"\n                ]\n              }\n            },\n            {\n              \"terms\": {\n                \"Data.currentProcessInstance.state.state.keyword\": [\n                  \"ACCEPTED\",\n                  \"REJECTED\"\n                ]\n              }\n            }\n          ],\n          \"must\": [\n            {\n              \"exists\":{\n                \"field\": \"Data.currentProcessInstance.state.state.keyword\"\n              }\n            }\n          ]\n        }\n      },\n      \"aggs\": {\n        \"SLA Breached\": {\n          \"filter\": {\n            \"script\": {\n              \"script\": {\n                \"source\": \"new Date().getTime() > doc['Data.auditDetails.lastModifiedTime'].value + doc['Data.currentProcessInstance.state.sla'].value\"\n              }\n            }\n          },\n          \"aggs\": {\n            \"Contract SLA Breached\": {\n              \"terms\": {\n                \"field\": \"Data.currentProcessInstance.state.state.keyword\"\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}"
       }
     ],
     "chartType": "metric",
@@ -505,7 +505,7 @@
         "dateRefField": "Data.auditDetails.createdTime",
         "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
         "indexName": "muster-inbox",
-        "aggrQuery": "{\n  \"aggs\": {\n    \"Muster SLA\": {\n      \"filter\": {\n        \"bool\": {\n           \"must_not\": [\n              {\n                \"term\": {\n                  \"Data.currentProcessInstance.state.state.keyword\": \"APPROVED\"\n                }\n              }\n            ]\n        }\n      },\n      \"aggs\": {\n        \"SLA Breached\": {\n          \"filter\": {\n            \"script\": {\n              \"script\": {\n                \"source\": \"new Date().getTime() > doc['Data.auditDetails.lastModifiedTime'].value + doc['Data.currentProcessInstance.state.sla'].value\"\n              }\n            }\n          },\n          \"aggs\": {\n            \"Muster SLA Breached\": {\n              \"value_count\": {\n                \"field\": \"Data.auditDetails.createdTime\"\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}"
+        "aggrQuery": "{\n  \"aggs\": {\n    \"Muster SLA\": {\n      \"filter\": {\n        \"bool\": {\n           \"must_not\": [\n            {\n              \"terms\": {\n                \"Data.status.keyword\": [\n                  \"INACTIVE\"\n                ]\n              }\n            },\n            {\n              \"terms\": {\n                \"Data.currentProcessInstance.state.state.keyword\": [\n                  \"APPROVED\",\n                  \"REJECTED\"\n                ]\n              }\n            }\n          ],\n          \"must\": [\n            {\n              \"exists\":{\n                \"field\": \"Data.currentProcessInstance.state.state.keyword\"\n              }\n            }\n          ]\n        }\n      },\n      \"aggs\": {\n        \"SLA Breached\": {\n          \"filter\": {\n            \"script\": {\n              \"script\": {\n                \"source\": \"new Date().getTime() > doc['Data.auditDetails.lastModifiedTime'].value + doc['Data.currentProcessInstance.state.sla'].value\"\n              }\n            }\n          },\n          \"aggs\": {\n            \"Muster SLA Breached\": {\n              \"value_count\": {\n                \"field\": \"Data.auditDetails.createdTime\"\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}"
       }
     ],
     "chartType": "metric",
@@ -528,7 +528,7 @@
         "dateRefField": "Data.auditDetails.createdTime",
         "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
         "indexName": "expense-bill-index",
-        "aggrQuery": "{\n  \"aggs\": {\n    \"Bill SLA\": {\n      \"filter\": {\n        \"bool\": {\n          \"must_not\": [\n            {\n              \"term\": {\n                \"Data.currentProcessInstance.state.state.keyword\": \"APPROVED\"\n              }\n            }\n          ]\n        }\n      },\n      \"aggs\": {\n        \"SLA Breached\": {\n          \"filter\": {\n            \"script\": {\n              \"script\": {\n                \"source\": \"new Date().getTime() > doc['Data.auditDetails.lastModifiedTime'].value + doc['Data.currentProcessInstance.state.sla'].value\"\n              }\n            }\n          },\n          \"aggs\": {\n            \"Bill SLA Breached\": {\n              \"value_count\": {\n                \"field\": \"Data.auditDetails.createdTime\"\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}"
+        "aggrQuery": "{\n  \"aggs\": {\n    \"Bill SLA\": {\n      \"filter\": {\n        \"bool\": {\n          \"must_not\": [\n            {\n              \"terms\": {\n                \"Data.currentProcessInstance.state.state.keyword\": [\n                  \"APPROVED\",\n                  \"REJECTED\",\n                  \"PENDING_FOR_CORRECTION\"\n                ]\n              }\n            },\n            {\n              \"terms\": {\n                \"Data.status.keyword\": [\n                  \"INACTIVE\"\n                ]\n              }\n            }\n          ],\n          \"must\": [\n            {\n              \"term\": {\n                \"Data.businessService.keyword\": \"EXPENSE.PURCHASE\"\n              }\n            },\n            {\n              \"exists\":{\n                \"field\": \"Data.currentProcessInstance.state.state.keyword\"\n              }\n            }\n          ]\n        }\n      },\n      \"aggs\": {\n        \"SLA Breached\": {\n          \"filter\": {\n            \"script\": {\n              \"script\": {\n                \"source\": \"new Date().getTime() > doc['Data.auditDetails.lastModifiedTime'].value + doc['Data.currentProcessInstance.state.sla'].value\"\n              }\n            }\n          },\n          \"aggs\": {\n            \"Bill SLA Breached\": {\n              \"value_count\": {\n                \"field\": \"Data.auditDetails.createdTime\"\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}"
       }
     ],
     "chartType": "metric",
