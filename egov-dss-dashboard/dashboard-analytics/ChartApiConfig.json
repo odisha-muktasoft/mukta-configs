@@ -14,7 +14,7 @@
         "dateRefField": "",
         "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
         "indexName": "muster-inbox",
-        "aggrQuery": "{\n  \"aggs\": {\n    \"Total Muster\": {\n      \"filter\": {\n        \"bool\": {\n          \"must_not\": [\n            {\n              \"term\": {\n                \"Data.tenantId\": \"\"\n              }\n            }\n          ]\n        }\n      },\n      \"aggs\": {\n        \"Individual by tenant in muster\": {\n          \"terms\": {\n            \"field\": \"Data.tenantId.keyword\",\n            \"size\": 1000\n          },\n          \"aggs\": {\n            \"Unique Individuals\": {\n              \"terms\": {\n                \"field\": \"Data.individualEntries.individualId.keyword\",\n                \"size\": 1000000\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}"
+        "aggrQuery": "{\n  \"aggs\": {\n    \"Total Muster\": {\n      \"filter\": {\n        \"bool\": {\n          \"must_not\": [\n            {\n              \"term\": {\n                \"Data.tenantId\": \"\"\n              }\n            }\n          ]\n        }\n      },\n      \"aggs\": {\n        \"Unique Individuals\": {\n          \"terms\": {\n            \"field\": \"Data.individualEntries.individualId.keyword\",\n            \"size\": 1000000\n          }\n        }\n      }\n    }\n  }\n}"
       }
     ],
     "chartType": "metric",
