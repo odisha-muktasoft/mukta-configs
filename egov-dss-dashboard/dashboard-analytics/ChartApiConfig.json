@@ -53,8 +53,8 @@
     },
     "_comment": "Muster Rolls by status"
   },
-  "pendingBillsByBillNumberType": {
-    "chartName": "DSS_MUKTA_PENDING_BILLS_BY_BILL_NUMBER_TYPE",
+  "billsCountByType": {
+    "chartName": "DSS_MUKTA_BILLS_COUNT_BY_TYPE",
     "queries": [
       {
         "module": "EXPENSE",
@@ -76,8 +76,8 @@
     },
     "_comment": "Bills By Their Number"
   },
-  "pendingBillsByBillAmountType": {
-    "chartName": "DSS_MUKTA_PENDING_BILLS_BY_BILL_AMOUNT_TYPE",
+  "billsByBillAmountType": {
+    "chartName": "DSS_MUKTA_BILLS_BY_BILL_AMOUNT_TYPE",
     "queries": [
       {
         "module": "EXPENSE",
@@ -153,7 +153,7 @@
         "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
         "dateRefField": "Data.auditDetails.createdTime",
         "indexName": "project-index",
-        "aggrQuery":"{\"size\":10000,\"aggs\":{\"DSS_TOTALPROJECT\":{\"cardinality\":{\"field\":\"Data.projectNumber.keyword\"}}}}"
+        "aggrQuery":"{\n  \"size\": 10000,\n  \"aggs\": {\n    \"DSS_TOTALPROJECT\": {\n      \"cardinality\": {\n        \"field\": \"Data.projectNumber.keyword\"\n      }\n    },\n    \"DSS_APPROVED_PROJECT\": {\n      \"cardinality\": {\n        \"field\": \"Data.projectNumber.keyword\"\n      }\n    }\n  }\n}\n"
       }
     ],
     "chartType": "pie",
@@ -162,7 +162,7 @@
     "documentType": "_doc",
     "drillChart": "none",
     "aggregationPaths": [
-      "DSS_TOTALPROJECT"
+      "DSS_TOTALPROJECT","DSS_APPROVED_PROJECT"
     ],
     "insight": {
     },
@@ -459,7 +459,7 @@
         "dateRefField": "Data.auditDetails.createdTime",
         "requestQueryMap": "{\"tenantId\" : \"Data.tenantId\"}",
         "indexName": "estimate-inbox-v3",
-        "aggrQuery": "{\n  \"aggs\": {\n    \"Estimate SLA\": {\n      \"filter\": {\n        \"bool\": {\n          \"must_not\": [\n            {\n              \"terms\": {\n                \"Data.status.keyword\": [\n                  \"INACTIVE\"\n                ]\n              }\n            },\n            {\n              \"terms\": {\n                \"Data.currentProcessInstance.state.state.keyword\": [\n                  \"APPROVED\",\n                  \"REJECTED\"\n                ]\n              }\n            }\n          ],\n          \"must\": [\n            {\n              \"exists\":{\n                \"field\": \"Data.currentProcessInstance.state.state.keyword\"\n              }\n            }\n          ]\n        }\n      },\n      \"aggs\": {\n        \"SLA Breached\": {\n          \"filter\": {\n            \"script\": {\n              \"script\": {\n                \"source\": \"new Date().getTime() > doc['Data.auditDetails.lastModifiedTime'].value + doc['Data.currentProcessInstance.state.sla'].value\"\n              }\n            }\n          },\n          \"aggs\": {\n            \"Estimate SLA Breached\": {\n              \"value_count\": {\n                \"field\": \"Data.auditDetails.createdTime\"\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}"
+        "aggrQuery": "{\n  \"aggs\": {\n    \"Estimate SLA\": {\n      \"filter\": {\n        \"bool\": {\n          \"must_not\": [\n            {\n              \"terms\": {\n                \"Data.status.keyword\": [\n                  \"INACTIVE\"\n                ]\n              }\n            },\n            {\n              \"terms\": {\n                \"Data.currentProcessInstance.state.state.keyword\": [\n                  \"APPROVED\",\n                  \"REJECTED\",\n                  \"PENDINGFORCORRECTION\"\n                ]\n              }\n            }\n          ],\n          \"must\": [\n            {\n              \"exists\":{\n                \"field\": \"Data.currentProcessInstance.state.state.keyword\"\n              }\n            }\n          ]\n        }\n      },\n      \"aggs\": {\n        \"SLA Breached\": {\n          \"filter\": {\n            \"script\": {\n              \"script\": {\n                \"source\": \"new Date().getTime() > doc['Data.auditDetails.lastModifiedTime'].value + doc['Data.currentProcessInstance.state.sla'].value\"\n              }\n            }\n          },\n          \"aggs\": {\n            \"Estimate SLA Breached\": {\n              \"value_count\": {\n                \"field\": \"Data.auditDetails.createdTime\"\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}"
       }
     ],
     "chartType": "metric",
