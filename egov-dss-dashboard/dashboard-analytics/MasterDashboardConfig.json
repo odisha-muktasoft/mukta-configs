@@ -348,7 +348,7 @@
             },
             {
               "id": 502,
-              "name": "DSS_MUKTA_PENDING_BILLS",
+              "name": "DSS_MUKTA_BILLS_BY_TYPE",
               "dimensions": {
                 "height": 250,
                 "width": 4
@@ -358,8 +358,8 @@
               "isCollapsible": false,
               "charts": [
                 {
-                  "id": "pendingBillsByBillNumberType",
-                  "name": "DSS_MUKTA_PENDING_BILLS_BY_BILL_NUMBER_TYPE",
+                  "id": "billsCountByType",
+                  "name": "DSS_MUKTA_BILLS_COUNT_BY_TYPE",
                   "code": "",
                   "chartType": "donut",
                   "variant":"pieChartv2",
@@ -368,8 +368,8 @@
                   "tabName": "Number"
                 },
                 {
-                  "id": "pendingBillsByBillAmountType",
-                  "name": "DSS_MUKTA_PENDING_BILLS_BY_BILL_AMOUNT_TYPE",
+                  "id": "billsByBillAmountType",
+                  "name": "DSS_MUKTA_BILLS_BY_BILL_AMOUNT_TYPE",
                   "code": "",
                   "chartType": "donut",
                   "variant":"pieChartv2",
