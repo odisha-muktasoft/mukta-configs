@@ -5,6 +5,12 @@ serviceMaps:
    name: bill create
    description: create bill in eg_expense_bill
    fromTopic: expense-bill-create
+   isAuditEnabled: true
+   module: BILL
+   objecIdJsonPath: $.id
+   tenantIdJsonPath: $.tenantId
+   transactionCodeJsonPath: $.billNumber
+   auditAttributeBasePath: $.bill
    queryMaps: 
     - query: INSERT into eg_expense_bill (id, tenantid, billdate, duedate, billnumber, totalamount, totalPaidAmount, businessservice, referenceId, fromperiod, toperiod, status, paymentStatus, createdby, createdTime, lastmodifiedby, lastModifiedTime, additionalDetails) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
       basePath: $.bill
@@ -188,7 +194,7 @@ serviceMaps:
 
        - jsonPath: $.bill.billDetails.*.payableLineItems.*.status
        
-       - jsonPath: $.bill.billDetails.*.lineItems.*.paymentStatus
+       - jsonPath: $.bill.billDetails.*.payableLineItems.*.paymentStatus
          
        - jsonPath: $.bill.billDetails.*.payableLineItems.*.auditDetails.createdBy
 
@@ -207,6 +213,12 @@ serviceMaps:
    name: bill update
    description: update bill in eg_expense_bill
    fromTopic: expense-bill-update
+   isAuditEnabled: true
+   module: BILL
+   objecIdJsonPath: $.id
+   tenantIdJsonPath: $.tenantId
+   transactionCodeJsonPath: $.billNumber
+   auditAttributeBasePath: $.bill
    queryMaps: 
     - query: UPDATE eg_expense_bill SET billdate=?, duedate=?, totalAmount=?, totalPaidAmount=?, businessservice=?, referenceid=?, fromperiod=?, toperiod=?, status=?, paymentstatus=?, lastmodifiedby=?, lastmodifiedtime=?, additionaldetails=? WHERE id=? AND tenantid=?;
       basePath: $.bill
@@ -358,7 +370,7 @@ serviceMaps:
          type: JSON
          dbType: JSONB
          
-    - query: INSERT into eg_expense_lineitem (id, tenantid, billDetailId, headCode, amount, paidAmount, type, status, islineitempayable, createdby, createdTime, lastmodifiedby, lastModifiedTime, additionalDetails) values(?,?,?,?,?,?,?,?,true,?,?,?,?,?) ON CONFLICT (id,tenantid) DO UPDATE SET headcode=EXCLUDED.headcode, amount=EXCLUDED.amount, paidamount=EXCLUDED.paidamount, type=EXCLUDED.type, status=EXCLUDED.status, islineitempayable=EXCLUDED.islineitempayable, lastmodifiedby=EXCLUDED.lastmodifiedby, lastmodifiedtime=EXCLUDED.lastmodifiedtime, additionaldetails=EXCLUDED.additionaldetails;
+    - query: INSERT into eg_expense_lineitem (id, tenantid, billDetailId, headCode, amount, paidAmount, type, status, paymentStatus, islineitempayable, createdby, createdTime, lastmodifiedby, lastModifiedTime, additionalDetails) values(?,?,?,?,?,?,?,?,?,true,?,?,?,?,?) ON CONFLICT (id,tenantid) DO UPDATE SET headcode=EXCLUDED.headcode, amount=EXCLUDED.amount, paidamount=EXCLUDED.paidamount, type=EXCLUDED.type, status=EXCLUDED.status, paymentStatus=EXCLUDED.paymentStatus, islineitempayable=EXCLUDED.islineitempayable, lastmodifiedby=EXCLUDED.lastmodifiedby, lastmodifiedtime=EXCLUDED.lastmodifiedtime, additionaldetails=EXCLUDED.additionaldetails;
       basePath: $.bill.billDetails.*.payableLineItems.*
       jsonMaps:
 
@@ -395,6 +407,12 @@ serviceMaps:
    name: Payment create
    description: create payment in eg_expense_payment
    fromTopic: expense-payment-create
+   isAuditEnabled: true
+   module: BILL
+   objecIdJsonPath: $.id
+   tenantIdJsonPath: $.tenantId
+   transactionCodeJsonPath: $.paymentNumber
+   auditAttributeBasePath: $.payment
    queryMaps: 
     - query: INSERT INTO eg_expense_payment(id, tenantid, netpayableamount, netpaidamount, paymentnumber, status, referencestatus, createdby, createdtime, lastmodifiedby, lastmodifiedtime, additionaldetails) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
       basePath: $.payment
@@ -510,6 +528,12 @@ serviceMaps:
    name: Payment update
    description: update payment status in eg_expense_payment
    fromTopic: expense-payment-update
+   isAuditEnabled: true
+   module: BILL
+   objecIdJsonPath: $.id
+   tenantIdJsonPath: $.tenantId
+   transactionCodeJsonPath: $.paymentNumber
+   auditAttributeBasePath: $.payment
    queryMaps: 
     - query: UPDATE eg_expense_payment SET status=?, referencestatus=?, lastmodifiedby=?, lastmodifiedtime=?, additionaldetails=? WHERE id=? AND tenantid=?;
       basePath: $.payment
