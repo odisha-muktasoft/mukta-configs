@@ -117,7 +117,7 @@ serviceMaps:
          dbType: JSONB
 
     # insert into party from payee of bill details
-    - query: INSERT into eg_expense_party (id, tenantid, type, identifier, parentId, status, createdby, createdTime, lastmodifiedby, lastModifiedTime) values(?,?,?,?,?,?,?,?,?,?)
+    - query: INSERT into eg_expense_party (id, tenantid, type, identifier, parentId, status, additionalDetails, createdby, createdTime, lastmodifiedby, lastModifiedTime) values(?,?,?,?,?,?,?,?,?,?,?)
       basePath: $.bill.billDetails.*.payee
       jsonMaps:
        
@@ -315,7 +315,7 @@ serviceMaps:
          dbType: JSONB
 
     # update party from payee of bill details
-    - query: INSERT into eg_expense_party (id, tenantid, type, identifier, parentId, status, createdby, createdTime, lastmodifiedby, lastModifiedTime) values(?,?,?,?,?,?,?,?,?,?) ON CONFLICT (id, tenantid) DO UPDATE SET type=EXCLUDED.type, identifier=EXCLUDED.identifier, parentid=EXCLUDED.parentid, status=EXCLUDED.status, lastmodifiedby=EXCLUDED.lastmodifiedby, lastmodifiedtime=EXCLUDED.lastmodifiedtime
+    - query: INSERT into eg_expense_party (id, tenantid, type, identifier, parentId, status, additionalDetails, createdby, createdTime, lastmodifiedby, lastModifiedTime) values(?,?,?,?,?,?,?,?,?,?,?) ON CONFLICT (id, tenantid) DO UPDATE SET type=EXCLUDED.type, identifier=EXCLUDED.identifier, parentid=EXCLUDED.parentid, status=EXCLUDED.status, lastmodifiedby=EXCLUDED.lastmodifiedby, lastmodifiedtime=EXCLUDED.lastmodifiedtime, additionaldetails=EXCLUDED.additionaldetails
       basePath: $.bill.billDetails.*.payee
       jsonMaps:
        
