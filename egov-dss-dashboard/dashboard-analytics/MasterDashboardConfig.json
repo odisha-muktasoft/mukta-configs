@@ -1,0 +1,412 @@
+{
+  "_comment": "Master dashboard which holds all the possible visualisation. Note new dashboards/visualisations can be added",
+  "dashboards": [
+    {
+      "name": "DSS_MUKTA_DASHBOARD_HEADING",
+      "id": "mukta",
+      "filter": "FilterComponent",
+      "filterConfig": [
+        {
+          "id": "DATE_RANGE",
+          "name": "ES_DSS_DATE_RANGE",
+          "type": "DateRange"
+        },
+        {
+          "id": "ULB",
+          "name": "ES_DSS_ULB",
+          "type": "MultiSelectDropdown",
+          "source": {
+            "type": "request",
+            "hostUrl": "https://mukta-uat.digit.org",
+            "requestMethod": "POST",
+            "requestUrl": "/egov-mdms-service/v1/_search?tenantId={$.tenantId}",
+            "requestBody": "{\"MdmsCriteria\":{\"tenantId\":\"od\",\"moduleDetails\":[{\"moduleName\":\"tenant\",\"masterDetails\":[{\"name\":\"tenants\",\"filter\":\"[?(@.city.ddrName != null )]\"}]}]}}",
+            "keyPath": "$.MdmsRes.tenant.tenants.*.name",
+            "valuesPath": "$.MdmsRes.tenant.tenants.*.code"
+          },
+          "appliedFilterPath": "filters.tenantId",
+          "placeholder": "ES_DSS_ALL_LOCALITY_SELECTED"
+        }
+      ],
+      "isActive": "",
+      "style": "linear",
+      "visualizations": [
+        {
+          "row": 1,
+          "name": "DSS_MUKTA",
+          "vizArray": [
+            {
+              "id": 101,
+              "name": "DSS_OVERVIEW_ISSUES",
+              "label": "DSS_OVERVIEW_ISSUES",
+              "vizType": "metric-collection",
+              "noUnit": true,
+              "iconName":"WarningIcon",
+              "isHorizontalChart": true,
+              "isCollapsible": false,
+              "charts": [
+                {
+                  "id": "unemployedWageSeekers",
+                  "name": "DSS_MUKTA_UNEMPLOYED_WAGE_SEEKERS",
+                  "code": "",
+                  "chartType": "metric",
+                  "filter": "",
+                  "headers": []
+                },
+                {
+                  "id": "pendingBillsAmount",
+                  "name": "DSS_MUKTA_PENDING_BILLS",
+                  "code": "",
+                  "chartType": "metric",
+                  "filter": "",
+                  "headers": []
+                },
+                {
+                  "id": "workOrdersNotIssued",
+                  "name": "DSS_MUKTA_WORK_ORDERS_NOT_ISSUED",
+                  "code": "",
+                  "chartType": "metric",
+                  "filter": "",
+                  "headers": []
+                },
+                {
+                  "id": "musterRollNotCreated",
+                  "name": "DSS_MUSTER_NOTCREATED",
+                  "code": "",
+                  "chartType": "metric",
+                  "filter": "",
+                  "headers": []
+                }
+              ]
+            },
+            {
+              "id": 102,
+              "name": "DSS_MUKTA_SLA_BREACHED",
+              "label": "DSS_MUKTA_SLA_BREACHED",
+              "vizType": "metric-collection",
+              "noUnit": true,
+              "iconName":"HistoryIcon",
+              "isHorizontalChart": true,
+              "isCollapsible": false,
+              "charts": [
+                {
+                  "id": "estimatesSlaBreached",
+                  "name": "DSS_MUKTA_ESTIMATE_SLA_BREACHED",
+                  "code": "",
+                  "chartType": "metric",
+                  "filter": "",
+                  "headers": []
+                },
+                {
+                  "id": "contractSlaBreached",
+                  "name": "DSS_MUKTA_CONTRACT_SLA_BREACHED",
+                  "code": "",
+                  "chartType": "metric",
+                  "filter": "",
+                  "headers": []
+                },
+                {
+                  "id": "musterSlaBreached",
+                  "name": "DSS_MUKTA_MUSTER_SLA_BREACHED",
+                  "code": "",
+                  "chartType": "metric",
+                  "filter": "",
+                  "headers": []
+                },
+                {
+                  "id": "billsSlaBreached",
+                  "name": "DSS_MUKTA_BILLS_SLA_BREACHED",
+                  "code": "",
+                  "chartType": "metric",
+                  "filter": "",
+                  "headers": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "row": 2,
+          "name": "DSS_MUKTA",
+          "vizArray": [
+            {
+              "id": 201,
+              "name": "DSS_ULB_LEADERBOARD",
+              "dimensions": {
+                "height": 350,
+                "width": 12
+              },
+              "vizType": "chart",
+              "label": "",
+              "noUnit": false,
+              "isCollapsible": true,
+              "charts": [
+                {
+                  "id": "ulbWiseLeaderboard",
+                  "name": "DSS_MUKTA_ULB_WISE_LEADERBOARD",
+                  "code": "",
+                  "chartType": "table",
+                  "filter": "",
+                  "headers": [],
+                  "tabName": "Boundary"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "row": 3,
+          "name": "DSS_MUKTA",
+          "vizArray": [
+            {
+              "id": 301,
+              "name": "DSS_MUKTA_PROJECTS_CREATED",
+              "dimensions": {
+                "height": 250,
+                "width": 4
+              },
+              "label": "",
+              "vizType": "chart",
+              "isCollapsible": false,
+              "charts": [
+                {
+                  "id": "projectsByStatusHorizontal",
+                  "name": "DSS_MUKTA_PROJECTS_BY_STATUS_HORIZONTAL",
+                  "code": "",
+                  "chartType": "horizontalBar",
+                  "horizontalBarv2":true,
+                  "filter": "",
+                  "headers": [],
+                  "tabName": "Number"
+                }
+              ]
+            },
+            {
+              "id": 302,
+              "name": "DSS_MUKTA_ESTIMATES_BY_STATUSES",
+              "dimensions": {
+                "height": 250,
+                "width": 4
+              },
+              "label": "",
+              "vizType": "chart",
+              "isCollapsible": false,
+              "charts": [
+                {
+                  "id": "estimatesByStatusHorizontal",
+                  "name": "DSS_MUKTA_ESTIMATES_BY_STATUS_HORIZONTAL",
+                  "code": "",
+                  "chartType": "horizontalBar",
+                  "horizontalBarv2":true,
+                  "filter": "",
+                  "headers": [],
+                  "tabName": "Number"
+                }
+              ]
+            },
+            {
+              "id": 303,
+              "name": "DSS_MUKTA_CONTRACTS_BY_STATUSES",
+              "dimensions": {
+                "height": 250,
+                "width": 4
+              },
+              "label": "",
+              "vizType": "chart",
+              "isCollapsible": false,
+              "charts": [
+                {
+                  "id": "contractsByStatusHorizontal",
+                  "name": "DSS_MUKTA_CONTRACTS_BY_STATUS_HORIZONTAL",
+                  "code": "",
+                  "chartType": "horizontalBar",
+                  "horizontalBarv2":true,
+                  "filter": "",
+                  "headers": [],
+                  "tabName": "Number"
+                }
+              ]
+            },
+            {
+              "id": 304,
+              "name": "DSS_MUKTA_MUSTER_ROLLS",
+              "dimensions": {
+                "height": 250,
+                "width": 4
+              },
+              "label": "",
+              "vizType": "chart",
+              "isCollapsible": false,
+              "charts": [
+                {
+                  "id": "musterRollsByStatus",
+                  "name": "DSS_MUKTA_MUSTER_ROLLS_BY_STATUS",
+                  "code": "",
+                  "chartType": "horizontalBar",
+                  "horizontalBarv2":true,
+                  "filter": "",
+                  "headers": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "row": 4,
+          "name": "DSS_MUKTA",
+          "vizArray": [
+            {
+              "id": 401,
+              "name": "DSS_MONEY_TRANSFERED",
+              "dimensions": {
+                "height": 350,
+                "width": 7
+              },
+              "vizType": "chart",
+              "isCollapsible": false,
+              "label": "",
+              "charts": [
+                {
+                  "id": "moneyTransferred",
+                  "name": "DSS_MUKTA_MONEY_TRANSFERRED",
+                  "code": "",
+                  "chartType": "line",
+                  "filter": "",
+                  "headers": []
+                }
+              ]
+            },
+            {
+              "id": 402,
+              "name": "DSS_MUKTA_PAYMENTS_AND_LABOUR_ATTENDANCE",
+              "dimensions": {
+                "height": 350,
+                "width": 7
+              },
+              "vizType": "chart",
+              "isCollapsible": false,
+              "label": "",
+              "charts": [
+                {
+                  "id": "totalPayments",
+                  "name": "",
+                  "code": "",
+                  "chartType": "bar",
+                  "filter": "",
+                  "headers": [],
+                  "tabName": "Amount"
+                },
+                {
+                  "id": "totalAttendance",
+                  "name": "",
+                  "code": "",
+                  "chartType": "bar",
+                  "filter": "",
+                  "headers": [],
+                  "tabName": "Person Days"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "row": 5,
+          "name": "DSS_MUKTA",
+          "vizArray": [
+            {
+              "id": 501,
+              "name": "DSS_MUKTA_BY_PROJECT_TYPE",
+              "dimensions": {
+                "height": 250,
+                "width": 4
+              },
+              "label": "",
+              "vizType": "chart",
+              "isCollapsible": false,
+              "charts": [
+                {
+                  "id": "projectsByProjectNumberType",
+                  "name": "DSS_MUKTA_PROJECTS_BY_PROJECT_TYPE",
+                  "code": "",
+                  "chartType": "donut",
+                  "variant":"pieChartv2",
+                  "filter": "",
+                  "headers": [],
+                  "tabName": "Number"
+                },
+                {
+                  "id": "projectsByProjectAmountType",
+                  "name": "DSS_MUKTA_PENDING_BILLS_BY_BILL_AMOUNT_TYPE",
+                  "code": "",
+                  "chartType": "donut",
+                  "variant":"pieChartv2",
+                  "filter": "",
+                  "headers": [],
+                  "tabName": "Amount"
+                }
+              ]
+            },
+            {
+              "id": 502,
+              "name": "DSS_MUKTA_BILLS_BY_TYPE",
+              "dimensions": {
+                "height": 250,
+                "width": 4
+              },
+              "label": "",
+              "vizType": "chart",
+              "isCollapsible": false,
+              "charts": [
+                {
+                  "id": "billsCountByType",
+                  "name": "DSS_MUKTA_BILLS_COUNT_BY_TYPE",
+                  "code": "",
+                  "chartType": "donut",
+                  "variant":"pieChartv2",
+                  "filter": "",
+                  "headers": [],
+                  "tabName": "Number"
+                },
+                {
+                  "id": "billsByBillAmountType",
+                  "name": "DSS_MUKTA_BILLS_BY_BILL_AMOUNT_TYPE",
+                  "code": "",
+                  "chartType": "donut",
+                  "variant":"pieChartv2",
+                  "filter": "",
+                  "headers": [],
+                  "tabName": "Amount"
+                }
+              ]
+            },
+            {
+              "id": 503,
+              "name": "DSS_PAYMENT_BY_GENDER",
+              "dimensions": {
+                "height": 350,
+                "width": 12
+              },
+              "vizType": "chart",
+              "label": "",
+              "noUnit": false,
+              "isNotFullWidth": true,
+              "noSearch": true,
+              "isCollapsible": true,
+              "charts": [
+                {
+                  "id": "paymentsByGender",
+                  "name": "DSS_PAYMENT_BY_GENDER",
+                  "code": "",
+                  "chartType": "table",
+                  "filter": "",
+                  "headers": [],
+                  "tabName": "Boundary"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
