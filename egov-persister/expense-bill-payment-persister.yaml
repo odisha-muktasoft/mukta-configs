@@ -133,6 +133,8 @@ serviceMaps:
 
        - jsonPath: $.bill.billDetails.*.payee.status 
 
+       - jsonPath: $.bill.billDetails.*.payee.additionalDetails
+
        - jsonPath: $.bill.billDetails.*.payee.auditDetails.createdBy
 
        - jsonPath: $.bill.billDetails.*.payee.auditDetails.createdTime
@@ -328,6 +330,8 @@ serviceMaps:
        - jsonPath: $.bill.billDetails.*.id
 
        - jsonPath: $.bill.billDetails.*.payee.status 
+
+       - jsonPath: $.bill.billDetails.*.payee.additionalDetails
 
        - jsonPath: $.bill.billDetails.*.payee.auditDetails.createdBy
 
