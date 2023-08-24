@@ -269,6 +269,7 @@
     ],
     "isCumulative": false,
     "interval": "month",
+    "overrideRequestInterval": true,
     "insight": {
     },
     "_comment": "Total Bill Payment Amount"
@@ -294,6 +295,7 @@
     ],
     "isCumulative": false,
     "interval": "month",
+    "overrideRequestInterval": true,
     "insight": {
     },
     "_comment": "Total Labour Attendance"
@@ -561,6 +563,7 @@
     "action": "",
     "isCumulative": false,
     "interval": "month",
+    "overrideRequestInterval": true,
     "aggregationPaths": [
       "Purchase Bills amount","Supervision Bills amount","Wages Bills amount"
     ],
