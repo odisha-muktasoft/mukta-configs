@@ -393,6 +393,8 @@ serviceMaps:
        - jsonPath: $.bill.billDetails.*.payableLineItems.*.type
 
        - jsonPath: $.bill.billDetails.*.payableLineItems.*.status
+
+       - jsonPath: $.bill.billDetails.*.payableLineItems.*.paymentStatus
          
        - jsonPath: $.bill.billDetails.*.payableLineItems.*.auditDetails.createdBy
 
