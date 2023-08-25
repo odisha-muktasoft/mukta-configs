@@ -134,6 +134,8 @@ serviceMaps:
        - jsonPath: $.bill.billDetails.*.payee.status 
 
        - jsonPath: $.bill.billDetails.*.payee.additionalDetails
+         type: JSON
+         dbType: JSONB
 
        - jsonPath: $.bill.billDetails.*.payee.auditDetails.createdBy
 
@@ -332,6 +334,8 @@ serviceMaps:
        - jsonPath: $.bill.billDetails.*.payee.status 
 
        - jsonPath: $.bill.billDetails.*.payee.additionalDetails
+         type: JSON
+         dbType: JSONB
 
        - jsonPath: $.bill.billDetails.*.payee.auditDetails.createdBy
 
