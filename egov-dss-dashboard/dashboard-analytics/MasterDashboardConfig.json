@@ -41,7 +41,7 @@
               "label": "DSS_OVERVIEW_ISSUES",
               "vizType": "metric-collection",
               "noUnit": true,
-              "iconName":"WarningIcon",
+              "iconName":"AttentionListIcon",
               "isHorizontalChart": true,
               "isCollapsible": false,
               "charts": [
