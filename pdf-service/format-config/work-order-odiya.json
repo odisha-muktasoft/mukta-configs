@@ -1,0 +1,610 @@
+{
+  "key": "work-order-odiya",
+  "config": {
+    "defaultStyle": {
+      "font": "Cambay"
+    },
+    "content": [
+      {
+        "style": "noc-head",
+        "table": {
+          "widths": [
+            60,
+            "*",
+            125
+          ],
+          "body": [
+            [
+              {
+                "image": "{{logoImage}}",
+                "width": 50,
+                "height": 61.25,
+                "margin": [
+                  10,
+                  10,
+                  0,
+                  0
+                ]
+              },
+              {
+                "stack": [
+                  {
+                    "text": "{{pdf_header}} {{subdivision}}",
+                    "fontSize": 18,
+                    "color": "#000000",
+                    "bold": true
+                  },
+                  {
+                    "text": "{{address}}",
+                    "fontSize": 10,
+                    "color": "#000000"
+                  },
+                  {
+                    "text": "{{phoneNumber}} | {{email}}",
+                    "fontSize": 10,
+                    "color": "#000000"
+                  }
+                ],
+                "alignment": "left",
+                "margin": [
+                  10,
+                  10,
+                  0,
+                  0
+                ]
+              },
+              {
+                "stack": [
+                  {
+                    "text": "{{ServiceName}}",
+                    "style": "receipt-logo-header",
+                    "fontSize": 16
+                  },
+                  {
+                    "text": "{{contractNumber}}",
+                    "style": "receipt-logo-header"
+                  },
+                  {
+                    "text": "{{#totalContractedAmount}}[{\"text\":\"₹ {{amount}}\",\"style\":\"receipt-logo-header\"}]{{/totalContractedAmount}}"
+                  }
+                ],
+                "alignment": "right",
+                "margin": [
+                  0,
+                  10,
+                  10,
+                  0
+                ]
+              }
+            ]
+          ]
+        },
+        "layout": "noBorders",
+        "fillColor": "#f4f4f4"
+      },
+      {
+        "margin": [
+          0,
+          35,
+          0,
+          0
+        ],
+        "columns": [
+          {
+            "bold": true,
+            "fontSize": 12,
+            "stack": [
+              {
+                "text": "{{to}},"
+              },
+              {
+                "text": "{{officer_incharge}}",
+                "margin": [
+                  0,
+                  -3,
+                  0,
+                  0
+                ]
+              },
+              {
+                "text": "{{designation}}",
+                "margin": [
+                  0,
+                  -3,
+                  0,
+                  0
+                ]
+              },
+              {
+                "text": "{{ulb_name_and_address}}",
+                "margin": [
+                  0,
+                  -3,
+                  0,
+                  0
+                ]
+              }
+            ]
+          },
+          {
+            "alignment": "right",
+            "stack": [
+              {
+                "text": "  "
+              },
+              {
+                "text": "{{cbo}}",
+                "margin": [
+                  0,
+                  -3,
+                  0,
+                  0
+                ]
+              },
+              {
+                "text": "{{name_of_the_contact_person}}",
+                "margin": [
+                  0,
+                  -3,
+                  0,
+                  0
+                ]
+              },
+              {
+                "text": "{{designation}}",
+                "margin": [
+                  0,
+                  -3,
+                  0,
+                  0
+                ]
+              },
+              {
+                "text": "{{cboAddress}}",
+                "margin": [
+                  0,
+                  -3,
+                  0,
+                  0
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "margin": [
+          0,
+          20,
+          0,
+          0
+        ],
+        "text": [
+          {
+            "text": "{{subject}}:  ",
+            "bold": true
+          },
+          {
+
+            "text": "{{execution_of_work}} - "
+          },
+          {
+            "text": "{{work_description}}"
+          }
+        ]
+      },
+      {
+        "stack": [
+          {
+            "margin": [
+              0,
+              7,
+              0,
+              0
+            ],
+            "bold": true,
+            "text": "{{sir}},"
+          },
+          {
+            "text": [
+              {
+                "text": " "
+              },
+              {
+                "fontSize": 11,
+                "text": "        ଏହି କାର୍ଯ୍ୟ ଆଦେଶ ସପକ୍ଷରେ ଜାରି କରାଯାଇଛି {{name_of_issued_to}} ଏବଂ ସଂଗଠନକୁ ଏକଜେକ୍ୟୁଟ୍ କରିବା ଭାବରେ ଚୟନ କରାଯାଇଛି {{implementation_agency}}.ତେଣୁ ଏହି କାର୍ଯ୍ୟ ଅର୍ଡର ପ୍ରଦାନ ତାରିଖ ଠାରୁ {{work_order_acceptance_days}} ଦିନ ମଧ୍ୟରେ କାର୍ଯ୍ୟ କ୍ରମାଙ୍କ ଗ୍ରହଣକୁ ଦାଖଲ କରିବାକୁ ସଂଗଠନକୁ ସୂଚନା"
+              },
+              {
+                "text": "{{sla_date}}"
+              },
+              {
+                "text": " ଦୂାରା|"
+              }
+            ]
+          },
+          {
+            "margin": [
+              0,
+              10,
+              0,
+              0
+            ],
+            "fontSize": 11,
+            "text": [
+              {
+                "text": " "
+              },
+              {
+            "text": "ଏହିପରି, ପ୍ରକଳ୍ପ ଦାୟିତ୍ ଅଧିକାରୀ ରେ ଥିବା ଅଧିକାରୀଙ୍କ ନିର୍ଦ୍ଦେଶ ଅନୁଯାୟୀ ଉପରୋକ୍ତ କାର୍ଯ୍ୟକୁ କାର୍ଯ୍ୟକାରୀ କରିବାକୁ ଏବଂ ଏକ ସମୟ ମଧ୍ୟରେ ଏହାକୁ ସମସ୍ତ ଦିଗରେ ସମ୍ପୂର୍ଣ୍ଣ କରିବାକୁ ସଂଗଠନକୁ ଅନୁରୋଧ କରାଯାଇଛି। {{no_days_to_complete}} କାର୍ଯ୍ୟ ଅର୍ଡର ଗ୍ରହଣ କରିବାର ଦିନ ଠାରୁ କାର୍ଯ୍ୟ ଅର୍ଡର ଗ୍ରହଣ ତାରିଖ ଭାବରେ କାର୍ଯ୍ୟ ଆରମ୍ଭ ତାରିଖ ଭାବରେ ନିଆଯିବ।"
+          }
+        ]
+      },
+          {
+            "margin": [
+              0,
+              10,
+              0,
+              0
+            ],
+            "fontSize": 11,
+            "text": [
+              {
+                "text": " "
+              },
+              {
+                "text": "        କାର୍ଯ୍ୟ ଅର୍ଡର ଗ୍ରହଣ କରିବା ସହିତ, ଆପଣ ସିଧାସଳଖ ବେନିଫିଟ୍ ଟ୍ରାନ୍ସଫର ମୋଡ୍ ମାଧ୍ୟମରେ ଶ୍ରମିକମାନଙ୍କୁ ମଜୁରୀ ପ୍ରଦାନ ପାଇଁ IFSC କୋଡ୍ ସହିତ ସେମାନଙ୍କର AADHAAR ନମ୍ବର ଏବଂ ବ୍ୟାଙ୍କ ଆକାଉଣ୍ଟ ନମ୍ବର ସହିତ ଶ୍ରମିକ ନାମର ତାଲିକା ମଧ୍ୟ ଦାଖଲ କରନ୍ତି |"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "table": {
+          "widths": [
+            60,
+            "*",
+            100
+          ],
+          "body": [
+            [
+              {},
+              {},
+              {
+                "alignment": "left",
+        "margin": [
+          0,
+          10,
+          0,
+          10
+        ],
+        "stack": [
+          {
+            "text": "{{yours_faithfully}}"
+          },
+          {
+            "text": "{{executive_officer}}"
+          },
+          {
+            "text": "{{ulb_name}}"
+          },
+          {
+            "text": "{{accepted_date}}"
+          }
+        ]
+      }
+    ]
+  ]
+},
+"layout": "noBorders"
+      },
+      {
+        "table": {
+          "widths": [
+            "*"
+          ],
+          "body": [
+            [
+              {
+                "border": [
+                  false,
+                  true,
+                  false,
+                  false
+                ],
+                "margin": [
+                  0,
+                  5,
+                  0,
+                  0
+                ],
+                "text": ""
+              }
+            ]
+          ]
+        },
+        "layout": {
+          "hLineColor": "#E8E8E8"
+        }
+      },
+      {
+        "bold": true,
+        "fontSize": 16,
+        "text": "{{terms_and_conditions}}"
+      },
+      {
+        "bold": true,
+        "italics": false,
+        "fontSize": 14,
+        "text": "{{ia_condition}}"
+      },
+      {
+        "margin": [
+          10,
+          0,
+          0,
+          0
+        ],
+        "style": "condition",
+        "ol": [
+          "{{#variable11}}[{\"text\":\"{{disclaimerContent}}\",\"border\":[false,false,false,false],\"style\":\"condition\"}]{{/variable11}}"
+        ]
+      },
+      {
+        "bold": true,
+        "italics": false,
+        "fontSize": 14,
+        "text": "{{ip_condition}}"
+      },
+      {
+        "margin": [
+          10,
+          0,
+          0,
+          0
+        ],
+        "style": "condition",
+        "ol": [
+          "{{#variable12}}[{\"text\":\"{{disclaimerContent}}\",\"border\":[false,false,false,false],\"style\":\"condition\"}]{{/variable12}}"
+        ]
+      },
+      {
+        "bold": true,
+        "italics": false,
+        "fontSize": 14,
+        "text": "{{non_condition}}"
+      },
+      {
+        "margin": [
+          10,
+          0,
+          0,
+          0
+        ],
+        "style": "condition",
+        "ol": [
+          "{{#variable13}}[{\"text\":\"{{disclaimerContent}}\",\"border\":[false,false,false,false],\"style\":\"condition\"}]{{/variable13}}"
+        ]
+      },
+      {
+        "bold": true,
+        "italics": false,
+        "fontSize": 14,
+        "text": "{{general_condition}}"
+      },
+      {
+        "margin": [
+          10,
+          0,
+          0,
+          0
+        ],
+        "style": "condition",
+        "ol": [
+          "{{#variable14}}[{\"text\":\"{{disclaimerContent}}\",\"border\":[false,false,false,false],\"style\":\"condition\"}]{{/variable14}}"
+        ]
+      },
+      
+      {
+        "table": {
+          "widths": [
+            "*"
+          ],
+          "body": [
+            [
+              {
+                "border": [
+                  false,
+                  false,
+                  false,
+                  true
+                ],
+                "margin": [
+                  0,
+                  30,
+                  0,
+                  0
+                ],
+                "text": ""
+              }
+            ]
+          ]
+        },
+        "layout": {
+          "hLineColor": "#E8E8E8"
+        }
+      },
+      {
+        "italics": false,
+        "fontSize": 10,
+        "margin": [
+          0,
+          10,
+          0,
+          0
+        ],
+        "text": "ଏହା ଏକ କମ୍ପ୍ୟୁଟର ଦ୍ୱାରା ନିର୍ମିତ ଡକ୍ୟୁମେଣ୍ଟ। କଣସି ଦସ୍ତଖତ ଆବଶ୍ୟକ ନାହିଁ।",
+        "alignment": "center"
+      }
+    ],
+    "styles": {
+      "header": {
+        "fontSize": 20,
+        "bold": true,
+        "margin": [
+          0,
+          20,
+          10,
+          10
+        ]
+      },
+      "condition": {
+        "italics": false,
+        "fontSize": 14,
+        "color": "#343333"
+      },
+      "subHeader": {
+        "fontSize": 20,
+        "bold": true,
+        "margin": [
+          0,
+          20,
+          10,
+          10
+        ]
+      },
+      "noc-head": {
+        "margin": [
+          -40,
+          -40,
+          -40,
+          1
+        ]
+      },
+      "receipt-logo-header": {
+        "color": "#636363",
+        "fontSize": 12,
+        "bold": true,
+        "margin": [
+          0,
+          0,
+          0,
+          -3
+        ],
+        "textTransform": "uppercase"
+      },
+      "receipt-logo-sub-header": {
+        "color": "#000000",
+        "fontSize": 12,
+        "letterSpacing": 0.6
+      },
+      "noc-table": {
+        "fontSize": 12,
+        "color": "#000000",
+        "margin": [
+          -25,
+          45,
+          -22,
+          -8
+        ],
+        "border": [
+          "false",
+          "false",
+          "false",
+          "false"
+        ]
+      },
+      "next-noc-table": {
+        "fontSize": 12,
+        "color": "#000000",
+        "margin": [
+          -25,
+          28,
+          -22,
+          -8
+        ]
+      },
+      "receipt-table-value": {
+        "color": "#000000",
+        "bold": true,
+        "fontSize": 12,
+        "fontWeight": 500,
+        "margin": [
+          -2,
+          8,
+          0,
+          8
+        ]
+      },
+      "receipt-table": {
+        "color": "#000000",
+        "bold": false,
+        "fontSize": 12,
+        "fontWeight": 400,
+        "margin": [
+          -30,
+          8,
+          0,
+          8
+        ]
+      },
+      "receipt-approver": {
+        "fontSize": 12,
+        "bold": true,
+        "margin": [
+          -27,
+          50,
+          -10,
+          0
+        ],
+        "color": "#484848"
+      },
+      "no-signature": {
+        "fontSize": 12,
+        "margin": [
+          -27,
+          35,
+          -10,
+          0
+        ],
+        "color": "#484848"
+      },
+      "pt-disclaimer": {
+        "fontSize": 12,
+        "margin": [
+          -27,
+          30,
+          -10,
+          0
+        ],
+        "color": "#484848"
+      },
+      "receipt-table-value2": {
+        "border": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "alignment": "right"
+      },
+      "receipt-table2": {
+        "border": [
+          false,
+          false,
+          false,
+          false
+        ]
+      },
+      "pt-disclaimer-value": {
+        "fontSize": 12,
+        "margin": [
+          2,
+          5,
+          0,
+          0
+        ],
+        "color": "#484848"
+      }
+    }
+  }
+}
