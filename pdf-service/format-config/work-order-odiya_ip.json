@@ -85,11 +85,6 @@
                     "italics":false
                   },
                   {
-                    "text": "{{FillerTextName}}",
-                    "style": "receipt-logo-header",
-                    "fontSize": 12
-                  },
-                  {
                     "text": "{{ulb_name_and_address}}, {{districtName}}",
                     "style": "receipt-logo-header",
                     "fontSize": 12
@@ -201,14 +196,14 @@
                     "text": "ନିର୍ବାହୀ ଅଧିକାରୀ/ କମିଶନର",
                     "fontSize":"12",
                     "margin": [
-                      -80,
+                      -50,
                       -3,
                       0,
                       0
                     ]
                   },
                   {
-                    "text": " ",
+                    "text": "{{approvers_name}}",
                     "margin": [
                       0,
                       -3,
@@ -220,7 +215,7 @@
                     "text": "{{ulb_name}}",
                     "fontSize":"12",
                     "margin": [
-                      -60,
+                      0,
                       -3,
                       0,
                       0
@@ -334,8 +329,8 @@
           },
           {
             "image": "{{cmImage}}",
-            "width": 250,
-            "height": 300,
+            "width": 200,
+            "height": 250,
             "margin": [
               0,
               0,

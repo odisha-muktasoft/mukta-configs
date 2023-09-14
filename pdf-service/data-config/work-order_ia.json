@@ -1,19 +1,18 @@
 {
   "key": "work-order_ia",
-  "documentType":"WORK-ORDER",
+  "documentType": "WORK-ORDER",
   "DataConfigs": {
     "moduleName": "rainmaker-common",
     "version": "1.0.0",
     "baseKeyPath": "$.contracts.*",
-    "entityIdPath":"$.id",
+    "entityIdPath": "$.id",
     "isCommonTableBorderRequired": true,
     "mappings": [
       {
         "topic": "common-pdf-generation-3",
         "mappings": [
           {
-            "direct":
-            [
+            "direct": [
               {
                 "variable": "sir",
                 "value": {
@@ -86,7 +85,6 @@
                   "module": "rainmaker-common"
                 }
               },
-
               {
                 "variable": "execution_of_work",
                 "value": {
@@ -99,7 +97,6 @@
                   "module": "rainmaker-common"
                 }
               },
-
               {
                 "variable": "officer_incharge",
                 "value": {
@@ -123,7 +120,6 @@
                 "value": {
                   "path": "$.additionalDetails.officerInChargeDesgn"
                 }
-
               },
               {
                 "variable": "cbo",
@@ -151,7 +147,7 @@
               {
                 "variable": "work_order_acceptance_days",
                 "value": {
-                  "path": "$.pdfWorkOrdAcceptanceDays"
+                  "path": "$.completionPeriod"
                 }
               },
               {
@@ -180,8 +176,6 @@
                   "path": "$.completionPeriod"
                 }
               },
-
-
               {
                 "variable": "sla_days",
                 "value": {
@@ -196,7 +190,6 @@
                 "type": "function",
                 "format": "var a=[]; date=arguments[0].toString();{if(date==null || date){a.push({'approvalDate':new Date().toLocaleDateString()});}} return a;"
               },
-
               {
                 "variable": "ulb_name",
                 "value": {
@@ -261,7 +254,6 @@
                   "module": "rainmaker-od"
                 }
               },
-
               {
                 "variable": "name_of_the_contact_person",
                 "value": {
@@ -281,14 +273,13 @@
                 },
                 "type": "date"
               },
-
               {
                 "variable": "termsAndConditions",
                 "value": {
                   "path": "$.additionalDetails.termsAndConditions"
                 },
-                "type":"function",
-                "format":"var a=[];var conditionNo=0; termsAndConditions=arguments[0]; for(var i=0;i<termsAndConditions.length;i++){if(termsAndConditions[i]!=null)conditionNo=conditionNo+1;var b={'description':termsAndConditions[i]!=null?termsAndConditions[i].description:'','conditionNo':termsAndConditions[i]!=null?conditionNo+'.':''}; a.push(b);} return a;"
+                "type": "function",
+                "format": "var a=[];var conditionNo=0; termsAndConditions=arguments[0]; for(var i=0;i<termsAndConditions.length;i++){if(termsAndConditions[i]!=null)conditionNo=conditionNo+1;var b={'description':termsAndConditions[i]!=null?termsAndConditions[i].description:'','conditionNo':termsAndConditions[i]!=null?conditionNo+'.':''}; a.push(b);} return a;"
               },
               {
                 "variable": "ServiceName",
@@ -296,11 +287,11 @@
                   "path": "ACTION_TEST_WORK_ORDER"
                 },
                 "type": "label",
-                "localisation":{
-                  "required":true,
+                "localisation": {
+                  "required": true,
                   "prefix": null,
-                  "module":"rainmaker-common"
-               }
+                  "module": "rainmaker-common"
+                }
               },
               {
                 "variable": "SchemeName",
@@ -308,22 +299,10 @@
                   "path": "MUKHYA_MANTRI_KARMA_TATPARA_ABHIYAN"
                 },
                 "type": "label",
-                "localisation":{
-                  "required":true,
+                "localisation": {
+                  "required": true,
                   "prefix": null,
-                  "module":"rainmaker-common"
-                }
-              },
-              {
-                "variable": "FillerTextName",
-                "value": {
-                  "path": "TRANSFORMATION_OF_CITY"
-                },
-                "type": "label",
-                "localisation":{
-                  "required":true,
-                  "prefix": null,
-                  "module":"rainmaker-common"
+                  "module": "rainmaker-common"
                 }
               },
               {
@@ -332,11 +311,11 @@
                   "path": "ULBGRADE_MC1"
                 },
                 "type": "label",
-                "localisation":{
-                  "required":true,
+                "localisation": {
+                  "required": true,
                   "prefix": null,
-                  "module":"rainmaker-common"
-               }
+                  "module": "rainmaker-common"
+                }
               },
               {
                 "variable": "pdf_header",
@@ -489,89 +468,91 @@
                 "value": {
                   "path": "$.termsAndConditionList"
                 }
-
               },
               {
-              "variable": "financialYearPeriod",
-              "value": {
-                "path": "$.financialYear"
+                "variable": "financialYearPeriod",
+                "value": {
+                  "path": "$.financialYear"
+                }
+              },
+              {
+                "variable": "approvers_name",
+                "value": {
+                  "path": "$.approverName"
+                }
               }
-
-            }
-
             ]
-
           },
           {
             "externalAPI": [
               {
                 "path": "http://egov-mdms-service:8080/egov-mdms-service/v1/_get",
                 "queryParam": "moduleName=tenant&masterName=tenants&tenantId=od&filter=%5B?(@.code=='{$.tenantId}')%5D",
-                  "apiRequest": null,
-                  "responseMapping":[
-                    {
-                      "variable":"address",
-                      "value":"$.MdmsRes.tenant.tenants[0].address"
-                    },
-                    {
-                      "variable":"phoneNumber",
-                      "value":"$.MdmsRes.tenant.tenants[0].contactNumber"
-                    },
-                    {
-                      "variable":"website",
-                      "value":"$.MdmsRes.tenant.tenants[0].domainUrl"
-                    },
-                    {
-                      "variable":"email",
-                      "value":"$.MdmsRes.tenant.tenants[0].emailId"
-                    },
-                    {
-                      "variable": "logoImage",
-                      "value":"$.MdmsRes.tenant.tenants[0].logoId",
-                      "type":"image"
-                    },
-                    {
-                      "variable": "logo-header",
-                      "value":"$.MdmsRes.tenant.tenants[0].code",
-                      "localisation":{
-                        "required":true,
-                        "module":"rainmaker-common"
-                        }
-                    },
-                    {
-                      "variable": "subdivision",
-                      "value": "$.MdmsRes.tenant.tenants[0].city.ulbGrade",
-                      "localisation": {
-                        "required": true,
-                        "prefix": "COMMON_SUBDIVISION",
-                        "module": "rainmaker-common"
-                      }
-                    },
-                    {
-                      "variable": "cmImage",
-                      "value":"$.MdmsRes.tenant.tenants[0].cmImageId",
-                      "type":"image"
-                    },
-                    {
-                      "variable": "tLogoImage",
-                      "value":"$.MdmsRes.tenant.tenants[0].tLogoImageId",
-                      "type":"image"
-                    },
-                    {
-                      "variable": "schemImage",
-                      "value":"$.MdmsRes.tenant.tenants[0].schemImageId",
-                      "type":"image"
-                    },
-                    {
-                      "variable": "sealImage",
-                      "value":"$.MdmsRes.tenant.tenants[0].sealImageId",
-                      "type":"image"
-                    },
-                    {
-                      "variable": "districtName",
-                      "value":"$.MdmsRes.tenant.tenants[0].city.districtName"
+                "apiRequest": null,
+                "responseMapping": [
+                  {
+                    "variable": "address",
+                    "value": "$.MdmsRes.tenant.tenants[0].address"
+                  },
+                  {
+                    "variable": "phoneNumber",
+                    "value": "$.MdmsRes.tenant.tenants[0].contactNumber"
+                  },
+                  {
+                    "variable": "website",
+                    "value": "$.MdmsRes.tenant.tenants[0].domainUrl"
+                  },
+                  {
+                    "variable": "email",
+                    "value": "$.MdmsRes.tenant.tenants[0].emailId"
+                  },
+                  {
+                    "variable": "logoImage",
+                    "value": "$.MdmsRes.tenant.tenants[0].logoId",
+                    "type": "image"
+                  },
+                  {
+                    "variable": "logo-header",
+                    "value": "$.MdmsRes.tenant.tenants[0].code",
+                    "localisation": {
+                      "required": true,
+                      "module": "rainmaker-common"
                     }
-                  ]
+                  },
+                  {
+                    "variable": "subdivision",
+                    "value": "$.MdmsRes.tenant.tenants[0].city.ulbGrade",
+                    "localisation": {
+                      "required": true,
+                      "prefix": "COMMON_SUBDIVISION",
+                      "module": "rainmaker-common"
+                    }
+                  },
+                  {
+                    "variable": "cmImage",
+                    "value": "$.MdmsRes.tenant.tenants[0].cmImageId",
+                    "type": "image"
+                  },
+                  {
+                    "variable": "tLogoImage",
+                    "value": "$.MdmsRes.tenant.tenants[0].tLogoImageId",
+                    "type": "image"
+                  },
+                  {
+                    "variable": "schemImage",
+                    "value": "$.MdmsRes.tenant.tenants[0].schemImageId",
+                    "type": "image"
+                  },
+                  {
+                    "variable": "sealImage",
+                    "value": "$.MdmsRes.tenant.tenants[0].sealImageId",
+                    "type": "image"
+                  },
+                  {
+                    "variable": "districtName",
+                    "value": "$.MdmsRes.tenant.tenants[0].city.districtName"
+                  }
+                ]
               }
             ]
           }

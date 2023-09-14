@@ -151,7 +151,7 @@
               {
                 "variable": "work_order_acceptance_days",
                 "value": {
-                  "path": "$.pdfWorkOrdAcceptanceDays"
+                  "path": "$.completionPeriod"
                 }
               },
               {
@@ -316,18 +316,6 @@
                 }
               },
               {
-                "variable": "FillerTextName",
-                "value": {
-                  "path": "TRANSFORMATION_OF_CITY"
-                },
-                "type": "label",
-                "localisation":{
-                  "required":true,
-                  "prefix": null,
-                  "module":"rainmaker-common"
-                }
-              },
-              {
                 "variable": "Municipal_Corporation",
                 "value": {
                   "path": "ULBGRADE_MC1"
@@ -390,18 +378,6 @@
                 "variable": "PresidentDesignation",
                 "value": {
                   "path": "PRESIDENTS_DESIGNATION"
-                },
-                "type": "label",
-                "localisation": {
-                  "required": true,
-                  "prefix": null,
-                  "module": "rainmaker-common"
-                }
-              },
-              {
-                "variable": "SecretaryDesignation",
-                "value": {
-                  "path": "SECRETARY_DESIGNATION"
                 },
                 "type": "label",
                 "localisation": {
@@ -498,6 +474,12 @@
                   "path": "$.financialYear"
                 }
 
+              },
+              {
+                "variable": "approvers_name",
+                "value": {
+                  "path": "$.approverName"
+                }
               }
 
             ]
