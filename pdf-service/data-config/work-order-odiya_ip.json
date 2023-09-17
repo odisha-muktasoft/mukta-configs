@@ -399,18 +399,6 @@
                 }
               },
               {
-                "variable": "SecretaryDesignation",
-                "value": {
-                  "path": "SECRETARY_DESIGNATION"
-                },
-                "type": "label",
-                "localisation": {
-                  "required": true,
-                  "prefix": null,
-                  "module": "rainmaker-common"
-                }
-              },
-              {
                 "variable": "Date",
                 "value": {
                   "path": "ES_COMMON_DATE"

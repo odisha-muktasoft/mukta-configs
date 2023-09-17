@@ -130,7 +130,7 @@
                 "text": " "
               },
               {
-                "text": "{{Salutation}} {{name_of_the_contact_person}} ({{PresidentDesignation}})",
+                "text": "{{Salutation}} {{officerincharge}} ({{officerinchargedesignation}})",
                 "margin": [
                   0,
                   -3,
@@ -140,15 +140,6 @@
               },
               {
                 "text": " "
-              },
-              {
-                "text":  "{{Salutation}}                                   ({{SecretaryDesignation}})",
-                "margin": [
-                  0,
-                  -3,
-                  0,
-                  0
-                ]
               },
               {
                 "text": " "
