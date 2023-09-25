@@ -17,7 +17,7 @@
           "type": "MultiSelectDropdown",
           "source": {
             "type": "request",
-            "hostUrl": "https://mukta-uat.digit.org",
+            "hostUrl": "https://mukta.odisha.gov.in",
             "requestMethod": "POST",
             "requestUrl": "/egov-mdms-service/v1/_search?tenantId={$.tenantId}",
             "requestBody": "{\"MdmsCriteria\":{\"tenantId\":\"od\",\"moduleDetails\":[{\"moduleName\":\"tenant\",\"masterDetails\":[{\"name\":\"tenants\",\"filter\":\"[?(@.city.ddrName != null )]\"}]}]}}",
