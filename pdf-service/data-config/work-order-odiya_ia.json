@@ -151,7 +151,7 @@
               {
                 "variable": "work_order_acceptance_days",
                 "value": {
-                  "path": "$.completionPeriod"
+                  "path": "$.pdfWorkOrdAcceptanceDays"
                 }
               },
               {
@@ -498,12 +498,6 @@
                   "path": "$.financialYear"
                 }
 
-              },
-              {
-                "variable": "approvers_name",
-                "value": {
-                  "path": "$.approverName"
-                }
               }
 
             ]

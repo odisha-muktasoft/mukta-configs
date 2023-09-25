@@ -1,5 +1,5 @@
 {
-  "key": "work-order",
+  "key": "work-order-odiya",
   "config": {
     "defaultStyle": {
       "font": "Cambay"
@@ -212,13 +212,13 @@
               },
               {
                 "fontSize": 11,
-                "text": "        This work order is issued in the favor of {{name_of_issued_to}} and to execute the work the organization {{cbo}} has been selected as {{implementation_agency}}. Therefore the organization is informed to submit the acceptance of the work order within {{work_order_acceptance_days}} days from the date of issue of this work order i.e. by "
+                "text": "        ଏହି କାର୍ଯ୍ୟ ଆଦେଶ ସପକ୍ଷରେ ଜାରି କରାଯାଇଛି {{name_of_issued_to}} ଏବଂ ସଂଗଠନକୁ ଏକଜେକ୍ୟୁଟ୍ କରିବା ଭାବରେ ଚୟନ କରାଯାଇଛି {{implementation_agency}}.ତେଣୁ ଏହି କାର୍ଯ୍ୟ ଅର୍ଡର ପ୍ରଦାନ ତାରିଖ ଠାରୁ {{work_order_acceptance_days}} ଦିନ ମଧ୍ୟରେ କାର୍ଯ୍ୟ କ୍ରମାଙ୍କ ଗ୍ରହଣକୁ ଦାଖଲ କରିବାକୁ ସଂଗଠନକୁ ସୂଚନା"
               },
               {
                 "text": "{{sla_date}}"
               },
               {
-                "text": " ."
+                "text": " ଦୂାରା|"
               }
             ]
           },
@@ -235,10 +235,10 @@
                 "text": " "
               },
               {
-                "text": "As such, The organization is requested to execute the above work as per the direction of the officer in-charge of the project and complete it in all aspects within a period of {{no_days_to_complete}} days from the date of acceptance of the work order as the date of acceptance of work order will be taken as the date of start of the work."
-              }
-            ]
-          },
+            "text": "ଏହିପରି, ପ୍ରକଳ୍ପ ଦାୟିତ୍ ଅଧିକାରୀ ରେ ଥିବା ଅଧିକାରୀଙ୍କ ନିର୍ଦ୍ଦେଶ ଅନୁଯାୟୀ ଉପରୋକ୍ତ କାର୍ଯ୍ୟକୁ କାର୍ଯ୍ୟକାରୀ କରିବାକୁ ଏବଂ ଏକ ସମୟ ମଧ୍ୟରେ ଏହାକୁ ସମସ୍ତ ଦିଗରେ ସମ୍ପୂର୍ଣ୍ଣ କରିବାକୁ ସଂଗଠନକୁ ଅନୁରୋଧ କରାଯାଇଛି। {{no_days_to_complete}} କାର୍ଯ୍ୟ ଅର୍ଡର ଗ୍ରହଣ କରିବାର ଦିନ ଠାରୁ କାର୍ଯ୍ୟ ଅର୍ଡର ଗ୍ରହଣ ତାରିଖ ଭାବରେ କାର୍ଯ୍ୟ ଆରମ୍ଭ ତାରିଖ ଭାବରେ ନିଆଯିବ।"
+          }
+        ]
+      },
           {
             "margin": [
               0,
@@ -252,7 +252,7 @@
                 "text": " "
               },
               {
-                "text": "        Along with the acceptance of the work order, you also submit the list of the workers name with their AADHAAR Number and Bank Account Number with IFSC code for the payment of the wages to the workers through Direct Benefit Transfer mode."
+                "text": "        କାର୍ଯ୍ୟ ଅର୍ଡର ଗ୍ରହଣ କରିବା ସହିତ, ଆପଣ ସିଧାସଳଖ ବେନିଫିଟ୍ ଟ୍ରାନ୍ସଫର ମୋଡ୍ ମାଧ୍ୟମରେ ଶ୍ରମିକମାନଙ୍କୁ ମଜୁରୀ ପ୍ରଦାନ ପାଇଁ IFSC କୋଡ୍ ସହିତ ସେମାନଙ୍କର AADHAAR ନମ୍ବର ଏବଂ ବ୍ୟାଙ୍କ ଆକାଉଣ୍ଟ ନମ୍ବର ସହିତ ଶ୍ରମିକ ନାମର ତାଲିକା ମଧ୍ୟ ଦାଖଲ କରନ୍ତି |"
               }
             ]
           }
@@ -333,7 +333,7 @@
       },
       {
         "bold": true,
-        "italics": true,
+        "italics": false,
         "fontSize": 14,
         "text": "{{ia_condition}}"
       },
@@ -351,7 +351,7 @@
       },
       {
         "bold": true,
-        "italics": true,
+        "italics": false,
         "fontSize": 14,
         "text": "{{ip_condition}}"
       },
@@ -369,7 +369,7 @@
       },
       {
         "bold": true,
-        "italics": true,
+        "italics": false,
         "fontSize": 14,
         "text": "{{non_condition}}"
       },
@@ -387,7 +387,7 @@
       },
       {
         "bold": true,
-        "italics": true,
+        "italics": false,
         "fontSize": 14,
         "text": "{{general_condition}}"
       },
@@ -434,7 +434,7 @@
         }
       },
       {
-        "italics": true,
+        "italics": false,
         "fontSize": 10,
         "margin": [
           0,
@@ -442,7 +442,7 @@
           0,
           0
         ],
-        "text": "This is a computer-generated document. No signature is required.",
+        "text": "ଏହା ଏକ କମ୍ପ୍ୟୁଟର ଦ୍ୱାରା ନିର୍ମିତ ଡକ୍ୟୁମେଣ୍ଟ। କଣସି ଦସ୍ତଖତ ଆବଶ୍ୟକ ନାହିଁ।",
         "alignment": "center"
       }
     ],
@@ -458,7 +458,7 @@
         ]
       },
       "condition": {
-        "italics": true,
+        "italics": false,
         "fontSize": 14,
         "color": "#343333"
       },
