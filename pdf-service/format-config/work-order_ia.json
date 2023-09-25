@@ -1,0 +1,512 @@
+{
+  "key": "work-order_ia",
+  "config": {
+    "defaultStyle": {
+      "font": "Cambay"
+    },
+    "content": [
+      {
+        "style": "noc-head",
+        "table": {
+          "widths": [
+            100,
+            "*",
+            100
+          ],
+          "body": [
+            [
+              {
+                "image": "{{tLogoImage}}",
+                "width": 60,
+                "height": 60,
+                "margin": [
+                  -300,
+                  0,
+                  0,
+                  0
+                ],
+                "alignment": "right",
+                "fillColor":"#f4f4f4"
+              },
+              {
+                "image": "{{schemImage}}",
+                "width": 60,
+                "height": 60,
+                "margin": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "alignment": "right",
+                "fillColor":"#f4f4f4"
+              },
+              {
+                "image": "{{sealImage}}",
+                "width": 60,
+                "height": 60,
+                "margin": [
+                  0,
+                  0,
+                  10,
+                  0
+                ],
+                "alignment": "right",
+                "fillColor":"#f4f4f4"
+              }
+            ]
+          ]
+        },
+        "layout": "noBorders",
+        "fillColor": "#ffffff"
+      },
+      {
+        "style": "noc-head",
+        "table": {
+          "widths": [
+            150,
+            "*",
+            125
+          ],
+          "body": [
+            [ {
+            },
+              {
+                "stack": [
+                  {
+                    "text": "{{ServiceName}}",
+                    "style": "receipt-logo-header",
+                    "fontSize": 12
+                  },
+                  {
+                    "text": "{{SchemeName}}",
+                    "style": "receipt-logo-header",
+                    "fontSize": 12,
+                    "italics":false
+                  },
+                  {
+                    "text": "{{ulb_name_and_address}}, {{districtName}}",
+                    "style": "receipt-logo-header",
+                    "fontSize": 12
+                  },
+                  {
+                    "text": "{{WorkOderNumber}}: {{contractNumber}}, {{Date}}: {{issuedDate}}",
+                    "style": "receipt-logo-header",
+                    "fontSize": 12
+                  }
+                ],
+                "alignment": "center",
+                "margin": [
+                  0,
+                  80,
+                  0,
+                  0
+                ]
+              },
+              {
+              }
+            ]
+          ]
+        },
+        "layout": "noBorders",
+        "fillColor": "#ffffff"
+      },
+      {
+        "margin": [
+          0,
+          35,
+          0,
+          0
+        ],
+        "columns": [
+          {
+            "bold": false,
+            "fontSize": 12,
+            "stack": [
+              {
+                "text": "{{to}},"
+              },
+              {
+                "text": " "
+              },
+              {
+                "text": "{{Salutation}} {{name_of_the_contact_person}} ({{PresidentDesignation}})",
+                "margin": [
+                  0,
+                  -3,
+                  0,
+                  0
+                ]
+              },
+              {
+                "text": " "
+              },
+              {
+                "text":  "{{Salutation}}                                   ({{SecretaryDesignation}})",
+                "margin": [
+                  0,
+                  -3,
+                  0,
+                  0
+                ]
+              },
+              {
+                "text": " "
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "stack": [
+          {
+            "text": [
+              {
+                "text": " "
+              },
+              {
+                "fontSize": 12,
+                "text": " {{cbo}} SHG/SDA, Ward {{wardName}}, Place {{localityName}}, {{ulb_name_and_address}} District {{districtName}} is awarded with the work {{projectName}} for the financial year {{financialYearPeriod}} as Implementation Agency under Mukhya Mantri Karma Tatpara Abhiyan (MUKTA). The estimated cost of this project is Rs.{{totalContractedAmount}}, which includes GST, Royalty, (CESS) etc. The following terms and conditions will be followed as mentioned in the next page."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "table": {
+          "widths": [
+            60,
+            "*",
+            100
+          ],
+          "body": [
+            [
+              {},
+              {},
+              {
+                "alignment": "left",
+                "margin": [
+                  0,
+                  10,
+                  0,
+                  10
+                ],
+                "stack": [
+                  {
+                    "text": "Executive Officer/Commissioner",
+                    "fontSize":"12",
+                    "margin": [
+                      -80,
+                      -3,
+                      0,
+                      0
+                    ]
+                  },
+                  {
+                    "text": "{{approvers_name}}",
+                    "margin": [
+                      0,
+                      -3,
+                      0,
+                      0
+                    ]
+                  },
+                  {
+                    "text": "{{ulb_name}}",
+                    "fontSize":"12",
+                    "margin": [
+                      0,
+                      -3,
+                      0,
+                      0
+                    ]
+                  }
+                ]
+              }
+            ]
+          ]
+        },
+        "layout": "noBorders"
+      },
+      {
+        "stack": [
+          {
+            "text": [
+              {
+                "text": " "
+              },
+              {
+                "fontSize": 12,
+                "text": "{{cbo}} SHG/SDA have to complete the work within {{work_order_acceptance_days}} days after receiving/ accepting  the work order."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "bold": false,
+        "fontSize": 12,
+        "text": "{{terms_and_conditions}}",
+        "style": {
+          "decoration": "underline"
+        }
+
+      },
+      {
+        "margin": [
+          10,
+          0,
+          0,
+          0
+        ],
+        "ol":[
+          "{{#termsAndConditionsList}}[{\"text\":\"{{terms}}\",\"border\":[false,false,false,false],\"style\":\"condition\"}]{{/termsAndConditionsList}}"
+        ]
+      },
+      {
+        "stack": [
+          {
+            "text": [
+              {
+                "text": " "
+              },
+              {
+                "fontSize": 12,
+                "text": "For any queries and information please contact the following officials from the ULB:",
+                "style": {
+                  "decoration": "underline"
+                }
+              }
+            ]
+          },
+          {
+            "text": [
+              {
+                "text": " "
+              },
+              {
+                "fontSize": 12,
+                "text": "Name of the officer  {{officerincharge}}, Designation  {{officerinchargedesignation}}, Mobile number {{officeinchargecontactnumber}}"
+              }
+            ]
+          },
+          {
+            "text": [
+              {
+                "text": " "
+              },
+              {
+                "fontSize": 12,
+                "text": "For Any information regarding  accounts contact the following person:",
+                "style": {
+                  "decoration": "underline"
+                }
+              }
+            ]
+          },
+          {
+            "text": [
+              {
+                "text": " "
+              },
+              {
+                "fontSize": 12,
+                "text":  "Name of the officer {{muktaaccountant}}, Designation {{accountantdesignation}}, Mobile number {{contactnumber}}"
+              }
+            ]
+          },
+          {
+            "text": " "
+          },
+          {
+            "text": " "
+          },
+          {
+            "text": " "
+          },
+          {
+            "text": " "
+          },
+          {
+            "image": "{{cmImage}}",
+            "width": 200,
+            "height": 250,
+            "margin": [
+              0,
+              0,
+              10,
+              0
+            ],
+            "alignment": "right"
+          }
+        ]
+      }
+    ],
+    "styles": {
+      "header": {
+        "fontSize": 20,
+        "bold": true,
+        "margin": [
+          0,
+          20,
+          10,
+          10
+        ]
+      },
+      "condition": {
+        "italics": false,
+        "fontSize": 12
+      },
+      "subHeader": {
+        "fontSize": 20,
+        "bold": true,
+        "margin": [
+          0,
+          20,
+          10,
+          10
+        ]
+      },
+      "noc-head": {
+        "margin": [
+          -40,
+          -40,
+          -40,
+          1
+        ]
+      },
+      "receipt-logo-header": {
+        "fontSize": 12,
+        "bold": false,
+        "margin": [
+          -60,
+          0,
+          0,
+          -3
+        ],
+        "alignment": "center",
+        "textTransform": "uppercase"
+      },
+      "receipt-logo-sub-header": {
+        "color": "#636363",
+        "fontSize": 12,
+        "bold": true,
+        "margin": [
+          -80,
+          0,
+          0,
+          -3
+        ],
+        "textTransform": "uppercase"
+      },
+      "noc-table": {
+        "fontSize": 12,
+        "color": "#000000",
+        "margin": [
+          -25,
+          45,
+          -22,
+          -8
+        ],
+        "border": [
+          "false",
+          "false",
+          "false",
+          "false"
+        ]
+      },
+      "next-noc-table": {
+        "fontSize": 12,
+        "color": "#000000",
+        "margin": [
+          -25,
+          28,
+          -22,
+          -8
+        ]
+      },
+      "receipt-table-value": {
+        "color": "#000000",
+        "bold": true,
+        "fontSize": 12,
+        "fontWeight": 500,
+        "margin": [
+          -2,
+          8,
+          0,
+          8
+        ]
+      },
+      "receipt-table": {
+        "color": "#000000",
+        "bold": false,
+        "fontSize": 12,
+        "fontWeight": 400,
+        "margin": [
+          -30,
+          8,
+          0,
+          8
+        ]
+      },
+      "receipt-approver": {
+        "fontSize": 12,
+        "bold": true,
+        "margin": [
+          -27,
+          50,
+          -10,
+          0
+        ],
+        "color": "#484848"
+      },
+      "no-signature": {
+        "fontSize": 12,
+        "margin": [
+          -27,
+          35,
+          -10,
+          0
+        ],
+        "color": "#484848"
+      },
+      "pt-disclaimer": {
+        "fontSize": 12,
+        "margin": [
+          -27,
+          30,
+          -10,
+          0
+        ],
+        "color": "#484848"
+      },
+      "receipt-table-value2": {
+        "border": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "alignment": "right"
+      },
+      "receipt-table2": {
+        "border": [
+          false,
+          false,
+          false,
+          false
+        ]
+      },
+      "pt-disclaimer-value": {
+        "fontSize": 12,
+        "margin": [
+          2,
+          5,
+          0,
+          0
+        ],
+        "color": "#484848"
+      }
+    }
+  }
+}
