@@ -4,7 +4,7 @@
   "DataConfigs": {
     "moduleName": "rainmaker-common",
     "version": "1.0.0",
-    "baseKeyPath": "$.contracts.*",
+    "baseKeyPath": "$.contracts[0]",
     "entityIdPath": "$.id",
     "isCommonTableBorderRequired": true,
     "mappings": [
@@ -486,7 +486,7 @@
           {
             "externalAPI": [
               {
-                "path": "http://egov-mdms-service:8080/egov-mdms-service/v1/_get",
+                "path": "http://localhost:8099/egov-mdms-service/v1/_get",
                 "queryParam": "moduleName=tenant&masterName=tenants&tenantId=od&filter=%5B?(@.code=='{$.tenantId}')%5D",
                 "apiRequest": null,
                 "responseMapping": [
