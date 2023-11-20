@@ -1,0 +1,356 @@
+{
+  "key": "measurement-book",
+  "config": {
+    "defaultStyle": {
+      "font": "Cambay"
+    },
+    "content": [
+      {
+        "fontSize": 20,
+        "bold": true,
+        "alignment": "left",
+        "margin": [
+          10,
+          10,
+          0,
+          0
+        ],
+        "text": "Jatni Municipality", "style": "receipt-logo-header"
+      },
+      {
+        "style": "noc-head",
+        "table": {
+          "widths": [
+            100,
+            "*",
+            100
+          ],
+          "body": [
+            [
+              {
+                "image": "{{tLogoImage}}",
+                "width": 60,
+                "height": 60,
+                "margin": [
+                  -300,
+                  -300,
+                  0,
+                  0,
+                  0
+                ],
+                "alignment": "right",
+                "fillColor":"#f4f4f4"
+              },
+              {
+                "image": "{{schemImage}}",
+                "width": 60,
+                "height": 60,
+                "margin": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "alignment": "right",
+                "fillColor":"#f4f4f4"
+              },
+              {
+                "image": "{{sealImage}}",
+                "width": 60,
+                "height": 60,
+                "margin": [
+                  0,
+                  0,
+                  10,
+                  0
+                ],
+                "alignment": "right",
+                "fillColor":"#f4f4f4"
+              }
+            ]
+          ]
+        },
+        "layout": "noBorders",
+        "fillColor": "#ffffff"
+      },
+      {
+        "margin": [
+          0,
+          35,
+          0,
+          0
+        ],
+        "columns": [
+          {
+            "bold": true,
+            "fontSize": 12,
+            "stack": [
+              {
+                "text": "Project ID"
+              },
+              {
+                "text": "Work Order No."
+              },
+              {
+                "text": "Muster Roll ID"
+              },
+              {
+                "text": "Project Name"
+              },
+              {
+                "text": "Project Location"
+              },
+              {
+                "text": "Project Description"
+              },
+              {
+                "text": "Measurement Period"
+              },
+              {
+                "text": " "
+              },
+              {
+                "text": " "
+              }
+            ]
+          },
+            {
+                "bold": false,
+                "fontSize": 12,
+                "stack": [
+                {
+                    "text": ": {{project_id}}"
+                },
+                {
+                    "text": ": {{work_order_number}}"
+                },
+                {
+                    "text": ": {{muster_roll_id}}"
+                },
+                {
+                    "text": ": {{project_name}}"
+                },
+                {
+                    "text": ": {{project_location}}"
+                },
+                {
+                    "text": ": {{project_description}}"
+                },
+                {
+                    "text": ": {{measurement_period}}"
+                }
+                ]
+            }
+        ]
+      },
+      {"text": "Measurement Details", "style": "header"},
+      {
+        "style": "tableExample",
+        "table": {
+          "body": [
+            [
+              {
+                "bold": true,
+                "text": "S.No"
+              },
+              {
+                "bold": true,
+                "text": "Description"
+              },
+              {
+                "bold": true,
+                "text": "UOM"
+              },
+              {
+                "bold": true,
+                "text": "Rate(Rs.)"
+              },
+              {
+                "bold": true,
+                "text": "Estimated Quantity"
+              },
+              {
+                "bold": true,
+                "text": "Consumed Quantity"
+              },
+              {
+                "bold": true,
+                "text": "Current Quantity"
+              },
+              {
+                "bold": true,
+                "text": "MB Amount(Rs.)"
+              }
+            ]
+          ]
+        }
+      }
+    ],
+    "styles": {
+      "header": {
+        "fontSize": 20,
+        "bold": true,
+        "margin": [
+          0,
+          20,
+          10,
+          10
+        ]
+      },
+      "condition": {
+        "italics": false,
+        "fontSize": 12
+      },
+      "subHeader": {
+        "fontSize": 20,
+        "bold": true,
+        "margin": [
+          0,
+          20,
+          10,
+          10
+        ]
+      },
+      "noc-head": {
+        "margin": [
+          -40,
+          -40,
+          -40,
+          1
+        ]
+      },
+      "receipt-logo-header": {
+        "fontSize": 12,
+        "bold": false,
+        "margin": [
+          -60,
+          0,
+          0,
+          -3
+        ],
+        "alignment": "center",
+        "textTransform": "uppercase"
+      },
+      "receipt-logo-sub-header": {
+        "color": "#636363",
+        "fontSize": 12,
+        "bold": true,
+        "margin": [
+          -80,
+          0,
+          0,
+          -3
+        ],
+        "textTransform": "uppercase"
+      },
+      "noc-table": {
+        "fontSize": 12,
+        "color": "#000000",
+        "margin": [
+          -25,
+          45,
+          -22,
+          -8
+        ],
+        "border": [
+          "false",
+          "false",
+          "false",
+          "false"
+        ]
+      },
+      "next-noc-table": {
+        "fontSize": 12,
+        "color": "#000000",
+        "margin": [
+          -25,
+          28,
+          -22,
+          -8
+        ]
+      },
+      "receipt-table-value": {
+        "color": "#000000",
+        "bold": true,
+        "fontSize": 12,
+        "fontWeight": 500,
+        "margin": [
+          -2,
+          8,
+          0,
+          8
+        ]
+      },
+      "receipt-table": {
+        "color": "#000000",
+        "bold": false,
+        "fontSize": 12,
+        "fontWeight": 400,
+        "margin": [
+          -30,
+          8,
+          0,
+          8
+        ]
+      },
+      "receipt-approver": {
+        "fontSize": 12,
+        "bold": true,
+        "margin": [
+          -27,
+          50,
+          -10,
+          0
+        ],
+        "color": "#484848"
+      },
+      "no-signature": {
+        "fontSize": 12,
+        "margin": [
+          -27,
+          35,
+          -10,
+          0
+        ],
+        "color": "#484848"
+      },
+      "pt-disclaimer": {
+        "fontSize": 12,
+        "margin": [
+          -27,
+          30,
+          -10,
+          0
+        ],
+        "color": "#484848"
+      },
+      "receipt-table-value2": {
+        "border": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "alignment": "right"
+      },
+      "receipt-table2": {
+        "border": [
+          false,
+          false,
+          false,
+          false
+        ]
+      },
+      "pt-disclaimer-value": {
+        "fontSize": 12,
+        "margin": [
+          2,
+          5,
+          0,
+          0
+        ],
+        "color": "#484848"
+      }
+    }
+  }
+}
