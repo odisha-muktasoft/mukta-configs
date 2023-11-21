@@ -137,7 +137,7 @@
               {
                 "variable": "rate",
                 "value": {
-                  "path": "$.estimate.estimateDetails.*.description"
+                  "path": "$.contract.lineItems.*.unitRate"
                 }
               },
               {
