@@ -84,6 +84,7 @@
           {
             "bold": true,
             "fontSize": 12,
+            "gap": "auto",
             "stack": [
               {
                 "text": "Project ID"
@@ -105,9 +106,6 @@
               },
               {
                 "text": "Measurement Period"
-              },
-              {
-                "text": " "
               },
               {
                 "text": " "

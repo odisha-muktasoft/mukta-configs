@@ -116,6 +116,12 @@
                   "path": "$.estimate.additionalDetails.projectName"
                 }
               },
+              {
+                "variable": "project_description",
+                "value": {
+                  "path": "$.estimate.estimateDetails.*.description"
+                }
+              },
 
               {
                 "variable": "officer_incharge",
