@@ -125,7 +125,7 @@
               {
                 "variable": "description",
                 "value": {
-                  "path": "$.estimate.estimateDetails.*.description"
+                  "path": "$.estimate.estimateDetails.*.name"
                 }
               },
               {
