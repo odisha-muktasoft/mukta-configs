@@ -149,7 +149,7 @@
               {
                 "variable": "consumed_quantity",
                 "value": {
-                  "path": "$.estimate.estimateDetails.*.description"
+                  "path": "$.estimate.estimateDetails.*.quantity"
                 }
               },
 
