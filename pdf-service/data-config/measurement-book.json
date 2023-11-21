@@ -152,6 +152,12 @@
                   "path": "$.estimate.estimateDetails.*.quantity"
                 }
               },
+              {
+                "variable": "current_quantity",
+                "value": {
+                  "path": "$.estimate.estimateDetails.*.quantity"
+                }
+              },
 
 
               {
