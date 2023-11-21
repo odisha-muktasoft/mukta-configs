@@ -149,42 +149,39 @@
         "table": {
           "body": [
             [
-              {
-                "bold": true,
-                "text": "S.No"
-              },
-              {
-                "bold": true,
-                "text": "Description"
-              },
-              {
-                "bold": true,
-                "text": "UOM"
-              },
-              {
-                "bold": true,
-                "text": "Rate(Rs.)"
-              },
-              {
-                "bold": true,
-                "text": "Estimated Quantity"
-              },
-              {
-                "bold": true,
-                "text": "Consumed Quantity"
-              },
-              {
-                "bold": true,
-                "text": "Current Quantity"
-              },
-              {
-                "bold": true,
-                "text": "MB Amount(Rs.)"
-              }
+              { "bold": true, "text": "S.No" },
+              { "bold": true, "text": "Description" },
+              { "bold": true, "text": "UOM" },
+              { "bold": true, "text": "Rate(Rs.)" },
+              { "bold": true, "text": "Estimated Quantity" },
+              { "bold": true, "text": "Consumed Quantity" },
+              { "bold": true, "text": "Current Quantity" },
+              { "bold": true, "text": "MB Amount(Rs.)" }
+            ],
+            [
+              1,
+              "{{description}}",
+              "{{uom}}",
+              "{{rate}}",
+              "{{estimated_quantity}}",
+              "{{consumed_quantity}}",
+              "{{current_quantity}}",
+              "{{mb_amount}}"
+            ],
+            [
+              2,
+              "Item 2",
+              "Set",
+              15.0,
+              2,
+              1,
+              1,
+              30.0
             ]
           ]
         }
       }
+
     ],
     "styles": {
       "header": {

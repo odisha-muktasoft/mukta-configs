@@ -122,6 +122,37 @@
                   "path": "$.estimate.estimateDetails.*.description"
                 }
               },
+              {
+                "variable": "description",
+                "value": {
+                  "path": "$.estimate.estimateDetails.*.description"
+                }
+              },
+              {
+                "variable": "uom",
+                "value": {
+                  "path": "$.estimate.estimateDetails.*.uom"
+                }
+              },
+              {
+                "variable": "rate",
+                "value": {
+                  "path": "$.estimate.estimateDetails.*.description"
+                }
+              },
+              {
+                "variable": "estimated_quantity",
+                "value": {
+                  "path": "$.estimate.estimateDetails.*.description"
+                }
+              },
+              {
+                "variable": "consumed_quantity",
+                "value": {
+                  "path": "$.estimate.estimateDetails.*.description"
+                }
+              },
+
 
               {
                 "variable": "officer_incharge",
@@ -129,6 +160,7 @@
                   "path": "$.additionalDetails.officerInChargeName.name"
                 }
               },
+
               {
                 "variable": "rupee_symbol",
                 "value": {
