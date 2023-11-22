@@ -167,16 +167,6 @@
               "{{consumed_quantity}}",
               "{{current_quantity}}",
               "{{mb_amount}}"
-            ],
-            [
-              2,
-              "Item 2",
-              "Set",
-              15.0,
-              2,
-              1,
-              1,
-              30.0
             ]
           ]
         }
