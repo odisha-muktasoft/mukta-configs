@@ -142,7 +142,6 @@
       },
       {"text": "Measurement Details", "style": "header"},
       {
-        "style": "tableExample",
         "table": {
           "body": [
             [
