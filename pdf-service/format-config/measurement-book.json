@@ -111,61 +111,117 @@
               }
             ]
           },
-            {
-                "bold": false,
-                "fontSize": 12,
-                "stack": [
-                {
-                    "text": ": {{project_id}}"
-                },
-                {
-                    "text": ": {{work_order_number}}"
-                },
-                {
-                    "text": ": {{muster_roll_id}}"
-                },
-                {
-                    "text": ": {{project_name}}"
-                },
-                {
-                    "text": ": {{project_location}}"
-                },
-                {
-                    "text": ": {{project_description}}"
-                },
-                {
-                    "text": ": {{measurement_period}}"
-                }
-                ]
-            }
+          {
+            "bold": false,
+            "fontSize": 12,
+            "stack": [
+              {
+                "text": ": {{project_id}}"
+              },
+              {
+                "text": ": {{work_order_number}}"
+              },
+              {
+                "text": ": {{muster_roll_id}}"
+              },
+              {
+                "text": ": {{project_name}}"
+              },
+              {
+                "text": ": {{project_location}}"
+              },
+              {
+                "text": ": {{project_description}}"
+              },
+              {
+                "text": ": {{measurement_period}}"
+              }
+            ]
+          }
         ]
       },
       {"text": "Measurement Details", "style": "header"},
       {
+        "margin": [
+          -20,
+          0,
+          20,
+          0
+        ],
         "table": {
-          "body": [
-            [
-              { "bold": true, "text": "Description" },
-              { "bold": true, "text": "UOM" },
-              { "bold": true, "text": "Rate(Rs.)" },
-              { "bold": true, "text": "Estimated Quantity" },
-              { "bold": true, "text": "Consumed Quantity" },
-              { "bold": true, "text": "Current Quantity" },
-              { "bold": true, "text": "MB Amount(Rs.)" }
-            ],
-            [
-              "{{description}}",
-              "{{uom}}",
-              "{{rate}}",
-              "{{estimated_quantity}}",
-              "{{consumed_quantity}}",
-              "{{current_quantity}}",
-              "{{mb_amount}}"
-            ]
+          "headerRows": 1,
+          "widths": [
+            30,
+            150,
+            30,
+            40,
+            60,
+            60,
+            60,
+            40
+          ],
+          "body": [[
+            {
+              "text": "Sno.",
+              "bold": true,
+              "fillColor": "#efefef",
+              "fontSize": 10
+            },
+            {
+              "text": "description",
+              "bold": true,
+              "fillColor": "#efefef",
+              "fontSize": 10
+            },
+            {
+              "text": "uom",
+              "bold": true,
+              "fillColor": "#efefef",
+              "fontSize": 10
+            },
+            {
+              "text": "rate",
+              "bold": true,
+              "fillColor": "#efefef",
+              "fontSize": 10
+            },
+            {
+                "text": "Estimated Quantity",
+                "width": "auto",
+                "bold": true,
+                "fillColor": "#efefef",
+                "fontSize": 10
+            },
+            {
+              "text": "Consumed Quantity",
+              "width": "auto",
+              "bold": true,
+              "fillColor": "#efefef",
+              "fontSize": 10
+            },
+            {
+              "text": "Current Quantity",
+              "width": "auto",
+              "bold": true,
+              "fillColor": "#efefef",
+              "fontSize": 10
+            },
+            {
+              "text": "MB Amount",
+              "bold": true,
+              "fillColor": "#efefef",
+              "fontSize": 10
+            }
+          ],
+            "{{#tableData}}[{\"text\":\"{{Sno}}\",\"alignment\":\"center\"},{\"text\":\"{{description}}\",\"alignment\":\"center\"},{\"text\":\"{{uom}}\",\"alignment\":\"right\"},{\"text\":\"{{rate}}\",\"alignment\":\"right\"},{\"text\":\"{{Estimated_Quantity}}\",\"alignment\":\"right\"},{\"text\":\"{{Consumed_Quantity}}\",\"alignment\":\"right\"},{\"text\":\"{{Current_Quantity}}\",\"alignment\":\"right\"},{\"text\":\"{{mb_amount}}\",\"alignment\":\"right\"}]{{/tableData}}"
+
           ]
+        },
+        "layout": {
+          "hLineColor": "#D6D5D4",
+          "vLineColor": "#D6D5D4"
         }
       }
-
     ],
     "styles": {
       "header": {
