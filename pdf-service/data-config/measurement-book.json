@@ -16,13 +16,13 @@
               {
                 "variable": "project_id",
                 "value": {
-                  "path": "$.contract.contractNumber"
+                  "path": "$.estimate.additionalDetails.projectNumber"
                 }
               },
               {
                 "variable": "work_order_number",
                 "value": {
-                  "path": "$.measurement.measurementNumber"
+                  "path": "$.contract.contractNumber"
                 }
               },
               {
@@ -34,7 +34,7 @@
               {
                 "variable": "project_description",
                 "value": {
-                  "path": "$.estimate.estimateDetails.*.description"
+                  "path": "$.estimate.description"
                 }
               },
               {
@@ -43,7 +43,7 @@
                   "path": "$.tableData"
                 },
                 "type":"function",
-                "format": "var y=[],a=[],tableData=arguments[0];function rupeeFormat(amount){flag=0;var count=0;var amount=amount.toString(); var len=amount.length;var val=''; for(var i=len-1;i>=0;i--){ val=amount[i]+val;if(amount[i]=='.'){flag=1;count=-1;val=amount.substring(i,len)};if(count%2==0 && i!=0 && count!=0){val=','+val;};count+=1;};if(flag==0){val+='.00'};return val}; for(var i=0;i<tableData.length;i++){ if(tableData[i].uom!=1){var x={ Sno:i+1,uom:tableData[i].uom,rate:rupeeFormat(tableData[i].unitRate),Estimated_Quantity:tableData[i].approvedQuantity,Consumed_Quantity:tableData[i].consumedQ,Current_Quantity:tableData[i].approvedQuantity,description:tableData[i].description,mb_amount:tableData[i].amount};y.push(x);}}return y;"
+                "format": "var y = [];\nvar a = [];\nvar tableData = arguments[0];\nfunction rupeeFormat(amount) {\n  flag = 0;\n  var count = 0;\n  var amount = amount.toString();\n  var len = amount.length;\n  var val = '';\n  for (var i = len - 1; i >= 0; i--) {\n    val = amount[i] + val;\n    if (amount[i] == '.') {\n      flag = 1;\n      count = -1;\n      val = amount.substring(i, len);\n    }\n    if (count % 2 == 0 && i != 0 && count != 0) {\n      val = ',' + val;\n    }\n    count += 1;\n  }\n  if (flag == 0) {\n    val += '.00';\n  }\n  return val;\n}\nfor(var i = 0;i<tableData.length;i++){\n    var x = {\n      Sno: i + 1,\n      uom: tableData[i].uom,\n      rate: rupeeFormat(tableData[i].unitRate),\n      Estimated_Quantity: tableData[i].quantity,\n      Consumed_Quantity: tableData[i].quantity,\n      Current_Quantity: tableData[i].quantity,\n      description: tableData[i].description\n    };\n    y.push(x);\n    for(var j = 0; j<tableData[i].measures.length;j++){\n        var z = {\n            Sno1 : j + 1,\n            type : tableData[i].measures[j].height,\n            number : tableData[i].measures[j].height,\n            length : tableData[i].measures[j].height,\n            width : tableData[i].measures[j].height,\n            height : tableData[i].measures[j].height,\n            quantity1 : tableData[i].measures[j].height\n        }\n        y.push(z);\n    }\n}\nreturn y;"
               }
             ]
           },

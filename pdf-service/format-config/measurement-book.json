@@ -144,7 +144,7 @@
       {
         "margin": [
           -20,
-          0,
+          10,
           20,
           0
         ],
@@ -157,18 +157,11 @@
             40,
             60,
             60,
-            60,
-            40
+            60
           ],
           "body": [[
             {
               "text": "Sno.",
-              "bold": true,
-              "fillColor": "#efefef",
-              "fontSize": 10
-            },
-            {
-              "text": "description",
               "bold": true,
               "fillColor": "#efefef",
               "fontSize": 10
@@ -205,16 +198,82 @@
               "bold": true,
               "fillColor": "#efefef",
               "fontSize": 10
+            }
+          ],
+            "{{#tableData}}[{\"text\":\"{{Sno}}\",\"alignment\":\"center\"},{\"text\":\"{{uom}}\",\"alignment\":\"right\"},{\"text\":\"{{rate}}\",\"alignment\":\"right\"},{\"text\":\"{{Estimated_Quantity}}\",\"alignment\":\"right\"},{\"text\":\"{{Consumed_Quantity}}\",\"alignment\":\"right\"},{\"text\":\"{{Current_Quantity}}\",\"alignment\":\"right\"}]{{/tableData}}"
+          ]
+        },
+        "layout": {
+          "hLineColor": "#D6D5D4",
+          "vLineColor": "#D6D5D4"
+        }
+      },
+      {
+        "margin": [
+          -20,
+          10,
+          20,
+          0
+        ],
+        "table": {
+          "headerRows": 1,
+          "widths": [
+            30,
+            50,
+            100,
+            40,
+            60,
+            60,
+            60
+          ],
+          "body": [[
+            {
+              "text": "Sno.",
+              "bold": true,
+              "fillColor": "#efefef",
+              "fontSize": 10
             },
             {
-              "text": "MB Amount",
+              "text": "Type",
+              "bold": true,
+              "fillColor": "#efefef",
+              "fontSize": 10
+            },
+            {
+              "text": "number",
+              "bold": true,
+              "fillColor": "#efefef",
+              "fontSize": 10
+            },
+            {
+              "text": "length",
+              "bold": true,
+              "fillColor": "#efefef",
+              "fontSize": 10
+            },
+            {
+              "text": "width",
+              "width": "auto",
+              "bold": true,
+              "fillColor": "#efefef",
+              "fontSize": 10
+            },
+            {
+              "text": "height",
+              "width": "auto",
+              "bold": true,
+              "fillColor": "#efefef",
+              "fontSize": 10
+            },
+            {
+              "text": "Quantity",
+              "width": "auto",
               "bold": true,
               "fillColor": "#efefef",
               "fontSize": 10
             }
           ],
-            "{{#tableData}}[{\"text\":\"{{Sno}}\",\"alignment\":\"center\"},{\"text\":\"{{description}}\",\"alignment\":\"center\"},{\"text\":\"{{uom}}\",\"alignment\":\"right\"},{\"text\":\"{{rate}}\",\"alignment\":\"right\"},{\"text\":\"{{Estimated_Quantity}}\",\"alignment\":\"right\"},{\"text\":\"{{Consumed_Quantity}}\",\"alignment\":\"right\"},{\"text\":\"{{Current_Quantity}}\",\"alignment\":\"right\"},{\"text\":\"{{mb_amount}}\",\"alignment\":\"right\"}]{{/tableData}}"
-
+            "{{#tableData}}[{\"text\":\"{{Sno1}}\",\"alignment\":\"center\"},{\"text\":\"{{type}}\",\"alignment\":\"right\"},{\"text\":\"{{number}}\",\"alignment\":\"right\"},{\"text\":\"{{length}}\",\"alignment\":\"right\"},{\"text\":\"{{width}}\",\"alignment\":\"right\"},{\"text\":\"{{height}}\",\"alignment\":\"right\"},{\"text\":\"{{quantity1}}\",\"alignment\":\"right\"}]{{/tableData}}"
           ]
         },
         "layout": {
