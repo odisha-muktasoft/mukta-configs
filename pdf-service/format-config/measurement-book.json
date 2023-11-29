@@ -152,9 +152,9 @@
           "headerRows": 1,
           "widths": [
             30,
-            150,
-            30,
-            40,
+            100,
+            60,
+            60,
             60,
             60,
             60
@@ -162,18 +162,28 @@
           "body": [[
             {
               "text": "Sno.",
+              "width": "auto",
+              "bold": true,
+              "fillColor": "#efefef",
+              "fontSize": 10
+            },
+            {
+              "text": "Description",
+              "width": "auto",
               "bold": true,
               "fillColor": "#efefef",
               "fontSize": 10
             },
             {
               "text": "uom",
+              "width": "auto",
               "bold": true,
               "fillColor": "#efefef",
               "fontSize": 10
             },
             {
               "text": "rate",
+              "width": "auto",
               "bold": true,
               "fillColor": "#efefef",
               "fontSize": 10
@@ -200,7 +210,7 @@
               "fontSize": 10
             }
           ],
-            "{{#tableData}}[{\"text\":\"{{Sno}}\",\"alignment\":\"center\"},{\"text\":\"{{uom}}\",\"alignment\":\"right\"},{\"text\":\"{{rate}}\",\"alignment\":\"right\"},{\"text\":\"{{Estimated_Quantity}}\",\"alignment\":\"right\"},{\"text\":\"{{Consumed_Quantity}}\",\"alignment\":\"right\"},{\"text\":\"{{Current_Quantity}}\",\"alignment\":\"right\"}]{{/tableData}}"
+            "{{#tableData}}[{\"text\":\"{{Sno}}\",\"alignment\":\"center\"},{\"text\":\"{{sorDescription}}\",\"alignment\":\"center\"},{\"text\":\"{{uom}}\",\"alignment\":\"right\"},{\"text\":\"{{rate}}\",\"alignment\":\"right\"},{\"text\":\"{{Estimated_Quantity}}\",\"alignment\":\"right\"},{\"text\":\"{{Consumed_Quantity}}\",\"alignment\":\"right\"},{\"text\":\"{{Current_Quantity}}\",\"alignment\":\"right\"}]{{/tableData}}"
           ]
         },
         "layout": {
@@ -220,7 +230,7 @@
           "widths": [
             30,
             50,
-            100,
+            40,
             40,
             60,
             60,
