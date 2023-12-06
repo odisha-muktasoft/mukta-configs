@@ -164,6 +164,7 @@
             {
               "text": "Description",
               "alignment": "center",
+              "height": "auto",
               "bold": true,
               "fillColor": "#efefef",
               "fontSize": 9
