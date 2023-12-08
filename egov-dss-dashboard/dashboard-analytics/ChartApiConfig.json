@@ -413,8 +413,8 @@
     "documentType": "_doc",
     "action": "",
     "plotLabel": "ULB",
-    "aggregationPaths": ["Individuals Count","Unique Individuals","Pending Bills Amount","Work Orders","contracts by contractNumber","muster rolls by contractId"],
-    "excludedColumns": ["Projects count","Individuals Count","Unique Individuals","Muster Count","Pending Bills Amount","Work Orders","contracts by contractNumber","muster rolls by contractId"],
+    "aggregationPaths": ["Individuals Count","Unique Individuals","Pending Bills Amount","Projects count","Work Orders","contracts by contractNumber","muster rolls by contractId"],
+    "excludedColumns": ["Individuals Count","Unique Individuals","Muster Count","Pending Bills Amount","Projects count","Work Orders","contracts by contractNumber","muster rolls by contractId"],
     "computedFields": [
       {
         "postAggregationTheory" : "",
