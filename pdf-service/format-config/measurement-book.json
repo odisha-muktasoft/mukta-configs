@@ -6,72 +6,82 @@
     },
     "content": [
       {
-        "fontSize": 20,
-        "bold": true,
-        "alignment": "left",
-        "margin": [
-          10,
-          10,
-          0,
-          0
-        ],
-        "text": "Jatni Municipality", "style": "receipt-logo-header"
-      },
-      {
         "style": "noc-head",
         "table": {
           "widths": [
-            100,
+            60,
             "*",
-            100
+            125
           ],
           "body": [
             [
               {
-                "image": "{{tLogoImage}}",
-                "width": 60,
-                "height": 60,
+                "image": "{{logoImage}}",
+                "width": 50,
+                "height": 61.25,
                 "margin": [
-                  -300,
-                  -300,
-                  0,
+                  10,
+                  10,
                   0,
                   0
-                ],
-                "alignment": "right",
-                "fillColor":"#f4f4f4"
+                ]
               },
               {
-                "image": "{{schemImage}}",
-                "width": 60,
-                "height": 60,
+                "stack": [
+                  {
+                    "text": "{{pdf_header}} {{subdivision}}",
+                    "fontSize": 18,
+                    "color": "#000000",
+                    "bold": true
+                  },
+                  {
+                    "text": "{{address}}",
+                    "fontSize": 10,
+                    "color": "#000000"
+                  },
+                  {
+                    "text": "{{phoneNumber}} | {{email}}",
+                    "fontSize": 10,
+                    "color": "#000000"
+                  }
+                ],
+                "alignment": "left",
                 "margin": [
-                  0,
-                  0,
+                  10,
+                  10,
                   0,
                   0
-                ],
-                "alignment": "right",
-                "fillColor":"#f4f4f4"
+                ]
               },
               {
-                "image": "{{sealImage}}",
-                "width": 60,
-                "height": 60,
+                "stack": [
+                  {
+                    "text": "Detailed Measurement Book",
+                    "fontSize": 12,
+                    "color": "#636363",
+                    "bold": true
+                  },
+                  {
+                    "text": "{{measurementNumber}}",
+                    "fontSize": 12,
+                    "color": "#636363",
+                    "bold": true
+                  }
+                ],
+                "alignment": "right",
+                "color": "#484848",
                 "margin": [
-                  0,
                   0,
                   10,
+                  10,
                   0
-                ],
-                "alignment": "right",
-                "fillColor":"#f4f4f4"
+                ]
               }
             ]
           ]
         },
         "layout": "noBorders",
-        "fillColor": "#ffffff"
+        "fillColor": "#f4f4f4"
       },
       {
         "margin": [
@@ -152,11 +162,12 @@
           "headerRows": 1,
           "widths": [
             30,
-            100,
+            150,
+            40,
             60,
-            60,
-            60,
-            60,
+            40,
+            40,
+            40,
             60
           ],
           "body": [[
@@ -165,125 +176,86 @@
               "width": "auto",
               "bold": true,
               "fillColor": "#efefef",
-              "fontSize": 10
+              "fontSize": 8,
+              "alignment": "center"
             },
             {
               "text": "Description",
               "width": "auto",
               "bold": true,
               "fillColor": "#efefef",
-              "fontSize": 10
+              "fontSize": 8,
+              "alignment": "center"
             },
             {
               "text": "uom",
               "width": "auto",
               "bold": true,
               "fillColor": "#efefef",
-              "fontSize": 10
+              "fontSize": 8,
+              "alignment": "center"
             },
             {
               "text": "rate",
               "width": "auto",
               "bold": true,
               "fillColor": "#efefef",
-              "fontSize": 10
+              "fontSize": 10,
+              "alignment": "center"
             },
             {
-                "text": "Estimated Quantity",
-                "width": "auto",
-                "bold": true,
-                "fillColor": "#efefef",
-                "fontSize": 10
+              "text": "Estimated Quantity",
+              "width": "auto",
+              "bold": true,
+              "fillColor": "#efefef",
+              "fontSize": 8,
+              "alignment": "center"
             },
             {
               "text": "Consumed Quantity",
               "width": "auto",
               "bold": true,
               "fillColor": "#efefef",
-              "fontSize": 10
+              "fontSize": 8,
+              "alignment": "center"
             },
             {
               "text": "Current Quantity",
               "width": "auto",
               "bold": true,
               "fillColor": "#efefef",
-              "fontSize": 10
+              "fontSize": 8,
+              "alignment": "center"
+            },
+            {
+              "text": "MB Amount",
+              "width": "auto",
+              "bold": true,
+              "fillColor": "#efefef",
+              "fontSize": 8,
+              "alignment": "center"
             }
           ],
-            "{{#tableData}}[{\"text\":\"{{Sno}}\",\"alignment\":\"center\"},{\"text\":\"{{sorDescription}}\",\"alignment\":\"center\"},{\"text\":\"{{uom}}\",\"alignment\":\"right\"},{\"text\":\"{{rate}}\",\"alignment\":\"right\"},{\"text\":\"{{Estimated_Quantity}}\",\"alignment\":\"right\"},{\"text\":\"{{Consumed_Quantity}}\",\"alignment\":\"right\"},{\"text\":\"{{Current_Quantity}}\",\"alignment\":\"right\"}]{{/tableData}}"
-          ]
-        },
-        "layout": {
-          "hLineColor": "#D6D5D4",
-          "vLineColor": "#D6D5D4"
-        }
-      },
-      {
-        "margin": [
-          -20,
-          10,
-          20,
-          0
-        ],
-        "table": {
-          "headerRows": 1,
-          "widths": [
-            30,
-            50,
-            40,
-            40,
-            60,
-            60,
-            60
-          ],
-          "body": [[
-            {
-              "text": "Sno.",
-              "bold": true,
-              "fillColor": "#efefef",
-              "fontSize": 10
-            },
-            {
-              "text": "Type",
-              "bold": true,
-              "fillColor": "#efefef",
-              "fontSize": 10
-            },
-            {
-              "text": "number",
-              "bold": true,
-              "fillColor": "#efefef",
-              "fontSize": 10
-            },
-            {
-              "text": "length",
-              "bold": true,
-              "fillColor": "#efefef",
-              "fontSize": 10
-            },
-            {
-              "text": "width",
-              "width": "auto",
-              "bold": true,
-              "fillColor": "#efefef",
-              "fontSize": 10
-            },
-            {
-              "text": "height",
-              "width": "auto",
-              "bold": true,
-              "fillColor": "#efefef",
-              "fontSize": 10
-            },
-            {
-              "text": "Quantity",
-              "width": "auto",
-              "bold": true,
-              "fillColor": "#efefef",
-              "fontSize": 10
-            }
-          ],
-            "{{#tableData}}[{\"text\":\"{{Sno1}}\",\"alignment\":\"center\"},{\"text\":\"{{type}}\",\"alignment\":\"right\"},{\"text\":\"{{number}}\",\"alignment\":\"right\"},{\"text\":\"{{length}}\",\"alignment\":\"right\"},{\"text\":\"{{width}}\",\"alignment\":\"right\"},{\"text\":\"{{height}}\",\"alignment\":\"right\"},{\"text\":\"{{quantity1}}\",\"alignment\":\"right\"}]{{/tableData}}"
+            "{{#tableData}}[{\"text\":\"{{Sno}}\",\"alignment\":\"center\",\"fontSize\":\"8\"},{\"text\":\"{{sorDescription}}\",\"alignment\":\"center\",\"fontSize\":\"8\"},{\"text\":\"{{uom}}\",\"alignment\":\"right\",\"fontSize\":\"8\"},{\"text\":\"{{rate}}\",\"alignment\":\"right\",\"fontSize\":\"8\"},{\"text\":\"{{Estimated_Quantity}}\",\"alignment\":\"right\",\"fontSize\":\"8\"},{\"text\":\"{{Consumed_Quantity}}\",\"alignment\":\"right\",\"fontSize\":\"8\"},{\"text\":\"{{Current_Quantity}}\",\"alignment\":\"right\",\"fontSize\":\"8\"},{\"text\":\"{{mbAmount}}\",\"alignment\":\"right\",\"fontSize\":\"8\"}]{{/tableData}}",
+            [
+              {
+                "text": "Total Estimate Amount",
+                "bold": true,
+                "colSpan": 6,
+                "alignment": "right",
+                "fontSize": 10
+              },
+              {},
+              {},
+              {},
+              {},
+              {},
+              {
+                "text": "{{#totalSum}}[{\"text\":\"{{sum}}\",\"alignment\":\"right\",\"bold\":\"true\",\"fontSize\":10}]{{/totalSum}}",
+                "colSpan": 2
+              },
+              {}
+            ]
           ]
         },
         "layout": {
