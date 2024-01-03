@@ -44,6 +44,17 @@
                 }
               },
               {
+                "variable": "pdf_header",
+                "value": {
+                  "path": "$.tenantId"
+                },
+                "localisation": {
+                  "required": true,
+                  "prefix": "TENANT_TENANTS",
+                  "module": "rainmaker-od"
+                }
+              },
+              {
                 "variable": "tableData",
                 "value": {
                   "path": "$.estimateDetails"
