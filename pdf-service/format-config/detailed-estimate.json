@@ -83,52 +83,161 @@
         "layout": "noBorders",
         "fillColor": "#f4f4f4"
       },
+
       {
-        "margin": [
-          0,
-          35,
-          0,
-          0
-        ],
-        "columns": [
-          {
-            "bold": true,
-            "fontSize": 12,
-            "stack": [
+        "style": "noc-table",
+        "table": {
+          "widths": [
+            "30%",
+            "60%"
+          ],
+          "body": [
+            [
               {
-                "text": "Project ID"
+                "text": "Project ID",
+                "border": [
+                  false,
+                  false,
+                  false,
+                  false
+                ],
+                "bold": true,
+                "margin": [
+                  20,
+                  0,
+                  10,
+                  0
+                ],
+                "style": "receipt-table-value"
               },
               {
-                "text": "Project Name"
+                "text": "{{projectId}}",
+                "border": [
+                  false,
+                  false,
+                  false,
+                  false
+                ],
+                "margin": [
+                  10,
+                  0,
+                  10,
+                  0
+                ],
+                "style": "receipt-table",
+                "font": "Roboto"
+              }
+            ],
+            [
+              {
+                "text": "Project Name",
+                "border": [
+                  false,
+                  false,
+                  false,
+                  false
+                ],
+                "margin": [
+                  20,
+                  0,
+                  10,
+                  0
+                ],
+                "bold": true,
+                "style": "receipt-table-value"
               },
               {
-                "text": "Project Location"
+                "text": "{{projectName}}",
+                "border": [
+                  false,
+                  false,
+                  false,
+                  false
+                ],
+                "margin": [
+                  10,
+                  0,
+                  10,
+                  0
+                ],
+                "style": "receipt-table"
+              }
+            ],
+            [
+              {
+                "text": "Project Location",
+                "border": [
+                  false,
+                  false,
+                  false,
+                  false
+                ],
+                "margin": [
+                  20,
+                  0,
+                  10,
+                  0
+                ],
+                "bold": true,
+                "style": "receipt-table-value"
               },
               {
-                "text": "Project Description"
+                "text": "{{projectLocation}}",
+                "border": [
+                  false,
+                  false,
+                  false,
+                  false
+                ],
+                "margin": [
+                  10,
+                  0,
+                  10,
+                  0
+                ],
+                "style": "receipt-table"
+              }
+            ],
+            [
+              {
+                "text": "Project Description",
+                "border": [
+                  false,
+                  false,
+                  false,
+                  false
+                ],
+                "margin": [
+                  20,
+                  0,
+                  10,
+                  0
+                ],
+                "bold": true,
+                "style": "receipt-table-value"
+              },
+              {
+                "text": "{{projectDescription}}",
+                "border": [
+                  false,
+                  false,
+                  false,
+                  false
+                ],
+                "margin": [
+                  10,
+                  0,
+                  10,
+                  0
+                ],
+                "style": "receipt-table"
               }
             ]
-          },
-          {
-            "bold": false,
-            "fontSize": 12,
-            "stack": [
-              {
-                "text": ": {{projectId}}"
-              },
-              {
-                "text": ": {{projectName}}"
-              },
-              {
-                "text": ": {{projectLocation}}"
-              },
-              {
-                "text": ": {{projectDescription}}"
-              }
-            ]
-          }
-        ]
+          ]
+        },
+        "layout": {}
       },
+
       {"text": "Estimate Details", "style": "header"},
       {
         "margin": [
@@ -149,7 +258,7 @@
           ],
           "body": [[
             {
-              "text": "Sno",
+              "text": "S.no",
               "width": "auto",
               "bold": true,
               "fillColor": "#efefef",
@@ -157,14 +266,14 @@
             },
             {
               "text": "Description",
-              "alignment": "center",
+              "alignment": "left",
               "height": "auto",
               "bold": true,
               "fillColor": "#efefef",
               "fontSize": 9
             },
             {
-              "text": "UOM",
+              "text": "Unit",
               "alignment": "center",
               "bold": true,
               "fillColor": "#efefef",
@@ -172,28 +281,28 @@
             },
             {
               "text": "Rate",
-              "alignment": "center",
+              "alignment": "right",
               "bold": true,
               "fillColor": "#efefef",
               "fontSize": 9
             },
             {
               "text": "Estimated Quantity",
-              "alignment": "center",
+              "alignment": "right",
               "bold": true,
               "fillColor": "#efefef",
               "fontSize": 9
             },
             {
               "text": "Estimated Amount",
-              "alignment": "center",
+              "alignment": "right",
               "bold": true,
               "fillColor": "#efefef",
               "fontSize": 9
             }
           ],
             "{{#tableData}}[{\"text\":\"{{Sno}}\",\"alignment\":\"center\",\"fontSize\":9},{\"text\":\"{{estimateDescription}}\",\"alignment\":\"centre\",\"fontSize\":9},{\"text\":\"{{uom}}\",\"alignment\":\"center\",\"fontSize\":9},{\"text\":\"{{unitRate}}\",\"alignment\":\"right\",\"fontSize\":9},{\"text\":\"{{estimatedQuantity}}\",\"alignment\":\"right\",\"fontSize\":9},{\"text\":\"{{estimatedAmount}}\",\"alignment\":\"right\",\"fontSize\":9}]{{/tableData}}",
-            "{{#charges}}[{\"text\":\"{{chargeDescription}} ({{percent}})\",\"colSpan\":\"5\",\"alignment\":\"right\",\"fontSize\":\"10\"},{\"text\":\"\"},{\"text\":\"\"},{\"text\":\"\"},{\"text\":\"\"},{\"text\":\"{{charge}}\",\"alignment\":\"right\",\"bold\":\"true\",\"fontSize\":10}]{{/charges}}",
+            "{{#charges}}[{\"text\":\"{{chargeDescription}} ({{percent}})\",\"colSpan\":\"5\",\"alignment\":\"right\",\"fontSize\":\"10\"},{\"text\":\"\"},{\"text\":\"\"},{\"text\":\"\"},{\"text\":\"\"},{\"text\":\"{{charge}}\",\"alignment\":\"right\",\"bold\":\"false\",\"fontSize\":10}]{{/charges}}",
 
             [
               {
