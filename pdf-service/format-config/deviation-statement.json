@@ -83,56 +83,165 @@
         "layout": "noBorders",
         "fillColor": "#f4f4f4"
       },
+
       {
-        "margin": [
-          0,
-          35,
-          0,
-          0
-        ],
-        "columns": [
-          {
-            "bold": true,
-            "fontSize": 12,
-            "stack": [
+        "style": "noc-table",
+        "table": {
+          "widths": [
+            "30%",
+            "60%"
+          ],
+          "body": [
+            [
               {
-                "text": "Estimate ID"
+                "text": "Estimate ID",
+                "border": [
+                  false,
+                  false,
+                  false,
+                  false
+                ],
+                "bold": true,
+                "margin": [
+                  20,
+                  0,
+                  10,
+                  0
+                ],
+                "style": "receipt-table-value"
               },
               {
-                "text": "Project ID"
+                "text": "{{estimateId}}",
+                "border": [
+                  false,
+                  false,
+                  false,
+                  false
+                ],
+                "margin": [
+                  10,
+                  0,
+                  10,
+                  0
+                ],
+                "style": "receipt-table",
+                "font": "Roboto"
+              }
+            ],
+            [
+              {
+                "text": "Project ID",
+                "border": [
+                  false,
+                  false,
+                  false,
+                  false
+                ],
+                "margin": [
+                  20,
+                  0,
+                  10,
+                  0
+                ],
+                "bold": true,
+                "style": "receipt-table-value"
               },
               {
-                "text": "Project Name"
+                "text": "{{projectId}}",
+                "border": [
+                  false,
+                  false,
+                  false,
+                  false
+                ],
+                "margin": [
+                  10,
+                  0,
+                  10,
+                  0
+                ],
+                "style": "receipt-table"
+              }
+            ],
+            [
+              {
+                "text": "Project Name",
+                "border": [
+                  false,
+                  false,
+                  false,
+                  false
+                ],
+                "margin": [
+                  20,
+                  0,
+                  10,
+                  0
+                ],
+                "bold": true,
+                "style": "receipt-table-value"
               },
               {
-                "text": "Project Description"
+                "text": "{{project_name}}",
+                "border": [
+                  false,
+                  false,
+                  false,
+                  false
+                ],
+                "margin": [
+                  10,
+                  0,
+                  10,
+                  0
+                ],
+                "style": "receipt-table"
+              }
+            ],
+            [
+              {
+                "text": "Project Description",
+                "border": [
+                  false,
+                  false,
+                  false,
+                  false
+                ],
+                "margin": [
+                  20,
+                  0,
+                  10,
+                  0
+                ],
+                "bold": true,
+                "style": "receipt-table-value"
               },
               {
-                "text": " "
+                "text": "{{project_description}}",
+                "border": [
+                  false,
+                  false,
+                  false,
+                  false
+                ],
+                "margin": [
+                  10,
+                  0,
+                  10,
+                  0
+                ],
+                "style": "receipt-table"
               }
             ]
-          },
-          {
-            "bold": false,
-            "fontSize": 12,
-            "stack": [
-              {
-                "text": ": {{estimateId}}"
-              },
-              {
-                "text": ": {{projectId}}"
-              },
-              {
-                "text": ": {{project_name}}"
-              },
-              {
-                "text": ": {{project_description}}"
-              }
-            ]
-          }
-        ]
+          ]
+        },
+        "layout": {}
       },
-      {"text": "SOR/Non-SORs", "style": "header"},
+
+      {
+        "text": "SOR/Non-SORs",
+        "style": "header"
+      },
       {
         "margin": [
           -20,
@@ -155,7 +264,7 @@
           ],
           "body": [[
             {
-              "text": "Sno",
+              "text": "S.no",
               "width": "auto",
               "bold": true,
               "fillColor": "#efefef",
@@ -163,14 +272,14 @@
             },
             {
               "text": "Description",
-              "alignment": "center",
+              "alignment": "left",
               "height": "auto",
               "bold": true,
               "fillColor": "#efefef",
               "fontSize": 8
             },
             {
-              "text": "UOM",
+              "text": "Unit",
               "alignment": "center",
               "bold": true,
               "fillColor": "#efefef",
@@ -178,35 +287,35 @@
             },
             {
               "text": "Rate",
-              "alignment": "right",
+              "alignment": "center",
               "bold": true,
               "fillColor": "#efefef",
               "fontSize": 8
             },
             {
               "text": "Original Quantity",
-              "alignment": "right",
+              "alignment": "center",
               "bold": true,
               "fillColor": "#efefef",
               "fontSize": 8
             },
             {
               "text": "Original Amount",
-              "alignment": "right",
+              "alignment": "center",
               "bold": true,
               "fillColor": "#efefef",
               "fontSize": 8
             },
             {
               "text": "Revised Quantity",
-              "alignment": "right",
+              "alignment": "center",
               "bold": true,
               "fillColor": "#efefef",
               "fontSize": 8
             },
             {
               "text": "Revised Amount",
-              "alignment": "right",
+              "alignment": "center",
               "bold": true,
               "fillColor": "#efefef",
               "fontSize": 8
