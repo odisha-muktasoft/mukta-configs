@@ -83,74 +83,272 @@
         "layout": "noBorders",
         "fillColor": "#f4f4f4"
       },
+
       {
-        "margin": [
-          0,
-          35,
-          0,
-          0
-        ],
-        "columns": [
-          {
-            "bold": true,
-            "fontSize": 12,
-            "stack": [
+        "style": "noc-table",
+        "table": {
+          "widths": [
+            "30%",
+            "60%"
+          ],
+          "body": [
+            [
               {
-                "text": "Project ID"
+                "text": "Project ID",
+                "border": [
+                  false,
+                  false,
+                  false,
+                  false
+                ],
+                "bold": true,
+                "margin": [
+                  20,
+                  0,
+                  10,
+                  0
+                ],
+                "style": "receipt-table-value"
               },
               {
-                "text": "Work Order No."
+                "text": "{{project_id}}",
+                "border": [
+                  false,
+                  false,
+                  false,
+                  false
+                ],
+                "margin": [
+                  10,
+                  0,
+                  10,
+                  0
+                ],
+                "style": "receipt-table",
+                "font": "Roboto"
+              }
+            ],
+            [
+              {
+                "text": "Work Order No.",
+                "border": [
+                  false,
+                  false,
+                  false,
+                  false
+                ],
+                "margin": [
+                  20,
+                  0,
+                  10,
+                  0
+                ],
+                "bold": true,
+                "style": "receipt-table-value"
               },
               {
-                "text": "Muster Roll ID"
+                "text": "{{work_order_number}}",
+                "border": [
+                  false,
+                  false,
+                  false,
+                  false
+                ],
+                "margin": [
+                  10,
+                  0,
+                  10,
+                  0
+                ],
+                "style": "receipt-table"
+              }
+            ],
+            [
+              {
+                "text": "Muster Roll ID",
+                "border": [
+                  false,
+                  false,
+                  false,
+                  false
+                ],
+                "margin": [
+                  20,
+                  0,
+                  10,
+                  0
+                ],
+                "bold": true,
+                "style": "receipt-table-value"
               },
               {
-                "text": "Project Name"
+                "text": "{{muster_roll_id}}",
+                "border": [
+                  false,
+                  false,
+                  false,
+                  false
+                ],
+                "margin": [
+                  10,
+                  0,
+                  10,
+                  0
+                ],
+                "style": "receipt-table"
+              }
+            ],
+            [
+              {
+                "text": "Project Name",
+                "border": [
+                  false,
+                  false,
+                  false,
+                  false
+                ],
+                "margin": [
+                  20,
+                  0,
+                  10,
+                  0
+                ],
+                "bold": true,
+                "style": "receipt-table-value"
               },
               {
-                "text": "Project Location"
+                "text": "{{project_name}}",
+                "border": [
+                  false,
+                  false,
+                  false,
+                  false
+                ],
+                "margin": [
+                  10,
+                  0,
+                  10,
+                  0
+                ],
+                "style": "receipt-table"
+              }
+            ],
+            [
+              {
+                "text": "Project Location",
+                "border": [
+                  false,
+                  false,
+                  false,
+                  false
+                ],
+                "margin": [
+                  20,
+                  0,
+                  10,
+                  0
+                ],
+                "bold": true,
+                "style": "receipt-table-value"
               },
               {
-                "text": "Project Description"
+                "text": "{{project_location}}",
+                "border": [
+                  false,
+                  false,
+                  false,
+                  false
+                ],
+                "margin": [
+                  10,
+                  0,
+                  10,
+                  0
+                ],
+                "style": "receipt-table"
+              }
+            ],
+            [
+              {
+                "text": "Project Description",
+                "border": [
+                  false,
+                  false,
+                  false,
+                  false
+                ],
+                "margin": [
+                  20,
+                  0,
+                  10,
+                  0
+                ],
+                "bold": true,
+                "style": "receipt-table-value"
               },
               {
-                "text": "Measurement Period"
+                "text": "{{project_description}}",
+                "border": [
+                  false,
+                  false,
+                  false,
+                  false
+                ],
+                "margin": [
+                  10,
+                  0,
+                  10,
+                  0
+                ],
+                "style": "receipt-table"
+              }
+            ],
+            [
+              {
+                "text": "Measurement Period",
+                "border": [
+                  false,
+                  false,
+                  false,
+                  false
+                ],
+                "margin": [
+                  20,
+                  0,
+                  10,
+                  0
+                ],
+                "bold": true,
+                "style": "receipt-table-value"
               },
               {
-                "text": " "
+                "text": "{{measurement_period}}",
+                "border": [
+                  false,
+                  false,
+                  false,
+                  false
+                ],
+                "margin": [
+                  10,
+                  0,
+                  10,
+                  0
+                ],
+                "style": "receipt-table"
               }
             ]
-          },
-          {
-            "bold": false,
-            "fontSize": 12,
-            "stack": [
-              {
-                "text": ": {{project_id}}"
-              },
-              {
-                "text": ": {{work_order_number}}"
-              },
-              {
-                "text": ": {{muster_roll_id}}"
-              },
-              {
-                "text": ": {{project_name}}"
-              },
-              {
-                "text": ": {{project_location}}"
-              },
-              {
-                "text": ": {{project_description}}"
-              },
-              {
-                "text": ": {{measurement_period}}"
-              }
-            ]
-          }
-        ]
+          ]
+        },
+        "layout": {}
       },
-      {"text": "Measurement Details", "style": "header"},
+
+
+      {
+        "text": "Measurement Details",
+        "style": "header",
+        "alignment": "left"
+      },
       {
         "margin": [
           -20,
@@ -172,7 +370,7 @@
           ],
           "body": [[
             {
-              "text": "Sno.",
+              "text": "S.no",
               "width": "auto",
               "bold": true,
               "fillColor": "#efefef",
@@ -188,7 +386,7 @@
               "alignment": "center"
             },
             {
-              "text": "uom",
+              "text": "Unit",
               "width": "auto",
               "bold": true,
               "fillColor": "#efefef",
@@ -200,7 +398,7 @@
               "width": "auto",
               "bold": true,
               "fillColor": "#efefef",
-              "fontSize": 10,
+              "fontSize": 8,
               "alignment": "center"
             },
             {
@@ -236,7 +434,7 @@
               "alignment": "center"
             }
           ],
-            "{{#tableData}}[{\"text\":\"{{Sno}}\",\"alignment\":\"center\",\"fontSize\":\"8\"},{\"text\":\"{{sorDescription}}\",\"alignment\":\"center\",\"fontSize\":\"8\"},{\"text\":\"{{uom}}\",\"alignment\":\"right\",\"fontSize\":\"8\"},{\"text\":\"{{rate}}\",\"alignment\":\"right\",\"fontSize\":\"8\"},{\"text\":\"{{Estimated_Quantity}}\",\"alignment\":\"right\",\"fontSize\":\"8\"},{\"text\":\"{{Consumed_Quantity}}\",\"alignment\":\"right\",\"fontSize\":\"8\"},{\"text\":\"{{Current_Quantity}}\",\"alignment\":\"right\",\"fontSize\":\"8\"},{\"text\":\"{{mbAmount}}\",\"alignment\":\"right\",\"fontSize\":\"8\"}]{{/tableData}}",
+            "{{#tableData}}[{\"text\":\"{{Sno}}\",\"alignment\":\"center\",\"fontSize\":\"8\"},{\"text\":\"{{sorDescription}}\",\"alignment\":\"left\",\"fontSize\":\"8\"},{\"text\":\"{{uom}}\",\"alignment\":\"center\",\"fontSize\":\"8\"},{\"text\":\"{{rate}}\",\"alignment\":\"right\",\"fontSize\":\"8\"},{\"text\":\"{{Estimated_Quantity}}\",\"alignment\":\"right\",\"fontSize\":\"8\"},{\"text\":\"{{Consumed_Quantity}}\",\"alignment\":\"right\",\"fontSize\":\"8\"},{\"text\":\"{{Current_Quantity}}\",\"alignment\":\"right\",\"fontSize\":\"8\"},{\"text\":\"{{mbAmount}}\",\"alignment\":\"right\",\"fontSize\":\"8\"}]{{/tableData}}",
             [
               {
                 "text": "Total",

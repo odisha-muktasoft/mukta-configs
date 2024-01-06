@@ -20,6 +20,18 @@
                 }
               },
               {
+                "variable": "ProjectID",
+                "value": {
+                  "path": "WORKS_PROJECT_ID"
+                },
+                "type": "label",
+                "localisation":{
+                  "required":true,
+                  "prefix": null,
+                  "module":"rainmaker-project"
+                }
+              },
+              {
                 "variable": "project_id",
                 "value": {
                   "path": "$.estimate.additionalDetails.projectNumber"
