@@ -34,7 +34,7 @@
               {
                 "variable": "muster_roll_id",
                 "value": {
-                  "path": "$.measurement.additionalDetails.musterRollNumber"
+                  "path": "$.musterRollNumber"
                 }
               },
               {
