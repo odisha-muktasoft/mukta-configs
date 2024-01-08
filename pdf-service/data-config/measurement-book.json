@@ -46,7 +46,7 @@
               {
                 "variable": "muster_roll_id",
                 "value": {
-                  "path": "$.musterRollNumber"
+                  "path": "$.musterRolls.*.musterRollNumber"
                 }
               },
               {
