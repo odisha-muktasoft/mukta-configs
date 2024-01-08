@@ -25,6 +25,18 @@
                 }
               },
               {
+                "variable": "DetailedMeasurementBook",
+                "value": {
+                  "path": "MB_MEASUREMENT_BOOK"
+                },
+                "type": "label",
+                "localisation":{
+                  "required":true,
+                  "prefix": null,
+                  "module":"rainmaker-measurement"
+                }
+              },
+              {
                 "variable": "measurementNumber",
                 "value": {
                   "path": "$.measurement.measurementNumber"
@@ -154,6 +166,19 @@
                 "variable": "measurement_period",
                 "value": {
                   "path": "$.measurement.measurementPeriod"
+                }
+              },
+
+              {
+                "variable": "MeasurementDetails",
+                "value": {
+                  "path": "MB_MEASUREMENT_DETAILS"
+                },
+                "type": "label",
+                "localisation":{
+                  "required":true,
+                  "prefix": null,
+                  "module":"rainmaker-measurement"
                 }
               },
 

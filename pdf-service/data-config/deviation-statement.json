@@ -25,6 +25,19 @@
                 }
               },
               {
+                "variable": "DeviationStatement",
+                "value": {
+                  "path": "WORKS_DEVIATION_STATEMENT"
+                },
+                "type": "label",
+                "localisation":{
+                  "required":true,
+                  "prefix": null,
+                  "module":"rainmaker-common"
+                }
+              },
+
+              {
                 "variable": "EstimateId",
                 "value": {
                   "path": "WORKS_ESTIMATE_ID"
@@ -33,7 +46,7 @@
                 "localisation":{
                   "required":true,
                   "prefix": null,
-                  "module":"rainmaker-project"
+                  "module":"rainmaker-estimate"
                 }
               },
               {
@@ -100,6 +113,19 @@
                 "variable": "revisionNumber",
                 "value": {
                   "path": "$.revisionNumber"
+                }
+              },
+
+              {
+                "variable": "SOR/NonSORs",
+                "value": {
+                  "path": "WORKS_NON_SOR"
+                },
+                "type": "label",
+                "localisation":{
+                  "required":true,
+                  "prefix": null,
+                  "module":"rainmaker-estimate"
                 }
               },
 
