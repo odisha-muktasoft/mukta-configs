@@ -14,6 +14,65 @@
           {
             "direct": [
               {
+                "variable": "pdf_header",
+                "value": {
+                  "path": "$.tenantId"
+                },
+                "localisation": {
+                  "required": true,
+                  "prefix": "TENANT_TENANTS",
+                  "module": "rainmaker-od"
+                }
+              },
+              {
+                "variable": "EstimateId",
+                "value": {
+                  "path": "WORKS_ESTIMATE_ID"
+                },
+                "type": "label",
+                "localisation":{
+                  "required":true,
+                  "prefix": null,
+                  "module":"rainmaker-project"
+                }
+              },
+              {
+                "variable": "ProjectID",
+                "value": {
+                  "path": "WORKS_PROJECT_ID"
+                },
+                "type": "label",
+                "localisation":{
+                  "required":true,
+                  "prefix": null,
+                  "module":"rainmaker-project"
+                }
+              },
+              {
+                "variable": "ProjectName",
+                "value": {
+                  "path": "WORKS_PROJECT_NAME"
+                },
+                "type": "label",
+                "localisation":{
+                  "required":true,
+                  "prefix": null,
+                  "module":"rainmaker-project"
+                }
+              },
+              {
+                "variable": "ProjectDescription",
+                "value": {
+                  "path": "PROJECT_PROJECT_DESC"
+                },
+                "type": "label",
+                "localisation":{
+                  "required":true,
+                  "prefix": null,
+                  "module":"rainmaker-project"
+                }
+              },
+              {
                 "variable": "estimateId",
                 "value": {
                   "path": "$.estimateNumber"
@@ -43,17 +102,128 @@
                   "path": "$.revisionNumber"
                 }
               },
+
               {
-                "variable": "pdf_header",
+                "variable": "SNo",
                 "value": {
-                  "path": "$.tenantId"
+                  "path": "WORKS_SNO"
                 },
-                "localisation": {
-                  "required": true,
-                  "prefix": "TENANT_TENANTS",
-                  "module": "rainmaker-od"
+                "type": "label",
+                "localisation":{
+                  "required":true,
+                  "prefix": null,
+                  "module":"rainmaker-common"
                 }
               },
+              {
+                "variable": "description",
+                "value": {
+                  "path": "MB_DESCRIPTION"
+                },
+                "type": "label",
+                "localisation":{
+                  "required":true,
+                  "prefix": null,
+                  "module":"rainmaker-measurement"
+                }
+              },
+              {
+                "variable": "unit",
+                "value": {
+                  "path": "MB_UNIT"
+                },
+                "type": "label",
+                "localisation":{
+                  "required":true,
+                  "prefix": null,
+                  "module":"rainmaker-measurement"
+                }
+              },
+              {
+                "variable": "Rate",
+                "value": {
+                  "path": "MB_RATE"
+                },
+                "type": "label",
+                "localisation":{
+                  "required":true,
+                  "prefix": null,
+                  "module":"rainmaker-measurement"
+                }
+              },
+              {
+                "variable": "OriginalQuantity",
+                "value": {
+                  "path": "WORKS_ORIGINAL_QTY"
+                },
+                "type": "label",
+                "localisation":{
+                  "required":true,
+                  "prefix": null,
+                  "module":"rainmaker-estimate"
+                }
+              },
+              {
+                "variable": "OriginalAmount",
+                "value": {
+                  "path": "WORKS_ORIGINAL_AMT"
+                },
+                "type": "label",
+                "localisation":{
+                  "required":true,
+                  "prefix": null,
+                  "module":"rainmaker-estimate"
+                }
+              },
+              {
+                "variable": "RevisedQuantity",
+                "value": {
+                  "path": "WORKS_REVISED_QTY"
+                },
+                "type": "label",
+                "localisation":{
+                  "required":true,
+                  "prefix": null,
+                  "module":"rainmaker-estimate"
+                }
+              },
+              {
+                "variable": "RevisedAmount",
+                "value": {
+                  "path": "WORKS_REVISED_AMT"
+                },
+                "type": "label",
+                "localisation":{
+                  "required":true,
+                  "prefix": null,
+                  "module":"rainmaker-estimate"
+                }
+              },
+              {
+                "variable": "Deviation",
+                "value": {
+                  "path": "WORKS_DEVIATION"
+                },
+                "type": "label",
+                "localisation":{
+                  "required":true,
+                  "prefix": null,
+                  "module":"rainmaker-estimate"
+                }
+              },
+              {
+                "variable": "Total",
+                "value": {
+                  "path": "WORKS_TOTAL"
+                },
+                "type": "label",
+                "localisation":{
+                  "required":true,
+                  "prefix": null,
+                  "module":"rainmaker-estimate"
+                }
+              },
+
               {
                 "variable": "tableData",
                 "value": {
