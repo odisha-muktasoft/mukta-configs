@@ -397,7 +397,7 @@
               "bold": true,
               "fillColor": "#efefef",
               "fontSize": 8,
-              "alignment": "center"
+              "alignment": "left"
             },
             {
               "text": "{{Rate}}",
@@ -440,7 +440,7 @@
               "alignment": "center"
             }
           ],
-            "{{#tableData}}[{\"text\":\"{{Sno}}\",\"alignment\":\"center\",\"fontSize\":\"8\"},{\"text\":\"{{sorDescription}}\",\"alignment\":\"left\",\"fontSize\":\"8\"},{\"text\":\"{{uom}}\",\"alignment\":\"center\",\"fontSize\":\"8\"},{\"text\":\"{{rate}}\",\"alignment\":\"right\",\"fontSize\":\"8\"},{\"text\":\"{{Estimated_Quantity}}\",\"alignment\":\"right\",\"fontSize\":\"8\"},{\"text\":\"{{Consumed_Quantity}}\",\"alignment\":\"right\",\"fontSize\":\"8\"},{\"text\":\"{{Current_Quantity}}\",\"alignment\":\"right\",\"fontSize\":\"8\"},{\"text\":\"{{mbAmount}}\",\"alignment\":\"right\",\"fontSize\":\"8\"}]{{/tableData}}",
+            "{{#tableData}}[{\"text\":\"{{Sno}}\",\"alignment\":\"center\",\"fontSize\":\"8\"},{\"text\":\"{{sorDescription}}\",\"alignment\":\"left\",\"fontSize\":\"8\"},{\"text\":\"{{uom}}\",\"alignment\":\"left\",\"fontSize\":\"8\"},{\"text\":\"{{rate}}\",\"alignment\":\"right\",\"fontSize\":\"8\"},{\"text\":\"{{Estimated_Quantity}}\",\"alignment\":\"right\",\"fontSize\":\"8\"},{\"text\":\"{{Consumed_Quantity}}\",\"alignment\":\"right\",\"fontSize\":\"8\"},{\"text\":\"{{Current_Quantity}}\",\"alignment\":\"right\",\"fontSize\":\"8\"},{\"text\":\"{{mbAmount}}\",\"alignment\":\"right\",\"fontSize\":\"8\"}]{{/tableData}}",
             [
               {
                 "text": "{{Total}}",
