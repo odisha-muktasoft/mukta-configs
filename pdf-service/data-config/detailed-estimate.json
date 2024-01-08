@@ -24,6 +24,18 @@
                   "module": "rainmaker-od"
                 }
               },
+              {
+                "variable": "DetailedEstimate",
+                "value": {
+                  "path": "ESTIMATE_DOC_DETAILED_ESTIMATE"
+                },
+                "type": "label",
+                "localisation":{
+                  "required":true,
+                  "prefix": null,
+                  "module":"rainmaker-estimate"
+                }
+              },
 
               {
                 "variable": "ProjectID",
