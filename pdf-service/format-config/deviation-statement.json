@@ -94,7 +94,7 @@
           "body": [
             [
               {
-                "text": "Estimate ID",
+                "text": "{{EstimateId}}",
                 "border": [
                   false,
                   false,
@@ -130,7 +130,7 @@
             ],
             [
               {
-                "text": "Project ID",
+                "text": "{{ProjectId}}",
                 "border": [
                   false,
                   false,
@@ -165,7 +165,7 @@
             ],
             [
               {
-                "text": "Project Name",
+                "text": "{{ProjectName}}",
                 "border": [
                   false,
                   false,
@@ -200,7 +200,7 @@
             ],
             [
               {
-                "text": "Project Description",
+                "text": "{{ProjectDescription}}",
                 "border": [
                   false,
                   false,
@@ -264,14 +264,14 @@
           ],
           "body": [[
             {
-              "text": "S.no",
+              "text": "{{SNo}}",
               "width": "auto",
               "bold": true,
               "fillColor": "#efefef",
               "fontSize": 8
             },
             {
-              "text": "Description",
+              "text": "{{description}}",
               "alignment": "left",
               "height": "auto",
               "bold": true,
@@ -279,49 +279,49 @@
               "fontSize": 8
             },
             {
-              "text": "Unit",
+              "text": "{{unit}}",
               "alignment": "center",
               "bold": true,
               "fillColor": "#efefef",
               "fontSize": 8
             },
             {
-              "text": "Rate",
+              "text": "{{Rate}}",
               "alignment": "center",
               "bold": true,
               "fillColor": "#efefef",
               "fontSize": 8
             },
             {
-              "text": "Original Quantity",
+              "text": "{{OriginalQuantity}}",
               "alignment": "center",
               "bold": true,
               "fillColor": "#efefef",
               "fontSize": 8
             },
             {
-              "text": "Original Amount",
+              "text": "{{OriginalAmount}}",
               "alignment": "center",
               "bold": true,
               "fillColor": "#efefef",
               "fontSize": 8
             },
             {
-              "text": "Revised Quantity",
+              "text": "{{RevisedQuantity}}",
               "alignment": "center",
               "bold": true,
               "fillColor": "#efefef",
               "fontSize": 8
             },
             {
-              "text": "Revised Amount",
+              "text": "{{RevisedAmount}}",
               "alignment": "center",
               "bold": true,
               "fillColor": "#efefef",
               "fontSize": 8
             },
             {
-              "text": "Deviation",
+              "text": "{{Deviation}}",
               "alignment": "center",
               "bold": true,
               "fillColor": "#efefef",
@@ -333,7 +333,7 @@
 
             [
               {
-                "text": "Total",
+                "text": "{{Total}}",
                 "bold": true,
                 "colSpan": 7,
                 "alignment": "right",
