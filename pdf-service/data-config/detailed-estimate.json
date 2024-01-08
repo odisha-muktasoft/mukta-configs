@@ -14,6 +14,67 @@
           {
             "direct": [
               {
+                "variable": "pdf_header",
+                "value": {
+                  "path": "$.tenantId"
+                },
+                "localisation": {
+                  "required": true,
+                  "prefix": "TENANT_TENANTS",
+                  "module": "rainmaker-od"
+                }
+              },
+
+              {
+                "variable": "ProjectID",
+                "value": {
+                  "path": "WORKS_PROJECT_ID"
+                },
+                "type": "label",
+                "localisation":{
+                  "required":true,
+                  "prefix": null,
+                  "module":"rainmaker-project"
+                }
+              },
+              {
+                "variable": "ProjectName",
+                "value": {
+                  "path": "WORKS_PROJECT_NAME"
+                },
+                "type": "label",
+                "localisation":{
+                  "required":true,
+                  "prefix": null,
+                  "module":"rainmaker-common"
+                }
+              },
+              {
+                "variable": "ProjectLocation",
+                "value": {
+                  "path": "MB_LOCATION"
+                },
+                "type": "label",
+                "localisation":{
+                  "required":true,
+                  "prefix": null,
+                  "module":"rainmaker-measurement"
+                }
+              },
+              {
+                "variable": "ProjectDescription",
+                "value": {
+                  "path": "MB_PROJECT_DESC"
+                },
+                "type": "label",
+                "localisation":{
+                  "required":true,
+                  "prefix": null,
+                  "module":"rainmaker-measurement"
+                }
+              },
+
+              {
                 "variable": "estimateId",
                 "value": {
                   "path": "$.estimateNumber"
@@ -44,16 +105,103 @@
                 }
               },
               {
-                "variable": "pdf_header",
+                "variable": "EstimateDetails",
                 "value": {
-                  "path": "$.tenantId"
+                  "path": "WORKS_ESTIMATE_DETAILS"
                 },
-                "localisation": {
-                  "required": true,
-                  "prefix": "TENANT_TENANTS",
-                  "module": "rainmaker-od"
+                "type": "label",
+                "localisation":{
+                  "required":true,
+                  "prefix": null,
+                  "module":"rainmaker-estimate"
                 }
               },
+
+              {
+                "variable": "SNo",
+                "value": {
+                  "path": "WORKS_SNO"
+                },
+                "type": "label",
+                "localisation":{
+                  "required":true,
+                  "prefix": null,
+                  "module":"rainmaker-common"
+                }
+              },
+              {
+                "variable": "Description",
+                "value": {
+                  "path": "MB_DESCRIPTION"
+                },
+                "type": "label",
+                "localisation":{
+                  "required":true,
+                  "prefix": null,
+                  "module":"rainmaker-measurement"
+                }
+              },
+              {
+                "variable": "Unit",
+                "value": {
+                  "path": "MB_UNIT"
+                },
+                "type": "label",
+                "localisation":{
+                  "required":true,
+                  "prefix": null,
+                  "module":"rainmaker-measurement"
+                }
+              },
+              {
+                "variable": "Rate",
+                "value": {
+                  "path": "MB_RATE"
+                },
+                "type": "label",
+                "localisation":{
+                  "required":true,
+                  "prefix": null,
+                  "module":"rainmaker-measurement"
+                }
+              },
+              {
+                "variable": "EstimatedQuantity",
+                "value": {
+                  "path": "WORKS_ESTIMATED_QUANTITY"
+                },
+                "type": "label",
+                "localisation":{
+                  "required":true,
+                  "prefix": null,
+                  "module":"rainmaker-estimate"
+                }
+              },
+              {
+                "variable": "EstimatedAmount",
+                "value": {
+                  "path": "WORKS_ESTIMATED_AMOUNT"
+                },
+                "type": "label",
+                "localisation":{
+                  "required":true,
+                  "prefix": null,
+                  "module":"rainmaker-estimate"
+                }
+              },
+              {
+                "variable": "RevisedQuantity",
+                "value": {
+                  "path": "WORKS_REVISED_QTY"
+                },
+                "type": "label",
+                "localisation":{
+                  "required":true,
+                  "prefix": null,
+                  "module":"rainmaker-estimate"
+                }
+              },
+
               {
                 "variable": "tableData",
                 "value": {
