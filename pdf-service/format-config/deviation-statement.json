@@ -147,7 +147,7 @@
                 "style": "receipt-table-value"
               },
               {
-                "text": "{{projectId}}",
+                "text": "{{ProjectId}}",
                 "border": [
                   false,
                   false,

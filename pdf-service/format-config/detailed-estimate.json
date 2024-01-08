@@ -94,7 +94,7 @@
           "body": [
             [
               {
-                "text": "Project ID",
+                "text": "{{ProjectID}}",
                 "border": [
                   false,
                   false,
@@ -130,7 +130,7 @@
             ],
             [
               {
-                "text": "Project Name",
+                "text": "{{ProjectName}}",
                 "border": [
                   false,
                   false,
@@ -165,7 +165,7 @@
             ],
             [
               {
-                "text": "Project Location",
+                "text": "{{ProjectLocation}}",
                 "border": [
                   false,
                   false,
@@ -200,7 +200,7 @@
             ],
             [
               {
-                "text": "Project Description",
+                "text": "{{ProjectDescription}}",
                 "border": [
                   false,
                   false,
@@ -238,7 +238,10 @@
         "layout": {}
       },
 
-      {"text": "Estimate Details", "style": "header"},
+      {
+        "text": "{{EstimateDetails}}",
+        "style": "header"
+      },
       {
         "margin": [
           -20,
@@ -258,14 +261,14 @@
           ],
           "body": [[
             {
-              "text": "S.no",
+              "text": "{{SNo}}",
               "width": "auto",
               "bold": true,
               "fillColor": "#efefef",
               "fontSize": 9
             },
             {
-              "text": "Description",
+              "text": "{{Description}}",
               "alignment": "left",
               "height": "auto",
               "bold": true,
@@ -273,28 +276,28 @@
               "fontSize": 9
             },
             {
-              "text": "Unit",
+              "text": "{{Unit}}",
               "alignment": "center",
               "bold": true,
               "fillColor": "#efefef",
               "fontSize": 9
             },
             {
-              "text": "Rate",
+              "text": "{{Rate}}",
               "alignment": "right",
               "bold": true,
               "fillColor": "#efefef",
               "fontSize": 9
             },
             {
-              "text": "Estimated Quantity",
+              "text": "{{EstimatedQuantity}}",
               "alignment": "right",
               "bold": true,
               "fillColor": "#efefef",
               "fontSize": 9
             },
             {
-              "text": "Estimated Amount",
+              "text": "{{EstimatedAmount}}",
               "alignment": "right",
               "bold": true,
               "fillColor": "#efefef",
@@ -306,7 +309,7 @@
 
             [
               {
-                "text": "Total Estimate Amount",
+                "text": "{{TotalEstimateAmount}}",
                 "bold": true,
                 "colSpan": 5,
                 "alignment": "right",
