@@ -323,14 +323,14 @@
             },
             {
               "text": "{{Deviation}}",
-              "alignment": "center",
+              "alignment": "left",
               "bold": true,
               "fillColor": "#efefef",
               "fontSize": 8
             }
 
           ],
-            "{{#tableData}}[{\"text\":\"{{Sno}}\",\"alignment\":\"left\",\"fontSize\":8},{\"text\":\"{{estimateDescription}}\",\"alignment\":\"left\",\"fontSize\":8},{\"text\":\"{{uom}}\",\"alignment\":\"left\",\"fontSize\":8},{\"text\":\"{{unitRate}}\",\"alignment\":\"right\",\"fontSize\":8},{\"text\":\"{{originalQ}}\",\"alignment\":\"right\",\"fontSize\":8},{\"text\":\"{{originalAmount}}\",\"alignment\":\"right\",\"fontSize\":8},{\"text\":\"{{revisedQ}}\",\"alignment\":\"right\",\"fontSize\":8},{\"text\":\"{{revisedAmount}}\",\"alignment\":\"right\",\"fontSize\":8},{\"text\":\"{{deviation}}\",\"alignment\":\"center\",\"fontSize\":8}]{{/tableData}}",
+            "{{#tableData}}[{\"text\":\"{{Sno}}\",\"alignment\":\"left\",\"fontSize\":8},{\"text\":\"{{estimateDescription}}\",\"alignment\":\"left\",\"fontSize\":8},{\"text\":\"{{uom}}\",\"alignment\":\"left\",\"fontSize\":8},{\"text\":\"{{unitRate}}\",\"alignment\":\"right\",\"fontSize\":8},{\"text\":\"{{originalQ}}\",\"alignment\":\"right\",\"fontSize\":8},{\"text\":\"{{originalAmount}}\",\"alignment\":\"right\",\"fontSize\":8},{\"text\":\"{{revisedQ}}\",\"alignment\":\"right\",\"fontSize\":8},{\"text\":\"{{revisedAmount}}\",\"alignment\":\"right\",\"fontSize\":8},{\"text\":\"{{deviation}}\",\"alignment\":\"left\",\"fontSize\":8}]{{/tableData}}",
 
             [
               {
