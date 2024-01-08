@@ -213,6 +213,18 @@
                   "module":"rainmaker-estimate"
                 }
               },
+              {
+                "variable": "TotalEstimateAmount",
+                "value": {
+                  "path": "TOTAL_EST_AMOUNT"
+                },
+                "type": "label",
+                "localisation":{
+                  "required":true,
+                  "prefix": null,
+                  "module":"rainmaker-estimate"
+                }
+              },
 
               {
                 "variable": "tableData",
