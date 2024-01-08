@@ -156,6 +156,104 @@
                   "path": "$.measurement.measurementPeriod"
                 }
               },
+
+              {
+                "variable": "SNo",
+                "value": {
+                  "path": "WORKS_SNO"
+                },
+                "type": "label",
+                "localisation":{
+                  "required":true,
+                  "prefix": null,
+                  "module":"rainmaker-common"
+                }
+              },
+              {
+                "variable": "description",
+                "value": {
+                  "path": "MB_DESCRIPTION"
+                },
+                "type": "label",
+                "localisation":{
+                  "required":true,
+                  "prefix": null,
+                  "module":"rainmaker-measurement"
+                }
+              },
+              {
+                "variable": "unit",
+                "value": {
+                  "path": "MB_UNIT"
+                },
+                "type": "label",
+                "localisation":{
+                  "required":true,
+                  "prefix": null,
+                  "module":"rainmaker-measurement"
+                }
+              },
+              {
+                "variable": "Rate",
+                "value": {
+                  "path": "MB_RATE"
+                },
+                "type": "label",
+                "localisation":{
+                  "required":true,
+                  "prefix": null,
+                  "module":"rainmaker-measurement"
+                }
+              },
+              {
+                "variable": "EstimatedQuantity",
+                "value": {
+                  "path": "WORKS_ESTIMATED_QUANTITY"
+                },
+                "type": "label",
+                "localisation":{
+                  "required":true,
+                  "prefix": null,
+                  "module":"rainmaker-estimate"
+                }
+              },
+              {
+                "variable": "ConsumedQuantity",
+                "value": {
+                  "path": "MB_CONSUMED_QUANT"
+                },
+                "type": "label",
+                "localisation":{
+                  "required":true,
+                  "prefix": null,
+                  "module":"rainmaker-measurement"
+                }
+              },
+              {
+                "variable": "CurrentQuantity",
+                "value": {
+                  "path": "MB_CURRENT_QUANT"
+                },
+                "type": "label",
+                "localisation":{
+                  "required":true,
+                  "prefix": null,
+                  "module":"rainmaker-measurement"
+                }
+              },
+              {
+                "variable": "MbAmount",
+                "value": {
+                  "path": "MB_AMOUNT"
+                },
+                "type": "label",
+                "localisation":{
+                  "required":true,
+                  "prefix": null,
+                  "module":"rainmaker-measurement"
+                }
+              },
+
               {
                 "variable": "tableData",
                 "value": {
