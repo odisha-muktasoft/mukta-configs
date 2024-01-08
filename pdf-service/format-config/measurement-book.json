@@ -370,7 +370,7 @@
           ],
           "body": [[
             {
-              "text": "S.no",
+              "text": "{{SNo}}",
               "width": "auto",
               "bold": true,
               "fillColor": "#efefef",
@@ -378,7 +378,7 @@
               "alignment": "center"
             },
             {
-              "text": "Description",
+              "text": "{{description}}",
               "width": "auto",
               "bold": true,
               "fillColor": "#efefef",
@@ -386,7 +386,7 @@
               "alignment": "center"
             },
             {
-              "text": "Unit",
+              "text": "{{unit}}",
               "width": "auto",
               "bold": true,
               "fillColor": "#efefef",
@@ -394,7 +394,7 @@
               "alignment": "center"
             },
             {
-              "text": "rate",
+              "text": "{{Rate}}",
               "width": "auto",
               "bold": true,
               "fillColor": "#efefef",
@@ -402,7 +402,7 @@
               "alignment": "center"
             },
             {
-              "text": "Estimated Quantity",
+              "text": "{{EstimatedQuantity}}",
               "width": "auto",
               "bold": true,
               "fillColor": "#efefef",
@@ -410,7 +410,7 @@
               "alignment": "center"
             },
             {
-              "text": "Consumed Quantity",
+              "text": "{{ConsumedQuantity}}",
               "width": "auto",
               "bold": true,
               "fillColor": "#efefef",
@@ -418,7 +418,7 @@
               "alignment": "center"
             },
             {
-              "text": "Current Quantity",
+              "text": "{{CurrentQuantity}}",
               "width": "auto",
               "bold": true,
               "fillColor": "#efefef",
@@ -426,7 +426,7 @@
               "alignment": "center"
             },
             {
-              "text": "MB Amount",
+              "text": "{{MbAmount}}",
               "width": "auto",
               "bold": true,
               "fillColor": "#efefef",
@@ -437,7 +437,7 @@
             "{{#tableData}}[{\"text\":\"{{Sno}}\",\"alignment\":\"center\",\"fontSize\":\"8\"},{\"text\":\"{{sorDescription}}\",\"alignment\":\"left\",\"fontSize\":\"8\"},{\"text\":\"{{uom}}\",\"alignment\":\"center\",\"fontSize\":\"8\"},{\"text\":\"{{rate}}\",\"alignment\":\"right\",\"fontSize\":\"8\"},{\"text\":\"{{Estimated_Quantity}}\",\"alignment\":\"right\",\"fontSize\":\"8\"},{\"text\":\"{{Consumed_Quantity}}\",\"alignment\":\"right\",\"fontSize\":\"8\"},{\"text\":\"{{Current_Quantity}}\",\"alignment\":\"right\",\"fontSize\":\"8\"},{\"text\":\"{{mbAmount}}\",\"alignment\":\"right\",\"fontSize\":\"8\"}]{{/tableData}}",
             [
               {
-                "text": "Total",
+                "text": "{{Total}}",
                 "bold": true,
                 "colSpan": 6,
                 "alignment": "right",
