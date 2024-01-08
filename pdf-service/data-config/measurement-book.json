@@ -27,7 +27,7 @@
               {
                 "variable": "DetailedMeasurementBook",
                 "value": {
-                  "path": "MB_MEASUREMENT_BOOK"
+                  "path": "MB_DETAILED_MEASUREMENT_BOOK"
                 },
                 "type": "label",
                 "localisation":{
