@@ -94,7 +94,7 @@
           "body": [
             [
               {
-                "text": "Project ID",
+                "text": "{{ProjectID}}",
                 "border": [
                   false,
                   false,
@@ -130,7 +130,7 @@
             ],
             [
               {
-                "text": "Work Order No.",
+                "text": "{{workOrderNumber}}",
                 "border": [
                   false,
                   false,
@@ -165,7 +165,7 @@
             ],
             [
               {
-                "text": "Muster Roll ID",
+                "text": "{{musterRollId}}",
                 "border": [
                   false,
                   false,
@@ -200,7 +200,7 @@
             ],
             [
               {
-                "text": "Project Name",
+                "text": "{{ProjectName}}",
                 "border": [
                   false,
                   false,
@@ -235,7 +235,7 @@
             ],
             [
               {
-                "text": "Project Location",
+                "text": "{{projectLocation}}",
                 "border": [
                   false,
                   false,
@@ -270,7 +270,7 @@
             ],
             [
               {
-                "text": "Project Description",
+                "text": "{{ProjectDescription}}",
                 "border": [
                   false,
                   false,
@@ -305,7 +305,7 @@
             ],
             [
               {
-                "text": "Measurement Period",
+                "text": "{{measurementPeriod}}",
                 "border": [
                   false,
                   false,

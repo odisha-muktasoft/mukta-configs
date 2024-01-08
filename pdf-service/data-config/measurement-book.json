@@ -14,6 +14,17 @@
           {
             "direct": [
               {
+                "variable": "pdf_header",
+                "value": {
+                  "path": "$.tenantId"
+                },
+                "localisation": {
+                  "required": true,
+                  "prefix": "TENANT_TENANTS",
+                  "module": "rainmaker-od"
+                }
+              },
+              {
                 "variable": "measurementNumber",
                 "value": {
                   "path": "$.measurement.measurementNumber"
@@ -22,13 +33,85 @@
               {
                 "variable": "ProjectID",
                 "value": {
-                  "path": "WORKS_PROJECT_ID"
+                  "path": "MB_PROJECT_ID"
                 },
                 "type": "label",
                 "localisation":{
                   "required":true,
                   "prefix": null,
-                  "module":"rainmaker-project"
+                  "module":"rainmaker-measurement"
+                }
+              },
+              {
+                "variable": "workOrderNumber",
+                "value": {
+                  "path": "MB_SEARCH_REFERENCE_NUMBER"
+                },
+                "type": "label",
+                "localisation":{
+                  "required":true,
+                  "prefix": null,
+                  "module":"rainmaker-measurement"
+                }
+              },
+              {
+                "variable": "musterRollId",
+                "value": {
+                  "path": "MB_MUSTER_ROLL_ID"
+                },
+                "type": "label",
+                "localisation":{
+                  "required":true,
+                  "prefix": null,
+                  "module":"rainmaker-measurement"
+                }
+              },
+              {
+                "variable": "ProjectName",
+                "value": {
+                  "path": "MB_PROJECT_NAME"
+                },
+                "type": "label",
+                "localisation":{
+                  "required":true,
+                  "prefix": null,
+                  "module":"rainmaker-measurement"
+                }
+              },
+              {
+                "variable": "projectLocation",
+                "value": {
+                  "path": "MB_LOCATION"
+                },
+                "type": "label",
+                "localisation":{
+                  "required":true,
+                  "prefix": null,
+                  "module":"rainmaker-measurement"
+                }
+              },
+              {
+                "variable": "ProjectDescription",
+                "value": {
+                  "path": "MB_PROJECT_DESC"
+                },
+                "type": "label",
+                "localisation":{
+                  "required":true,
+                  "prefix": null,
+                  "module":"rainmaker-measurement"
+                }
+              },
+              {
+                "variable": "measurementPeriod",
+                "value": {
+                  "path": "MB_MEASUREMENT_PERIOD"
+                },
+                "type": "label",
+                "localisation":{
+                  "required":true,
+                  "prefix": null,
+                  "module":"rainmaker-measurement"
                 }
               },
               {
@@ -71,17 +154,6 @@
                 "variable": "measurement_period",
                 "value": {
                   "path": "$.measurement.measurementPeriod"
-                }
-              },
-              {
-                "variable": "pdf_header",
-                "value": {
-                  "path": "$.tenantId"
-                },
-                "localisation": {
-                  "required": true,
-                  "prefix": "TENANT_TENANTS",
-                  "module": "rainmaker-od"
                 }
               },
               {
