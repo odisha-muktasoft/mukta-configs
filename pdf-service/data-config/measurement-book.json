@@ -278,6 +278,18 @@
                   "module":"rainmaker-measurement"
                 }
               },
+              {
+                "variable": "Total",
+                "value": {
+                  "path": "MB_SUBTOTAL"
+                },
+                "type": "label",
+                "localisation":{
+                  "required":true,
+                  "prefix": null,
+                  "module":"rainmaker-estimate"
+                }
+              },
 
               {
                 "variable": "tableData",
