@@ -347,8 +347,10 @@
               {},
               {},
               {
-                "text": "{{#totalSum}}[{\"text\":\"{{sum}}\",\"alignment\":\"right\",\"bold\":\"true\",\"fontSize\":10}]{{/totalSum}}",
-                "colSpan": 2
+                "text": "{{totalSum}}",
+                "colSpan": 2,
+                "bold": true,
+                "alignment": "right"
               },
               {}
             ]
