@@ -302,10 +302,8 @@
               {
                 "variable": "totalSum",
                 "value": {
-                  "path": "$.tableData"
-                },
-                "type":"function",
-                "format": "var y = [],\n    a = [],\n    tableData = arguments[0];\nlet total=0;\nfor (var i = 0; i < tableData.length; i++) {\n    total += tableData[i].mbAmount;\n}\ny.push({'sum':total});\nreturn y;\n"
+                  "path": "$.measurement.totalSum"
+                }
               }
             ]
           },
