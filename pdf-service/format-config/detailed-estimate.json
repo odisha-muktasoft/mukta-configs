@@ -305,7 +305,7 @@
             }
           ],
             "{{#tableData}}[{\"text\":\"{{Sno}}\",\"alignment\":\"left\",\"fontSize\":9},{\"text\":\"{{estimateDescription}}\",\"alignment\":\"left\",\"fontSize\":9},{\"text\":\"{{uom}}\",\"alignment\":\"left\",\"fontSize\":9},{\"text\":\"{{unitRate}}\",\"alignment\":\"right\",\"fontSize\":9},{\"text\":\"{{estimatedQuantity}}\",\"alignment\":\"right\",\"fontSize\":9},{\"text\":\"{{estimatedAmount}}\",\"alignment\":\"right\",\"fontSize\":9}]{{/tableData}}",
-            "{{#charges}}[{\"text\":\"{{chargeDescription}} ({{percent}})\",\"colSpan\":\"5\",\"alignment\":\"right\",\"fontSize\":\"10\"},{\"text\":\"\"},{\"text\":\"\"},{\"text\":\"\"},{\"text\":\"\"},{\"text\":\"{{charge}}\",\"alignment\":\"right\",\"bold\":\"false\",\"fontSize\":10}]{{/charges}}",
+            "{{#charges}}[{\"text\":\"{{chargeDescription}} ({{percent}})\",\"colSpan\":\"5\",\"alignment\":\"right\",\"fontSize\":\"10\"},{\"text\":\"\"},{\"text\":\"\"},{\"text\":\"\"},{\"text\":\"\"},{\"text\":\"{{charge}}\",\"alignment\":\"right\",\"fontSize\":10}]{{/charges}}",
 
             [
               {
