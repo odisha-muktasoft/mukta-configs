@@ -109,12 +109,6 @@
                 "variable": "locality",
                 "value": {
                   "path": "$.locality"
-                },
-                "type": "label",
-                "localisation": {
-                  "required": true,
-                  "prefix": "$.tenantId",
-                  "module": "rainmaker-od"
                 }
               },
               {
@@ -126,13 +120,7 @@
               {
                 "variable": "city",
                 "value": {
-                  "path": "$.tenantId"
-                },
-                "type": "label",
-                "localisation": {
-                  "required": true,
-                  "prefix": "TENANT_TENANTS",
-                  "module": "rainmaker-od"
+                  "path": "$.city"
                 }
               },
 
