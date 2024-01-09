@@ -108,13 +108,7 @@
               {
                 "variable": "locality",
                 "value": {
-                  "path": "OD_TESTING_ADMIN_L002"
-                },
-                "type": "label",
-                "localisation": {
-                  "required": true,
-                  "prefix": null,
-                  "module": "rainmaker-od"
+                  "path": "$.locality"
                 }
               },
               {
@@ -126,12 +120,7 @@
               {
                 "variable": "city",
                 "value": {
-                  "path": "$.tenantId"
-                },
-                "localisation": {
-                  "required": true,
-                  "prefix": "TENANT_TENANTS",
-                  "module": "rainmaker-od"
+                  "path": "$.city"
                 }
               },
 
