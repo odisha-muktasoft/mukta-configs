@@ -151,9 +151,21 @@
                 }
               },
               {
-                "variable": "project_location",
+                "variable": "locality",
                 "value": {
-                  "path": "$.estimate.location"
+                  "path": "$.estimate.locality"
+                }
+              },
+              {
+                "variable": "ward",
+                "value": {
+                  "path": "$.estimate.ward"
+                }
+              },
+              {
+                "variable": "city",
+                "value": {
+                  "path": "$.estimate.city"
                 }
               },
               {

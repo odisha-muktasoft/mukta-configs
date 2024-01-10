@@ -252,7 +252,7 @@
                 "style": "receipt-table-value"
               },
               {
-                "text": "{{project_location}}",
+                "text": "{{locality}}, {{ward}}, {{city}}",
                 "border": [
                   false,
                   false,
