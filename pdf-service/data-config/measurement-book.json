@@ -147,7 +147,7 @@
               {
                 "variable": "project_name",
                 "value": {
-                  "path": "$.estimate.additionalDetails.projectName"
+                  "path": "$.contract.additionalDetails.projectName"
                 }
               },
               {
