@@ -1,0 +1,399 @@
+{
+  "key": "measurement-book",
+  "documentType": "WORK-ORDER",
+  "DataConfigs": {
+    "moduleName": "rainmaker-common",
+    "version": "1.0.0",
+    "baseKeyPath": "$",
+    "entityIdPath": "$.id",
+    "isCommonTableBorderRequired": true,
+    "mappings": [
+      {
+        "topic": "common-pdf-generation-3",
+        "mappings": [
+          {
+            "direct": [
+              {
+                "variable": "pdf_header",
+                "value": {
+                  "path": "$.tenantId"
+                },
+                "localisation": {
+                  "required": true,
+                  "prefix": "TENANT_TENANTS",
+                  "module": "rainmaker-od"
+                }
+              },
+              {
+                "variable": "DetailedMeasurementBook",
+                "value": {
+                  "path": "MB_DETAILED_MEASUREMENT_BOOK"
+                },
+                "type": "label",
+                "localisation":{
+                  "required":true,
+                  "prefix": null,
+                  "module":"rainmaker-measurement"
+                }
+              },
+              {
+                "variable": "measurementNumber",
+                "value": {
+                  "path": "$.measurement.measurementNumber"
+                }
+              },
+              {
+                "variable": "ProjectID",
+                "value": {
+                  "path": "MB_PROJECT_ID"
+                },
+                "type": "label",
+                "localisation":{
+                  "required":true,
+                  "prefix": null,
+                  "module":"rainmaker-measurement"
+                }
+              },
+              {
+                "variable": "workOrderNumber",
+                "value": {
+                  "path": "MB_SEARCH_REFERENCE_NUMBER"
+                },
+                "type": "label",
+                "localisation":{
+                  "required":true,
+                  "prefix": null,
+                  "module":"rainmaker-measurement"
+                }
+              },
+              {
+                "variable": "musterRollId",
+                "value": {
+                  "path": "MB_MUSTER_ROLL_ID"
+                },
+                "type": "label",
+                "localisation":{
+                  "required":true,
+                  "prefix": null,
+                  "module":"rainmaker-measurement"
+                }
+              },
+              {
+                "variable": "ProjectName",
+                "value": {
+                  "path": "MB_PROJECT_NAME"
+                },
+                "type": "label",
+                "localisation":{
+                  "required":true,
+                  "prefix": null,
+                  "module":"rainmaker-measurement"
+                }
+              },
+              {
+                "variable": "projectLocation",
+                "value": {
+                  "path": "MB_LOCATION"
+                },
+                "type": "label",
+                "localisation":{
+                  "required":true,
+                  "prefix": null,
+                  "module":"rainmaker-measurement"
+                }
+              },
+              {
+                "variable": "ProjectDescription",
+                "value": {
+                  "path": "MB_PROJECT_DESC"
+                },
+                "type": "label",
+                "localisation":{
+                  "required":true,
+                  "prefix": null,
+                  "module":"rainmaker-measurement"
+                }
+              },
+              {
+                "variable": "measurementPeriod",
+                "value": {
+                  "path": "MB_MEASUREMENT_PERIOD"
+                },
+                "type": "label",
+                "localisation":{
+                  "required":true,
+                  "prefix": null,
+                  "module":"rainmaker-measurement"
+                }
+              },
+              {
+                "variable": "project_id",
+                "value": {
+                  "path": "$.estimate.additionalDetails.projectNumber"
+                }
+              },
+              {
+                "variable": "work_order_number",
+                "value": {
+                  "path": "$.contract.contractNumber"
+                }
+              },
+              {
+                "variable": "muster_roll_id",
+                "value": {
+                  "path": "$.musterRolls.*.musterRollNumber"
+                }
+              },
+              {
+                "variable": "project_name",
+                "value": {
+                  "path": "$.contract.additionalDetails.projectName"
+                }
+              },
+              {
+                "variable": "locality",
+                "value": {
+                  "path": "$.estimate.locality"
+                }
+              },
+              {
+                "variable": "ward",
+                "value": {
+                  "path": "$.estimate.ward"
+                }
+              },
+              {
+                "variable": "city",
+                "value": {
+                  "path": "$.estimate.city"
+                }
+              },
+              {
+                "variable": "project_description",
+                "value": {
+                  "path": "$.estimate.description"
+                }
+              },
+              {
+                "variable": "measurement_period",
+                "value": {
+                  "path": "$.measurement.measurementPeriod"
+                }
+              },
+
+              {
+                "variable": "MeasurementDetails",
+                "value": {
+                  "path": "MB_MEASUREMENT_DETAILS"
+                },
+                "type": "label",
+                "localisation":{
+                  "required":true,
+                  "prefix": null,
+                  "module":"rainmaker-measurement"
+                }
+              },
+
+              {
+                "variable": "SNo",
+                "value": {
+                  "path": "WORKS_SNO"
+                },
+                "type": "label",
+                "localisation":{
+                  "required":true,
+                  "prefix": null,
+                  "module":"rainmaker-common"
+                }
+              },
+              {
+                "variable": "description",
+                "value": {
+                  "path": "MB_DESCRIPTION"
+                },
+                "type": "label",
+                "localisation":{
+                  "required":true,
+                  "prefix": null,
+                  "module":"rainmaker-measurement"
+                }
+              },
+              {
+                "variable": "unit",
+                "value": {
+                  "path": "MB_UNIT"
+                },
+                "type": "label",
+                "localisation":{
+                  "required":true,
+                  "prefix": null,
+                  "module":"rainmaker-measurement"
+                }
+              },
+              {
+                "variable": "Rate",
+                "value": {
+                  "path": "MB_RATE"
+                },
+                "type": "label",
+                "localisation":{
+                  "required":true,
+                  "prefix": null,
+                  "module":"rainmaker-measurement"
+                }
+              },
+              {
+                "variable": "EstimatedQuantity",
+                "value": {
+                  "path": "WORKS_ESTIMATED_QUANTITY"
+                },
+                "type": "label",
+                "localisation":{
+                  "required":true,
+                  "prefix": null,
+                  "module":"rainmaker-estimate"
+                }
+              },
+              {
+                "variable": "ConsumedQuantity",
+                "value": {
+                  "path": "MB_CONSUMED_QUANT"
+                },
+                "type": "label",
+                "localisation":{
+                  "required":true,
+                  "prefix": null,
+                  "module":"rainmaker-measurement"
+                }
+              },
+              {
+                "variable": "CurrentQuantity",
+                "value": {
+                  "path": "MB_CURRENT_QUANT"
+                },
+                "type": "label",
+                "localisation":{
+                  "required":true,
+                  "prefix": null,
+                  "module":"rainmaker-measurement"
+                }
+              },
+              {
+                "variable": "MbAmount",
+                "value": {
+                  "path": "MB_AMOUNT"
+                },
+                "type": "label",
+                "localisation":{
+                  "required":true,
+                  "prefix": null,
+                  "module":"rainmaker-measurement"
+                }
+              },
+              {
+                "variable": "Total",
+                "value": {
+                  "path": "MB_SUBTOTAL"
+                },
+                "type": "label",
+                "localisation":{
+                  "required":true,
+                  "prefix": null,
+                  "module":"rainmaker-estimate"
+                }
+              },
+
+              {
+                "variable": "tableData",
+                "value": {
+                  "path": "$.tableData"
+                },
+                "type":"function",
+                "format": "var y = [];\nvar a = [];\nvar tableData = arguments[0];\nfunction rupeeFormat(amount) {\n  flag = 0;\n  var count = 0;\n  var amount = amount.toString();\n  var len = amount.length;\n  var val = '';\n  for (var i = len - 1; i >= 0; i--) {\n    val = amount[i] + val;\n    if (amount[i] == '.') {\n      flag = 1;\n      count = -1;\n      val = amount.substring(i, len);\n    }\n    if (count % 2 == 0 && i != 0 && count != 0) {\n      val = ',' + val;\n    }\n    count += 1;\n  }\n  if (flag == 0) {\n    val += '.00';\n  }\n  return val;\n}\nfor(var i = 0;i<tableData.length;i++){\n    var x = {\n      Sno: i + 1,\n      uom: tableData[i].uom,\n      rate: rupeeFormat(tableData[i].unitRate),\n      Estimated_Quantity: tableData[i].estimatedQuantity,\n      Consumed_Quantity: tableData[i].consumedQuantity,\n      Current_Quantity: tableData[i].currentQuantity,\n      sorDescription: tableData[i].description,\n      mbAmount: tableData[i].mbAmount\n    };\n    y.push(x);\n}\nreturn y;"
+              },
+              {
+                "variable": "totalSum",
+                "value": {
+                  "path": "$.measurement.totalSum"
+                }
+              }
+            ]
+          },
+          {
+            "externalAPI": [
+              {
+                "path": "http://egov-mdms-service:8080/egov-mdms-service/v1/_get",
+                "queryParam": "moduleName=tenant&masterName=tenants&tenantId=od&filter=%5B?(@.code=='{$.tenantId}')%5D",
+                "apiRequest": null,
+                "responseMapping": [
+                  {
+                    "variable": "address",
+                    "value": "$.MdmsRes.tenant.tenants[0].address"
+                  },
+                  {
+                    "variable": "phoneNumber",
+                    "value": "$.MdmsRes.tenant.tenants[0].contactNumber"
+                  },
+                  {
+                    "variable": "website",
+                    "value": "$.MdmsRes.tenant.tenants[0].domainUrl"
+                  },
+                  {
+                    "variable": "email",
+                    "value": "$.MdmsRes.tenant.tenants[0].emailId"
+                  },
+                  {
+                    "variable": "logoImage",
+                    "value": "$.MdmsRes.tenant.tenants[0].logoId",
+                    "type": "image"
+                  },
+                  {
+                    "variable": "logo-header",
+                    "value": "$.MdmsRes.tenant.tenants[0].code",
+                    "localisation": {
+                      "required": true,
+                      "module": "rainmaker-common"
+                    }
+                  },
+                  {
+                    "variable": "subdivision",
+                    "value": "$.MdmsRes.tenant.tenants[0].city.ulbGrade",
+                    "localisation": {
+                      "required": true,
+                      "prefix": "COMMON_SUBDIVISION",
+                      "module": "rainmaker-common"
+                    }
+                  },
+                  {
+                    "variable": "cmImage",
+                    "value": "$.MdmsRes.tenant.tenants[0].cmImageId",
+                    "type": "image"
+                  },
+                  {
+                    "variable": "tLogoImage",
+                    "value": "$.MdmsRes.tenant.tenants[0].tLogoImageId",
+                    "type": "image"
+                  },
+                  {
+                    "variable": "schemImage",
+                    "value": "$.MdmsRes.tenant.tenants[0].schemImageId",
+                    "type": "image"
+                  },
+                  {
+                    "variable": "sealImage",
+                    "value": "$.MdmsRes.tenant.tenants[0].sealImageId",
+                    "type": "image"
+                  },
+                  {
+                    "variable": "districtName",
+                    "value": "$.MdmsRes.tenant.tenants[0].city.districtName"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
