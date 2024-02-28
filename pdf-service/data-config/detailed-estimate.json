@@ -1,0 +1,327 @@
+{
+  "key": "detailed-estimate",
+  "documentType":"ESTIMATE",
+  "DataConfigs": {
+    "moduleName": "rainmaker-common",
+    "version": "1.0.0",
+    "baseKeyPath": "$.pdfData",
+    "entityIdPath":"$.id",
+    "isCommonTableBorderRequired": true,
+    "mappings": [
+      {
+        "topic": "common-pdf-generation-3",
+        "mappings": [
+          {
+            "direct": [
+              {
+                "variable": "pdf_header",
+                "value": {
+                  "path": "$.tenantId"
+                },
+                "localisation": {
+                  "required": true,
+                  "prefix": "TENANT_TENANTS",
+                  "module": "rainmaker-od"
+                }
+              },
+              {
+                "variable": "DetailedEstimate",
+                "value": {
+                  "path": "ESTIMATE_DOC_DETAILED_ESTIMATE"
+                },
+                "type": "label",
+                "localisation":{
+                  "required":true,
+                  "prefix": null,
+                  "module":"rainmaker-estimate"
+                }
+              },
+
+              {
+                "variable": "ProjectID",
+                "value": {
+                  "path": "WORKS_PROJECT_ID"
+                },
+                "type": "label",
+                "localisation":{
+                  "required":true,
+                  "prefix": null,
+                  "module":"rainmaker-project"
+                }
+              },
+              {
+                "variable": "ProjectName",
+                "value": {
+                  "path": "WORKS_PROJECT_NAME"
+                },
+                "type": "label",
+                "localisation":{
+                  "required":true,
+                  "prefix": null,
+                  "module":"rainmaker-common"
+                }
+              },
+              {
+                "variable": "ProjectLocation",
+                "value": {
+                  "path": "MB_LOCATION"
+                },
+                "type": "label",
+                "localisation":{
+                  "required":true,
+                  "prefix": null,
+                  "module":"rainmaker-measurement"
+                }
+              },
+              {
+                "variable": "ProjectDescription",
+                "value": {
+                  "path": "MB_PROJECT_DESC"
+                },
+                "type": "label",
+                "localisation":{
+                  "required":true,
+                  "prefix": null,
+                  "module":"rainmaker-measurement"
+                }
+              },
+
+              {
+                "variable": "estimateId",
+                "value": {
+                  "path": "$.estimateNumber"
+                }
+              },
+              {
+                "variable": "projectId",
+                "value": {
+                  "path": "$.projectNumber"
+                }
+              },
+              {
+                "variable": "projectName",
+                "value": {
+                  "path": "$.projectName"
+                }
+              },
+
+              {
+                "variable": "locality",
+                "value": {
+                  "path": "$.locality"
+                }
+              },
+              {
+                "variable": "ward",
+                "value": {
+                  "path": "$.ward"
+                }
+              },
+              {
+                "variable": "city",
+                "value": {
+                  "path": "$.city"
+                }
+              },
+
+              {
+                "variable": "projectLocation",
+                "value": {
+                  "path": "$.projectLocation"
+                }
+              },
+              {
+                "variable": "projectDescription",
+                "value": {
+                  "path": "$.description"
+                }
+              },
+              {
+                "variable": "EstimateDetails",
+                "value": {
+                  "path": "WORKS_ESTIMATE_DETAILS"
+                },
+                "type": "label",
+                "localisation":{
+                  "required":true,
+                  "prefix": null,
+                  "module":"rainmaker-estimate"
+                }
+              },
+
+              {
+                "variable": "SNo",
+                "value": {
+                  "path": "WORKS_SNO"
+                },
+                "type": "label",
+                "localisation":{
+                  "required":true,
+                  "prefix": null,
+                  "module":"rainmaker-common"
+                }
+              },
+              {
+                "variable": "Description",
+                "value": {
+                  "path": "MB_DESCRIPTION"
+                },
+                "type": "label",
+                "localisation":{
+                  "required":true,
+                  "prefix": null,
+                  "module":"rainmaker-measurement"
+                }
+              },
+              {
+                "variable": "Unit",
+                "value": {
+                  "path": "MB_UNIT"
+                },
+                "type": "label",
+                "localisation":{
+                  "required":true,
+                  "prefix": null,
+                  "module":"rainmaker-measurement"
+                }
+              },
+              {
+                "variable": "Rate",
+                "value": {
+                  "path": "MB_RATE"
+                },
+                "type": "label",
+                "localisation":{
+                  "required":true,
+                  "prefix": null,
+                  "module":"rainmaker-measurement"
+                }
+              },
+              {
+                "variable": "EstimatedQuantity",
+                "value": {
+                  "path": "WORKS_ESTIMATED_QUANTITY"
+                },
+                "type": "label",
+                "localisation":{
+                  "required":true,
+                  "prefix": null,
+                  "module":"rainmaker-estimate"
+                }
+              },
+              {
+                "variable": "EstimatedAmount",
+                "value": {
+                  "path": "WORKS_ESTIMATED_AMOUNT"
+                },
+                "type": "label",
+                "localisation":{
+                  "required":true,
+                  "prefix": null,
+                  "module":"rainmaker-estimate"
+                }
+              },
+              {
+                "variable": "RevisedQuantity",
+                "value": {
+                  "path": "WORKS_REVISED_QTY"
+                },
+                "type": "label",
+                "localisation":{
+                  "required":true,
+                  "prefix": null,
+                  "module":"rainmaker-estimate"
+                }
+              },
+              {
+                "variable": "TotalEstimateAmount",
+                "value": {
+                  "path": "TOTAL_EST_AMOUNT"
+                },
+                "type": "label",
+                "localisation":{
+                  "required":true,
+                  "prefix": null,
+                  "module":"rainmaker-estimate"
+                }
+              },
+
+              {
+                "variable": "tableData",
+                "value": {
+                  "path": "$.estimateDetails"
+                },
+                "type":"function",
+                "format": "var y = [],\n    a = [],\n    estimateDetails = arguments[0];\n    Sno = 0;\n\nfunction rupeeFormat(amount) {\n    var flag = 0;\n    var count = 0;\n    var amount = amount.toString();\n    var len = amount.length;\n    var val = '';\n\n    for (var i = len - 1; i >= 0; i--) {\n        val = amount[i] + val;\n\n        if (amount[i] == '.') {\n            flag = 1;\n            count = -1;\n            val = amount.substring(i, len);\n        }\n\n        if (count % 2 == 0 && i != 0 && count != 0) {\n            val = ',' + val;\n        }\n\n        count += 1;\n    }\n\n    if (flag == 0) {\n        val += '.00';\n    }\n\n    return val;\n}\n\nfor (var i = 0; i < estimateDetails.length; i++) {\n    if (estimateDetails[i].category != 'OVERHEAD') {\n        var x = {\n            Sno: Sno + 1,\n            uom: estimateDetails[i].uom,\n            unitRate: estimateDetails[i].unitRate,\n            estimateDescription: estimateDetails[i].name,\n            estimatedQuantity: estimateDetails[i].estimatedQuantity,\n            estimatedAmount: rupeeFormat(estimateDetails[i].amount)\n        };\n        y.push(x);\n Sno++;    \n    }\n}\n\nreturn y;\n"
+              },
+              {
+                "variable": "charges",
+                "value": {
+                  "path": "$.estimateDetails"
+                },
+                "type":"function",
+                "format": "var a = [],\n c = [],\n    estimateDetails = arguments[0];\n\nfunction rupeeFormat(amount) {\n    var flag = 0;\n    var count = 0;\n    var amount = amount.toString();\n    var len = amount.length;\n    var val = '';\n\n    for (var i = len - 1; i >= 0; i--) {\n        val = amount[i] + val;\n\n        if (amount[i] == '.') {\n            flag = 1;\n            count = -1;\n            val = amount.substring(i, len);\n        }\n\n        if (count % 2 == 0 && i != 0 && count != 0) {\n            val = ',' + val;\n        }\n\n        count += 1;\n    }\n\n    if (flag == 0) {\n        val += '.00';\n    }\n\n    return val;\n}\n\nvar count = 0;\nfor (var i = 0; i < estimateDetails.length; i++) {\n    if (estimateDetails[i].category == 'OVERHEAD') {\n        var b = {\n            chargeDescription: estimateDetails[i].description,\n            percent: estimateDetails[i].additionalDetails.row.percentage,\n            charge: rupeeFormat(estimateDetails[i].amount)\n        };\n        a.push(b);\n        count++;\n    }\n    else{\n        var b = {\n            chargeDescription: 'Other Charges',\n            percent: '%',\n            charge: '0.00'\n        };\n        c.push(b);\n    }\n}\nif(count==0){\n    return c;\n}\nreturn a;\n"
+              },
+              {
+                "variable": "totalSum",
+                "value": {
+                  "path": "$.totalEstimatedAmount"
+                }
+              }
+            ]
+          },
+          {
+            "externalAPI": [
+              {
+                "path": "http://egov-mdms-service:8080/egov-mdms-service/v1/_get",
+                "queryParam": "moduleName=tenant&masterName=tenants&tenantId=od&filter=%5B?(@.code=='{$.tenantId}')%5D",
+                "apiRequest": null,
+                "responseMapping":[
+                  {
+                    "variable":"address",
+                    "value":"$.MdmsRes.tenant.tenants[0].address"
+                  },
+                  {
+                    "variable":"phoneNumber",
+                    "value":"$.MdmsRes.tenant.tenants[0].contactNumber"
+                  },
+                  {
+                    "variable":"website",
+                    "value":"$.MdmsRes.tenant.tenants[0].domainUrl"
+                  },
+                  {
+                    "variable":"email",
+                    "value":"$.MdmsRes.tenant.tenants[0].emailId"
+                  },
+                  {
+                    "variable": "logoImage",
+                    "value":"$.MdmsRes.tenant.tenants[0].logoId",
+                    "type":"image"
+                  },
+                  {
+                    "variable": "logo-header",
+                    "value":"$.MdmsRes.tenant.tenants[0].code",
+                    "localisation":{
+                      "required":true,
+                      "module":"rainmaker-common"
+                    }
+                  },
+                  {
+                    "variable": "subdivision",
+                    "value": "$.MdmsRes.tenant.tenants[0].city.ulbGrade",
+                    "localisation": {
+                      "required": true,
+                      "prefix": "COMMON_SUBDIVISION",
+                      "module": "rainmaker-common"
+                    }
+                  }
+                ]
+              }
+
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
