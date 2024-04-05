@@ -5,14 +5,14 @@ ServiceMaps:
    - topic: save-contract
      configKey: INDEX
      indexes:
-       - name: contract-inbox
+       - name: contract-inbox-test
          type: general
          id: $.id,$.tenantId
          jsonPath: $.contract
          timeStampField: $.auditDetails.createdTime
          isBulk: false
          customJsonMapping:
-           indexMapping: { "Data":{"id":"","tenantId":"","contractStatus":"","contractNumber":"","supplementNumber":"","versionNumber":"","oldUuid":"","businessService":"","executingAuthority":"","contractType":"","totalContractedAmount":"","securityDeposit":"","agreementDate":"","issueDate":"","defectLiabilityPeriod":"","orgId":"","startDate":"","endDate":"","completionPeriod":"","status":"","lineItems":[],"@timestamp":"timestamp","auditDetails":{},"additionalDetails":{},"currentProcessInstance":{},"history":{}}}
+           indexMapping: { "Data": {} }
            fieldMapping:
            - inJsonPath: $.id
              outJsonPath: $.Data.id
@@ -73,13 +73,13 @@ ServiceMaps:
    - topic: update-contract
      configKey: INDEX
      indexes:
-       - name: contract-inbox
+       - name: contract-inbox-test
          type: general
          id: $.id,$.tenantId
          jsonPath: $.contract
          timeStampField: $.auditDetails.createdTime
          customJsonMapping:
-           indexMapping: { "Data": { "id": "","tenantId": "","contractStatus":"","contractNumber": "","supplementNumber":"","versionNumber":"","oldUuid":"","businessService":"","executingAuthority": "","contractType": "","totalContractedAmount": "","securityDeposit": "","agreementDate": "","issueDate": "","defectLiabilityPeriod": "","orgId": "","startDate": "","endDate": "","completionPeriod": "","status": "","lineItems": [],"@timestamp": "timestamp","auditDetails": {},"additionalDetails": {},"currentProcessInstance": {},"history": {}}}
+           indexMapping: { "Data": { } }
            fieldMapping:
              - inJsonPath: $.id
                outJsonPath: $.Data.id
@@ -216,7 +216,7 @@ ServiceMaps:
          timeStampField: $.auditDetails.createdTime
          isBulk: false
          customJsonMapping:
-           indexMapping: { "Data":{"id":"","tenantId":"","contractStatus":"","contractNumber":"","executingAuthority":"","contractType":"","totalContractedAmount":"","securityDeposit":"","agreementDate":"","issueDate":"","defectLiabilityPeriod":"","orgId":"","startDate":"","endDate":"","completionPeriod":"","status":"","lineItems":[],"@timestamp":"timestamp","auditDetails":{},"additionalDetails":{},"currentProcessInstance":{},"history":{}}}
+           indexMapping: { "Data":{ }}
            fieldMapping:
            - inJsonPath: $.id
              outJsonPath: $.Data.id
