@@ -5,14 +5,13 @@ ServiceMaps:
     - topic: save-project
       configKey: INDEX
       indexes:
-        - name: project-index
+        - name: project-index-test
           type: general
           id: $.id,$.tenantId
           jsonPath: $.Projects.*
           isBulk: true
-          timeStampField: $.auditDetails.createdTime
           customJsonMapping:
-            indexMapping: { "Data":{"id":"","tenantId":"","projectNumber":"","name":"","projectType":"","projectSubType":"","department":"","description":"","referenceID":"","startDate":"","endDate":"","natureOfWork":"","isTaskEnabled":"","parent":"","projectHierarchy":"","additionalDetails":{},"isDeleted":"","rowVersion":"","address":{},"targets":[],"documents":[],"auditDetails":{}}}
+            indexMapping: { "Data":{}}
             fieldMapping:
               - inJsonPath: $.id
                 outJsonPath: $.Data.id
@@ -58,18 +57,18 @@ ServiceMaps:
                 outJsonPath: $.Data.documents
               - inJsonPath: $.auditDetails
                 outJsonPath: $.Data.auditDetails
+          timeStampField: $.auditDetails.createdTime
 
     - topic: update-project
       configKey: INDEX
       indexes:
-        - name: project-index
+        - name: project-index-test
           type: general
           id: $.id,$.tenantId
           jsonPath: $.Projects.*
           isBulk: true
-          timeStampField: $.auditDetails.createdTime
           customJsonMapping:
-            indexMapping: { "Data":{"id":"","tenantId":"","projectNumber":"","name":"","projectType":"","projectSubType":"","department":"","description":"","referenceID":"","startDate":"","endDate":"","natureOfWork":"","isTaskEnabled":"","parent":"","projectHierarchy":"","additionalDetails":{},"isDeleted":"","rowVersion":"","address":{},"targets":[],"documents":[],"auditDetails":{}}}
+            indexMapping: { "Data":{}}
             fieldMapping:
               - inJsonPath: $.id
                 outJsonPath: $.Data.id
@@ -115,18 +114,18 @@ ServiceMaps:
                 outJsonPath: $.Data.documents
               - inJsonPath: $.auditDetails
                 outJsonPath: $.Data.auditDetails
+          timeStampField: $.auditDetails.createdTime
 
     - topic: project-legacyIndex
       configKey: LEGACYINDEX
       indexes:
-        - name: project-index
+        - name: project-index-test
           type: general
           id: $.id,$.tenantId
           jsonPath: $.Projects.*
           isBulk: true
-          timeStampField: $.auditDetails.createdTime
           customJsonMapping:
-            indexMapping: { "Data":{"id":"","tenantId":"","projectNumber":"","name":"","projectType":"","projectSubType":"","department":"","description":"","referenceID":"","startDate":"","endDate":"","natureOfWork":"","isTaskEnabled":"","parent":"","projectHierarchy":"","additionalDetails":{},"isDeleted":"","rowVersion":"","address":{},"targets":[],"documents":[],"auditDetails":{}}}
+            indexMapping: { "Data":{}}
             fieldMapping:
               - inJsonPath: $.id
                 outJsonPath: $.Data.id
@@ -172,3 +171,4 @@ ServiceMaps:
                 outJsonPath: $.Data.documents
               - inJsonPath: $.auditDetails
                 outJsonPath: $.Data.auditDetails
+          timeStampField: $.auditDetails.createdTime
