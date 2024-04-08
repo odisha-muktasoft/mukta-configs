@@ -114,6 +114,8 @@ ServiceMaps:
                 outJsonPath: $.Data.documents
               - inJsonPath: $.auditDetails
                 outJsonPath: $.Data.auditDetails
+              - inJsonPath: $.@timestamp
+                outJsonPath: $.Data.@timestamp
           timeStampField: $.auditDetails.createdTime
 
     - topic: project-legacyIndex
@@ -171,4 +173,6 @@ ServiceMaps:
                 outJsonPath: $.Data.documents
               - inJsonPath: $.auditDetails
                 outJsonPath: $.Data.auditDetails
+              - inJsonPath: $.@timestamp
+                outJsonPath: $.Data.@timestamp
           timeStampField: $.auditDetails.createdTime
