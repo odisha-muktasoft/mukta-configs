@@ -12,7 +12,7 @@ ServiceMaps:
         timeStampField: $.auditDetails.createdTime
         isBulk: false
         customJsonMapping:
-          indexMapping: { "Data":{"id":"","tenantId":"","estimateNumber":"","revisionNumber":"","businessService":"","versionNumber":"","oldUuid":"","projectId":"","proposalDate":"","status":"","wfStatus":"","name":"","referenceNumber":"","description":"","executingDepartment":"","address":{},"estimateDetails":[],"@timestamp":"timestamp","auditDetails":{},"additionalDetails":{},"project":{},"currentProcessInstance":[],"history":{}}}
+          indexMapping: { "Data":{}}
           fieldMapping:
           - inJsonPath: $.id
             outJsonPath: $.Data.id
@@ -56,6 +56,8 @@ ServiceMaps:
             outJsonPath: $.Data.project
           - inJsonPath: $.ProcessInstances
             outJsonPath: $.Data.currentProcessInstance
+          - inJsonPath: $.@timestamp
+            outJsonPath: $.Data.@timestamp
           externalUriMapping:
           - path: http://egov-workflow-v2.egov:8080/egov-workflow-v2/egov-wf/process/_search
             queryParam: businessIds=$.estimateNumber,history=true,tenantId=$.tenantId
@@ -73,7 +75,7 @@ ServiceMaps:
         jsonPath: $.estimate
         timeStampField: $.auditDetails.createdTime
         customJsonMapping:
-          indexMapping: { "Data":{"id":"","tenantId":"","estimateNumber":"","revisionNumber":"","businessService":"","versionNumber":"","oldUuid":"","projectId":"","proposalDate":"","status":"","wfStatus":"","name":"","referenceNumber":"","description":"","executingDepartment":"","address":{},"estimateDetails":[],"@timestamp":"timestamp","auditDetails":{},"additionalDetails":{},"currentProcessInstance":{}, "history":{}}}
+          indexMapping: { "Data":{ }}
           fieldMapping:
           - inJsonPath: $.id
             outJsonPath: $.Data.id
@@ -115,6 +117,8 @@ ServiceMaps:
             outJsonPath: $.Data.auditDetails
           - inJsonPath: $.additionalDetails
             outJsonPath: $.Data.additionalDetails
+          - inJsonPath: $.@timestamp
+            outJsonPath: $.Data.@timestamp
           externalUriMapping:
           - path: http://egov-workflow-v2.egov:8080/egov-workflow-v2/egov-wf/process/_search
             queryParam: businessIds=$.estimateNumber,history=true,tenantId=$.tenantId
@@ -133,7 +137,7 @@ ServiceMaps:
         jsonPath: $.estimates.*
         timeStampField: $.auditDetails.createdTime
         customJsonMapping:
-          indexMapping: { "Data":{"id":"","tenantId":"","estimateNumber":"","revisionNumber":"","businessService":"","versionNumber":"","oldUuid":"","projectId":"","proposalDate":"","status":"","wfStatus":"","name":"","referenceNumber":"","description":"","executingDepartment":"","address":{},"estimateDetails":[],"@timestamp":"timestamp","auditDetails":{},"additionalDetails":{},"currentProcessInstance":{}, "history":{}}}
+          indexMapping: { "Data":{ }}
           fieldMapping:
           - inJsonPath: $.id
             outJsonPath: $.Data.id
@@ -173,6 +177,8 @@ ServiceMaps:
             outJsonPath: $.Data.auditDetails
           - inJsonPath: $.additionalDetails
             outJsonPath: $.Data.additionalDetails
+          - inJsonPath: $.@timestamp
+            outJsonPath: $.Data.@timestamp
           externalUriMapping:
           - path: http://egov-workflow-v2.egov:8080/egov-workflow-v2/egov-wf/process/_search
             queryParam: businessIds=$.estimateNumber,history=false,tenantId=$.tenantId
@@ -197,7 +203,7 @@ ServiceMaps:
         timeStampField: $.auditDetails.createdTime
         isBulk: false
         customJsonMapping:
-          indexMapping: { "Data":{"id":"","tenantId":"","estimateNumber":"","revisionNumber":"","businessService":"","versionNumber":"","oldUuid":"","projectId":"","proposalDate":"","status":"","wfStatus":"","name":"","referenceNumber":"","description":"","executingDepartment":"","address":{},"estimateDetails":[],"@timestamp":"timestamp","auditDetails":{},"additionalDetails":{},"project":{},"currentProcessInstance":[],"history":{}}}
+          indexMapping: { "Data":{ }}
           fieldMapping:
           - inJsonPath: $.id
             outJsonPath: $.Data.id
@@ -241,6 +247,8 @@ ServiceMaps:
             outJsonPath: $.Data.project
           - inJsonPath: $.ProcessInstances
             outJsonPath: $.Data.currentProcessInstance
+          - inJsonPath: $.@timestamp
+            outJsonPath: $.Data.@timestamp
           externalUriMapping:
           - path: http://egov-workflow-v2.egov:8080/egov-workflow-v2/egov-wf/process/_search
             queryParam: businessIds=$.estimateNumber,history=true,tenantId=$.tenantId
