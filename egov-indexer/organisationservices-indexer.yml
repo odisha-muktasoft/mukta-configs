@@ -12,7 +12,7 @@ ServiceMaps:
          isBulk: true
          timeStampField: $.auditDetails.createdTime
          customJsonMapping:
-           indexMapping: { "Data":{"id":"","tenantId":"","name":"","applicationNumber":"","orgNumber":"","applicationStatus":"","externalRefNumber":"","isActive":"","orgAddress":[],"contactDetails":[],"identifiers":[],"functions":[],"jurisdiction":[],"documents":[],"additionalDetails":{},"auditDetails":{}}}
+           indexMapping: { "Data":{}}
            fieldMapping:
            - inJsonPath: $.id
              outJsonPath: $.Data.id
@@ -46,6 +46,8 @@ ServiceMaps:
              outJsonPath: $.Data.additionalDetails
            - inJsonPath: $.auditDetails
              outJsonPath: $.Data.auditDetails
+           - inJsonPath: $.@timestamp
+             outJsonPath: $.Data.@timestamp
 
    - topic: update-org
      configKey: INDEX
@@ -57,7 +59,7 @@ ServiceMaps:
          isBulk: true
          timeStampField: $.auditDetails.createdTime
          customJsonMapping:
-           indexMapping: { "Data": { "id": "","tenantId": "","name": "","applicationNumber": "","orgNumber": "","applicationStatus": "","externalRefNumber": "","isActive": "","orgAddress": [ ],"contactDetails": [ ],"identifiers": [ ],"functions": [ ],"jurisdiction": [ ],"documents": [ ],"additionalDetails": { },"auditDetails": { } } }
+           indexMapping: { "Data": { } }
            fieldMapping:
              - inJsonPath: $.id
                outJsonPath: $.Data.id
@@ -91,6 +93,8 @@ ServiceMaps:
                outJsonPath: $.Data.additionalDetails
              - inJsonPath: $.auditDetails
                outJsonPath: $.Data.auditDetails
+             - inJsonPath: $.@timestamp
+               outJsonPath: $.Data.@timestamp
 
    - topic: org-legacyIndex
      configKey: LEGACYINDEX
@@ -102,7 +106,7 @@ ServiceMaps:
          isBulk: true
          timeStampField: $.auditDetails.createdTime
          customJsonMapping:
-           indexMapping: { "Data": { "id": "","tenantId": "","name": "","applicationNumber": "","orgNumber": "","applicationStatus": "","externalRefNumber": "","isActive": "","orgAddress": [ ],"contactDetails": [ ],"identifiers": [ ],"functions": [ ],"jurisdiction": [ ],"documents": [ ],"additionalDetails": { },"auditDetails": { } } }
+           indexMapping: { "Data": { } }
            fieldMapping:
              - inJsonPath: $.id
                outJsonPath: $.Data.id
@@ -136,3 +140,5 @@ ServiceMaps:
                outJsonPath: $.Data.additionalDetails
              - inJsonPath: $.auditDetails
                outJsonPath: $.Data.auditDetails
+             - inJsonPath: $.@timestamp
+               outJsonPath: $.Data.@timestamp

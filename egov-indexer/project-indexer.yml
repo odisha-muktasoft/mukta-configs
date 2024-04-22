@@ -12,7 +12,7 @@ ServiceMaps:
           isBulk: true
           timeStampField: $.auditDetails.createdTime
           customJsonMapping:
-            indexMapping: { "Data":{"id":"","tenantId":"","projectNumber":"","name":"","projectType":"","projectSubType":"","department":"","description":"","referenceID":"","startDate":"","endDate":"","natureOfWork":"","isTaskEnabled":"","parent":"","projectHierarchy":"","additionalDetails":{},"isDeleted":"","rowVersion":"","address":{},"targets":[],"documents":[],"auditDetails":{}}}
+            indexMapping: { "Data":{}}
             fieldMapping:
               - inJsonPath: $.id
                 outJsonPath: $.Data.id
@@ -58,6 +58,8 @@ ServiceMaps:
                 outJsonPath: $.Data.documents
               - inJsonPath: $.auditDetails
                 outJsonPath: $.Data.auditDetails
+              - inJsonPath: $.@timestamp
+                outJsonPath: $.Data.@timestamp
 
     - topic: update-project
       configKey: INDEX
@@ -69,7 +71,7 @@ ServiceMaps:
           isBulk: true
           timeStampField: $.auditDetails.createdTime
           customJsonMapping:
-            indexMapping: { "Data":{"id":"","tenantId":"","projectNumber":"","name":"","projectType":"","projectSubType":"","department":"","description":"","referenceID":"","startDate":"","endDate":"","natureOfWork":"","isTaskEnabled":"","parent":"","projectHierarchy":"","additionalDetails":{},"isDeleted":"","rowVersion":"","address":{},"targets":[],"documents":[],"auditDetails":{}}}
+            indexMapping: { "Data":{}}
             fieldMapping:
               - inJsonPath: $.id
                 outJsonPath: $.Data.id
@@ -115,6 +117,8 @@ ServiceMaps:
                 outJsonPath: $.Data.documents
               - inJsonPath: $.auditDetails
                 outJsonPath: $.Data.auditDetails
+              - inJsonPath: $.@timestamp
+                outJsonPath: $.Data.@timestamp
 
     - topic: project-legacyIndex
       configKey: LEGACYINDEX
@@ -126,7 +130,7 @@ ServiceMaps:
           isBulk: true
           timeStampField: $.auditDetails.createdTime
           customJsonMapping:
-            indexMapping: { "Data":{"id":"","tenantId":"","projectNumber":"","name":"","projectType":"","projectSubType":"","department":"","description":"","referenceID":"","startDate":"","endDate":"","natureOfWork":"","isTaskEnabled":"","parent":"","projectHierarchy":"","additionalDetails":{},"isDeleted":"","rowVersion":"","address":{},"targets":[],"documents":[],"auditDetails":{}}}
+            indexMapping: { "Data":{}}
             fieldMapping:
               - inJsonPath: $.id
                 outJsonPath: $.Data.id
@@ -172,3 +176,5 @@ ServiceMaps:
                 outJsonPath: $.Data.documents
               - inJsonPath: $.auditDetails
                 outJsonPath: $.Data.auditDetails
+              - inJsonPath: $.@timestamp
+                outJsonPath: $.Data.@timestamp
