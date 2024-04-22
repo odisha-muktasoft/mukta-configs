@@ -12,7 +12,7 @@ ServiceMaps:
          isBulk: false
          timeStampField: $.auditDetails.createdTime
          customJsonMapping:
-           indexMapping: { "Data":{"id":"","tenantId":"","billNumber":"","billDate":"","dueDate":"","totalAmount":"","totalPaidAmount":"","businessService":"","referenceId":"","fromPeriod":"","toPeriod":"","paymentStatus":"","status":"","payer":{},"billDetails":[],"additionalDetails":{},"auditDetails":{},"currentProcessInstance":{},"history":{}}}
+           indexMapping: { "Data":{ }}
            fieldMapping:
            - inJsonPath: $.id
              outJsonPath: $.Data.id
@@ -56,6 +56,8 @@ ServiceMaps:
              outJsonPath: $.Data.projectName  
            - inJsonPath: $.additionalDetails.orgName
              outJsonPath: $.Data.orgName
+           - inJsonPath: $.@timestamp
+             outJsonPath: $.Data.@timestamp
            externalUriMapping:
            - path: http://egov-workflow-v2.egov:8080/egov-workflow-v2/egov-wf/process/_search
              queryParam: businessIds=$.billNumber,history=true,tenantId=$.tenantId
@@ -76,7 +78,7 @@ ServiceMaps:
          isBulk: false
          timeStampField: $.auditDetails.createdTime
          customJsonMapping:
-           indexMapping: { "Data":{"id":"","tenantId":"","billNumber":"","billDate":"","dueDate":"","totalAmount":"","totalPaidAmount":"","businessService":"","referenceId":"","fromPeriod":"","toPeriod":"","paymentStatus":"","status":"","payer":{},"billDetails":[],"additionalDetails":{},"auditDetails":{},"currentProcessInstance":{},"history":{}}}
+           indexMapping: { "Data":{}}
            fieldMapping:
            - inJsonPath: $.id
              outJsonPath: $.Data.id
@@ -120,6 +122,8 @@ ServiceMaps:
              outJsonPath: $.Data.projectName  
            - inJsonPath: $.additionalDetails.orgName
              outJsonPath: $.Data.orgName
+           - inJsonPath: $.@timestamp
+             outJsonPath: $.Data.@timestamp
            externalUriMapping:
            - path: http://egov-workflow-v2.egov:8080/egov-workflow-v2/egov-wf/process/_search
              queryParam: businessIds=$.billNumber,history=true,tenantId=$.tenantId
@@ -140,7 +144,7 @@ ServiceMaps:
          isBulk: false
          timeStampField: $.auditDetails.createdTime
          customJsonMapping:
-           indexMapping: { "Data":{"id":"","tenantId":"","billNumber":"","billDate":"","dueDate":"","totalAmount":"","totalPaidAmount":"","businessService":"","referenceId":"","fromPeriod":"","toPeriod":"","paymentStatus":"","status":"","payer":{},"billDetails":[],"additionalDetails":{},"auditDetails":{},"history":{}}}
+           indexMapping: { "Data":{}}
            fieldMapping:
            - inJsonPath: $.id
              outJsonPath: $.Data.id
@@ -184,6 +188,8 @@ ServiceMaps:
              outJsonPath: $.Data.projectName  
            - inJsonPath: $.additionalDetails.orgName
              outJsonPath: $.Data.orgName
+           - inJsonPath: $.@timestamp
+             outJsonPath: $.Data.@timestamp
            externalUriMapping:
            - path: http://egov-workflow-v2.egov:8080/egov-workflow-v2/egov-wf/process/_search
              queryParam: businessIds=$.billNumber,history=true,tenantId=$.tenantId

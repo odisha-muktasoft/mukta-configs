@@ -12,7 +12,7 @@ ServiceMaps:
           timeStampField: $.auditDetails.createdTime
           isBulk: false
           customJsonMapping:
-            indexMapping: { "Data":{"id":"","tenantId":"","musterRollNumber":"","registerId":"","status":"","musterRollStatus":"","startDate":"","endDate":"","individualEntries":[],"referenceId":"","serviceCode":"","@timestamp":"timestamp","auditDetails":{},"additionalDetails":{},"currentProcessInstance":{},"history":{}}}
+            indexMapping: { "Data":{}}
             fieldMapping:
               - inJsonPath: $.id
                 outJsonPath: $.Data.id
@@ -42,6 +42,8 @@ ServiceMaps:
                 outJsonPath: $.Data.additionalDetails
               - inJsonPath: $.processInstance
                 outJsonPath: $.Data.currentProcessInstance
+              - inJsonPath: $.@timestamp
+                outJsonPath: $.Data.@timestamp
             externalUriMapping:
               - path: http://egov-workflow-v2.egov:8080/egov-workflow-v2/egov-wf/process/_search
                 queryParam: businessIds=$.musterRollNumber,history=true,tenantId=$.tenantId
@@ -60,7 +62,7 @@ ServiceMaps:
           jsonPath: $.musterRoll
           timeStampField: $.auditDetails.createdTime
           customJsonMapping:
-            indexMapping: { "Data": { "id": "","tenantId": "","musterRollNumber": "","registerId": "","status": "","musterRollStatus": "","startDate": "","endDate": "","individualEntries": [ ],"@timestamp": "timestamp","auditDetails": { },"additionalDetails": { },"currentProcessInstance": { },"history": { } } }
+            indexMapping: { "Data": { } }
             fieldMapping:
               - inJsonPath: $.id
                 outJsonPath: $.Data.id
@@ -90,6 +92,8 @@ ServiceMaps:
                 outJsonPath: $.Data.additionalDetails
               - inJsonPath: $.processInstance
                 outJsonPath: $.Data.currentProcessInstance
+              - inJsonPath: $.@timestamp
+                outJsonPath: $.Data.@timestamp
             externalUriMapping:
               - path: http://egov-workflow-v2.egov:8080/egov-workflow-v2/egov-wf/process/_search
                 queryParam: businessIds=$.musterRollNumber,history=true,tenantId=$.tenantId
@@ -108,7 +112,7 @@ ServiceMaps:
           jsonPath: $.musterRolls.*
           timeStampField: $.auditDetails.createdTime
           customJsonMapping:
-            indexMapping: { "Data": { "id": "","tenantId": "","musterRollNumber": "","registerId": "","status": "","musterRollStatus": "","startDate": "","endDate": "","individualEntries": [ ],"@timestamp": "timestamp","auditDetails": { },"additionalDetails": { },"currentProcessInstance": { },"history": { } } }
+            indexMapping: { "Data": { } }
             fieldMapping:
               - inJsonPath: $.id
                 outJsonPath: $.Data.id
@@ -138,6 +142,8 @@ ServiceMaps:
                 outJsonPath: $.Data.additionalDetails
               - inJsonPath: $.processInstance
                 outJsonPath: $.Data.currentProcessInstance
+              - inJsonPath: $.@timestamp
+                outJsonPath: $.Data.@timestamp
             externalUriMapping:
               - path: http://egov-workflow-v2.egov:8080/egov-workflow-v2/egov-wf/process/_search
                 queryParam: businessIds=$.musterRollNumber,history=true,tenantId=$.tenantId

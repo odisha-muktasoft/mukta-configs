@@ -12,7 +12,7 @@ ServiceMaps:
           isBulk: true
           timeStampField: $.measurement.auditDetails.createdTime
           customJsonMapping:
-            indexMapping: {"Data":{"id":"","tenantId":"","measurementNumber":"","physicalRefNumber":"","referenceId":"","entryDate":"","measures":[],"auditDetails":{},"additionalDetails":{},"contract":{}}}
+            indexMapping: {"Data":{}}
             fieldMapping:
               - inJsonPath: $.measurement.id
                 outJsonPath: $.Data.id
@@ -34,6 +34,8 @@ ServiceMaps:
                 outJsonPath: $.Data.additionalDetails
               - inJsonPath: $.contract
                 outJsonPath: $.Data.contract
+              - inJsonPath: $.@timestamp
+                outJsonPath: $.Data.@timestamp
             externalUriMapping:
               - path: http://egov-workflow-v2.egov:8080/egov-workflow-v2/egov-wf/process/_search
                 queryParam: businessIds=$.measurement.measurementNumber,history=true,tenantId=$.measurement.tenantId
