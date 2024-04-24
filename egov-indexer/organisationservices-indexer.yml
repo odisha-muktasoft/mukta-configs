@@ -91,8 +91,6 @@ ServiceMaps:
                outJsonPath: $.Data.documents
              - inJsonPath: $.additionalDetails
                outJsonPath: $.Data.additionalDetails
-             - inJsonPath: $.auditDetails
-               outJsonPath: $.Data.auditDetails
              - inJsonPath: $.auditDetails.lastModifiedTime
                outJsonPath: $.Data.auditDetails.lastModifiedTime
              - inJsonPath: $.auditDetails.lastModifiedBy
