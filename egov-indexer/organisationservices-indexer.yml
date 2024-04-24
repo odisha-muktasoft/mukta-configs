@@ -57,7 +57,7 @@ ServiceMaps:
          id: $.id,$.tenantId
          jsonPath: $.organisations.*
          isBulk: true
-         timeStampField: $.auditDetails.createdTime
+         timeStampField: $.auditDetails.lastModifiedTime
          customJsonMapping:
            indexMapping: { "Data": { } }
            fieldMapping:
