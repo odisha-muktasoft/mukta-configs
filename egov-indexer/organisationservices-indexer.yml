@@ -91,10 +91,10 @@ ServiceMaps:
                outJsonPath: $.Data.documents
              - inJsonPath: $.additionalDetails
                outJsonPath: $.Data.additionalDetails
-             - inJsonPath: $.auditDetails
-               outJsonPath: $.Data.auditDetails
-             - inJsonPath: $.@timestamp
-               outJsonPath: $.Data.@timestamp
+             - inJsonPath: $.auditDetails.lastModifiedTime
+               outJsonPath: $.Data.auditDetails.lastModifiedTime
+             - inJsonPath: $.auditDetails.lastModifiedBy
+               outJsonPath: $.Data.auditDetails.lastModifiedBy
 
    - topic: org-legacyIndex
      configKey: LEGACYINDEX
