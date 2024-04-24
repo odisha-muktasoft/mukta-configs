@@ -57,7 +57,7 @@ ServiceMaps:
          id: $.id,$.tenantId
          jsonPath: $.organisations.*
          isBulk: true
-         timeStampField: $.auditDetails.lastModifiedTime
+         timeStampField: $.auditDetails.createdTime
          customJsonMapping:
            indexMapping: { "Data": { } }
            fieldMapping:
@@ -93,10 +93,10 @@ ServiceMaps:
                outJsonPath: $.Data.additionalDetails
              - inJsonPath: $.auditDetails
                outJsonPath: $.Data.auditDetails
-             - inJsonPath: $.auditDetails.lastModifiedTime
-               outJsonPath: $.Data.auditDetails.lastModifiedTime
-             - inJsonPath: $.auditDetails.lastModifiedBy
-               outJsonPath: $.Data.auditDetails.lastModifiedBy
+             - inJsonPath: $.auditDetails
+               outJsonPath: $.Data.auditDetails
+             - inJsonPath: $.@timestamp
+               outJsonPath: $.Data.@timestamp
 
    - topic: org-legacyIndex
      configKey: LEGACYINDEX
