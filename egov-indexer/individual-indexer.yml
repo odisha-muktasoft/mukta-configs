@@ -126,10 +126,10 @@ ServiceMaps:
                 outJsonPath: $.Data.isDeleted
               - inJsonPath: $.rowVersion
                 outJsonPath: $.Data.rowVersion
-              - inJsonPath: $.auditDetails.lastModifiedTime
-                outJsonPath: $.Data.auditDetails.lastModifiedTime
-              - inJsonPath: $.auditDetails.lastModifiedBy
-                outJsonPath: $.Data.auditDetails.lastModifiedBy
+              - inJsonPath: $.auditDetails
+                outJsonPath: $.Data.auditDetails
+              - inJsonPath: $.@timestamp
+                outJsonPath: $.Data.@timestamp
     - topic: delete-individual-topic
       configKey: INDEX
       indexes:
