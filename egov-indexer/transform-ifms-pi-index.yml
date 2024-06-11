@@ -5,7 +5,7 @@ ServiceMaps:
     - topic: transformer-ifms-pi-index-topic
       configKey: INDEX
       indexes:
-        - name: transform-ifms-pi-index-test
+        - name: transform-ifms-pi-index
           type: general
           id: $.Data.id,$.Data.beneficiaryDetails.id,$.Data.beneficiaryDetails.beneficiaryId
           isBulk: false
