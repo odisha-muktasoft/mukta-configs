@@ -326,6 +326,18 @@
           },
           {
             "text": " "
+          },
+          {
+            "image": "{{cmImage}}",
+            "width": 200,
+            "height": 250,
+            "margin": [
+              0,
+              0,
+              10,
+              0
+            ],
+            "alignment": "right"
           }
         ]
       }
