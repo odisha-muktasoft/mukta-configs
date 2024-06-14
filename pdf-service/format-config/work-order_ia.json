@@ -16,19 +16,6 @@
           "body": [
             [
               {
-                "image": "{{tLogoImage}}",
-                "width": 60,
-                "height": 60,
-                "margin": [
-                  -300,
-                  0,
-                  0,
-                  0
-                ],
-                "alignment": "right",
-                "fillColor":"#f4f4f4"
-              },
-              {
                 "image": "{{schemImage}}",
                 "width": 60,
                 "height": 60,
