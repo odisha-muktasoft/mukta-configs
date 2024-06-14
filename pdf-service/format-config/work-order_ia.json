@@ -20,7 +20,7 @@
                 "width": 60,
                 "height": 60,
                 "margin": [
-                  -400,
+                  10,
                   0,
                   0,
                   0
@@ -35,7 +35,7 @@
                 "margin": [
                   10,
                   0,
-                  -50,
+                  0,
                   0
                 ],
                 "alignment": "right",
