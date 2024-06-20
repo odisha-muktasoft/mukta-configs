@@ -56,7 +56,7 @@
               {
                 "stack": [
                   {
-                    "text": "{{rateAnalysisType}} Analysis",
+                    "text": "{{rateAnalysisType}} {{ANALYSIS}}",
                     "style": {
                       "bold": true,
                       "fontSize": 18,
@@ -64,7 +64,7 @@
                     }
                   },
                   {
-                    "text": "Estimate: {{estimateNumber}}",
+                    "text": "{{WRK_ESTIMATE}} : {{estimateNumber}}",
                     "style": {
                       "fontSize": 14
                     }

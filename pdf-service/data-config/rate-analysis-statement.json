@@ -122,6 +122,30 @@
                }
               },
               {
+                "variable": "WRK_ESTIMATE",
+                "value": {
+                  "path": "WRK_ESTIMATE"
+                },
+                "type": "label",
+                "localisation":{
+                  "required":true,
+                  "prefix": null,
+                  "module":"rainmaker-estimate"
+               }
+              },
+              {
+                "variable": "ANALYSIS",
+                "value": {
+                  "path": "ANALYSIS"
+                },
+                "type": "label",
+                "localisation":{
+                  "required":true,
+                  "prefix": null,
+                  "module":"rainmaker-estimate"
+               }
+              },
+              {
                 "variable": "EstimateRate",
                 "value": {
                   "path": "CS_COMMON_RATE"
