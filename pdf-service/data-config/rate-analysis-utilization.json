@@ -4,7 +4,7 @@
   "DataConfigs": {
     "moduleName": "rainmaker-common",
     "version": "1.0.0",
-    "baseKeyPath": "$.AnalysisStatement.*",
+    "baseKeyPath": "$.data.*",
     "entityIdPath":"$.id",
     "isCommonTableBorderRequired": true,
     "mappings": [
@@ -112,19 +112,31 @@
                 "localisation":{
                   "required":true,
                   "prefix": null,
-                  "module":"rainmaker-estimate"
+                  "module":"rainmaker-statement"
                }
               },
               {
-                "variable": "UTILIZATION",
+                "variable": "WRK_UTILIZATION",
                 "value": {
-                  "path": "UTILIZATION"
+                  "path": "WRK_UTILIZATION"
                 },
                 "type": "label",
                 "localisation":{
                   "required":true,
                   "prefix": null,
-                  "module":"rainmaker-estimate"
+                  "module":"rainmaker-statement"
+               }
+              },
+              {
+                "variable": "WRK_DETAILS",
+                "value": {
+                  "path": "WRK_DETAILS"
+                },
+                "type": "label",
+                "localisation":{
+                  "required":true,
+                  "prefix": null,
+                  "module":"rainmaker-statement"
                }
               },
               {
@@ -154,37 +166,37 @@
               {
                 "variable": "EstimateQuantity",
                 "value": {
-                  "path": "WORKS_ESTIMATED_QUANTITY"
+                  "path": "WORKS_QUANTITY"
                 },
                 "type": "label",
                 "localisation":{
                   "required":true,
                   "prefix": null,
-                  "module":"rainmaker-estimate"
+                  "module":"rainmaker-statement"
                }
               },
               {
                 "variable": "EstimateAmount",
                 "value": {
-                  "path": "WORKS_ESTIMATED_AMOUNT"
+                  "path": "WORKS_AMOUNT"
                 },
                 "type": "label",
                 "localisation":{
                   "required":true,
                   "prefix": null,
-                  "module":"rainmaker-estimate"
+                  "module":"rainmaker-statement"
                }
               },
               {
                 "variable": "TotalEstimateAmount",
                 "value": {
-                  "path": "TOTAL_EST_AMOUNT"
+                  "path": "WRK_TOTAL"
                 },
                 "type": "label",
                 "localisation":{
                   "required":true,
                   "prefix": null,
-                  "module":"rainmaker-estimate"
+                  "module":"rainmaker-statement"
                }
               },
               {
@@ -253,7 +265,7 @@
             "externalAPI": [     
               { 
                 "path": "http://localhost:8089/egov-mdms-service/v1/_get",
-                "queryParam": "moduleName=tenant&masterName=tenants&tenantId=od&filter=%5B?(@.code=='{$.tenantId}')%5D",
+                "queryParam": "moduleName=tenant&masterName=tenants&tenantId=pg&filter=%5B?(@.code=='{$.tenantId}')%5D",
                   "apiRequest": null,
                   "responseMapping":[
                     {             
