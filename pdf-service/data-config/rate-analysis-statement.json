@@ -88,7 +88,7 @@
                 "localisation":{
                   "required":true,
                   "prefix": null,
-                  "module":"rainmaker-project"
+                  "module":"rainmaker-statement"
                }
               },
               {
@@ -130,7 +130,7 @@
                 "localisation":{
                   "required":true,
                   "prefix": null,
-                  "module":"rainmaker-estimate"
+                  "module":"rainmaker-statement"
                }
               },
               {
@@ -196,13 +196,13 @@
               {
                 "variable": "TotalEstimateAmount",
                 "value": {
-                  "path": "TOTAL_EST_AMOUNT"
+                  "path": "WRK_TOTAL"
                 },
                 "type": "label",
                 "localisation":{
                   "required":true,
                   "prefix": null,
-                  "module":"rainmaker-estimate"
+                  "module":"rainmaker-statement"
                }
               },
               {
