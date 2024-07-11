@@ -1,6 +1,9 @@
 {
   "key": "utilization-statement",
   "config": {
+    "defaultStyle": {
+      "font": "Cambay"
+    },
     "pageSize": "A4",
     "pageOrientation": "portrait",
     "content": [
