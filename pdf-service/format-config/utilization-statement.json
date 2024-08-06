@@ -69,7 +69,7 @@
                   {
                     "text": "{{WRK_MB_NO}} : {{measurementBookNumber}}",
                     "style": {
-                      "fontSize": 14
+                      "fontSize": 11
                     }
                   }
                 ],
@@ -89,7 +89,7 @@
       },
       {
         "margin": [
-          0,
+          -15,
           10,
           0,
           10
@@ -211,7 +211,6 @@
               {
                 "text": "{{TotalEstimateAmount}}",
                 "colSpan": 5,
-                "style": "table_last_row",
                 "alignment":"right",
                 "margin": [
                   300,
@@ -227,7 +226,6 @@
               {
                 "text": "{{totalSum}}",
                 "colSpan": 1,
-                "style": "table_last_row",
                 "alignment": "right",
                 "margin": [
                   0,
