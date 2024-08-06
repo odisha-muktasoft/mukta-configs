@@ -62,14 +62,14 @@
                     "text": "{{rateAnalysisType}} {{UTILIZATION}}",
                     "style": {
                       "bold": true,
-                      "fontSize": 18,
+                      "fontSize": 14,
                       "color": "#5f5f5f"
                     }
                   },
                   {
                     "text": "{{WRK_MB_NO}} : {{measurementBookNumber}}",
                     "style": {
-                      "fontSize": 14
+                      "fontSize": 11
                     }
                   }
                 ],
@@ -89,10 +89,10 @@
       },
       {
         "margin": [
+          -15,
+          10,
           0,
-          20,
-          0,
-          20
+          10
         ],
         "table": {
           "widths": [
@@ -103,45 +103,45 @@
             [
               {
                 "text": "{{ProjectID}}",
-                "fontSize": 15,
+                "fontSize": 12,
                 "bold": true
               },
               {
                 "text": "{{projectId}}",
-                "fontSize": 15
+                "fontSize": 12
               }
             ],
             [
               {
                 "text": "{{ProjectName}}",
-                "fontSize": 15,
+                "fontSize": 12,
                 "bold": true
               },
               {
                 "text": "{{projectName}}",
-                "fontSize": 15
+                "fontSize": 12
               }
             ],
             [
               {
                 "text": "{{ProjectLocation}}",
-                "fontSize": 15,
+                "fontSize": 12,
                 "bold": true
               },
               {
                 "text": "{{locality}} , {{ward}} , {{city}}",
-                "fontSize": 15
+                "fontSize": 12
               }
             ],
             [
               {
                 "text": "{{ProjectDescription}}",
-                "fontSize": 15,
+                "fontSize": 12,
                 "bold": true
               },
               {
                 "text": "{{projectDescription}}",
-                "fontSize": 15
+                "fontSize": 12
               }
             ]
           ]
@@ -149,6 +149,12 @@
         "layout": "noBorders"
       },
       {
+        "margin": [
+          -20,
+          0,
+          20,
+          0
+        ],
         "text": "{{rateAnalysisType}} {{WRK_DETAILS}}",
         "style": "header"
       },
@@ -205,7 +211,6 @@
               {
                 "text": "{{TotalEstimateAmount}}",
                 "colSpan": 5,
-                "style": "table_last_row",
                 "alignment":"right",
                 "margin": [
                   300,
@@ -221,7 +226,6 @@
               {
                 "text": "{{totalSum}}",
                 "colSpan": 1,
-                "style": "table_last_row",
                 "alignment": "right",
                 "margin": [
                   0,
