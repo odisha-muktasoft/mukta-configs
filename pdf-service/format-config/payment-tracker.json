@@ -187,6 +187,22 @@
             ],
             [
               {
+                "text": "Project Location",
+                "style": {
+                  "bold": true
+                },
+                "fontSyze": 10
+              },
+              {
+                "text": ""
+              },
+              {
+                "text": "{{locality}}, {{ward}}, {{city}}",
+                "fontSyze": 10
+              }
+            ],
+            [
+              {
                 "text": "{{project_description}}",
                 "style": {
                   "bold": true
@@ -348,7 +364,7 @@
                 "text": ""
               },
               {
-                "text": "11111",
+                "text": "{{failedPaymentAmount}}",
                 "fontSyze": 10
               }
             ]
@@ -451,7 +467,27 @@
               "fontSize": 9
             }
           ],
-            "{{#tableData}}[{\"text\":\"{{billNumber}}\",\"alignment\":\"left\",\"fontSize\":9},{\"text\":\"{{billAmount}}\",\"alignment\":\"right\",\"fontSize\":9},{\"text\":\"{{paymentDate}}\",\"alignment\":\"right\",\"fontSize\":9},{\"text\":\"{{paymentStatus}}\",\"alignment\":\"right\",\"fontSize\":9},{\"text\":\"{{paymentFailed}}\",\"alignment\":\"right\",\"fontSize\":9},{\"text\":\"{{paymentSuccessful}}\",\"alignment\":\"right\",\"fontSize\":9}]{{/tableData}}"
+            "{{#tableData}}[{\"text\":\"{{billNumber}}\",\"alignment\":\"left\",\"fontSize\":9},{\"text\":\"{{billAmount}}\",\"alignment\":\"right\",\"fontSize\":9},{\"text\":\"{{paymentDate}}\",\"alignment\":\"right\",\"fontSize\":9},{\"text\":\"{{paymentStatus}}\",\"alignment\":\"right\",\"fontSize\":9},{\"text\":\"{{paymentFailed}}\",\"alignment\":\"right\",\"fontSize\":9},{\"text\":\"{{paymentSuccessful}}\",\"alignment\":\"right\",\"fontSize\":9}]{{/tableData}}",
+
+            [
+              {
+                "text": "Total",
+                "bold": true,
+                "colSpan": 5,
+                "alignment": "right",
+                "fontSize": 10
+              },
+              {},
+              {},
+              {},
+              {},
+              {
+                "text": "{{total}}",
+                "alignment": "right",
+                "bold": true,
+                "colSpan": 1
+              }
+            ]
           ]
         },
         "layout": {
