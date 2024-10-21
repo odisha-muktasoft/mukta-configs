@@ -14,6 +14,17 @@
           {
             "direct": [
               {
+                "variable": "pdf_header",
+                "value": {
+                  "path": "$.tenantId"
+                },
+                "localisation": {
+                  "required": true,
+                  "prefix": "TENANT_TENANTS",
+                  "module": "rainmaker-od"
+                }
+              },
+              {
                 "variable": "project_details",
                 "value": {
                   "path": "WORKS_PROJECT_DETAILS"

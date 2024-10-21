@@ -96,7 +96,7 @@
                 "margin": [
                   -50,
                   10,
-                  0,
+                  20,
                   0
                 ]
               }
@@ -494,6 +494,12 @@
           "hLineColor": "#D6D5D4",
           "vLineColor": "#D6D5D4"
         }
+      },
+      {
+        "text": "This is a computer-generated document. No signature is required.",
+        "alignment": "center",
+        "margin": [0, 50, 0, 20],
+        "fontSize": 9
       }
     ],
     "styles": {
