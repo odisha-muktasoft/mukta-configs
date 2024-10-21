@@ -119,7 +119,7 @@
               {
                 "stack": [
                   {
-                    "text": "{{project_details}}",
+                    "text": "Project Details",
                     "style": {
                       "bold": true,
                       "fontSize": 17
@@ -171,7 +171,7 @@
             ],
             [
               {
-                "text": "{{project_name}}",
+                "text": "Project Name",
                 "style": {
                   "bold": true
                 },
@@ -203,7 +203,7 @@
             ],
             [
               {
-                "text": "{{project_description}}",
+                "text": "Project Description",
                 "style": {
                   "bold": true
                 },
