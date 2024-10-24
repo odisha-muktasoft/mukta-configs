@@ -2,7 +2,7 @@
   "key": "payment-tracker",
   "documentType": "PROJECT-DETAILS",
   "DataConfigs": {
-    "moduleName": "rainmaker-project",
+    "moduleName": "rainmaker-expenditure",
     "version": "1.0.0",
     "baseKeyPath": "$.Projects.*",
     "entityIdPath": "$.id",
