@@ -322,7 +322,7 @@
           {
             "externalAPI": [
               {
-                "path": "http://egov-mdms-service:8080/egov-mdms-service/v1/_get",
+                "path": "http://mukta-services.works:8080/mukta-services/mdmsV1/_get/_search",
                 "queryParam": "moduleName=tenant&masterName=tenants&tenantId=od&filter=%5B?(@.code=='{$.tenantId}')%5D",
                 "apiRequest": null,
                 "responseMapping": [
