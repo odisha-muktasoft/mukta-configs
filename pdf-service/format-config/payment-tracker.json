@@ -171,7 +171,7 @@
             ],
             [
               {
-                "text": "Project Name",
+                "text": "{{project_name}}",
                 "style": {
                   "bold": true
                 },
@@ -197,7 +197,7 @@
                 "text": ""
               },
               {
-                "text": "{{locality}}, {{ward}}, {{city}}",
+                "text": "{{ward}}, {{locality}}, {{city}}",
                 "fontSyze": 10
               }
             ],
