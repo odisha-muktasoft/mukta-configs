@@ -265,7 +265,7 @@
                 }
               },
               {
-                "variable": "total",
+                "variable": "total_sum",
                 "value": {
                   "path": "TOTAL"
                 },

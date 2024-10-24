@@ -471,7 +471,7 @@
 
             [
               {
-                "text": "{{total}}",
+                "text": "{{total_sum}}",
                 "bold": true,
                 "colSpan": 5,
                 "alignment": "right",
