@@ -56,7 +56,7 @@
               {
                 "stack": [
                   {
-                    "text": "Payment Summary",
+                    "text": "{{payment_summary}}",
                     "style": {
                       "bold": true,
                       "fontSize": 16,
@@ -78,7 +78,7 @@
                     ]
                   },
                   {
-                    "text": "As On Date: {{asOnDate}}",
+                    "text": "{{as_on_date}}: {{asOnDate}}",
                     "style": {
                       "bold": true,
                       "fontSize": 12,
@@ -119,7 +119,7 @@
               {
                 "stack": [
                   {
-                    "text": "Project Details",
+                    "text": "{{project_details}}",
                     "style": {
                       "bold": true,
                       "fontSize": 17
@@ -187,7 +187,7 @@
             ],
             [
               {
-                "text": "Project Location",
+                "text": "{{project_location}}",
                 "style": {
                   "bold": true
                 },
@@ -203,7 +203,7 @@
             ],
             [
               {
-                "text": "Project Description",
+                "text": "{{project_description}}",
                 "style": {
                   "bold": true
                 },
@@ -236,7 +236,7 @@
               {
                 "stack": [
                   {
-                    "text": "Head-wise breakup",
+                    "text": "{{head_wise_breakup}}",
                     "style": {
                       "bold": true,
                       "fontSize": 17
@@ -288,7 +288,7 @@
             ],
             [
               {
-                "text": "Estimate amount (₹)",
+                "text": "{{estimated_amount}}",
                 "style": {
                   "bold": true
                 },
@@ -304,7 +304,7 @@
             ],
             [
               {
-                "text": "Wage amount paid (₹)",
+                "text": "{{wage_amount_paid}}",
                 "style": {
                   "bold": true
                 },
@@ -321,7 +321,7 @@
             ],
             [
               {
-                "text": "Purchase amount paid (₹)",
+                "text": "{{purchase_amount_paid}}",
                 "style": {
                   "bold": true
                 },
@@ -337,7 +337,7 @@
             ],
             [
               {
-                "text": "Supervision amount paid (₹)",
+                "text": "{{supervision_amount_paid}}",
                 "style": {
                   "bold": true
                 },
@@ -354,7 +354,7 @@
             ],
             [
               {
-                "text": "Failed payment amount (₹)",
+                "text": "{{failed_amount_paid}}",
                 "style": {
                   "bold": true
                 },
@@ -386,7 +386,7 @@
               {
                 "stack": [
                   {
-                    "text": "Payment Details",
+                    "text": "{{payment_details}}",
                     "style": {
                       "bold": true,
                       "fontSize": 17
@@ -424,7 +424,7 @@
           ],
           "body": [[
             {
-              "text": "Bill number",
+              "text": "{{bill_number}}",
               "alignment": "left",
               "height": "auto",
               "bold": true,
@@ -432,35 +432,35 @@
               "fontSize": 9
             },
             {
-              "text": "Bill amount (₹)",
+              "text": "{{bill_amount}}",
               "alignment": "right",
               "bold": true,
               "fillColor": "#efefef",
               "fontSize": 9
             },
             {
-              "text": "Payment date",
+              "text": "{{payment_date}}",
               "alignment": "right",
               "bold": true,
               "fillColor": "#efefef",
               "fontSize": 9
             },
             {
-              "text": "Payment status",
+              "text": "{{payment_status}}",
               "alignment": "centre",
               "bold": true,
               "fillColor": "#efefef",
               "fontSize": 9
             },
             {
-              "text": "Payment failed(₹)",
+              "text": "{{payment_failed_rs}}",
               "alignment": "right",
               "bold": true,
               "fillColor": "#efefef",
               "fontSize": 9
             },
             {
-              "text": "Payment successful(₹)",
+              "text": "{{payment_successful_rs}}",
               "alignment": "right",
               "bold": true,
               "fillColor": "#efefef",
@@ -471,7 +471,7 @@
 
             [
               {
-                "text": "Total",
+                "text": "{{total}}",
                 "bold": true,
                 "colSpan": 5,
                 "alignment": "right",

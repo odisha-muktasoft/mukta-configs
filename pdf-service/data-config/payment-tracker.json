@@ -25,15 +25,39 @@
                 }
               },
               {
-                "variable": "project_details",
+                "variable": "payment_summary",
                 "value": {
-                  "path": "WORKS_PROJECT_DETAILS"
+                  "path": "EXP_PAYMENT_SUMMARY"
                 },
                 "type": "label",
                 "localisation": {
                   "required": true,
                   "prefix": null,
-                  "module": "rainmaker-project"
+                  "module": "rainmaker-expenditure"
+                }
+              },
+              {
+                "variable": "as_on_date",
+                "value": {
+                  "path": "EXP_AS_ON_DATE"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "rainmaker-expenditure"
+                }
+              },
+              {
+                "variable": "project_details",
+                "value": {
+                  "path": "EXP_PROJECT_DETAILS"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "rainmaker-expenditure"
                 }
               },
               {
@@ -61,15 +85,195 @@
                 }
               },
               {
+                "variable": "project_location",
+                "value": {
+                  "path": "PROJECT_LOCATION"
+                },
+                "type": "label",
+                "localisation":{
+                  "required":true,
+                  "prefix": null,
+                  "module":"rainmaker-expenditure"
+                }
+              },
+              {
                 "variable": "project_description",
                 "value": {
-                  "path": "PROJECT_PROJECT_DESC"
+                  "path": "PROJECT_DESCRIPTION"
                 },
                 "type": "label",
                 "localisation": {
                   "required": true,
                   "prefix": null,
-                  "module": "rainmaker-project"
+                  "module": "rainmaker-expenditure"
+                }
+              },
+              {
+                "variable": "head_wise_breakup",
+                "value": {
+                  "path": "HEAD_WISE_BREAKUP"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "rainmaker-expenditure"
+                }
+              },
+              {
+                "variable": "estimated_amount",
+                "value": {
+                  "path": "ESTMATED_AMOUNT"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "rainmaker-expenditure"
+                }
+              },
+              {
+                "variable": "wage_amount_paid",
+                "value": {
+                  "path": "WAGE_AMOUNT_PAID"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "rainmaker-expenditure"
+                }
+              },
+              {
+                "variable": "purchase_amount_paid",
+                "value": {
+                  "path": "PURCHASE_AMOUNT_PAID"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "rainmaker-expenditure"
+                }
+              },
+              {
+                "variable": "supervision_amount_paid",
+                "value": {
+                  "path": "SUPERVISION_AMOUNT_PAID"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "rainmaker-expenditure"
+                }
+              },
+              {
+                "variable": "failed_amount_paid",
+                "value": {
+                  "path": "FAILED_PAYMENT_AMOUNT"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "rainmaker-expenditure"
+                }
+              },
+              {
+                "variable": "payment_details",
+                "value": {
+                  "path": "PAYMENT_DETAILS"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "rainmaker-expenditure"
+                }
+              },
+              {
+                "variable": "bill_number",
+                "value": {
+                  "path": "WORKS_BILL_NUMBER"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "rainmaker-expenditure"
+                }
+              },
+              {
+                "variable": "bill_amount",
+                "value": {
+                  "path": "BILL_AMOUNT_RS"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "rainmaker-expenditure"
+                }
+              },
+              {
+                "variable": "payment_date",
+                "value": {
+                  "path": "EXP_PAYMENT_DATE"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "rainmaker-expenditure"
+                }
+              },
+              {
+                "variable": "payment_status",
+                "value": {
+                  "path": "PI_STATUS"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "rainmaker-expenditure"
+                }
+              },
+              {
+                "variable": "payment_failed_rs",
+                "value": {
+                  "path": "PAYMENT_FAILED_RS"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "rainmaker-expenditure"
+                }
+              },
+              {
+                "variable": "payment_successful_rs",
+                "value": {
+                  "path": "PAYMENT_SUCCESSFUL_RS"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "rainmaker-expenditure"
+                }
+              },
+              {
+                "variable": "total",
+                "value": {
+                  "path": "TOTAL"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "rainmaker-expenditure"
                 }
               },
               {
