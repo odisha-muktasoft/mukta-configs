@@ -285,13 +285,13 @@
               {
                 "variable": "locality",
                 "value": {
-                  "path": "$.address.boundary"
+                  "path": "$.additionalDetails.locality"
                 }
               },
               {
                 "variable": "ward",
                 "value": {
-                  "path": "$.address.boundaryType"
+                  "path": "$.address.boundary"
                 }
               },
               {

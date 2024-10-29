@@ -197,7 +197,7 @@
                 "text": ""
               },
               {
-                "text": "{{ward}}, {{locality}}, {{city}}",
+                "text": "{{locality}}, {{ward}}, {{city}}",
                 "fontSyze": 10
               }
             ],
