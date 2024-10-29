@@ -153,7 +153,7 @@
               },
               {
                 "fontSize": 12,
-                "text": " {{cbo}} SHG/SDA, Ward {{wardName}}, Place {{localityName}}, {{ulb_name_and_address}} District {{districtName}} is awarded with the work {{projectName}} for the financial year {{financialYearPeriod}} as Implementation Agency under Mukhya Mantri Karma Tatpara Abhiyan (MUKTA). The estimated cost of this project is Rs.{{totalContractedAmount}}, which includes GST, Royalty, (CESS) etc. The following terms and conditions will be followed as mentioned in the next page."
+                "text": " {{cbo}} SHG/SDA, {{wardName}}, Place {{localityName}}, {{ulb_name_and_address}} District {{districtName}} is awarded with the work {{projectName}} for the financial year {{financialYearPeriod}} as Implementation Agency under Mukhya Mantri Karma Tatpara Abhiyan (MUKTA). The estimated cost of this project is Rs.{{totalContractedAmount}}, which includes GST, Royalty, (CESS) etc. The following terms and conditions will be followed as mentioned in the next page."
               }
             ]
           }
