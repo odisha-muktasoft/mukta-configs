@@ -15,7 +15,7 @@
     },
      "BusinessServices": [
      {
-       "tenantId": "pg",
+       "tenantId": "od",
        "businessService": "MB",
        "business": "measurement-book-service",
        "businessServiceSla": 432000000,

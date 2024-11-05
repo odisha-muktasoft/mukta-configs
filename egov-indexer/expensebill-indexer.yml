@@ -12,7 +12,7 @@ ServiceMaps:
          isBulk: false
          timeStampField: $.auditDetails.createdTime
          customJsonMapping:
-           indexMapping: { "Data":{}}
+           indexMapping: { "Data":{ }}
            fieldMapping:
            - inJsonPath: $.id
              outJsonPath: $.Data.id

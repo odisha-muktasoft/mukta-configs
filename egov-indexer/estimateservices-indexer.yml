@@ -75,14 +75,12 @@ ServiceMaps:
         jsonPath: $.estimate
         timeStampField: $.auditDetails.createdTime
         customJsonMapping:
-          indexMapping: { "Data":{ }}
+          indexMapping: { "Data":{}}
           fieldMapping:
           - inJsonPath: $.id
             outJsonPath: $.Data.id
           - inJsonPath: $.tenantId
             outJsonPath: $.Data.tenantId
-          - inJsonPath: $.estimateNumber
-            outJsonPath: $.Data.estimateNumber
           - inJsonPath: $.estimateNumber
             outJsonPath: $.Data.estimateNumber
           - inJsonPath: $.revisionNumber
@@ -137,7 +135,7 @@ ServiceMaps:
         jsonPath: $.estimates.*
         timeStampField: $.auditDetails.createdTime
         customJsonMapping:
-          indexMapping: { "Data":{ }}
+          indexMapping: { "Data":{}}
           fieldMapping:
           - inJsonPath: $.id
             outJsonPath: $.Data.id
@@ -203,7 +201,7 @@ ServiceMaps:
         timeStampField: $.auditDetails.createdTime
         isBulk: false
         customJsonMapping:
-          indexMapping: { "Data":{ }}
+          indexMapping: { "Data":{}}
           fieldMapping:
           - inJsonPath: $.id
             outJsonPath: $.Data.id
