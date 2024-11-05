@@ -192,3 +192,5 @@ ServiceMaps:
                 outJsonPath: $.Data.rowVersion
               - inJsonPath: $.auditDetails
                 outJsonPath: $.Data.auditDetails
+              - inJsonPath: $.@timestamp
+                outJsonPath: $.Data.@timestamp

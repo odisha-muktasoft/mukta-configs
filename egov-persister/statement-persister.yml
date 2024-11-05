@@ -161,4 +161,9 @@ serviceMaps:
         dbType: JSONB  
       - jsonPath: $.statement.auditDetails.lastModifiedBy
 
-      - jsonPath: $.statement.auditDetails.lastModifiedTime
+      - jsonPath: $.statement.auditDetails.lastModifiedTime  
+
+
+        
+        
+

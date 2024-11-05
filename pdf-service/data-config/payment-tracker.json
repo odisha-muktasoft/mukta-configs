@@ -1,8 +1,8 @@
 {
-  "key": "project-detail",
+  "key": "payment-tracker",
   "documentType": "PROJECT-DETAILS",
   "DataConfigs": {
-    "moduleName": "rainmaker-project",
+    "moduleName": "rainmaker-expenditure",
     "version": "1.0.0",
     "baseKeyPath": "$.Projects.*",
     "entityIdPath": "$.id",
@@ -25,15 +25,39 @@
                 }
               },
               {
-                "variable": "minucipality",
+                "variable": "payment_summary",
                 "value": {
-                  "path": "MINUCIPALITY"
+                  "path": "EXP_PAYMENT_SUMMARY"
                 },
                 "type": "label",
                 "localisation": {
                   "required": true,
                   "prefix": null,
-                  "module": "rainmaker-common"
+                  "module": "rainmaker-expenditure"
+                }
+              },
+              {
+                "variable": "as_on_date",
+                "value": {
+                  "path": "EXP_AS_ON_DATE"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "rainmaker-expenditure"
+                }
+              },
+              {
+                "variable": "project_details",
+                "value": {
+                  "path": "EXP_PROJECT_DETAILS"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "rainmaker-expenditure"
                 }
               },
               {
@@ -43,180 +67,214 @@
                 }
               },
               {
-                "variable": "date_of_proposal",
+                "variable": "asOnDate",
                 "value": {
-                  "path": "WORKS_DATE_PROPOSAL"
-                },
-                "type": "label",
-                "localisation": {
-                  "required": true,
-                  "prefix": null,
-                  "module": "rainmaker-project"
+                  "path": "$.date"
                 }
               },
               {
                 "variable": "project_name",
                 "value": {
-                  "path": "ES_COMMON_PROJECT_NAME"
+                  "path": "PROJECT_NAME_SIMPLE"
                 },
                 "type": "label",
                 "localisation": {
                   "required": true,
                   "prefix": null,
-                  "module": "rainmaker-common"
+                  "module": "rainmaker-expenditure"
+                }
+              },
+              {
+                "variable": "project_location",
+                "value": {
+                  "path": "PROJECT_LOCATION"
+                },
+                "type": "label",
+                "localisation":{
+                  "required":true,
+                  "prefix": null,
+                  "module":"rainmaker-expenditure"
                 }
               },
               {
                 "variable": "project_description",
                 "value": {
-                  "path": "PROJECT_PROJECT_DESC"
+                  "path": "PROJECT_DESCRIPTION"
                 },
                 "type": "label",
                 "localisation": {
                   "required": true,
                   "prefix": null,
-                  "module": "rainmaker-project"
+                  "module": "rainmaker-expenditure"
                 }
               },
               {
-                "variable": "project_details",
+                "variable": "head_wise_breakup",
                 "value": {
-                  "path": "WORKS_PROJECT_DETAILS"
+                  "path": "HEAD_WISE_BREAKUP"
                 },
                 "type": "label",
                 "localisation": {
                   "required": true,
                   "prefix": null,
-                  "module": "rainmaker-project"
+                  "module": "rainmaker-expenditure"
                 }
               },
               {
-                "variable": "work_details",
+                "variable": "estimated_amount",
                 "value": {
-                  "path": "WORKS_WORK_DETAILS"
+                  "path": "ESTMATED_AMOUNT"
                 },
                 "type": "label",
                 "localisation": {
                   "required": true,
                   "prefix": null,
-                  "module": "rainmaker-common"
+                  "module": "rainmaker-expenditure"
                 }
               },
               {
-                "variable": "letter_reference_or_requirement_number",
+                "variable": "wage_amount_paid",
                 "value": {
-                  "path": "PROJECT_LOR"
+                  "path": "WAGE_AMOUNT_PAID"
                 },
                 "type": "label",
                 "localisation": {
                   "required": true,
                   "prefix": null,
-                  "module": "rainmaker-project"
+                  "module": "rainmaker-expenditure"
                 }
               },
               {
-                "variable": "project_type",
+                "variable": "purchase_amount_paid",
                 "value": {
-                  "path": "WORKS_PROJECT_TYPE"
+                  "path": "PURCHASE_AMOUNT_PAID"
                 },
                 "type": "label",
                 "localisation": {
                   "required": true,
                   "prefix": null,
-                  "module": "rainmaker-project"
+                  "module": "rainmaker-expenditure"
                 }
               },
               {
-                "variable": "target_demography",
+                "variable": "supervision_amount_paid",
                 "value": {
-                  "path": "PROJECT_TARGET_DEMOGRAPHY"
+                  "path": "SUPERVISION_AMOUNT_PAID"
                 },
                 "type": "label",
                 "localisation": {
                   "required": true,
                   "prefix": null,
-                  "module": "rainmaker-project"
+                  "module": "rainmaker-expenditure"
                 }
               },
               {
-                "variable": "estimated_cost",
+                "variable": "failed_amount_paid",
                 "value": {
-                  "path": "PROJECT_ESTIMATED_COST"
+                  "path": "FAILED_PAYMENT_AMOUNT"
                 },
                 "type": "label",
                 "localisation": {
                   "required": true,
                   "prefix": null,
-                  "module": "rainmaker-project"
+                  "module": "rainmaker-expenditure"
                 }
               },
               {
-                "variable": "location_details",
+                "variable": "payment_details",
                 "value": {
-                  "path": "WORKS_LOCATION_DETAILS"
+                  "path": "PAYMENT_DETAILS"
                 },
                 "type": "label",
                 "localisation": {
                   "required": true,
                   "prefix": null,
-                  "module": "rainmaker-common"
+                  "module": "rainmaker-expenditure"
                 }
               },
               {
-                "variable": "geo_location",
+                "variable": "bill_number",
                 "value": {
-                  "path": "PROJECT_GEO_LOCATION"
+                  "path": "WORKS_BILL_NUMBER"
                 },
                 "type": "label",
                 "localisation": {
                   "required": true,
                   "prefix": null,
-                  "module": "rainmaker-common"
+                  "module": "rainmaker-expenditure"
                 }
               },
               {
-                "variable": "_city",
+                "variable": "bill_amount",
                 "value": {
-                  "path": "CORE_COMMON_CITY"
+                  "path": "BILL_AMOUNT_RS"
                 },
                 "type": "label",
                 "localisation": {
                   "required": true,
                   "prefix": null,
-                  "module": "rainmaker-common"
+                  "module": "rainmaker-expenditure"
                 }
               },
               {
-                "variable": "_ward",
+                "variable": "payment_date",
                 "value": {
-                  "path": "WORKS_WARD"
+                  "path": "EXP_PAYMENT_DATE"
                 },
                 "type": "label",
                 "localisation": {
                   "required": true,
                   "prefix": null,
-                  "module": "rainmaker-common"
+                  "module": "rainmaker-expenditure"
                 }
               },
               {
-                "variable": "_locality",
+                "variable": "payment_status",
                 "value": {
-                  "path": "WORKS_LOCALITY"
+                  "path": "PI_STATUS"
                 },
                 "type": "label",
                 "localisation": {
                   "required": true,
                   "prefix": null,
-                  "module": "rainmaker-common"
+                  "module": "rainmaker-expenditure"
                 }
               },
-              
               {
-                "variable": "dateOfProposal",
+                "variable": "payment_failed_rs",
                 "value": {
-                  "path": "$.additionalDetails.dateOfProposal"
+                  "path": "PAYMENT_FAILED_RS"
                 },
-                "type": "date"
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "rainmaker-expenditure"
+                }
+              },
+              {
+                "variable": "payment_successful_rs",
+                "value": {
+                  "path": "PAYMENT_SUCCESSFUL_RS"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "rainmaker-expenditure"
+                }
+              },
+              {
+                "variable": "total_sum",
+                "value": {
+                  "path": "TOTAL"
+                },
+                "type": "label",
+                "localisation": {
+                  "required": true,
+                  "prefix": null,
+                  "module": "rainmaker-expenditure"
+                }
               },
               {
                 "variable": "name",
@@ -225,58 +283,9 @@
                 }
               },
               {
-                "variable": "description",
+                "variable": "locality",
                 "value": {
-                  "path": "$.description"
-                }
-              },
-              {
-                "variable": "referenceID",
-                "value": {
-                  "path": "$.referenceID"
-                }
-              },
-              {
-                "variable": "projectType",
-                "value": {
-                  "path": "$.projectType"
-                },
-                "localisation": {
-                  "required": true,
-                  "prefix": "COMMON_MASTERS",
-                  "module": "rainmaker-common-masters"
-                }
-              },
-              {
-                "variable": "targetDemography",
-                "value": {
-                  "path": "$.additionalDetails.targetDemography"
-                },
-                "localisation": {
-                  "required": true,
-                  "prefix": "COMMON_MASTERS",
-                  "module": "rainmaker-common-masters"
-                }
-              },
-              {
-                "variable": "estimatedCostInRs",
-                "value": {
-                  "path": "$.additionalDetails.estimatedCostInRs"
-                },
-                "type":"function",
-                "format":"var y=[];var flag=0;var count=0;var amount=arguments[0]; var len=amount.length;var val=''; for(var i=len-1;i>=0;i--){ val=amount[i]+val;if(amount[i]=='.'){flag=1;count=-1;val=amount.substring(i,len)};if(count%2==0 && i!=0 && count!=0){val=','+val;};count+=1;};if(flag==0){val+='.00'};y.push({'amount':val}); return y"
-
-              },
-              {
-                "variable": "latlong",
-                "value": {
-                  "path": "$.address.pdfLatlong"
-                }
-              },
-              {
-                "variable": "city",
-                "value": {
-                  "path": "$.address.city"
+                  "path": "$.additionalDetails.locality"
                 }
               },
               {
@@ -286,9 +295,60 @@
                 }
               },
               {
-                "variable": "boundary",
+                "variable": "city",
                 "value": {
-                  "path": "$.additionalDetails.locality"
+                  "path": "$.address.city"
+                }
+              },
+              {
+                "variable": "description",
+                "value": {
+                  "path": "$.description"
+                }
+              },
+              {
+                "variable": "estimatedAmount",
+                "value": {
+                  "path": "$.estimatedAmount"
+                }
+              },
+              {
+                "variable": "wageAmountPaid",
+                "value": {
+                  "path": "$.wageAmountPaid"
+                }
+              },
+              {
+                "variable": "purchaseAmountPaid",
+                "value": {
+                  "path": "$.purchaseAmountPaid"
+                }
+              },
+              {
+                "variable": "supervisionAmountPaid",
+                "value": {
+                  "path": "$.supervisionAmountPaid"
+                }
+              },
+              {
+                "variable": "failedPaymentAmount",
+                "value": {
+                  "path": "$.failedPaymentAmount"
+                }
+              },
+
+              {
+                "variable": "tableData",
+                "value": {
+                  "path": "$.bills"
+                },
+                "type": "function",
+                "format": "var y = [];\nbills = arguments[0];\nvar rupeeFormat = function(amount) {\n    var flag = 0;\n    var count = 0;\n    amount = amount.toString();\n    var len = amount.length;\n    var val = '';\n\n    for (var i = len - 1; i >= 0; i--) {\n        val = amount[i] + val;\n\n        if (amount[i] == '.') {\n            flag = 1;\n            count = -1;\n            val = amount.substring(i, len);\n        }\n\n        if (count % 2 == 0 && i != 0 && count != 0) {\n            val = ',' + val;\n        }\n\n        count += 1;\n    }\n\n    if (flag == 0) {\n        val += '.00';\n    }\n\n    return val;\n};\n\nif (bills.length === 0) {\n    var emptyObject = {\n        billNumber: 'NA',\n        billAmount: 'NA',\n        paymentDate: 'NA',\n        paymentStatus: 'NA',\n        paymentFailed: 'NA',\n        paymentSuccessful: 'NA'\n    };\n    return [emptyObject];\n}\nfor (var i = 0; i < bills.length; i++) {\n    var x = {\n        billNumber: bills[i].businessObject.additionalDetails.billNumber[0],\n        billAmount: rupeeFormat(bills[i].businessObject.grossAmount),\n        paymentDate: bills[i].businessObject.paymentDate,\n        paymentStatus: bills[i].businessObject.piStatus,\n        paymentFailed: rupeeFormat(bills[i].businessObject.failedAmount),\n        paymentSuccessful: rupeeFormat(bills[i].businessObject.successAmount)\n    };\n    y.push(x);\n}\nreturn y;\n"
+              },
+              {
+                "variable": "total",
+                "value": {
+                  "path": "$.total"
                 }
               }
             ]
@@ -361,4 +421,3 @@
     ]
   }
 }
-

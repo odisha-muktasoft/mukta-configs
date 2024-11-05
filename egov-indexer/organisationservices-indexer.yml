@@ -93,6 +93,8 @@ ServiceMaps:
                outJsonPath: $.Data.additionalDetails
              - inJsonPath: $.auditDetails
                outJsonPath: $.Data.auditDetails
+             - inJsonPath: $.auditDetails
+               outJsonPath: $.Data.auditDetails
              - inJsonPath: $.@timestamp
                outJsonPath: $.Data.@timestamp
 
