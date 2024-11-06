@@ -36,6 +36,8 @@ ServiceMaps:
                 outJsonPath: $.Data.contract
               - inJsonPath: $.@timestamp
                 outJsonPath: $.Data.@timestamp
+              - inJsonPath: $.measurement.processInstance
+                outJsonPath: $.Data.currentProcessInstance
             externalUriMapping:
               - path: http://egov-workflow-v2.egov:8080/egov-workflow-v2/egov-wf/process/_search
                 queryParam: businessIds=$.measurement.measurementNumber,history=true,tenantId=$.measurement.tenantId
@@ -43,5 +45,3 @@ ServiceMaps:
                 uriResponseMapping:
                   - inJsonPath: $.ProcessInstances
                     outJsonPath: $.Data.history
-                  - inJsonPath: $.ProcessInstances[0]
-                    outJsonPath: $.Data.currentProcessInstance
