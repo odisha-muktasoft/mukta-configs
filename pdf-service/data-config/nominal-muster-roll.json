@@ -517,30 +517,6 @@
                 }
               },
               {
-                "variable": "bank_account",
-                "value": {
-                  "path": "ATM_BANK_ACCOUNT_DETAILS"
-                },
-                "type": "label",
-                "localisation": {
-                  "required": true,
-                  "prefix": null,
-                  "module": "rainmaker-attendencemgmt"
-                }
-              },
-              {
-                "variable": "aadhar_number",
-                "value": {
-                  "path": "ATM_WAGE_SEEKER_AADHAR"
-                },
-                "type": "label",
-                "localisation": {
-                  "required": true,
-                  "prefix": null,
-                  "module": "rainmaker-attendencemgmt"
-                }
-              },
-              {
                 "variable": "guardian_name",
                 "value": {
                   "path": "FATHER_NAME"
