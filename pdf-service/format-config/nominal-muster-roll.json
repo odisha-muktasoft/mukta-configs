@@ -215,7 +215,7 @@
 			},
 			{
 				"margin": [
-					-25,
+					0,
 					0,
 					20,
 					0
@@ -239,8 +239,6 @@
 						"7%",
 						"6%",
 						"6%",
-						"8%",
-						"7%",
 						"7%"
 					],
 					"body": [
@@ -409,19 +407,11 @@
 							},
 							{
 								"style": "table-colums-header",
-								"text": "{{bank_account}}"
-							},
-							{
-								"style": "table-colums-header",
-								"text": "{{aadhar_number}}"
-							},
-							{
-								"style": "table-colums-header",
 								"text": "{{_signature}}"
 							}
 						],
-						"{{#arrears}}[{\"text\":\"{{sl_no}}\",\"style\":\"sl-no-table-row\"},{\"text\":\"{{registration_id}}\",\"style\":\"sl-no-table-row\"},{\"text\":\"{{name_of_the_individual}}\",\"fontSize\":\"9\"},{\"text\":\"{{guardian_name}}\",\"fontSize\":\"9\"},{\"text\":\"{{skill}}\",\"fontSize\":\"9\"},{\"text\":\"{{attendance_of_mon}}\",\"color\":\"{{mon_color_of_attendance}}\",\"border\":[false,true,false,true],\"fillColor\":\"{{background_color}}\",\"alignment\":\"center\"},{\"text\":\"{{attendance_of_tue}}\",\"color\":\"{{tue_color_of_attendance}}\",\"border\":[false,true,false,true],\"fillColor\":\"{{background_color}}\",\"alignment\":\"center\"},{\"text\":\"{{attendance_of_wed}}\",\"border\":[false,true,false,true],\"color\":\"{{wed_color_of_attendance}}\",\"fillColor\":\"{{background_color}}\",\"alignment\":\"center\"},{\"text\":\"{{attendance_of_thu}}\",\"color\":\"{{thu_color_of_attendance}}\",\"border\":[false,true,false,true],\"fillColor\":\"{{background_color}}\",\"alignment\":\"center\"},{\"text\":\"{{attendance_of_fri}}\",\"border\":[false,true,false,true],\"color\":\"{{fri_color_of_attendance}}\",\"fillColor\":\"{{background_color}}\",\"alignment\":\"center\"},{\"text\":\"{{attendance_of_sat}}\",\"color\":\"{{sat_color_of_attendance}}\",\"border\":[false,true,false,true],\"fillColor\":\"{{background_color}}\",\"alignment\":\"center\"},{\"text\":\"{{attendance_of_sun}}\",\"border\":[false,true,false,true],\"color\":\"{{sun_color_of_attendance}}\",\"fillColor\":\"{{background_color}}\",\"alignment\":\"center\"},{\"text\":\"{{days_worked}}\",\"fontSize\":\"9\"},{\"text\":\"{{days_worked}}\",\"fontSize\":\"9\"},{\"text\":\"{{per_day_wage}}\",\"fontSize\":\"9\"},{\"text\":\"{{total_wage}}\",\"fontSize\":\"9\"},{\"text\":\"{{bank_account_details}}\",\"fontSize\":\"9\"},{\"text\":\"{{aadhar_number}}\",\"fontSize\":\"9\"},{\"text\":\"\"}]{{/arrears}}",
-						"{{#total}}[{\"text\":\"{{_total}}\",\"colSpan\":\"5\",\"style\":\"table_last_row\",\"margin\":[20,0,0,0]},{},{},{},{},{\"text\":\"{{mon_day_total_attendance}}\",\"style\":\"table_last_row\",\"border\":\"[true,true,false,true]\",\"alignment\":\"center\"},{\"text\":\"{{tue_day_total_attendance}}\",\"style\":\"table_last_row\",\"border\":\"[false,true,false,true]\",\"alignment\":\"center\"},{\"text\":\"{{wed_day_total_attendance}}\",\"style\":\"table_last_row\",\"border\":\"[false,true,false,true]\",\"alignment\":\"center\"},{\"text\":\"{{thu_day_total_attendance}}\",\"style\":\"table_last_row\",\"border\":\"[false,true,false,true]\",\"alignment\":\"center\"},{\"text\":\"{{fri_day_total_attendance}}\",\"style\":\"table_last_row\",\"border\":\"[false,true,false,true]\",\"alignment\":\"center\"},{\"text\":\"{{sat_day_total_attendance}}\",\"style\":\"table_last_row\",\"border\":\"[false,true,false,true]\",\"alignment\":\"center\"},{\"text\":\"{{sun_day_total_attendance}}\",\"style\":\"table_last_row\",\"border\":\"[false,true,true,true]\",\"alignment\":\"center\"},{\"text\":\"{{total_day_worked}}\",\"style\":\"table_last_row\"},{\"text\":\"{{total_day_worked}}\",\"style\":\"table_last_row\"},{\"text\":\"{{total_wage}}\",\"colSpan\":\"5\",\"style\":\"table_last_row\",\"margin\":[45,0,0,0]},{},{},{},{}]{{/total}}"
+						"{{#arrears}}[{\"text\":\"{{sl_no}}\",\"style\":\"sl-no-table-row\"},{\"text\":\"{{registration_id}}\",\"style\":\"sl-no-table-row\"},{\"text\":\"{{name_of_the_individual}}\",\"fontSize\":\"9\"},{\"text\":\"{{guardian_name}}\",\"fontSize\":\"9\"},{\"text\":\"{{skill}}\",\"fontSize\":\"9\"},{\"text\":\"{{attendance_of_mon}}\",\"color\":\"{{mon_color_of_attendance}}\",\"border\":[false,true,false,true],\"fillColor\":\"{{background_color}}\",\"alignment\":\"center\"},{\"text\":\"{{attendance_of_tue}}\",\"color\":\"{{tue_color_of_attendance}}\",\"border\":[false,true,false,true],\"fillColor\":\"{{background_color}}\",\"alignment\":\"center\"},{\"text\":\"{{attendance_of_wed}}\",\"border\":[false,true,false,true],\"color\":\"{{wed_color_of_attendance}}\",\"fillColor\":\"{{background_color}}\",\"alignment\":\"center\"},{\"text\":\"{{attendance_of_thu}}\",\"color\":\"{{thu_color_of_attendance}}\",\"border\":[false,true,false,true],\"fillColor\":\"{{background_color}}\",\"alignment\":\"center\"},{\"text\":\"{{attendance_of_fri}}\",\"border\":[false,true,false,true],\"color\":\"{{fri_color_of_attendance}}\",\"fillColor\":\"{{background_color}}\",\"alignment\":\"center\"},{\"text\":\"{{attendance_of_sat}}\",\"color\":\"{{sat_color_of_attendance}}\",\"border\":[false,true,false,true],\"fillColor\":\"{{background_color}}\",\"alignment\":\"center\"},{\"text\":\"{{attendance_of_sun}}\",\"border\":[false,true,false,true],\"color\":\"{{sun_color_of_attendance}}\",\"fillColor\":\"{{background_color}}\",\"alignment\":\"center\"},{\"text\":\"{{days_worked}}\",\"fontSize\":\"9\"},{\"text\":\"{{days_worked}}\",\"fontSize\":\"9\"},{\"text\":\"{{per_day_wage}}\",\"fontSize\":\"9\"},{\"text\":\"{{total_wage}}\",\"fontSize\":\"9\"},{\"text\":\"\"}]{{/arrears}}",
+						"{{#total}}[{\"text\":\"{{_total}}\",\"colSpan\":\"5\",\"style\":\"table_last_row\",\"margin\":[20,0,0,0]},{},{},{},{},{\"text\":\"{{mon_day_total_attendance}}\",\"style\":\"table_last_row\",\"border\":\"[true,true,false,true]\",\"alignment\":\"center\"},{\"text\":\"{{tue_day_total_attendance}}\",\"style\":\"table_last_row\",\"border\":\"[false,true,false,true]\",\"alignment\":\"center\"},{\"text\":\"{{wed_day_total_attendance}}\",\"style\":\"table_last_row\",\"border\":\"[false,true,false,true]\",\"alignment\":\"center\"},{\"text\":\"{{thu_day_total_attendance}}\",\"style\":\"table_last_row\",\"border\":\"[false,true,false,true]\",\"alignment\":\"center\"},{\"text\":\"{{fri_day_total_attendance}}\",\"style\":\"table_last_row\",\"border\":\"[false,true,false,true]\",\"alignment\":\"center\"},{\"text\":\"{{sat_day_total_attendance}}\",\"style\":\"table_last_row\",\"border\":\"[false,true,false,true]\",\"alignment\":\"center\"},{\"text\":\"{{sun_day_total_attendance}}\",\"style\":\"table_last_row\",\"border\":\"[false,true,true,true]\",\"alignment\":\"center\"},{\"text\":\"{{total_day_worked}}\",\"style\":\"table_last_row\"},{\"text\":\"{{total_day_worked}}\",\"style\":\"table_last_row\"},{\"text\":\"{{total_wage}}\",\"colSpan\":\"3\",\"style\":\"table_last_row\",\"margin\":[45,0,0,0]},{},{}]{{/total}}"
 					]
 				},
 				"layout": {
