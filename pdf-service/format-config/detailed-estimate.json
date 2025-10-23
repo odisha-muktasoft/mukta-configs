@@ -16,6 +16,17 @@
           "body": [
             [
               {
+                "image": "{{logoImage}}",
+                "width": 50,
+                "height": 61.25,
+                "margin": [
+                  10,
+                  10,
+                  0,
+                  0
+                ]
+              },
+              {
                 "stack": [
                   {
                     "text": "{{pdf_header}} {{subdivision}}",
